@@ -35,7 +35,13 @@ interface ButtonProps extends React.ComponentProps<'button'>, VariantProps<typeo
   render?: useRender.RenderProp;
 }
 
-function Button({ className, variant, size, render = <button />, ...props }: ButtonProps) {
+function Button({
+  className,
+  variant,
+  size,
+  render = <button type="button" aria-label="hello" />,
+  ...props
+}: ButtonProps) {
   return useRender({
     render,
     props: {

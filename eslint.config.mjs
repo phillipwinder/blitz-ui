@@ -65,7 +65,6 @@ export default defineConfig(
       'react/react-in-jsx-scope': 'off',
       'react/no-unescaped-entities': ['warn', { forbid: ['>', '}'] }],
       'react/prop-types': 'off',
-      'react/react-in-jsx-scope': 'off',
       'react-hooks/exhaustive-deps': [
         'error',
         {
@@ -166,6 +165,13 @@ export default defineConfig(
       'testing-library/no-await-sync-queries': 'off',
       'testing-library/render-result-naming-convention': 'off', // inconsequential in regression tests
       'mui/consistent-production-guard': 'off',
+    },
+  },
+  {
+    files: [`packages/react-phillip/**/*${EXTENSION_TS}`],
+    rules: {
+      'mui/add-undef-to-optional': 'off',
+      'no-nested-ternary': 'off',
     },
   },
 );

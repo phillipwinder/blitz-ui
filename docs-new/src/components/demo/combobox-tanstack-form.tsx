@@ -4,13 +4,8 @@ import { Check, ChevronsUpDown } from 'lucide-react';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
-import { Button } from '@phillip-ui-components/react/button';
-import {
-  Popover,
-  PopoverContent,
-  PopoverPositioner,
-  PopoverTrigger,
-} from '@phillip-ui-components/react/popover';
+import { cn } from '@/lib/utils';
+import { Button } from '@/registry/components/ui/button';
 import {
   Command,
   CommandEmpty,
@@ -18,9 +13,14 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@phillip-ui-components/react/command';
-import { cn } from '@/lib/utils';
-import { createFormHook } from '@/registry/components/ui/form-tanstack';
+} from '@/registry/components/ui/command';
+import { useAppForm } from '@/registry/components/ui/form-tanstack';
+import {
+  Popover,
+  PopoverContent,
+  PopoverPositioner,
+  PopoverTrigger,
+} from '@/registry/components/ui/popover';
 
 const languages = [
   { label: 'English', value: 'en' },
@@ -38,8 +38,6 @@ const FormSchema = z.object({
   language: z.string({ error: 'Please select a language.' }),
 });
 type FormValues = z.infer<typeof FormSchema>;
-
-const { useAppForm } = createFormHook();
 
 export default function ComboboxForm() {
   const form = useAppForm({

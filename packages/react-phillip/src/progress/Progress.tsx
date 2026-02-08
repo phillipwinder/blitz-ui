@@ -16,9 +16,7 @@ function Progress({
       className={cn('relative w-full', className)}
       {...props}
     >
-      {children ? (
-        children
-      ) : (
+      {children || (
         <ProgressTrack>
           <ProgressIndicator />
         </ProgressTrack>

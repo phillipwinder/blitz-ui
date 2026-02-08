@@ -33,7 +33,7 @@ function BreadcrumbItem({ className, ...props }: React.ComponentProps<'li'>) {
 
 function BreadcrumbLink({
   className,
-  render = <a />,
+  render = <a href="/" aria-label="breadcrumb link" />,
   ...props
 }: React.ComponentProps<'a'> & {
   render?: useRender.RenderProp;

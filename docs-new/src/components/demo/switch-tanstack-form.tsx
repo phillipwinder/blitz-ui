@@ -3,9 +3,9 @@
 import { toast } from 'sonner';
 import { z } from 'zod';
 
-import { Button } from '@phillip-ui-components/react/button';
-import { Switch } from '@phillip-ui-components/react/switch';
-import { createFormHook } from '@/registry/components/ui/form-tanstack';
+import { Button } from '@/registry/components/ui/button';
+import { useAppForm } from '@/registry/components/ui/form-tanstack';
+import { Switch } from '@/registry/components/ui/switch';
 
 const FormSchema = z.object({
   marketing_emails: z.boolean().default(false).optional(),
@@ -14,7 +14,6 @@ const FormSchema = z.object({
 
 type FormValues = z.infer<typeof FormSchema>;
 
-const { useAppForm } = createFormHook();
 const defaultValues: FormValues = { security_emails: true };
 
 export default function SwitchForm() {

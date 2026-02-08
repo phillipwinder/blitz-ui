@@ -1,42 +1,37 @@
-import { config } from "@/config";
-import { Separator } from "@/registry/components/ui/separator";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/registry/components/ui/tabs";
-import { CodeBlock } from "./code-block";
-import { BunLogo, NPMLogo, PnpmLogo, YarnLogo } from "./icons";
+import { config } from '@/config';
+import { Separator } from '@/registry/components/ui/separator';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/registry/components/ui/tabs';
+import { CodeBlock } from './code-block';
+import { BunLogo, NPMLogo, PnpmLogo, YarnLogo } from './icons';
 
 const tabs = [
   {
-    value: "pnpm",
+    value: 'pnpm',
     icon: PnpmLogo,
   },
   {
-    value: "npm",
+    value: 'npm',
     icon: NPMLogo,
   },
   {
-    value: "yarn",
+    value: 'yarn',
     icon: YarnLogo,
   },
   {
-    value: "bun",
+    value: 'bun',
     icon: BunLogo,
   },
 ];
 
 const getInstallationCommand = (packageManager: string, component: string) => {
   switch (packageManager) {
-    case "pnpm":
+    case 'pnpm':
       return `pnpm dlx shadcn@latest add ${component}`;
-    case "npm":
+    case 'npm':
       return `npx shadcn@latest add ${component}`;
-    case "yarn":
+    case 'yarn':
       return `yarn shadcn@latest add ${component}`;
-    case "bun":
+    case 'bun':
       return `bunx --bun shadcn@latest add ${component}`;
   }
 };
@@ -72,30 +67,26 @@ export function CodeBlockCommand({
         <TabsContent key={tab.value} value={tab.value}>
           <CodeBlock
             lang="bash"
-            code={getInstallationCommand(tab.value, registryUrl) || ""}
+            code={getInstallationCommand(tab.value, registryUrl) || ''}
+            className="bg-muted/50 shadow-sm/5 *:first:top-3"
           />
 
           {!isShadcnComponent && (
             <>
               <div className="my-6 flex items-center justify-center gap-2 overflow-hidden">
                 <Separator />
-                <span className="text-sm text-muted-foreground uppercase">
-                  or
-                </span>
+                <span className="text-sm text-muted-foreground uppercase">or</span>
                 <Separator />
               </div>
 
               <p className="text-sm text-muted-foreground">
-                If you are using a namespaced registry, you can use the
-                following command:
+                If you are using a namespaced registry, you can use the following command:
               </p>
 
               <CodeBlock
                 lang="bash"
-                code={
-                  getInstallationCommand(tab.value, `@basecn/${component}`) ||
-                  ""
-                }
+                code={getInstallationCommand(tab.value, `@basecn/${component}`) || ''}
+                className="bg-muted/50 shadow-sm/5 *:first:top-3"
               />
             </>
           )}

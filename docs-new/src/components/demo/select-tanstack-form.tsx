@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@/registry/components/ui/button';
+import { useAppForm } from '@/registry/components/ui/form-tanstack';
 import {
   Select,
   SelectContent,
@@ -12,14 +13,11 @@ import {
   SelectPositioner,
   SelectTrigger,
   SelectValue,
-} from '@phillip-ui-components/react/select';
-import { createFormHook } from '@/registry/components/ui/form-tanstack';
+} from '@/registry/components/ui/select';
 
 const FormSchema = z.object({
   email: z.email({ error: 'Please select an email to display.' }),
 });
-
-const { useAppForm } = createFormHook();
 
 export default function SelectForm() {
   const form = useAppForm({

@@ -8,19 +8,19 @@ function toKebabCase(str: string): string {
     .toLowerCase();
 }
 
-async function copyFile(source: string, destination: string) {
+async function copy(fileName: string, source: string, destination: string) {
   try {
     await fs.copy(source, destination);
-    // eslint-disable-next-line no-console
-    console.log(`Folder copied from "${source}" to "${destination}" successfully.`);
   } catch (err) {
-    console.error('Error copying folder:', err);
+    console.error(err);
+    throw new Error(`Failed to copy ${fileName}.`);
   }
 }
 
 const components = [
   'Accordion',
   'AlertDialog',
+  'AspectRatio',
   'Autocomplete',
   'Avatar',
   'Badge',
@@ -30,15 +30,21 @@ const components = [
   'Carousel',
   'Checkbox',
   'Collapsible',
-  'ComboBox',
+  'Combobox',
   'Command',
   'ContextMenu',
   'Dialog',
+  'DropdownMenu',
+  'Field',
+  'Form',
+  'FormTanstack',
+  'HoverCard',
   'Input',
   'Label',
   'Menu',
   'Menubar',
   'NavigationMenu',
+  'Pagination',
   'Popover',
   'PreviewCard',
   'Progress',
@@ -47,16 +53,20 @@ const components = [
   'Select',
   'Separator',
   'Sheet',
+  'Sidebar',
   'Skeleton',
   'Slider',
   'Switch',
   'Tabs',
+  'Textarea',
   'Toggle',
   'ToggleGroup',
   'Tooltip',
 ];
 
-components.forEach((component) => {
+console.info('Copying components to docs registry...');
+
+for (const component of components) {
   const source = path.join(
     import.meta.dirname,
     `../../packages/react-phillip/src/${toKebabCase(component)}/${component}.tsx`,
@@ -65,10 +75,13 @@ components.forEach((component) => {
     import.meta.dirname,
     `../src/registry/components/ui/${toKebabCase(component)}.tsx`,
   );
-  copyFile(source, destination);
-});
+  copy(component, source, destination);
+}
 
-copyFile(
+copy(
+  'hooks',
   path.join(import.meta.dirname, `../../packages/react-phillip/src/hooks`),
   path.join(import.meta.dirname, `../src/registry/hooks`),
 );
+
+console.info('Copying completed.');

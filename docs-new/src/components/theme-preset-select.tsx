@@ -310,8 +310,8 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({
             </Button>
           }
         />
-        <PopoverPositioner>
-          <PopoverContent className="w-[300px] p-0" align="center">
+        <PopoverPositioner align="center">
+          <PopoverContent className="w-[300px] p-0">
             <Command className="h-100 w-full">
               <div className="flex w-full items-center">
                 <div className="flex w-full items-center border-b px-3 py-1">

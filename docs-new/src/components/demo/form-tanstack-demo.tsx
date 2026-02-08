@@ -2,9 +2,9 @@
 
 import { z } from 'zod';
 
-import { Button } from '@phillip-ui-components/react/button';
-import { Input } from '@phillip-ui-components/react/input';
-import { createFormHook } from '@/registry/components/ui/form-tanstack';
+import { Button } from '@/registry/components/ui/button';
+import { useAppForm } from '@/registry/components/ui/form-tanstack';
+import { Input } from '@/registry/components/ui/input';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -13,7 +13,6 @@ const formSchema = z.object({
 });
 
 const defaultValues = { username: '' } as z.infer<typeof formSchema>;
-const { useAppForm } = createFormHook();
 
 export default function FormDemo() {
   const form = useAppForm({

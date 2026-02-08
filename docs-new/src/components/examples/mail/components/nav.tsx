@@ -23,7 +23,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
       <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
         {links.map((link, index) =>
           isCollapsed ? (
-            <Tooltip key={index} delay={0}>
+            <Tooltip key={index}>
               <TooltipTrigger>
                 <button
                   className={cn(
@@ -36,6 +36,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
                   <link.icon className="h-4 w-4" />
                   <span className="sr-only">{link.title}</span>
                 </button>
+                ,
               </TooltipTrigger>
               <TooltipContent className="flex items-center gap-4">
                 {link.title}

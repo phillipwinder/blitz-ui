@@ -102,8 +102,8 @@ const accordionPanelVariants = cva(
 
 // #region Context
 type AccordionContextType = {
-  variant?: 'unstyled' | 'default' | 'outlined' | 'solid';
-  indicator?: 'arrow' | 'plus' | 'none';
+  variant?: ('unstyled' | 'default' | 'outlined' | 'solid') | undefined;
+  indicator?: ('arrow' | 'plus' | 'none') | undefined;
 };
 
 const AccordionContext = React.createContext<AccordionContextType>({
@@ -115,7 +115,7 @@ const AccordionContext = React.createContext<AccordionContextType>({
 // #region Components
 interface AccordionRootProps
   extends React.ComponentProps<typeof Accordion.Root>, VariantProps<typeof accordionRootVariants> {
-  indicator?: 'arrow' | 'plus' | 'none';
+  indicator?: ('arrow' | 'plus' | 'none') | undefined;
 }
 
 function AccordionRoot(props: AccordionRootProps) {

@@ -1,5 +1,5 @@
 import './globals.css';
-import { RootProvider } from 'fumadocs-ui/provider';
+import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Suspense, type ReactNode } from 'react';
@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   keywords: ['Next.js', 'React', 'Tailwind CSS', 'Components', 'shadcn'],
   authors: [
     {
-      name: 'Akash Moradiya',
-      url: 'https://akashmoradiya.com',
+      name: 'Phillip Winder',
+      url: 'https://phillipwinder.com',
     },
   ],
-  creator: 'Akash Moradiya',
+  creator: 'Phillip Winder',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: [`${siteConfig.url}/opengraph-image.png`],
-    creator: '@akash_3444',
+    creator: '@phillip_winder',
   },
   icons: {
     icon: '/favicon.ico',

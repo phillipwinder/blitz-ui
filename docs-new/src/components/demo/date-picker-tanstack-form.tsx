@@ -5,23 +5,21 @@ import { CalendarIcon } from 'lucide-react';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
-import { Button } from '@phillip-ui-components/react/button';
+import { cn } from '@/lib/utils';
+import { Button } from '@/registry/components/ui/button';
+import { Calendar } from '@/registry/components/ui/calendar';
 import {
   Popover,
   PopoverContent,
   PopoverPositioner,
   PopoverTrigger,
-} from '@phillip-ui-components/react/popover';
-import { Calendar } from '@phillip-ui-components/react/calendar';
-import { cn } from '@/lib/utils';
-import { createFormHook } from '@/registry/components/ui/form-tanstack';
+} from '@/registry/components/ui/popover';
+import { useAppForm } from '@/registry/components/ui/form-tanstack';
 
 const FormSchema = z.object({
   dob: z.date({ error: 'A date of birth is required.' }),
 });
 type FormValues = z.infer<typeof FormSchema>;
-
-const { useAppForm } = createFormHook();
 
 export default function DatePickerForm() {
   const form = useAppForm({

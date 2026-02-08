@@ -50,7 +50,7 @@ export default function AutocompleteEmojiPicker() {
     <div className="relative w-full max-w-xs flex items-center gap-2">
       <Autocomplete
         items={emojiGroups}
-        cols={COLUMNS}
+        grid
         open={pickerOpen}
         onOpenChange={setPickerOpen}
         onOpenChangeComplete={() => setSearchValue('')}

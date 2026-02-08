@@ -72,26 +72,26 @@ function SidebarProvider({
 
   // This is the internal state of the sidebar.
   // We use openProp and setOpenProp for control from outside the component.
-  const [_open, _setOpen] = React.useState(defaultOpen);
-  const open = openProp ?? _open;
+  const [openState, setOpenState] = React.useState(defaultOpen);
+  const open = openProp ?? openState;
   const setOpen = React.useCallback(
     (value: boolean | ((value: boolean) => boolean)) => {
-      const openState = typeof value === 'function' ? value(open) : value;
+      const openValue = typeof value === 'function' ? value(open) : value;
       if (setOpenProp) {
-        setOpenProp(openState);
+        setOpenProp(openValue);
       } else {
-        _setOpen(openState);
+        setOpenState(openValue);
       }
 
       // This sets the cookie to keep the sidebar state.
-      document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
+      document.cookie = `${SIDEBAR_COOKIE_NAME}=${openValue}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
     },
     [setOpenProp, open],
   );
 
   // Helper to toggle the sidebar.
   const toggleSidebar = React.useCallback(() => {
-    return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open);
+    return isMobile ? setOpenMobile((o) => !o) : setOpen((o) => !o);
   }, [isMobile, setOpen, setOpenMobile]);
 
   // Adds a keyboard shortcut to toggle the sidebar.
@@ -278,6 +278,7 @@ function SidebarRail({ className, ...props }: React.ComponentProps<'button'>) {
 
   return (
     <button
+      type="button"
       data-sidebar="rail"
       data-slot="sidebar-rail"
       aria-label="Toggle Sidebar"
@@ -403,7 +404,7 @@ function SidebarGroupLabel({
 
 function SidebarGroupAction({
   className,
-  render = <button />,
+  render = <button type="button" aria-label="Sidebar group action" />,
   ...props
 }: React.ComponentProps<'button'> & { render?: useRender.RenderProp }) {
   return useRender({
@@ -479,7 +480,7 @@ const sidebarMenuButtonVariants = cva(
 );
 
 function SidebarMenuButton({
-  render = <button />,
+  render = <button type="button" aria-label="Sidebar menu button" />,
   isActive = false,
   variant = 'default',
   size = 'default',
@@ -527,7 +528,7 @@ function SidebarMenuButton({
 
 function SidebarMenuAction({
   className,
-  render = <button />,
+  render = <button type="button" aria-label="Sidebar menu action" />,
   showOnHover = false,
   ...props
 }: React.ComponentProps<'button'> & {
@@ -584,6 +585,7 @@ function SidebarMenuSkeleton({
 }) {
   // Random width between 50 to 90%.
   const width = React.useMemo(() => {
+    // eslint-disable-next-line react-hooks/purity
     return `${Math.floor(Math.random() * 40) + 50}%`;
   }, []);
 
@@ -635,7 +637,7 @@ function SidebarMenuSubItem({ className, ...props }: React.ComponentProps<'li'>)
 }
 
 function SidebarMenuSubButton({
-  render = <a />,
+  render = <a href="/" aria-label="Sidebar menu sub button" />,
   size = 'md',
   isActive = false,
   className,
