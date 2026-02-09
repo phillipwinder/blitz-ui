@@ -1,0 +1,13 @@
+services:
+  blitz-ui-docs:
+    image: pwinder/blitz-ui-docs:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: production
+      PORT: '3000'
+    restart: unless-stopped

@@ -1,0 +1,15 @@
+**/node_modules
+**/.next
+**/.source
+**/dist
+**/.turbo
+**/.cache
+**/.DS_Store
+
+.git
+.gitignore
+
+Dockerfile
+docker-compose.yml
+
+.env
