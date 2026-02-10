@@ -1,6 +1,6 @@
 # basecn
 
-A modern React component library offering beautifully designed, accessible  [shadcn/ui](https://ui.shadcn.com/) components built on top of [Base UI](https://base-ui.com/), with advanced examples and customization options.
+A modern React component library offering beautifully designed, accessible [shadcn/ui](https://ui.shadcn.com/) components built on top of [Base UI](https://base-ui.com/), with advanced examples and customization options.
 
 basecn extends the popular shadcn/ui components with enhanced functionality, additional variants, and comprehensive documentation. Each component comes with multiple examples showcasing different use cases and styling options.
 
@@ -34,3 +34,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Base UI](https://base-ui.com/) - For the robust accessibility layer
 - [Tailwind CSS](https://tailwindcss.com/) - For the utility-first CSS framework
 
+Test
