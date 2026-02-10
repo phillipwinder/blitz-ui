@@ -7,8 +7,8 @@ import { motion } from 'motion/react';
 
 import { ThemePresetButtons } from '@/components/home/theme-preset-buttons';
 import { lazy, Suspense } from 'react';
-import { GithubCard } from '@/components/examples/cards/github-card';
-import { CardsStats } from '@/components/examples/cards/stats';
+// import { GithubCard } from '@/components/examples/cards/github-card';
+// import { CardsStats } from '@/components/examples/cards/stats';
 import { Loading } from '@/components/loading';
 
 const DemoMail = lazy(() => import('@/components/examples/mail'));
@@ -68,10 +68,10 @@ export function ThemePresetSelector() {
           <Suspense fallback={<Loading />}>
             <div className="hidden lg:block">{/* <DemoMail /> */}</div>
 
-            <div className="flex flex-col gap-4 p-4 lg:hidden">
+            {/* <div className="flex flex-col gap-4 p-4 lg:hidden">
               <CardsStats />
               <GithubCard />
-            </div>
+            </div> */}
           </Suspense>
         </motion.div>
       </div>

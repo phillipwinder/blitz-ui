@@ -10,7 +10,8 @@
     "postinstall": "fumadocs-mdx",
     "copy-components": "ts-node scripts/copy-components.ts",
     "registry:build": "pnpm copy-components && shadcn build",
-    "docker:build": "docker buildx build --platform linux/amd64,linux/arm64 -t pwinder/blitz-ui-docs:latest --load .."
+    "docker:build": "docker buildx build --platform linux/amd64,linux/arm64 -t pwinder/blitz-ui-docs:latest --load ..",
+    "docker:push": "docker buildx build --platform linux/amd64,linux/arm64 -t pwinder/blitz-ui-docs:latest --push .."
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",
