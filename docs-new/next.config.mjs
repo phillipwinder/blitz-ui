@@ -22,7 +22,7 @@ const config = {
     return [
       {
         source: '/:path*',
-        has: [{ type: 'host', value: 'www' }],
+        has: [{ type: 'host', value: 'www.blitz-ui.com' }],
         destination: 'https://blitz-ui.com/:path*',
         permanent: true,
       },
