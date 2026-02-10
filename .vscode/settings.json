@@ -1,7 +1,13 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.trimTrailingWhitespace": true,
-
+  "editor.formatOnSave": true,
+  "eslint.validate": ["javascript", "typescript", "typescriptreact"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.addMissingImports": "always"
+    // "source.removeUnusedImports": "always"
+  },
   // Root workspace only
   "grammarly.selectors": [
     {

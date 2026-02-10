@@ -1,25 +1,25 @@
 import getBaseConfig from '@mui/internal-code-infra/babel-config';
-import * as path from 'node:path';
-import { fileURLToPath } from 'node:url';
+// import * as path from 'node:path';
+// import { fileURLToPath } from 'node:url';
 
-const dirname = path.dirname(fileURLToPath(import.meta.url));
+// const dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const errorCodesPath = path.join(dirname, 'docs/src/error-codes.json');
+// const errorCodesPath = path.join(dirname, 'docs/src/error-codes.json');
 
 export default function getBabelConfig(api) {
   const baseConfig = getBaseConfig(api);
 
-  const plugins = [
-    [
-      '@mui/internal-babel-plugin-minify-errors',
-      {
-        missingError: 'annotate',
-        runtimeModule: '#formatErrorMessage',
-        detection: 'opt-out',
-        errorCodesPath,
-      },
-    ],
-  ];
+  // const plugins = [
+  //   [
+  //     '@mui/internal-babel-plugin-minify-errors',
+  //     {
+  //       missingError: 'annotate',
+  //       runtimeModule: '#formatErrorMessage',
+  //       detection: 'opt-out',
+  //       errorCodesPath,
+  //     },
+  //   ],
+  // ];
 
   const displayNamePlugin = baseConfig.plugins.find(
     (p) => p[2] === '@mui/internal-babel-plugin-display-name',
@@ -32,7 +32,7 @@ export default function getBabelConfig(api) {
 
   return {
     ...baseConfig,
-    plugins: [...baseConfig.plugins, ...plugins],
+    plugins: [...baseConfig.plugins],
     overrides: [
       {
         exclude: /\.test\.(js|ts|tsx)$/,

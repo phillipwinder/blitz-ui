@@ -20,7 +20,7 @@ const OneLevelImportMessage = [
 
 const NO_RESTRICTED_IMPORTS_PATTERNS_DEEPLY_NESTED = [
   {
-    group: ['@base-ui/react/*/*'],
+    group: ['@blitz-ui/react/*/*'],
     message: OneLevelImportMessage,
   },
 ];
@@ -31,7 +31,7 @@ const NO_RESTRICTED_IMPORTS_PATHS_TOP_LEVEL_PACKAGES = [
 ];
 
 export default defineConfig(
-  globalIgnores(['./examples']),
+  globalIgnores(['./examples', 'docs-blitz']),
   createBaseConfig({
     baseDirectory: dirname,
   }),
@@ -53,6 +53,7 @@ export default defineConfig(
       // @TODO: Remove this once we move away from namespaces
       '@typescript-eslint/no-namespace': 'off',
       'import/export': 'off', // FIXME: Maximum call stack exceeded
+      'import/extensions': 'off',
       'no-restricted-imports': [
         'error',
         {
@@ -162,6 +163,13 @@ export default defineConfig(
       'testing-library/no-await-sync-queries': 'off',
       'testing-library/render-result-naming-convention': 'off', // inconsequential in regression tests
       'mui/consistent-production-guard': 'off',
+    },
+  },
+  {
+    files: [`packages/react-blitz/**/*${EXTENSION_TS}`],
+    rules: {
+      'mui/add-undef-to-optional': 'off',
+      'no-nested-ternary': 'off',
     },
   },
 );

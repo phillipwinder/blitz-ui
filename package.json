@@ -1,6 +1,6 @@
 {
-  "name": "@base-ui/monorepo",
-  "version": "1.1.0",
+  "name": "@blitz-ui/monorepo",
+  "version": "0.0.0-alpha.0",
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -22,6 +22,9 @@
     "docs:generate-llms": "pnpm --filter docs run generate-llms",
     "docs:infra": "pnpm --filter docs run docs-infra",
     "docs:validate": "pnpm --filter docs run internal-validate --command 'pnpm docs:validate'",
+    "docs-blitz:build": "pnpm --filter docs-blitz build",
+    "docs-blitz:dev": "pnpm --filter docs-blitz dev",
+    "docs-blitz:start": "pnpm --filter docs-blitz start",
     "extract-error-codes": "code-infra extract-error-codes --errorCodesPath docs/src/error-codes.json --detection opt-out",
     "eslint": "pnpm -r lint && eslint . --cache --report-unused-disable-directives --max-warnings 0",
     "eslint:ci": "pnpm -r lint && eslint . --report-unused-disable-directives --max-warnings 0",

@@ -1,0 +1,162 @@
+{
+  "name": "@blitz-ui/react",
+  "version": "0.0.0-alpha.0",
+  "author": "Phillip Winder",
+  "description": "Blitz UI is a component library that lets you choose, per component, between dependency-based usage and full source code integration — enterprise-ready, accessible and feature-rich.",
+  "keywords": [
+    "react",
+    "react-component",
+    "a11y"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phillipwinder/blitz-ui.git",
+    "directory": "packages/react"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phillipwinder/blitz-ui/issues"
+  },
+  "homepage": "https://blitz-ui.com",
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/phillipwinder"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles": "./src/index.css",
+    "./accordion": "./src/accordion/index.ts",
+    "./alert-dialog": "./src/alert-dialog/index.ts",
+    "./aspect-ratio": "./src/aspect-ratio/index.ts",
+    "./autocomplete": "./src/autocomplete/index.ts",
+    "./avatar": "./src/avatar/index.ts",
+    "./badge": "./src/badge/index.ts",
+    "./breadcrumb": "./src/breadcrumb/index.ts",
+    "./calendar": "./src/calendar/index.ts",
+    "./carousel": "./src/carousel/index.ts",
+    "./checkbox": "./src/checkbox/index.ts",
+    "./checkbox-group": "./src/checkbox-group/index.ts",
+    "./collapsible": "./src/collapsible/index.ts",
+    "./combobox": "./src/combobox/index.ts",
+    "./command": "./src/command/index.ts",
+    "./context-menu": "./src/context-menu/index.ts",
+    "./dialog": "./src/dialog/index.ts",
+    "./direction-provider": "./src/direction-provider/index.ts",
+    "./dropdown-menu": "./src/dropdown-menu/index.ts",
+    "./field": "./src/field/index.ts",
+    "./fieldset": "./src/fieldset/index.ts",
+    "./form": "./src/form/index.ts",
+    "./form-tanstack": "./src/form-tanstack/index.ts",
+    "./hover-card": "./src/hover-card/index.ts",
+    "./input": "./src/input/index.ts",
+    "./menu": "./src/menu/index.ts",
+    "./menubar": "./src/menubar/index.ts",
+    "./merge-props": "./src/merge-props/index.ts",
+    "./meter": "./src/meter/index.ts",
+    "./navigation-menu": "./src/navigation-menu/index.ts",
+    "./number-field": "./src/number-field/index.ts",
+    "./pagination": "./src/pagination/index.ts",
+    "./popover": "./src/popover/index.ts",
+    "./preview-card": "./src/preview-card/index.ts",
+    "./progress": "./src/progress/index.ts",
+    "./radio": "./src/radio/index.ts",
+    "./radio-group": "./src/radio-group/index.ts",
+    "./scroll-area": "./src/scroll-area/index.ts",
+    "./select": "./src/select/index.ts",
+    "./separator": "./src/separator/index.ts",
+    "./sidebar": "./src/sidebar/index.ts",
+    "./skeleton": "./src/skeleton/index.ts",
+    "./sheet": "./src/sheet/index.ts",
+    "./slider": "./src/slider/index.ts",
+    "./switch": "./src/switch/index.ts",
+    "./tabs": "./src/tabs/index.ts",
+    "./textarea": "./src/textarea/index.ts",
+    "./toast": "./src/toast/index.ts",
+    "./toggle": "./src/toggle/index.ts",
+    "./toggle-group": "./src/toggle-group/index.ts",
+    "./toolbar": "./src/toolbar/index.ts",
+    "./tooltip": "./src/tooltip/index.ts",
+    "./unstable-use-media-query": "./src/unstable-use-media-query/index.ts",
+    "./use-render": "./src/use-render/index.ts"
+  },
+  "imports": {
+    "#test-utils": "./test/index.ts"
+  },
+  "type": "module",
+  "scripts": {
+    "prebuild": "rimraf --glob build build-tests \"*.tsbuildinfo\"",
+    "build": "code-infra build --ignore \"**/*.template.js\" --copy .npmignore",
+    "build:stable": "code-infra build --bundle esm --ignore \"**/*.template.js\" --buildTypes false",
+    "test:package": "publint --pack pnpm && attw --pack ./build --exclude-entrypoints package.json --exclude-entrypoints esm --exclude-entrypoints cjs",
+    "release": "pnpm build && pnpm publish",
+    "test": "cross-env NODE_ENV=test VITEST_ENV=jsdom vitest",
+    "typescript": "tsc -b tsconfig.json"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.6",
+    "@base-ui/react": "workspace:*",
+    "@base-ui/utils": "^0.2.4",
+    "@floating-ui/react-dom": "^2.1.4",
+    "@floating-ui/utils": "^0.2.10",
+    "@tanstack/react-form": "^1.28.0",
+    "cmdk": "^1.1.1",
+    "embla-carousel-react": "^8.6.0",
+    "motion": "^12.23.18",
+    "react-day-picker": "^9.10.0",
+    "react-hook-form": "^7.71.1",
+    "reselect": "^5.1.1",
+    "tabbable": "^6.2.0",
+    "use-sync-external-store": "^1.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "@mui/internal-test-utils": "^2.0.10",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/chai": "^4.3.20",
+    "@types/chai-dom": "^1.11.3",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@types/sinon": "^17.0.4",
+    "@types/use-sync-external-store": "^1.5.0",
+    "chai": "^4.5.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "fs-extra": "^11.3.0",
+    "lodash": "^4.17.21",
+    "lucide-react": "^0.539.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.6.3",
+    "sinon": "^21.0.0",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4",
+    "vitest-browser-react": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@types/react": "^17 || ^18 || ^19",
+    "react": "^17 || ^18 || ^19",
+    "react-dom": "^17 || ^18 || ^19",
+    "tailwindcss": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "tailwindcss": {
+      "optional": true
+    }
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "directory": "build"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -31,6 +31,12 @@ size-snapshot.json
 docs/public/llms.txt
 docs/public/llms-full.txt
 docs/public/react
+
+/docs-blitz/.next
+/docs-blitz/.contentlayer
+/docs-blitz/.content-collections
+/docs-blitz/.source
+/docs-blitz/next-env.d.ts
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
 

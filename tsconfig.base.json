@@ -18,7 +18,10 @@
       "@base-ui/react": ["./packages/react/src"],
       "@base-ui/react/*": ["./packages/react/src/*"],
       "@base-ui/utils/*": ["./packages/utils/src/*"],
-      "docs/*": ["./docs/*"]
+      "docs/*": ["./docs/*"],
+      "@blitz-ui/react": ["./packages/react-blitz/src"],
+      "@blitz-ui/react/*": ["./packages/react-blitz/src/*"],
+      "docs-blitz/*": ["./docs-blitz/*"]
     }
   },
   "exclude": ["**/.*/", "**/build", "**/build-tests", "**/node_modules", "docs/export"]

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aspect-ratio",
+  "type": "registry:ui",
+  "title": "Aspect Ratio",
+  "description": "Displays content within a desired ratio.",
+  "files": [
+    {
+      "path": "src/registry/components/ui/aspect-ratio.tsx",
+      "content": "import { cn } from '@/lib/utils';\n\ninterface AspectRatioProps extends React.ComponentProps<'div'> {\n  ratio: number;\n}\n\nfunction AspectRatio({ ratio, className, children, ...props }: AspectRatioProps) {\n  return (\n    <div\n      data-slot=\"aspect-ratio-wrapper\"\n      className=\"relative w-full\"\n      style={{ paddingBottom: `${(1 / ratio) * 100}%` }}\n    >\n      <div data-slot=\"aspect-ratio\" className={cn('absolute inset-0', className)} {...props}>\n        {children}\n      </div>\n    </div>\n  );\n}\n\nexport { AspectRatio };\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 packages:
   - packages/*
   - docs
+  - docs-blitz
   - test
   - test/*
   - scripts/*
