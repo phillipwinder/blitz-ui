@@ -37,10 +37,11 @@ export function ThemePresetSelector() {
             </Badge>
           </div>
           <h2 className="from-foreground to-foreground/80 bg-gradient-to-r bg-clip-text text-3xl font-bold tracking-tight text-transparent md:text-4xl">
-            Elevate Your Design Instantly
+            Flexible UI components that adapt to how you build.
           </h2>
           <p className="text-muted-foreground max-w-[800px] md:text-lg">
-            Apply theme presets with a single click. See how each option enhances the look.
+            The UI library that lets you choose between dependency-based usage and full source
+            integration — enterprise-ready, accessible and feature-rich.
           </p>
         </motion.div>
 
