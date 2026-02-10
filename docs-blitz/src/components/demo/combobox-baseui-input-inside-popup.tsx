@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@blitz-ui/react/button';
 import {
   Combobox,
   ComboboxEmpty,
@@ -13,7 +13,7 @@ import {
   ComboboxPositioner,
   ComboboxTrigger,
   ComboboxValue,
-} from '@phillip-ui-components/react/combobox';
+} from '@blitz-ui/react/combobox';
 import { ChevronsUpDownIcon, MapPinHouseIcon } from 'lucide-react';
 
 export default function ExamplePopoverCombobox() {

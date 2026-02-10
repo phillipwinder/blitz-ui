@@ -6,14 +6,14 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@phillip-ui-components/react/breadcrumb';
+} from '@blitz-ui/react/breadcrumb';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuPositioner,
   DropdownMenuTrigger,
-} from '@phillip-ui-components/react/menu';
+} from '@blitz-ui/react/menu';
 
 export default function BreadcrumbDemo() {
   return (

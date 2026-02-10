@@ -1,4 +1,4 @@
-import { AspectRatio } from '@phillip-ui-components/react/aspect-ratio';
+import { AspectRatio } from '@blitz-ui/react/aspect-ratio';
 
 export default function AspectRatioSquare() {
   return (

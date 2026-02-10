@@ -6,13 +6,13 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@blitz-ui/react/button';
 import {
   Popover,
   PopoverContent,
   PopoverPositioner,
   PopoverTrigger,
-} from '@phillip-ui-components/react/popover';
+} from '@blitz-ui/react/popover';
 import {
   Command,
   CommandEmpty,
@@ -20,7 +20,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@phillip-ui-components/react/command';
+} from '@blitz-ui/react/command';
 import { cn } from '@/lib/utils';
 import {
   Form,

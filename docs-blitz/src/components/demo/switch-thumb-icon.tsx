@@ -1,6 +1,6 @@
 import { MoonIcon, SunIcon } from 'lucide-react';
 
-import { Switch, SwitchThumb } from '@phillip-ui-components/react/switch';
+import { Switch, SwitchThumb } from '@blitz-ui/react/switch';
 
 export default function SwitchThumbIcon() {
   return (

@@ -1,4 +1,4 @@
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@blitz-ui/react/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,7 +12,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@phillip-ui-components/react/menu';
+} from '@blitz-ui/react/menu';
 
 export default function DropdownMenuDemo() {
   return (

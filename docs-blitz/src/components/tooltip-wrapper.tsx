@@ -7,7 +7,7 @@ import {
   TooltipContent,
   TooltipPositioner,
   TooltipTrigger,
-} from '@phillip-ui-components/react/tooltip';
+} from '@blitz-ui/react/tooltip';
 
 export function TooltipWrapper({
   label,

@@ -14,8 +14,8 @@ import {
   ComboboxPositioner,
   ComboboxSeparator,
   ComboboxTrigger,
-} from '@phillip-ui-components/react/combobox';
-import { Label } from '@phillip-ui-components/react/label';
+} from '@blitz-ui/react/combobox';
+import { Label } from '@blitz-ui/react/label';
 import { ChevronDownIcon } from 'lucide-react';
 import * as React from 'react';
 

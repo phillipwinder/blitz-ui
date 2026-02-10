@@ -1,6 +1,6 @@
-import { Button } from '@phillip-ui-components/react/button';
-import { Input } from '@phillip-ui-components/react/input';
-import { Label } from '@phillip-ui-components/react/label';
+import { Button } from '@blitz-ui/react/button';
+import { Input } from '@blitz-ui/react/input';
+import { Label } from '@blitz-ui/react/label';
 import {
   Sheet,
   SheetClose,
@@ -10,7 +10,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@phillip-ui-components/react/sheet';
+} from '@blitz-ui/react/sheet';
 
 export default function SheetDemo() {
   return (

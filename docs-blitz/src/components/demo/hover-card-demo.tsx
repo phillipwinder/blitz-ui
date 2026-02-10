@@ -1,11 +1,11 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@phillip-ui-components/react/avatar';
-import { Button } from '@phillip-ui-components/react/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@blitz-ui/react/avatar';
+import { Button } from '@blitz-ui/react/button';
 import {
   HoverCard,
   HoverCardContent,
   HoverCardPositioner,
   HoverCardTrigger,
-} from '@phillip-ui-components/react/preview-card';
+} from '@blitz-ui/react/preview-card';
 
 export default function HoverCardDemo() {
   return (

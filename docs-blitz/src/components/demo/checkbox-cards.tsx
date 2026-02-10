@@ -1,4 +1,4 @@
-import { Checkbox } from '@phillip-ui-components/react/checkbox';
+import { Checkbox } from '@blitz-ui/react/checkbox';
 import { AppleIcon, BananaIcon, CherryIcon, CircleCheckIcon } from 'lucide-react';
 
 const fruits = [

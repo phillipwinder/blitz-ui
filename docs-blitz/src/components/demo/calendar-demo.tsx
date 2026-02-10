@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 
 const Calendar = dynamic(
   async () => {
-    const { Calendar } = await import('@phillip-ui-components/react/calendar');
+    const { Calendar } = await import('@blitz-ui/react/calendar');
     return Calendar;
   },
   {

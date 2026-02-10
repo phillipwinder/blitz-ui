@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@blitz-ui/react/button';
 import {
   Combobox,
   ComboboxChip,
@@ -14,8 +14,8 @@ import {
   ComboboxPopup,
   ComboboxPositioner,
   ComboboxValue,
-} from '@phillip-ui-components/react/combobox';
-import { Input } from '@phillip-ui-components/react/input';
+} from '@blitz-ui/react/combobox';
+import { Input } from '@blitz-ui/react/input';
 import { PlusIcon } from 'lucide-react';
 import * as React from 'react';
 import {
@@ -24,7 +24,7 @@ import {
   DialogContent,
   DialogDescription,
   DialogTitle,
-} from '@phillip-ui-components/react/dialog';
+} from '@blitz-ui/react/dialog';
 
 export default function ComboboxCreatableDemo() {
   const id = React.useId();

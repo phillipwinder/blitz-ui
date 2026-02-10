@@ -14,10 +14,10 @@ import {
   AutocompletePositioner,
   AutocompleteRow,
   AutocompleteTrigger,
-} from '@phillip-ui-components/react/autocomplete';
+} from '@blitz-ui/react/autocomplete';
 import { Send, Smile } from 'lucide-react';
-import { Input } from '@phillip-ui-components/react/input';
-import { Button } from '@phillip-ui-components/react/button';
+import { Input } from '@blitz-ui/react/input';
+import { Button } from '@blitz-ui/react/button';
 
 export default function AutocompleteEmojiPicker() {
   const [pickerOpen, setPickerOpen] = React.useState(false);

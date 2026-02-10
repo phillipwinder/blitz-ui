@@ -1,4 +1,4 @@
-import { Checkbox } from '@phillip-ui-components/react/checkbox';
+import { Checkbox } from '@blitz-ui/react/checkbox';
 
 export default function CheckboxSize() {
   return (

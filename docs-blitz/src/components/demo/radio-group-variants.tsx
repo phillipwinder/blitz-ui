@@ -1,5 +1,5 @@
-import { Label } from '@phillip-ui-components/react/label';
-import { RadioGroup, RadioGroupItem } from '@phillip-ui-components/react/radio-group';
+import { Label } from '@blitz-ui/react/label';
+import { RadioGroup, RadioGroupItem } from '@blitz-ui/react/radio-group';
 
 export default function RadioGroupVariants() {
   return (

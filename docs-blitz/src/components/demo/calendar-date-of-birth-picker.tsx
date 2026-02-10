@@ -3,15 +3,15 @@
 import * as React from 'react';
 import { ChevronDownIcon } from 'lucide-react';
 
-import { Button } from '@phillip-ui-components/react/button';
-import { Label } from '@phillip-ui-components/react/label';
+import { Button } from '@blitz-ui/react/button';
+import { Label } from '@blitz-ui/react/label';
 import {
   Popover,
   PopoverContent,
   PopoverPositioner,
   PopoverTrigger,
-} from '@phillip-ui-components/react/popover';
-import { Calendar } from '@phillip-ui-components/react/calendar';
+} from '@blitz-ui/react/popover';
+import { Calendar } from '@blitz-ui/react/calendar';
 
 export default function CalendarDateOfBirthPicker() {
   const [open, setOpen] = React.useState(false);

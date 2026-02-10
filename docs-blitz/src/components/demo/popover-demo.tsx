@@ -1,12 +1,12 @@
-import { Button } from '@phillip-ui-components/react/button';
-import { Input } from '@phillip-ui-components/react/input';
-import { Label } from '@phillip-ui-components/react/label';
+import { Button } from '@blitz-ui/react/button';
+import { Input } from '@blitz-ui/react/input';
+import { Label } from '@blitz-ui/react/label';
 import {
   Popover,
   PopoverContent,
   PopoverPositioner,
   PopoverTrigger,
-} from '@phillip-ui-components/react/popover';
+} from '@blitz-ui/react/popover';
 
 export default function PopoverDemo() {
   return (

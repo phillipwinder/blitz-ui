@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { ScrollArea } from '@phillip-ui-components/react/scroll-area';
-import { Separator } from '@phillip-ui-components/react/separator';
+import { ScrollArea } from '@blitz-ui/react/scroll-area';
+import { Separator } from '@blitz-ui/react/separator';
 
 const tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
 

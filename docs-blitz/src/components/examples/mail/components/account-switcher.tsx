@@ -7,7 +7,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@phillip-ui-components/react/select';
+} from '@blitz-ui/react/select';
 
 interface AccountSwitcherProps {
   isCollapsed: boolean;

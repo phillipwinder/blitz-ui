@@ -1,6 +1,6 @@
 'use client';
 
-import { Label } from '@phillip-ui-components/react/label';
+import { Label } from '@blitz-ui/react/label';
 import {
   AutocompleteInput,
   AutocompletePositioner,
@@ -9,7 +9,7 @@ import {
   AutocompleteList,
   AutocompleteItem,
   Autocomplete,
-} from '@phillip-ui-components/react/autocomplete';
+} from '@blitz-ui/react/autocomplete';
 
 export default function AutocompleteDemo() {
   return (

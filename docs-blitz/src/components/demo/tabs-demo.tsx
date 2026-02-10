@@ -1,5 +1,5 @@
 import { CircleUserRound, FolderKanban, PanelsTopLeft } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@phillip-ui-components/react/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@blitz-ui/react/tabs';
 
 export default function TabsDemo() {
   return (

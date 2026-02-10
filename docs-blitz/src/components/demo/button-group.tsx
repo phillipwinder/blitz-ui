@@ -1,4 +1,4 @@
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@blitz-ui/react/button';
 
 export default function ButtonGroup() {
   return (

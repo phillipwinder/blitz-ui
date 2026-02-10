@@ -11,7 +11,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-} from '@phillip-ui-components/react/sidebar';
+} from '@blitz-ui/react/sidebar';
 
 const items = [
   {

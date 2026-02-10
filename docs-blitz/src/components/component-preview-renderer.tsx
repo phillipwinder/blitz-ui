@@ -38,7 +38,7 @@ export default async function ComponentPreviewRenderer({
 
   const getCode = (importType?: ImportType) => {
     if (importType === ImportType.Registry) {
-      code = code.replaceAll('@phillip-ui-components/react/', '@/components/ui/');
+      code = code.replaceAll('@blitz-ui/react/', '@/components/ui/');
     }
     code = code.replaceAll('@/registry/components/ui/', '@/components/ui/');
     code = code.replaceAll('@/components/ui/form-tanstack', '@/components/ui/form');

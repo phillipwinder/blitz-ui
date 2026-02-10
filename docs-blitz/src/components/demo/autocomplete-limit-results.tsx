@@ -9,10 +9,10 @@ import {
   AutocompletePopup,
   AutocompletePositioner,
   AutocompleteStatus,
-} from '@phillip-ui-components/react/autocomplete';
+} from '@blitz-ui/react/autocomplete';
 import { Autocomplete as AutocompletePrimitive } from '@base-ui/react/autocomplete';
 import * as React from 'react';
-import { Label } from '@phillip-ui-components/react/label';
+import { Label } from '@blitz-ui/react/label';
 
 const limit = 7;
 

@@ -2,7 +2,7 @@ import { LucideIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@phillip-ui-components/react/tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@blitz-ui/react/tooltip';
 
 interface NavProps {
   isCollapsed: boolean;

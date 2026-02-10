@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@blitz-ui/react/button';
 import {
   Select,
   SelectContent,
@@ -14,7 +14,7 @@ import {
   SelectPositioner,
   SelectTrigger,
   SelectValue,
-} from '@phillip-ui-components/react/select';
+} from '@blitz-ui/react/select';
 import {
   Form,
   FormControl,

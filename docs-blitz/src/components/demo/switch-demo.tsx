@@ -1,5 +1,5 @@
-import { Label } from '@phillip-ui-components/react/label';
-import { Switch } from '@phillip-ui-components/react/switch';
+import { Label } from '@blitz-ui/react/label';
+import { Switch } from '@blitz-ui/react/switch';
 
 export default function SwitchDemo() {
   return (

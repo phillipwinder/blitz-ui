@@ -1,4 +1,4 @@
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@blitz-ui/react/button';
 import {
   Dialog,
   DialogClose,
@@ -8,9 +8,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@phillip-ui-components/react/dialog';
-import { Input } from '@phillip-ui-components/react/input';
-import { Label } from '@phillip-ui-components/react/label';
+} from '@blitz-ui/react/dialog';
+import { Input } from '@blitz-ui/react/input';
+import { Label } from '@blitz-ui/react/label';
 
 export default function DialogDemo() {
   return (

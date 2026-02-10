@@ -1,4 +1,4 @@
-import { Badge } from '@phillip-ui-components/react/badge';
+import { Badge } from '@blitz-ui/react/badge';
 import { ChevronsRightIcon } from 'lucide-react';
 import {
   Breadcrumb,
@@ -7,7 +7,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@phillip-ui-components/react/breadcrumb';
+} from '@blitz-ui/react/breadcrumb';
 
 export default function BreadcrumbTabs() {
   return (

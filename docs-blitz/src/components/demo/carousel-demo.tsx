@@ -4,7 +4,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@phillip-ui-components/react/carousel';
+} from '@blitz-ui/react/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 
 export default function CarouselDemo() {

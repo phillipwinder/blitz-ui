@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { Label } from '@phillip-ui-components/react/label';
+import { Label } from '@blitz-ui/react/label';
 import {
   Select,
   SelectContent,
@@ -10,8 +10,8 @@ import {
   SelectPositioner,
   SelectTrigger,
   SelectValue,
-} from '@phillip-ui-components/react/select';
-import { Calendar } from '@phillip-ui-components/react/calendar';
+} from '@blitz-ui/react/select';
+import { Calendar } from '@blitz-ui/react/calendar';
 
 export default function CalendarMonthYearSelector() {
   const [dropdown, setDropdown] =

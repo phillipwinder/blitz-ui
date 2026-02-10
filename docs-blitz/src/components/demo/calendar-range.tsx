@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { Calendar } from '@phillip-ui-components/react/calendar';
+import { Calendar } from '@blitz-ui/react/calendar';
 
 export default function CalendarRange() {
   const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 5, 12));

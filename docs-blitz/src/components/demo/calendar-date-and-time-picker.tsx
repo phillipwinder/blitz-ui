@@ -3,16 +3,16 @@
 import * as React from 'react';
 import { ChevronDownIcon } from 'lucide-react';
 
-import { Button } from '@phillip-ui-components/react/button';
-import { Input } from '@phillip-ui-components/react/input';
-import { Label } from '@phillip-ui-components/react/label';
+import { Button } from '@blitz-ui/react/button';
+import { Input } from '@blitz-ui/react/input';
+import { Label } from '@blitz-ui/react/label';
 import {
   Popover,
   PopoverContent,
   PopoverPositioner,
   PopoverTrigger,
-} from '@phillip-ui-components/react/popover';
-import { Calendar } from '@phillip-ui-components/react/calendar';
+} from '@blitz-ui/react/popover';
+import { Calendar } from '@blitz-ui/react/calendar';
 
 export default function CalendarDateAndTimePicker() {
   const [open, setOpen] = React.useState(false);

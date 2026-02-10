@@ -14,11 +14,11 @@ import {
 } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { Input } from '@phillip-ui-components/react/input';
+import { Input } from '@blitz-ui/react/input';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
-import { Separator } from '@phillip-ui-components/react/separator';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@phillip-ui-components/react/tabs';
-import { TooltipProvider } from '@phillip-ui-components/react/tooltip';
+import { Separator } from '@blitz-ui/react/separator';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@blitz-ui/react/tabs';
+import { TooltipProvider } from '@blitz-ui/react/tooltip';
 import { AccountSwitcher } from '@/components/examples/mail/components/account-switcher';
 import { MailDisplay } from '@/components/examples/mail/components/mail-display';
 import { MailList } from '@/components/examples/mail/components/mail-list';

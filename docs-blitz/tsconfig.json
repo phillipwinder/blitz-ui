@@ -20,8 +20,8 @@
       "fumadocs-mdx:collections/*": [".source/*"],
       "@/.source": ["./.source/index.ts"],
       "@/*": ["./src/*"],
-      "@phillip-ui-components/react": ["../packages/react-phillip/src"],
-      "@phillip-ui-components/react/*": ["../packages/react-phillip/src/*"]
+      "@blitz-ui/react": ["../packages/react-phillip/src"],
+      "@blitz-ui/react/*": ["../packages/react-phillip/src/*"]
     },
     "plugins": [
       {

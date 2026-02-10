@@ -8,9 +8,9 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@phillip-ui-components/react/alert-dialog';
+} from '@blitz-ui/react/alert-dialog';
 import { OctagonAlert } from 'lucide-react';
-import { Button, buttonVariants } from '@phillip-ui-components/react/button';
+import { Button, buttonVariants } from '@blitz-ui/react/button';
 
 export default function AlertDialogHeaderDemo() {
   return (

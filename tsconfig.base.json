@@ -19,8 +19,8 @@
       "@base-ui/react/*": ["./packages/react/src/*"],
       "@base-ui/utils/*": ["./packages/utils/src/*"],
       "docs/*": ["./docs/*"],
-      "@phillip-ui-components/react": ["./packages/react-phillip/src"],
-      "@phillip-ui-components/react/*": ["./packages/react-phillip/src/*"],
+      "@blitz-ui/react": ["./packages/react-phillip/src"],
+      "@blitz-ui/react/*": ["./packages/react-phillip/src/*"],
       "docs-blitz/*": ["./docs-blitz/*"]
     }
   },

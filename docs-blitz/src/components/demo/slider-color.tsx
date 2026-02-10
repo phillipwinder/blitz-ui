@@ -1,4 +1,4 @@
-import { Slider } from '@phillip-ui-components/react/slider';
+import { Slider } from '@blitz-ui/react/slider';
 
 export default function SliderSize() {
   return (

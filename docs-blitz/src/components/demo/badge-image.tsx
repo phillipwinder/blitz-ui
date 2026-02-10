@@ -1,4 +1,4 @@
-import { Badge } from '@phillip-ui-components/react/badge';
+import { Badge } from '@blitz-ui/react/badge';
 
 export default function BadgeImage() {
   return (

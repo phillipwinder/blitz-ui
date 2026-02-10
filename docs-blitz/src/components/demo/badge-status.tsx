@@ -1,4 +1,4 @@
-import { Badge } from '@phillip-ui-components/react/badge';
+import { Badge } from '@blitz-ui/react/badge';
 import { Check, CircleDashed, CircleDotDashed, X } from 'lucide-react';
 
 export default function BadgeStatus() {

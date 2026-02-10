@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from '@phillip-ui-components/react/avatar';
+import { Avatar, AvatarFallback } from '@blitz-ui/react/avatar';
 import { Building, User } from 'lucide-react';
 
 export default function AvatarFallbackDemo() {

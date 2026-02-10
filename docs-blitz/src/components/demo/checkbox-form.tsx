@@ -5,8 +5,8 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
-import { Button } from '@phillip-ui-components/react/button';
-import { Checkbox } from '@phillip-ui-components/react/checkbox';
+import { Button } from '@blitz-ui/react/button';
+import { Checkbox } from '@blitz-ui/react/checkbox';
 import {
   Form,
   FormControl,

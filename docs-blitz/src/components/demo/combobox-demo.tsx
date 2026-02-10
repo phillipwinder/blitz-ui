@@ -3,13 +3,13 @@
 import * as React from 'react';
 import { Check, ChevronsUpDown } from 'lucide-react';
 
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@blitz-ui/react/button';
 import {
   Popover,
   PopoverContent,
   PopoverPositioner,
   PopoverTrigger,
-} from '@phillip-ui-components/react/popover';
+} from '@blitz-ui/react/popover';
 import {
   Command,
   CommandEmpty,
@@ -17,7 +17,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@phillip-ui-components/react/command';
+} from '@blitz-ui/react/command';
 import { cn } from '@/lib/utils';
 
 const frameworks = [

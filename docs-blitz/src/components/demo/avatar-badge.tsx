@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@phillip-ui-components/react/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@blitz-ui/react/avatar';
 import { BadgeCheck, BadgeMinus, BadgeX } from 'lucide-react';
 
 export default function AvatarBadge() {

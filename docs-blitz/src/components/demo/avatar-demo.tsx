@@ -1,4 +1,4 @@
-import { Avatar } from '@phillip-ui-components/react/avatar';
+import { Avatar } from '@blitz-ui/react/avatar';
 
 export default function AvatarDemo() {
   return (

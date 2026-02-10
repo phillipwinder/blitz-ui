@@ -1,4 +1,4 @@
-import { Separator } from '@phillip-ui-components/react/separator';
+import { Separator } from '@blitz-ui/react/separator';
 
 export default function SeparatorDemo() {
   return (

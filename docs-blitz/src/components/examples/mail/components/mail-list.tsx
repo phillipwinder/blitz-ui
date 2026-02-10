@@ -3,7 +3,7 @@ import { formatDistanceToNow } from 'date-fns';
 
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
-import { ScrollArea } from '@phillip-ui-components/react/scroll-area';
+import { ScrollArea } from '@blitz-ui/react/scroll-area';
 import { Mail } from '@/components/examples/mail/data';
 import { useMail } from '@/components/examples/mail/use-mail';
 import { useFullscreen } from '@/hooks/use-fullscreen';

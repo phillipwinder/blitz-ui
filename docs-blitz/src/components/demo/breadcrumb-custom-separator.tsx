@@ -6,7 +6,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@phillip-ui-components/react/breadcrumb';
+} from '@blitz-ui/react/breadcrumb';
 
 export default function BreadcrumbCustomSeparator() {
   return (

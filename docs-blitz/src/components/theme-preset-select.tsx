@@ -1,28 +1,28 @@
 'use client';
 
-import { Badge } from '@phillip-ui-components/react/badge';
-import { Button } from '@phillip-ui-components/react/button';
+import { Badge } from '@blitz-ui/react/badge';
+import { Button } from '@blitz-ui/react/button';
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandItem,
-} from '@phillip-ui-components/react/command';
-import { Input } from '@phillip-ui-components/react/input';
+} from '@blitz-ui/react/command';
+import { Input } from '@blitz-ui/react/input';
 import {
   Popover,
   PopoverContent,
   PopoverPositioner,
   PopoverTrigger,
-} from '@phillip-ui-components/react/popover';
-import { ScrollArea } from '@phillip-ui-components/react/scroll-area';
-import { Separator } from '@phillip-ui-components/react/separator';
+} from '@blitz-ui/react/popover';
+import { ScrollArea } from '@blitz-ui/react/scroll-area';
+import { Separator } from '@blitz-ui/react/separator';
 import {
   Tooltip,
   TooltipContent,
   TooltipPositioner,
   TooltipTrigger,
-} from '@phillip-ui-components/react/tooltip';
+} from '@blitz-ui/react/tooltip';
 import { authClient } from '@/lib/auth-client';
 import { cn } from '@/lib/utils';
 import { useEditorStore } from '@/store/editor-store';

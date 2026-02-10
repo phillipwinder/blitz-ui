@@ -1,6 +1,6 @@
 import { Bold } from 'lucide-react';
 
-import { Toggle } from '@phillip-ui-components/react/toggle';
+import { Toggle } from '@blitz-ui/react/toggle';
 
 export default function ToggleDemo() {
   return (

@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionRoot,
   AccordionTrigger,
-} from '@phillip-ui-components/react/accordion';
+} from '@blitz-ui/react/accordion';
 
 export default function AccordionWithIcon() {
   return (

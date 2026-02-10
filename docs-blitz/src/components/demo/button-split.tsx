@@ -1,4 +1,4 @@
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@blitz-ui/react/button';
 import { ChevronDown, SendHorizonal } from 'lucide-react';
 import {
   DropdownMenu,
@@ -9,7 +9,7 @@ import {
   DropdownMenuPositioner,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@phillip-ui-components/react/menu';
+} from '@blitz-ui/react/menu';
 
 export default function ButtonSplit() {
   return (

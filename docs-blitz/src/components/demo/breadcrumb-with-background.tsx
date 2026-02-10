@@ -5,7 +5,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@phillip-ui-components/react/breadcrumb';
+} from '@blitz-ui/react/breadcrumb';
 import { ChevronsRightIcon } from 'lucide-react';
 
 export default function BreadcrumbWithBackground() {

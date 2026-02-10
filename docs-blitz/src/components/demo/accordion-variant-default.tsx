@@ -4,7 +4,7 @@ import {
   AccordionPanel,
   AccordionRoot,
   AccordionTrigger,
-} from '@phillip-ui-components/react/accordion';
+} from '@blitz-ui/react/accordion';
 
 export default function AccordionVariantDefault() {
   return (

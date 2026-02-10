@@ -13,15 +13,15 @@ import {
   Trash2,
 } from 'lucide-react';
 
-import { DropdownMenuContent, DropdownMenuItem } from '@phillip-ui-components/react/menu';
-import { Avatar, AvatarFallback, AvatarImage } from '@phillip-ui-components/react/avatar';
-import { Button } from '@phillip-ui-components/react/button';
-import { Calendar } from '@phillip-ui-components/react/calendar';
-import { DropdownMenu, DropdownMenuTrigger } from '@phillip-ui-components/react/menu';
-import { Label } from '@phillip-ui-components/react/label';
-import { Popover, PopoverContent, PopoverTrigger } from '@phillip-ui-components/react/popover';
-import { Separator } from '@phillip-ui-components/react/separator';
-import { Switch } from '@phillip-ui-components/react/switch';
+import { DropdownMenuContent, DropdownMenuItem } from '@blitz-ui/react/menu';
+import { Avatar, AvatarFallback, AvatarImage } from '@blitz-ui/react/avatar';
+import { Button } from '@blitz-ui/react/button';
+import { Calendar } from '@blitz-ui/react/calendar';
+import { DropdownMenu, DropdownMenuTrigger } from '@blitz-ui/react/menu';
+import { Label } from '@blitz-ui/react/label';
+import { Popover, PopoverContent, PopoverTrigger } from '@blitz-ui/react/popover';
+import { Separator } from '@blitz-ui/react/separator';
+import { Switch } from '@blitz-ui/react/switch';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail } from '@/components/examples/mail/data';
 import { useState } from 'react';

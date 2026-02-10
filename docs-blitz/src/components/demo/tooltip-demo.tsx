@@ -1,10 +1,10 @@
-import { buttonVariants } from '@phillip-ui-components/react/button';
+import { buttonVariants } from '@blitz-ui/react/button';
 import {
   Tooltip,
   TooltipContent,
   TooltipPositioner,
   TooltipTrigger,
-} from '@phillip-ui-components/react/tooltip';
+} from '@blitz-ui/react/tooltip';
 
 export default function TooltipDemo() {
   return (

@@ -1,6 +1,6 @@
 import { AlertDialog as AlertDialogPrimitive } from '@base-ui/react/alert-dialog';
 import { OctagonAlert, XIcon } from 'lucide-react';
-import { Button, buttonVariants } from '@phillip-ui-components/react/button';
+import { Button, buttonVariants } from '@blitz-ui/react/button';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,7 +11,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@phillip-ui-components/react/alert-dialog';
+} from '@blitz-ui/react/alert-dialog';
 import { cn } from '@/lib/utils';
 
 export default function AlertDialogWithCloseButton() {

@@ -379,7 +379,7 @@ importers:
       '@ngard/tiny-isequal':
         specifier: ^1.1.0
         version: 1.1.0
-      '@phillip-ui-components/react':
+      '@blitz-ui/react':
         specifier: workspace:*
         version: link:../packages/react-phillip/build
       '@radix-ui/react-slot':

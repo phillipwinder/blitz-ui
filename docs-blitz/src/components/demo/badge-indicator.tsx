@@ -1,6 +1,6 @@
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@blitz-ui/react/button';
 import { AtSign, Bell, Mail, MessageCircle } from 'lucide-react';
-import { Badge } from '@phillip-ui-components/react/badge';
+import { Badge } from '@blitz-ui/react/badge';
 
 export default function BadgeIndicator() {
   return (

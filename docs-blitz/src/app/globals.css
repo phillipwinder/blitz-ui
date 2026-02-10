@@ -145,4 +145,4 @@ body {
   @apply bg-primary/5 border-primary/60;
 }
 
-@source "../../node_modules/@phillip-ui-components/react";
+@source "../../node_modules/@blitz-ui/react";

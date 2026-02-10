@@ -1,5 +1,5 @@
 import { Bold, Italic, Underline } from 'lucide-react';
-import { ToggleGroup, ToggleGroupItem } from '@phillip-ui-components/react/toggle-group';
+import { ToggleGroup, ToggleGroupItem } from '@blitz-ui/react/toggle-group';
 
 export default function ToggleGroupDemo() {
   return (

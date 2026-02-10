@@ -4,8 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { Button } from '@phillip-ui-components/react/button';
-import { Input } from '@phillip-ui-components/react/input';
+import { Button } from '@blitz-ui/react/button';
+import { Input } from '@blitz-ui/react/input';
 import {
   Form,
   FormControl,

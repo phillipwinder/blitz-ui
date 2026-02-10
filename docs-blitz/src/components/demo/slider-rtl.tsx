@@ -1,12 +1,12 @@
 import { DirectionProvider } from '@base-ui/react/direction-provider';
-import { Slider } from '@phillip-ui-components/react/slider';
+import { Slider } from '@blitz-ui/react/slider';
 import {
   Progress,
   ProgressIndicator,
   ProgressLabel,
   ProgressTrack,
   ProgressValue,
-} from '@phillip-ui-components/react/progress';
+} from '@blitz-ui/react/progress';
 
 export default function SliderRTL() {
   return (

@@ -8,8 +8,8 @@ import {
   AutocompleteList,
   AutocompletePopup,
   AutocompletePositioner,
-} from '@phillip-ui-components/react/autocomplete';
-import { Label } from '@phillip-ui-components/react/label';
+} from '@blitz-ui/react/autocomplete';
+import { Label } from '@blitz-ui/react/label';
 
 export default function AutocompleteAutoHighlight() {
   return (

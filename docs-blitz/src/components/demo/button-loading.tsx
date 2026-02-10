@@ -1,5 +1,5 @@
 import { Loader } from 'lucide-react';
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@blitz-ui/react/button';
 
 export default function ButtonLoading() {
   return (

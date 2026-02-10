@@ -14,7 +14,7 @@ import {
   NavigationMenuPositioner,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '@phillip-ui-components/react/navigation-menu';
+} from '@blitz-ui/react/navigation-menu';
 
 const components: { title: string; href: string; description: string }[] = [
   {

@@ -1,4 +1,4 @@
-import { Button } from '@phillip-ui-components/react/button';
+import { Button } from '@blitz-ui/react/button';
 import { SendHorizonal, Trash } from 'lucide-react';
 
 export default function ButtonDemo() {

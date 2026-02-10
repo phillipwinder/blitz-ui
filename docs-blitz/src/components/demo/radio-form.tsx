@@ -5,8 +5,8 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
-import { Button } from '@phillip-ui-components/react/button';
-import { RadioGroup, RadioGroupItem } from '@phillip-ui-components/react/radio-group';
+import { Button } from '@blitz-ui/react/button';
+import { RadioGroup, RadioGroupItem } from '@blitz-ui/react/radio-group';
 import {
   Form,
   FormControl,

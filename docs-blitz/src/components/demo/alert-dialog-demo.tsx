@@ -8,8 +8,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@phillip-ui-components/react/alert-dialog';
-import { Button } from '@phillip-ui-components/react/button';
+} from '@blitz-ui/react/alert-dialog';
+import { Button } from '@blitz-ui/react/button';
 
 export default function AlertDialogDemo() {
   return (
