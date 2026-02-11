@@ -5,13 +5,10 @@ import type { MDXComponents } from 'mdx/types';
 
 import { CodeBlockCommand } from './components/code-block-command';
 import ComponentPreview from './components/component-preview';
-import { cn, ImportType } from './lib/utils';
+import { cn } from './lib/utils';
 
 // use this function to get MDX components, you will need it for rendering MDX
-export function getMDXComponents(
-  components?: MDXComponents,
-  importType: ImportType = ImportType.Dependency,
-): MDXComponents {
+export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     ...defaultMdxComponents,
     ...components,
@@ -37,7 +34,7 @@ export function getMDXComponents(
       <a className={cn('has-[code]:decoration-dotted', className)} {...props} />
     ),
     CodeBlockCommand,
-    ComponentPreview: (props) => <ComponentPreview {...props} importType={importType} />,
+    ComponentPreview: (props) => <ComponentPreview {...props} />,
     ...stepComponents,
   };
 }

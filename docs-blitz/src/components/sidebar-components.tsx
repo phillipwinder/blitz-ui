@@ -1,6 +1,7 @@
 'use client';
 
-import { cn } from '@/lib/utils';
+import { getCurrentImportParadigm } from '@/lib/import-paradigm';
+import { cn, ImportParadigm } from '@/lib/utils';
 import { Badge } from '@/registry/components/ui/badge';
 import { SidebarPageTreeComponents } from 'fumadocs-ui/components/sidebar/page-tree';
 import Link from 'next/link';
@@ -16,16 +17,30 @@ export const Folder: SidebarPageTreeComponents['Folder'] = ({ children, item }) 
 };
 
 export const Item: SidebarPageTreeComponents['Item'] = ({ item }) => {
-  const pathname = usePathname();
+  const isComponentItem = item.url?.startsWith('/docs/components/');
+  if (isComponentItem && item.url.includes(`/${ImportParadigm.Registry}/`)) {
+    return null;
+  }
+
+  const importParadigm = getCurrentImportParadigm();
+  let itemUrl = item.url;
+
+  if (isComponentItem && importParadigm === ImportParadigm.Registry) {
+    itemUrl = item.url.replace(ImportParadigm.Dependency, ImportParadigm.Registry);
+  } else {
+    itemUrl = item.url.replace(ImportParadigm.Registry, ImportParadigm.Dependency);
+  }
 
   // If the item is a new component, add a new badge to the sidebar
-  const isNew = newPages.some((page) => (item.url as string)?.endsWith(page));
+  const isNew = newPages.some((page) => itemUrl?.endsWith(page));
+
+  const pathname = usePathname();
 
   return (
     <Link
-      href={item.url}
+      href={itemUrl}
       className={cn('flex items-center justify-between py-2 ps-3 pe-2 -ml-1 rounded-lg', {
-        'bg-muted': pathname === item.url,
+        'bg-muted': pathname === itemUrl,
       })}
     >
       <span>{item.name}</span>

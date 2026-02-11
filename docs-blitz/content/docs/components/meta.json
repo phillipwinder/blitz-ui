@@ -1,4 +1,3 @@
 {
-  "defaultOpen": true,
-  "pages": ["...", "!migration-steps"]
+  "pages": ["...dependency", "...registry"]
 }

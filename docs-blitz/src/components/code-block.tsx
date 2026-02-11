@@ -1,20 +1,20 @@
 import * as Base from 'fumadocs-ui/components/codeblock';
 import { highlight } from 'fumadocs-core/highlight';
 import { type HTMLAttributes } from 'react';
-import { cn, ImportType } from '@/lib/utils';
+import { cn, ImportParadigm } from '@/lib/utils';
 
 export async function CodeBlock({
   code,
   lang,
-  importType,
+  importParadigm,
   ...rest
 }: HTMLAttributes<HTMLElement> & {
   code: string;
   lang: string;
-  importType?: ImportType;
+  importParadigm: ImportParadigm;
 }) {
-  if (importType) {
-    if (importType === ImportType.Registry) {
+  if (importParadigm) {
+    if (importParadigm === 'registry') {
       code = code.replaceAll('@blitz-ui/react/', '@/components/ui/');
     }
     code = code.replaceAll('@/registry/components/ui/', '@/components/ui/');

@@ -3,19 +3,12 @@ import { Tooltip as TooltipPrimitive } from '@base-ui/react/tooltip';
 
 import { cn } from '@/lib/utils';
 
-function TooltipProvider({
-  delay = 0,
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
-  return <TooltipPrimitive.Provider data-slot="tooltip-provider" delay={delay} {...props} />;
+function TooltipProvider({ ...props }: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
+  return <TooltipPrimitive.Provider data-slot="tooltip-provider" {...props} />;
 }
 
 function Tooltip({ ...props }: React.ComponentProps<typeof TooltipPrimitive.Root>) {
-  return (
-    <TooltipProvider>
-      <TooltipPrimitive.Root data-slot="tooltip" {...props} />
-    </TooltipProvider>
-  );
+  return <TooltipPrimitive.Root data-slot="tooltip" {...props} />;
 }
 
 function TooltipTrigger({ ...props }: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
@@ -53,29 +46,29 @@ function TooltipContent({
       {...props}
     >
       {children}
-      <TooltipArrow />
+      {/* <TooltipArrow /> */}
     </TooltipPrimitive.Popup>
   );
 }
 
-function TooltipArrow({
-  className,
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Arrow>) {
-  return (
-    <TooltipPrimitive.Arrow
-      data-slot="tooltip-arrow"
-      className={cn(
-        'bg-primary fill-primary z-50 size-2.5 rotate-45 rounded-[2px]',
-        'data-[side=bottom]:-translate-y-1/2 data-[side=bottom]:top-px',
-        'data-[side=top]:translate-y-1/2 data-[side=top]:bottom-px',
-        'data-[side=left]:translate-x-1/2 data-[side=left]:right-px',
-        'data-[side=right]:-translate-x-1/2 data-[side=right]:left-px',
-        className,
-      )}
-      {...props}
-    />
-  );
-}
+// function TooltipArrow({
+//   className,
+//   ...props
+// }: React.ComponentProps<typeof TooltipPrimitive.Arrow>) {
+//   return (
+//     <TooltipPrimitive.Arrow
+//       data-slot="tooltip-arrow"
+//       className={cn(
+//         'bg-primary fill-primary z-50 size-2.5 rotate-45 rounded-[2px]',
+//         'data-[side=bottom]:-translate-y-1/2 data-[side=bottom]:top-px',
+//         'data-[side=top]:translate-y-1/2 data-[side=top]:bottom-px',
+//         'data-[side=left]:translate-x-1/2 data-[side=left]:right-px',
+//         'data-[side=right]:-translate-x-1/2 data-[side=right]:left-px',
+//         className,
+//       )}
+//       {...props}
+//     />
+//   );
+// }
 
 export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider, TooltipPositioner };

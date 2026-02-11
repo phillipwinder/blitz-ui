@@ -1,8 +1,7 @@
-import ThemePresetSelect from '@/components/theme-preset-select';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { config } from '@/config';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-import { BookIcon, Zap } from 'lucide-react';
+import { Zap } from 'lucide-react';
 
 /**
  * Shared layout configurations
@@ -29,6 +28,14 @@ export const baseOptions: BaseLayoutProps = {
     {
       text: 'Theme Playground',
       url: '/theme-playground/',
+    },
+    {
+      text: 'Showcase',
+      url: '/showcase',
+    },
+    {
+      text: 'Blog',
+      url: '/blog',
     },
   ],
   themeSwitch: {

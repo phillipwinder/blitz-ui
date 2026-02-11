@@ -1,22 +1,29 @@
-import { cn, ImportType } from '@/lib/utils';
+import { cn, ImportParadigm, importParadigms } from '@/lib/utils';
 import { components } from '@/registry/__index__';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/registry/components/ui/tabs';
 import fs from 'fs/promises';
 import path from 'path';
 import { CodeBlock } from './code-block';
-import { ImportTypeSelect } from './import-type-select';
 
 export default async function ComponentPreview({
   name,
+  importParadigm,
   center = true,
   constrainHeight = true,
-  importType = ImportType.Dependency,
 }: {
   name: string;
+  importParadigm: ImportParadigm;
   center?: boolean;
   constrainHeight?: boolean;
-  importType?: ImportType;
 }) {
+  if (!importParadigm || !importParadigms.some((p) => p.key === importParadigm)) {
+    throw new Error(
+      `Invalid importParadigm: ${importParadigm}. Must be one of: ${importParadigms
+        .map((p) => p.key)
+        .join(', ')}`,
+    );
+  }
+
   const { component: Component, src } = components[name];
 
   const code = await fs.readFile(path.join(process.cwd(), src), 'utf-8');
@@ -43,8 +50,6 @@ export default async function ComponentPreview({
               Code
             </TabsTrigger>
           </TabsList>
-
-          <ImportTypeSelect value={importType} />
         </div>
 
         <TabsContent
@@ -61,7 +66,7 @@ export default async function ComponentPreview({
           <CodeBlock
             lang="tsx"
             code={codeWithUpdatedImports}
-            importType={importType}
+            importParadigm={importParadigm}
             className={cn(
               'bg-muted/50 p-0 overflow-hidden rounded-md shadow-sm/5',
               '[&_pre]:text-sm [&_pre]:font-normal [&_pre_span]:leading-[1.75]',

@@ -16,12 +16,18 @@ export function isDeepEqual(a: unknown, b: unknown): boolean {
   return isEqual(a, b);
 }
 
-export enum ImportType {
+export enum ImportParadigm {
   Dependency = 'dependency',
   Registry = 'registry',
 }
 
-export const importTypes = {
-  [ImportType.Dependency]: 'Dependency',
-  [ImportType.Registry]: 'shadcn',
-};
+export const importParadigms = [
+  {
+    key: ImportParadigm.Dependency,
+    title: 'Dependency',
+  },
+  {
+    key: ImportParadigm.Registry,
+    title: 'Registry',
+  },
+] as const;
