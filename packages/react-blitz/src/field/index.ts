@@ -1,1 +1,1 @@
-export * from '@base-ui/react/field';
+export * from './Field.tsx';

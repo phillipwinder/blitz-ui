@@ -83,7 +83,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           rel="stylesheet"
         />
       </head>
-      <body className="flex flex-col min-h-screen [--header-height:calc(var(--spacing)*14)]">
+      <body className="style-mira flex flex-col min-h-screen [--header-height:calc(var(--spacing)*14)]">
         <NuqsAdapter>
           <Suspense>
             <QueryProvider>
