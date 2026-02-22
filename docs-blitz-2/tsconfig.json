@@ -27,6 +27,12 @@
       "@/*": [
         "./*"
       ],
+      "@blitz-ui/react": [
+        "../packages/react-blitz/src"
+      ],
+      "@blitz-ui/react/*": [
+        "../packages/react-blitz/src/*"
+      ],
       "react": [
         "./node_modules/@types/react"
       ],
@@ -42,6 +48,11 @@
     ".next/types/**/*.ts",
     "next.config.mjs",
     ".next/dev/types/**/*.ts"
+  ],
+  "references": [
+    {
+      "path": "../packages/react-blitz/tsconfig.build.json"
+    }
   ],
   "exclude": [
     "node_modules"

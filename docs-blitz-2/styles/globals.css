@@ -441,3 +441,6 @@
     font-size: 0.8rem;
   }
 }
+
+@source "../../packages/react-blitz";
+@source "../node_modules/@blitz-ui/react";
