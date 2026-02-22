@@ -24,7 +24,7 @@
   },
   "exports": {
     ".": "./src/index.ts",
-    "./styles": "./src/index.css",
+    "./styles": "./src/globals.css",
     "./accordion": "./src/accordion/index.ts",
     "./alert-dialog": "./src/alert-dialog/index.ts",
     "./aspect-ratio": "./src/aspect-ratio/index.ts",
