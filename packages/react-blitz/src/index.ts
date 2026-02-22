@@ -1,4 +1,4 @@
-export * from './accordion/Accordion.tsx';
+export * from './accordion/index.ts';
 export * from './alert-dialog/index.ts';
 export * from './autocomplete/index.ts';
 export * from './avatar/index.ts';
@@ -30,6 +30,8 @@ export * from './separator/index.ts';
 export * from './slider/index.ts';
 export * from './switch/index.ts';
 export * from './tabs/index.ts';
+export * from './textarea/index.ts';
+export * from './theme-provider/index.ts';
 export * from './toast/index.ts';
 export * from './toggle/index.ts';
 export * from './toggle-group/index.ts';

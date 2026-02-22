@@ -5,14 +5,11 @@ import { DesignSystemProvider } from "@/app/(create)/components/design-system-pr
 import { ItemPickerScript } from "@/app/(create)/components/item-picker"
 import { PreviewStyle } from "@/app/(create)/components/preview-style"
 import { RandomizeScript } from "@/app/(create)/components/random-button"
+import { BlitzProvider } from "@/app/(create)/patterns/components/blitz-provider"
 import { CustomizerSidebarScript } from "@/app/(create)/patterns/components/customizer-sidebar-script"
 import { PatternsSidebarScript } from "@/app/(create)/patterns/components/patterns-sidebar-script"
 
-export default function PatternsPreviewLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function PatternsPreviewLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative min-h-screen" data-slot="patterns-preview">
       <PreviewStyle />
@@ -22,7 +19,9 @@ export default function PatternsPreviewLayout({
       <CustomizerSidebarScript />
       <PatternsSidebarScript />
       <Suspense fallback={null}>
-        <DesignSystemProvider>{children}</DesignSystemProvider>
+        <DesignSystemProvider>
+          <BlitzProvider>{children}</BlitzProvider>
+        </DesignSystemProvider>
       </Suspense>
     </div>
   )
