@@ -18,7 +18,7 @@ export async function GET(
   }
 
   const rawContent = await page.data.getText("raw")
-  const processedContent = processMdxForLLMs(rawContent)
+  const processedContent = await processMdxForLLMs(rawContent)
 
   return new NextResponse(processedContent, {
     headers: {

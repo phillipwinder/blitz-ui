@@ -1,10 +1,9 @@
-import fs from "node:fs/promises"
-import path from "node:path"
 import * as React from "react"
 
 import { transformStyleClassNames } from "@/lib/code-utils"
 import { highlightCode } from "@/lib/highlight-code"
 import { getIconLibraryFromStyle, transformIcons } from "@/lib/icons"
+import { getRegistryItem, getRegistryMetadata } from "@/lib/registry"
 import { cn } from "@/lib/utils"
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
 import { CopyButton } from "@/components/copy-button"
@@ -15,6 +14,78 @@ import { ComponentSourceClient } from "./component-source-client"
 
 // Default styleName - matches the API default
 const DEFAULT_STYLE_NAME = "radix-nova"
+
+const srcToNameCache = new Map<string, { name: string; fileIndex: number }>()
+
+function getRegistryKey(styleName: string) {
+  return styleName.startsWith("base-") ? "base" : "radix"
+}
+
+function normalizeRegistryPath(value: string) {
+  const normalized = value
+    .replaceAll("\\", "/")
+    .replace(/^@\//, "")
+    .replace(/^\.\//, "")
+    .replace(/^\/+/, "")
+
+  if (normalized.includes("..")) {
+    return null
+  }
+
+  if (
+    !normalized.startsWith("registry/") &&
+    !normalized.startsWith("registry-reui/")
+  ) {
+    return null
+  }
+
+  return normalized.replace(
+    /^registry-reui\/bases\/__generated\/[^/]+\//,
+    "registry-reui/bases/"
+  )
+}
+
+function findRegistryItemFromSrc(src: string, styleName: string) {
+  const normalizedSrc = normalizeRegistryPath(src)
+  if (!normalizedSrc) {
+    return null
+  }
+
+  const base = getRegistryKey(styleName)
+  const cacheKey = `${base}:${normalizedSrc}`
+
+  if (srcToNameCache.has(cacheKey)) {
+    return srcToNameCache.get(cacheKey) ?? null
+  }
+
+  const metadata = getRegistryMetadata(base)
+
+  for (const [itemName, item] of Object.entries(metadata)) {
+    const files = item.files ?? []
+    for (let fileIndex = 0; fileIndex < files.length; fileIndex += 1) {
+      const file = files[fileIndex]
+      const filePath =
+        typeof file === "string"
+          ? file
+          : typeof file?.path === "string"
+            ? file.path
+            : null
+
+      if (!filePath) {
+        continue
+      }
+
+      const normalizedFilePath = normalizeRegistryPath(filePath)
+      if (normalizedFilePath && normalizedFilePath === normalizedSrc) {
+        const result = { name: itemName, fileIndex }
+        srcToNameCache.set(cacheKey, result)
+        return result
+      }
+    }
+  }
+
+  return null
+}
 
 export async function ComponentSource({
   name,
@@ -73,18 +144,8 @@ export async function ComponentSource({
   }
 
   if (!code && name) {
-    // Read from pre-built static JSON (style classes already transformed at build time)
     try {
-      const jsonPath = path.join(
-        process.cwd(),
-        "public",
-        "r",
-        "styles",
-        styleName,
-        `${name}.json`
-      )
-      const jsonContent = await fs.readFile(jsonPath, "utf-8")
-      const item = JSON.parse(jsonContent)
+      const item = await getRegistryItem(name, styleName, iconLibrary)
       code = item?.files?.[0]?.content
     } catch (error) {
       console.error(`Error reading static registry: ${name}`, error)
@@ -99,36 +160,26 @@ export async function ComponentSource({
   }
 
   if (!code && src) {
-    const projectRoot = process.cwd()
-    let absolutePath: string
-    if (src.startsWith("registry/")) {
-      absolutePath = path.join(projectRoot, "registry", src.slice(9))
-    } else if (src.startsWith("registry-reui/")) {
-      absolutePath = path.join(projectRoot, "registry-reui", src.slice(14))
-    } else {
-      absolutePath = path.join(projectRoot, src)
-    }
-
-    // Resolve and verify the path stays within the project directory
-    const resolvedPath = path.resolve(absolutePath)
-    if (
-      !resolvedPath.startsWith(projectRoot + path.sep) &&
-      resolvedPath !== projectRoot
-    ) {
-      console.error(`Path traversal blocked: ${src}`)
+    const sourceMatch = findRegistryItemFromSrc(src, styleName)
+    if (!sourceMatch) {
+      console.error(`Unsupported source path: ${src}`)
     } else {
       try {
-        code = await fs.readFile(resolvedPath, "utf-8")
+        const item = await getRegistryItem(
+          sourceMatch.name,
+          styleName,
+          iconLibrary
+        )
+        const file = item?.files?.[sourceMatch.fileIndex] ?? item?.files?.[0]
+        code = file?.content
+      } catch (error) {
+        console.error("Error loading source file from registry", error)
+      }
 
-        // Transform classNames for display
-        code = transformStyleClassNames(code, styleName)
-
-        // Transform icons for file-based source
+      if (code) {
         const effectiveIconLibrary =
           iconLibrary || getIconLibraryFromStyle(styleName)
         code = transformIcons(code, effectiveIconLibrary)
-      } catch (error) {
-        console.error("Error reading source file", error)
       }
     }
   }
