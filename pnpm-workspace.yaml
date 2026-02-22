@@ -2,6 +2,7 @@ packages:
   - packages/*
   - docs
   - docs-blitz
+  - docs-blitz-2
   - test
   - test/*
   - scripts/*

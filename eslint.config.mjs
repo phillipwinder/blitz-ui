@@ -31,7 +31,7 @@ const NO_RESTRICTED_IMPORTS_PATHS_TOP_LEVEL_PACKAGES = [
 ];
 
 export default defineConfig(
-  globalIgnores(['./examples', 'docs-blitz']),
+  globalIgnores(['./examples', 'docs-blitz', 'docs-blitz-2']),
   createBaseConfig({
     baseDirectory: dirname,
   }),

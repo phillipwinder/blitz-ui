@@ -19,6 +19,9 @@
       "path": "docs-blitz/tsconfig.json"
     },
     {
+      "path": "docs-blitz-2/tsconfig.json"
+    },
+    {
       "path": "packages/react-blitz/tsconfig.json"
     }
   ]
