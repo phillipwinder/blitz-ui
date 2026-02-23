@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect } from 'react';
 import { useEditorStore } from '../store/editor-store';
 import { applyThemeToElement } from '@/utils/apply-theme';
 import { useThemePresetFromUrl } from '@/hooks/use-theme-preset-from-url';
+import { ThemeProvider as BlitzThemeProvider } from '@blitz-ui/react/theme-provider';
 
 type Theme = 'dark' | 'light';
 
@@ -74,7 +75,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
-      {children}
+      <BlitzThemeProvider>{children}</BlitzThemeProvider>
     </ThemeProviderContext.Provider>
   );
 }

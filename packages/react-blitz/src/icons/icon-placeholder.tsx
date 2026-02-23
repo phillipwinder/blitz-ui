@@ -2,10 +2,6 @@
 
 import * as React from 'react';
 import { SquareIcon } from 'lucide-react';
-
-// import { useConfig } from '@/hooks/use-config';
-// import { DesignSystemContext } from '@/app/(create)/components/design-system-provider';
-// import { useDesignSystemSearchParams } from '@/app/(create)/lib/search-params';
 import { IconLibraryName, useTheme } from '../theme-provider';
 
 const IconLucide = React.lazy(() =>

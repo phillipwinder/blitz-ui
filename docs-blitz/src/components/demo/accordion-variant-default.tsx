@@ -1,41 +1,34 @@
 import {
-  AccordionHeader,
   AccordionItem,
-  AccordionPanel,
-  AccordionRoot,
   AccordionTrigger,
+  AccordionContent,
+  Accordion,
 } from '@blitz-ui/react/accordion';
 
 export default function AccordionVariantDefault() {
   return (
-    <AccordionRoot multiple={false} className="w-full lg:w-[75%]">
+    <Accordion multiple={false} className="w-full lg:w-[75%]">
       <AccordionItem value="coui-1">
-        <AccordionHeader>
-          <AccordionTrigger>What is Blitz UI?</AccordionTrigger>
-        </AccordionHeader>
-        <AccordionPanel>
+        <AccordionTrigger>What is Blitz UI?</AccordionTrigger>
+        <AccordionContent>
           Blitz UI is a flexible UI library that you can either install as a dependency or copy as
           shadcn-style components for full customization.
-        </AccordionPanel>
+        </AccordionContent>
       </AccordionItem>
       <AccordionItem value="coui-2">
-        <AccordionHeader>
-          <AccordionTrigger>Who benefits from Blitz UI?</AccordionTrigger>
-        </AccordionHeader>
-        <AccordionPanel>
+        <AccordionTrigger>Who benefits from Blitz UI?</AccordionTrigger>
+        <AccordionContent>
           Developers who want the freedom to choose between a drop-in package and self-hosted, fully
           editable components.
-        </AccordionPanel>
+        </AccordionContent>
       </AccordionItem>
       <AccordionItem value="coui-3">
-        <AccordionHeader>
-          <AccordionTrigger>Why choose Blitz UI?</AccordionTrigger>
-        </AccordionHeader>
-        <AccordionPanel>
+        <AccordionTrigger>Why choose Blitz UI?</AccordionTrigger>
+        <AccordionContent>
           Blitz UI provides a best-of-both-worlds approach—easy dependency-based usage or
           shadcn-inspired components for total control and customization.
-        </AccordionPanel>
+        </AccordionContent>
       </AccordionItem>
-    </AccordionRoot>
+    </Accordion>
   );
 }

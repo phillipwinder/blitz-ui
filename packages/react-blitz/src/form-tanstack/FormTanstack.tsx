@@ -4,8 +4,8 @@ import { useRender } from '@base-ui/react/use-render';
 import { createFormHookContexts, createFormHook } from '@tanstack/react-form';
 import * as React from 'react';
 
-import { cn } from '@/lib/utils';
-import { Label } from '@/registry/components/ui/label';
+import { cn } from '../lib/utils';
+import { Label } from '../label';
 
 const { fieldContext, formContext, useFieldContext } = createFormHookContexts();
 

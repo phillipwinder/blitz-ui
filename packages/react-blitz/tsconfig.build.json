@@ -12,12 +12,7 @@
     "rootDir": "./src",
     "outDir": "build/esm",
 
-    "baseUrl": ".",
-    "paths": {
-      "@/lib/*": ["./src/lib/*"],
-      "@/registry/components/ui/*": ["./src/*"],
-      "@/registry/hooks/*": ["./src/hooks/*"]
-    }
+    "baseUrl": "."
   },
   "include": ["src/**/*.ts*"],
   "exclude": ["src/**/*.spec.ts*", "src/**/*.test.ts*"],

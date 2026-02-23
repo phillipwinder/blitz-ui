@@ -105,7 +105,10 @@ const Editor: React.FC<EditorProps> = ({ themePromise }) => {
     <DialogActionsProvider>
       <div className="relative isolate flex flex-1 overflow-hidden">
         <div className="size-full">
-          <ResizablePanelGroup direction="horizontal" className="isolate">
+          <ResizablePanelGroup
+            // direction="horizontal"
+            className="isolate"
+          >
             <ResizablePanel
               defaultSize={30}
               minSize={20}

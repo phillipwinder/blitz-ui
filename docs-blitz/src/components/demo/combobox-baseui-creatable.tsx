@@ -4,15 +4,12 @@ import { Button } from '@blitz-ui/react/button';
 import {
   Combobox,
   ComboboxChip,
-  ComboboxChipRemove,
   ComboboxChips,
   ComboboxEmpty,
   ComboboxInput,
   ComboboxItem,
-  ComboboxItemIndicator,
   ComboboxList,
-  ComboboxPopup,
-  ComboboxPositioner,
+  ComboboxContent,
   ComboboxValue,
 } from '@blitz-ui/react/combobox';
 import { Input } from '@blitz-ui/react/input';
@@ -150,7 +147,7 @@ export default function ComboboxCreatableDemo() {
                   {value.map((label) => (
                     <ComboboxChip key={label.id} aria-label={label.value}>
                       {label.value}
-                      <ComboboxChipRemove />
+                      {/* <ComboboxChipRemove /> */}
                     </ComboboxChip>
                   ))}
                   <ComboboxInput
@@ -165,28 +162,30 @@ export default function ComboboxCreatableDemo() {
           </ComboboxChips>
         </div>
 
-        <ComboboxPositioner className="z-50 outline-none" sideOffset={4} anchor={containerRef}>
-          <ComboboxPopup>
-            <ComboboxEmpty>No labels found.</ComboboxEmpty>
-            <ComboboxList>
-              {(item: LabelItem) =>
-                item.creatable ? (
-                  <ComboboxItem key={item.id} value={item}>
-                    <span className="col-start-1">
-                      <PlusIcon className="size-3" />
-                    </span>
-                    <div className="col-start-2">Create &quot;{item.creatable}&quot;</div>
-                  </ComboboxItem>
-                ) : (
-                  <ComboboxItem key={item.id} value={item}>
-                    <ComboboxItemIndicator />
-                    <div className="col-start-2">{item.value}</div>
-                  </ComboboxItem>
-                )
-              }
-            </ComboboxList>
-          </ComboboxPopup>
-        </ComboboxPositioner>
+        {/* <ComboboxPositioner className="z-50 outline-none" sideOffset={4} anchor={containerRef}>
+          <ComboboxPopup> */}
+        <ComboboxContent className="z-50 outline-none" sideOffset={4} anchor={containerRef}>
+          <ComboboxEmpty>No labels found.</ComboboxEmpty>
+          <ComboboxList>
+            {(item: LabelItem) =>
+              item.creatable ? (
+                <ComboboxItem key={item.id} value={item}>
+                  <span className="col-start-1">
+                    <PlusIcon className="size-3" />
+                  </span>
+                  <div className="col-start-2">Create &quot;{item.creatable}&quot;</div>
+                </ComboboxItem>
+              ) : (
+                <ComboboxItem key={item.id} value={item}>
+                  {/* <ComboboxItemIndicator /> */}
+                  <div className="col-start-2">{item.value}</div>
+                </ComboboxItem>
+              )
+            }
+          </ComboboxList>
+        </ComboboxContent>
+        {/* </ComboboxPopup>
+        </ComboboxPositioner> */}
       </Combobox>
 
       <Dialog open={openDialog} onOpenChange={setOpenDialog}>

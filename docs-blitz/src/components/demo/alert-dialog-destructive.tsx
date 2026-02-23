@@ -10,7 +10,7 @@ import {
   AlertDialogTrigger,
 } from '@blitz-ui/react/alert-dialog';
 import { OctagonAlert } from 'lucide-react';
-import { Button, buttonVariants } from '@blitz-ui/react/button';
+import { Button } from '@blitz-ui/react/button';
 
 export default function AlertDialogDestructive() {
   return (
@@ -31,9 +31,7 @@ export default function AlertDialogDestructive() {
         </AlertDialogHeader>
         <AlertDialogFooter className="mt-2">
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction className={buttonVariants({ variant: 'destructive' })}>
-            Continue
-          </AlertDialogAction>
+          <AlertDialogAction variant="destructive">Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

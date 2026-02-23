@@ -67,7 +67,7 @@ export const SliderWithInput = ({
         step={step}
         onValueChange={(value) => {
           setLocalValue(value.toString());
-          onChange(value);
+          onChange(value as number);
         }}
         className="py-1"
       />

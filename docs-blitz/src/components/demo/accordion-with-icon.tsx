@@ -1,15 +1,14 @@
 import { Box, Truck, Undo2 } from 'lucide-react';
 import {
-  AccordionPanel,
-  AccordionHeader,
   AccordionItem,
-  AccordionRoot,
   AccordionTrigger,
+  Accordion,
+  AccordionContent,
 } from '@blitz-ui/react/accordion';
 
 export default function AccordionWithIcon() {
   return (
-    <AccordionRoot
+    <Accordion
       className="w-full max-w-md mx-auto space-y-2"
       defaultValue={[accordionItems[0].value]}
       multiple={false}
@@ -20,21 +19,19 @@ export default function AccordionWithIcon() {
           value={item.value}
           className="last:border-b border rounded-md"
         >
-          <AccordionHeader>
-            <AccordionTrigger className="py-3 px-5 text-base items-center">
-              <div className="flex items-center gap-3">
-                <item.icon className="size-5 text-muted-foreground" />
-                {item.title}
-              </div>
-            </AccordionTrigger>
-          </AccordionHeader>
-          <AccordionPanel className="relative flex flex-col gap-4 px-5 pl-13">
+          <AccordionTrigger className="py-3 px-5 text-base items-center">
+            <div className="flex items-center gap-3">
+              <item.icon className="size-5 text-muted-foreground" />
+              {item.title}
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="relative flex flex-col gap-4 px-5 pl-13">
             <p>{item.content}</p>
             <div className="w-px h-full absolute left-7.5 inset-y-0 border-l border-dashed" />
-          </AccordionPanel>
+          </AccordionContent>
         </AccordionItem>
       ))}
-    </AccordionRoot>
+    </Accordion>
   );
 }
 

@@ -4,7 +4,6 @@ import { Label } from '@blitz-ui/react/label';
 import {
   AutocompleteInput,
   AutocompletePositioner,
-  AutocompletePopup,
   AutocompleteEmpty,
   AutocompleteList,
   AutocompleteItem,
@@ -18,16 +17,16 @@ export default function AutocompleteDemo() {
         <Label htmlFor="tags">Tags</Label>
         <AutocompleteInput id="tags" placeholder="e.g. feature" className="mt-2" />
         <AutocompletePositioner sideOffset={6}>
-          <AutocompletePopup>
-            <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
-            <AutocompleteList>
-              {(tag) => (
-                <AutocompleteItem key={tag.id} value={tag.value}>
-                  {tag.value}
-                </AutocompleteItem>
-              )}
-            </AutocompleteList>
-          </AutocompletePopup>
+          {/* <AutocompletePopup> */}
+          <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
+          <AutocompleteList>
+            {(tag) => (
+              <AutocompleteItem key={tag.id} value={tag.value}>
+                {tag.value}
+              </AutocompleteItem>
+            )}
+          </AutocompleteList>
+          {/* </AutocompletePopup> */}
         </AutocompletePositioner>
       </Autocomplete>
     </div>

@@ -8,7 +8,6 @@ import {
   AutocompleteInput,
   AutocompleteItem,
   AutocompleteList,
-  AutocompletePopup,
   AutocompletePositioner,
   AutocompleteGroup,
 } from '@blitz-ui/react/autocomplete';
@@ -21,25 +20,25 @@ export default function AutocompleteGroupedItems() {
         <Label htmlFor="tags">Tags</Label>
         <AutocompleteInput id="tags" placeholder="e.g. feature" className="mt-2" />
         <AutocompletePositioner sideOffset={6}>
-          <AutocompletePopup>
-            <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
-            <AutocompleteList>
-              {(group: TagGroup) => (
-                <AutocompleteGroup key={group.value} items={group.items}>
-                  <AutocompleteGroupLabel className="sticky top-0 z-1 uppercase">
-                    {group.value}
-                  </AutocompleteGroupLabel>
-                  <AutocompleteCollection>
-                    {(tag: Tag) => (
-                      <AutocompleteItem key={tag.id} value={tag}>
-                        {tag.label}
-                      </AutocompleteItem>
-                    )}
-                  </AutocompleteCollection>
-                </AutocompleteGroup>
-              )}
-            </AutocompleteList>
-          </AutocompletePopup>
+          {/* <AutocompletePopup> */}
+          <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
+          <AutocompleteList>
+            {(group: TagGroup) => (
+              <AutocompleteGroup key={group.value} items={group.items}>
+                <AutocompleteGroupLabel className="sticky top-0 z-1 uppercase">
+                  {group.value}
+                </AutocompleteGroupLabel>
+                <AutocompleteCollection>
+                  {(tag: Tag) => (
+                    <AutocompleteItem key={tag.id} value={tag}>
+                      {tag.label}
+                    </AutocompleteItem>
+                  )}
+                </AutocompleteCollection>
+              </AutocompleteGroup>
+            )}
+          </AutocompleteList>
+          {/* </AutocompletePopup> */}
         </AutocompletePositioner>
       </Autocomplete>
     </div>

@@ -1,50 +1,44 @@
 'use client';
+
 import type { ComponentProps } from 'react';
 import { Search } from 'lucide-react';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useSearchContext } from 'fumadocs-ui/contexts/search';
 import { useI18n } from 'fumadocs-ui/contexts/i18n';
 
-interface SearchToggleProps
-  extends Omit<ComponentProps<'button'>, 'color'>, ComponentProps<typeof Button> {
+interface SearchToggleProps extends ComponentProps<typeof Button> {
   hideIfDisabled?: boolean;
 }
 
 export function SearchToggle({
   hideIfDisabled,
   size = 'icon',
-  variant = 'ghost',
+  onClick,
   ...props
 }: SearchToggleProps) {
   const { setOpenSearch, enabled } = useSearchContext();
   if (hideIfDisabled && !enabled) return null;
 
   return (
-    <button
-      type="button"
-      className={cn(
-        buttonVariants({
-          size,
-          variant,
-        }),
-        props.className,
-      )}
+    <Button
       data-search
       aria-label="Open Search"
-      onClick={() => {
+      onClick={(e) => {
         setOpenSearch(true);
+        onClick?.(e);
       }}
     >
       <Search />
-    </button>
+    </Button>
   );
 }
 
 export function LargeSearchToggle({
   hideIfDisabled,
+  onClick,
   ...props
-}: ComponentProps<'button'> & {
+}: ComponentProps<typeof Button> & {
   hideIfDisabled?: boolean;
 }) {
   const { enabled, hotKey, setOpenSearch } = useSearchContext();
@@ -52,16 +46,16 @@ export function LargeSearchToggle({
   if (hideIfDisabled && !enabled) return null;
 
   return (
-    <button
-      type="button"
+    <Button
       data-search-full
       {...props}
       className={cn(
         'inline-flex items-center gap-2 rounded-lg border bg-fd-secondary/50 p-1.5 ps-2 text-sm text-fd-muted-foreground transition-colors hover:bg-fd-accent hover:text-fd-accent-foreground',
         props.className,
       )}
-      onClick={() => {
+      onClick={(e) => {
         setOpenSearch(true);
+        onClick?.(e);
       }}
     >
       <Search className="size-4" />
@@ -73,6 +67,6 @@ export function LargeSearchToggle({
           </kbd>
         ))}
       </div>
-    </button>
+    </Button>
   );
 }

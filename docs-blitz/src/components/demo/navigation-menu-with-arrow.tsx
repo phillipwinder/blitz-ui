@@ -1,57 +1,54 @@
-"use client";
+'use client';
 
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react";
-import Link from "next/link";
-import * as React from "react";
+import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from 'lucide-react';
+import Link from 'next/link';
+import * as React from 'react';
 
 import {
   NavigationMenu,
-  NavigationMenuArrow,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuPopup,
   NavigationMenuPositioner,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/registry/components/ui/navigation-menu";
+} from '@blitz-ui/react/navigation-menu';
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
+    title: 'Alert Dialog',
+    href: '/docs/primitives/alert-dialog',
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      'A modal dialog that interrupts the user with important content and expects a response.',
   },
   {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
+    title: 'Hover Card',
+    href: '/docs/primitives/hover-card',
+    description: 'For sighted users to preview content available behind a link.',
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
+    title: 'Progress',
+    href: '/docs/primitives/progress',
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
   },
   {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
+    title: 'Scroll-area',
+    href: '/docs/primitives/scroll-area',
+    description: 'Visually or semantically separates content.',
   },
   {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
+    title: 'Tabs',
+    href: '/docs/primitives/tabs',
     description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
   },
   {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
+    title: 'Tooltip',
+    href: '/docs/primitives/tooltip',
     description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+      'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
   },
 ];
 
@@ -95,11 +92,7 @@ export default function NavigationMenuWithArrow() {
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
+                <ListItem key={component.title} title={component.title} href={component.href}>
                   {component.description}
                 </ListItem>
               ))}
@@ -108,9 +101,7 @@ export default function NavigationMenuWithArrow() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink
-            render={
-              <Link href="/docs" className={navigationMenuTriggerStyle()} />
-            }
+            render={<Link href="/docs" className={navigationMenuTriggerStyle()} />}
           >
             Docs
           </NavigationMenuLink>
@@ -122,21 +113,15 @@ export default function NavigationMenuWithArrow() {
               <li>
                 <NavigationMenuLink render={<Link href="#" />}>
                   <div className="font-medium">Components</div>
-                  <div className="text-muted-foreground">
-                    Browse all components in the library.
-                  </div>
+                  <div className="text-muted-foreground">Browse all components in the library.</div>
                 </NavigationMenuLink>
                 <NavigationMenuLink render={<Link href="#" />}>
                   <div className="font-medium">Documentation</div>
-                  <div className="text-muted-foreground">
-                    Learn how to use the library.
-                  </div>
+                  <div className="text-muted-foreground">Learn how to use the library.</div>
                 </NavigationMenuLink>
                 <NavigationMenuLink render={<Link href="#" />}>
                   <div className="font-medium">Blog</div>
-                  <div className="text-muted-foreground">
-                    Read our latest blog posts.
-                  </div>
+                  <div className="text-muted-foreground">Read our latest blog posts.</div>
                 </NavigationMenuLink>
               </li>
             </ul>
@@ -147,15 +132,9 @@ export default function NavigationMenuWithArrow() {
           <NavigationMenuContent>
             <ul className="grid w-[200px] gap-4">
               <li>
-                <NavigationMenuLink render={<Link href="#" />}>
-                  Components
-                </NavigationMenuLink>
-                <NavigationMenuLink render={<Link href="#" />}>
-                  Documentation
-                </NavigationMenuLink>
-                <NavigationMenuLink render={<Link href="#" />}>
-                  Blocks
-                </NavigationMenuLink>
+                <NavigationMenuLink render={<Link href="#" />}>Components</NavigationMenuLink>
+                <NavigationMenuLink render={<Link href="#" />}>Documentation</NavigationMenuLink>
+                <NavigationMenuLink render={<Link href="#" />}>Blocks</NavigationMenuLink>
               </li>
             </ul>
           </NavigationMenuContent>
@@ -166,25 +145,19 @@ export default function NavigationMenuWithArrow() {
             <ul className="grid w-[200px] gap-4">
               <li>
                 <NavigationMenuLink
-                  render={
-                    <Link href="#" className="flex-row items-center gap-2" />
-                  }
+                  render={<Link href="#" className="flex-row items-center gap-2" />}
                 >
                   <CircleHelpIcon />
                   Backlog
                 </NavigationMenuLink>
                 <NavigationMenuLink
-                  render={
-                    <Link href="#" className="flex-row items-center gap-2" />
-                  }
+                  render={<Link href="#" className="flex-row items-center gap-2" />}
                 >
                   <CircleIcon />
                   To Do
                 </NavigationMenuLink>
                 <NavigationMenuLink
-                  render={
-                    <Link href="#" className="flex-row items-center gap-2" />
-                  }
+                  render={<Link href="#" className="flex-row items-center gap-2" />}
                 >
                   <CircleCheckIcon />
                   Done
@@ -196,9 +169,9 @@ export default function NavigationMenuWithArrow() {
       </NavigationMenuList>
 
       <NavigationMenuPositioner>
-        <NavigationMenuPopup>
+        {/* <NavigationMenuPopup>
           <NavigationMenuArrow />
-        </NavigationMenuPopup>
+        </NavigationMenuPopup> */}
       </NavigationMenuPositioner>
     </NavigationMenu>
   );
@@ -209,14 +182,12 @@ function ListItem({
   children,
   href,
   ...props
-}: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
+}: React.ComponentPropsWithoutRef<'li'> & { href: string }) {
   return (
     <li {...props}>
       <NavigationMenuLink render={<Link href={href} />}>
         <div className="text-sm leading-none font-medium">{title}</div>
-        <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-          {children}
-        </p>
+        <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">{children}</p>
       </NavigationMenuLink>
     </li>
   );

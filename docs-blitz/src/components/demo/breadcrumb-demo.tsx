@@ -11,9 +11,9 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuPositioner,
+  // DropdownMenuPositioner,
   DropdownMenuTrigger,
-} from '@blitz-ui/react/menu';
+} from '@blitz-ui/react/dropdown-menu';
 
 export default function BreadcrumbDemo() {
   return (
@@ -29,13 +29,13 @@ export default function BreadcrumbDemo() {
               <BreadcrumbEllipsis className="size-4" />
               <span className="sr-only">Toggle menu</span>
             </DropdownMenuTrigger>
-            <DropdownMenuPositioner align="start">
-              <DropdownMenuContent>
-                <DropdownMenuItem>Documentation</DropdownMenuItem>
-                <DropdownMenuItem>Themes</DropdownMenuItem>
-                <DropdownMenuItem>GitHub</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenuPositioner>
+            {/* <DropdownMenuPositioner align="start"> */}
+            <DropdownMenuContent align="start">
+              <DropdownMenuItem>Documentation</DropdownMenuItem>
+              <DropdownMenuItem>Themes</DropdownMenuItem>
+              <DropdownMenuItem>GitHub</DropdownMenuItem>
+            </DropdownMenuContent>
+            {/* </DropdownMenuPositioner> */}
           </DropdownMenu>
         </BreadcrumbItem>
         <BreadcrumbSeparator />

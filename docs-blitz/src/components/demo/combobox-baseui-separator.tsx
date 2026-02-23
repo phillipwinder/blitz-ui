@@ -2,16 +2,13 @@
 
 import {
   Combobox,
-  ComboboxClear,
   ComboboxCollection,
+  ComboboxContent,
   ComboboxEmpty,
   ComboboxGroup,
   ComboboxInput,
   ComboboxItem,
-  ComboboxItemIndicator,
   ComboboxList,
-  ComboboxPopup,
-  ComboboxPositioner,
   ComboboxSeparator,
   ComboboxTrigger,
 } from '@blitz-ui/react/combobox';
@@ -29,7 +26,7 @@ export default function ComboboxSeparatorDemo() {
           <Label htmlFor={id}>Choose a food</Label>
           <ComboboxInput placeholder="e.g. Apple" id={id} />
           <div className="absolute right-2 bottom-0 flex h-9 items-center justify-center text-muted-foreground">
-            <ComboboxClear />
+            {/* <ComboboxClear /> */}
             <ComboboxTrigger
               className="h-9 w-6 text-muted-foreground shadow-none bg-transparent hover:bg-transparent border-none"
               aria-label="Open popup"
@@ -39,26 +36,28 @@ export default function ComboboxSeparatorDemo() {
           </div>
         </div>
 
-        <ComboboxPositioner sideOffset={6}>
-          <ComboboxPopup>
-            <ComboboxEmpty className="not-empty:pt-3">No foods found.</ComboboxEmpty>
-            <ComboboxList>
-              {(group: Group) => (
-                <ComboboxGroup key={group.value} items={group.items} className="group">
-                  <ComboboxCollection>
-                    {(item: Item) => (
-                      <ComboboxItem key={item.value} value={item}>
-                        <ComboboxItemIndicator />
-                        <div className="col-start-2">{item.label}</div>
-                      </ComboboxItem>
-                    )}
-                  </ComboboxCollection>
-                  <ComboboxSeparator className="my-3 group-last:hidden" />
-                </ComboboxGroup>
-              )}
-            </ComboboxList>
-          </ComboboxPopup>
-        </ComboboxPositioner>
+        {/* <ComboboxPositioner sideOffset={6}>
+          <ComboboxPopup> */}
+        <ComboboxContent sideOffset={6}>
+          <ComboboxEmpty className="not-empty:pt-3">No foods found.</ComboboxEmpty>
+          <ComboboxList>
+            {(group: Group) => (
+              <ComboboxGroup key={group.value} items={group.items} className="group">
+                <ComboboxCollection>
+                  {(item: Item) => (
+                    <ComboboxItem key={item.value} value={item}>
+                      {/* <ComboboxItemIndicator /> */}
+                      <div className="col-start-2">{item.label}</div>
+                    </ComboboxItem>
+                  )}
+                </ComboboxCollection>
+                <ComboboxSeparator className="my-3 group-last:hidden" />
+              </ComboboxGroup>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+        {/* </ComboboxPopup>
+        </ComboboxPositioner> */}
       </Combobox>
     </div>
   );

@@ -7,7 +7,7 @@ import {
   AutocompleteInput,
   AutocompleteItem,
   AutocompleteList,
-  AutocompletePopup,
+  // AutocompletePopup,
   AutocompletePositioner,
 } from '@blitz-ui/react/autocomplete';
 import { Label } from '@blitz-ui/react/label';
@@ -22,16 +22,16 @@ export default function AutocompleteClearDemo() {
           <AutocompleteClear className="absolute right-2 top-1/2 -translate-y-1/2" />
         </div>
         <AutocompletePositioner sideOffset={6}>
-          <AutocompletePopup>
-            <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
-            <AutocompleteList>
-              {(tag) => (
-                <AutocompleteItem key={tag.id} value={tag.value}>
-                  {tag.value}
-                </AutocompleteItem>
-              )}
-            </AutocompleteList>
-          </AutocompletePopup>
+          {/* <AutocompletePopup> */}
+          <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
+          <AutocompleteList>
+            {(tag) => (
+              <AutocompleteItem key={tag.id} value={tag.value}>
+                {tag.value}
+              </AutocompleteItem>
+            )}
+          </AutocompleteList>
+          {/* </AutocompletePopup> */}
         </AutocompletePositioner>
       </Autocomplete>
     </div>

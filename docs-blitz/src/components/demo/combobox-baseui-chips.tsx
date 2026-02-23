@@ -3,19 +3,15 @@
 import {
   Combobox,
   ComboboxChip,
-  ComboboxChipRemove,
   ComboboxChips,
+  ComboboxContent,
   ComboboxEmpty,
   ComboboxInput,
   ComboboxItem,
-  ComboboxItemIndicator,
   ComboboxList,
-  ComboboxPopup,
-  ComboboxPositioner,
   ComboboxValue,
 } from '@blitz-ui/react/combobox';
 import { Label } from '@blitz-ui/react/label';
-import { XIcon } from 'lucide-react';
 import * as React from 'react';
 
 export default function ComboboxChipsDemo() {
@@ -33,7 +29,7 @@ export default function ComboboxChipsDemo() {
                 {value.map((language) => (
                   <ComboboxChip key={language.id} aria-label={language.value}>
                     {language.value}
-                    <ComboboxChipRemove />
+                    {/* <ComboboxChipRemove /> */}
                   </ComboboxChip>
                 ))}
                 <ComboboxInput
@@ -47,19 +43,21 @@ export default function ComboboxChipsDemo() {
         </ComboboxChips>
       </div>
 
-      <ComboboxPositioner className="z-50 outline-none" sideOffset={6} anchor={containerRef}>
-        <ComboboxPopup>
-          <ComboboxEmpty>No languages found.</ComboboxEmpty>
-          <ComboboxList>
-            {(language: ProgrammingLanguage) => (
-              <ComboboxItem key={language.id} value={language}>
-                <ComboboxItemIndicator />
-                <div className="col-start-2">{language.value}</div>
-              </ComboboxItem>
-            )}
-          </ComboboxList>
-        </ComboboxPopup>
-      </ComboboxPositioner>
+      {/* <ComboboxPositioner className="z-50 outline-none" sideOffset={6} anchor={containerRef}>
+        <ComboboxPopup> */}
+      <ComboboxContent className="z-50 outline-none" sideOffset={6} anchor={containerRef}>
+        <ComboboxEmpty>No languages found.</ComboboxEmpty>
+        <ComboboxList>
+          {(language: ProgrammingLanguage) => (
+            <ComboboxItem key={language.id} value={language}>
+              {/* <ComboboxItemIndicator /> */}
+              <div className="col-start-2">{language.value}</div>
+            </ComboboxItem>
+          )}
+        </ComboboxList>
+      </ComboboxContent>
+      {/* </ComboboxPopup>
+      </ComboboxPositioner> */}
     </Combobox>
   );
 }

@@ -123,7 +123,6 @@ const ThemeCycleButton: React.FC<ThemeCycleButtonProps> = ({
 interface ThemePresetCycleControlsProps extends React.ComponentProps<typeof Button> {
   filteredPresets: string[];
   currentPresetName: string;
-  className?: string;
 }
 
 const ThemePresetCycleControls: React.FC<ThemePresetCycleControlsProps> = ({

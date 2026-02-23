@@ -2,17 +2,14 @@
 
 import {
   Combobox,
-  ComboboxClear,
   ComboboxCollection,
+  ComboboxContent,
   ComboboxEmpty,
   ComboboxGroup,
-  ComboboxGroupLabel,
   ComboboxInput,
   ComboboxItem,
-  ComboboxItemIndicator,
+  ComboboxLabel,
   ComboboxList,
-  ComboboxPopup,
-  ComboboxPositioner,
   ComboboxTrigger,
 } from '@blitz-ui/react/combobox';
 import { Label } from '@blitz-ui/react/label';
@@ -29,7 +26,7 @@ export default function ComboboxGroups() {
           <Label htmlFor={id}>Choose a food</Label>
           <ComboboxInput placeholder="e.g. Apple" id={id} />
           <div className="absolute right-2 bottom-0 flex h-9 items-center justify-center text-muted-foreground">
-            <ComboboxClear />
+            {/* <ComboboxClear /> */}
             <ComboboxTrigger
               className="h-9 w-6 text-muted-foreground shadow-none bg-transparent hover:bg-transparent border-none"
               aria-label="Open popup"
@@ -39,27 +36,29 @@ export default function ComboboxGroups() {
           </div>
         </div>
 
-        <ComboboxPositioner sideOffset={6}>
-          <ComboboxPopup className="pt-0">
-            <ComboboxEmpty className="not-empty:pt-3">No results found.</ComboboxEmpty>
-            <ComboboxList>
-              {(group: Group) => (
-                <ComboboxGroup key={group.value} items={group.items}>
-                  <ComboboxGroupLabel className="border-b mb-1">{group.value}</ComboboxGroupLabel>
+        {/* <ComboboxPositioner sideOffset={6}>
+          <ComboboxPopup className="pt-0"> */}
+        <ComboboxContent sideOffset={6}>
+          <ComboboxEmpty className="not-empty:pt-3">No results found.</ComboboxEmpty>
+          <ComboboxList>
+            {(group: Group) => (
+              <ComboboxGroup key={group.value} items={group.items}>
+                <ComboboxLabel className="border-b mb-1">{group.value}</ComboboxLabel>
 
-                  <ComboboxCollection>
-                    {(item: Item) => (
-                      <ComboboxItem key={item.value} value={item}>
-                        <ComboboxItemIndicator />
-                        <div className="col-start-2">{item.label}</div>
-                      </ComboboxItem>
-                    )}
-                  </ComboboxCollection>
-                </ComboboxGroup>
-              )}
-            </ComboboxList>
-          </ComboboxPopup>
-        </ComboboxPositioner>
+                <ComboboxCollection>
+                  {(item: Item) => (
+                    <ComboboxItem key={item.value} value={item}>
+                      {/* <ComboboxItemIndicator /> */}
+                      <div className="col-start-2">{item.label}</div>
+                    </ComboboxItem>
+                  )}
+                </ComboboxCollection>
+              </ComboboxGroup>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+        {/* </ComboboxPopup>
+        </ComboboxPositioner> */}
       </Combobox>
     </div>
   );

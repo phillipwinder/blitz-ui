@@ -1,15 +1,14 @@
 import { Minus, Plus } from 'lucide-react';
 import {
-  AccordionPanel,
-  AccordionHeader,
   AccordionItem,
-  AccordionRoot,
   AccordionTrigger,
+  AccordionContent,
+  Accordion,
 } from '@blitz-ui/react/accordion';
 
 export default function AccordionTabs() {
   return (
-    <AccordionRoot
+    <Accordion
       className="w-full max-w-md mx-auto space-y-2"
       defaultValue={[accordionItems[0].value]}
       multiple={false}
@@ -20,23 +19,23 @@ export default function AccordionTabs() {
           value={item.value}
           className="last:border-b border rounded-md"
         >
-          <AccordionHeader className="flex items-center">
-            <AccordionTrigger
-              data-slot="accordion-trigger"
-              className="group focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-3 px-5 text-left text-base font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-panel-open]>svg]:rotate-180"
-            >
-              {item.title}
-              <Plus className="group-data-[panel-open]:hidden text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
-              <Minus className="group-data-[panel-open]:block hidden text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
-            </AccordionTrigger>
-          </AccordionHeader>
+          {/* <AccordionHeader className="flex items-center"> */}
+          <AccordionTrigger
+            data-slot="accordion-trigger"
+            className="group focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-3 px-5 text-left text-base font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-panel-open]>svg]:rotate-180"
+          >
+            {item.title}
+            <Plus className="group-data-[panel-open]:hidden text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
+            <Minus className="group-data-[panel-open]:block hidden text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
+          </AccordionTrigger>
+          {/* </AccordionHeader> */}
 
-          <AccordionPanel className="flex flex-col gap-4 px-5">
+          <AccordionContent className="flex flex-col gap-4 px-5">
             <p>{item.content}</p>
-          </AccordionPanel>
+          </AccordionContent>
         </AccordionItem>
       ))}
-    </AccordionRoot>
+    </Accordion>
   );
 }
 

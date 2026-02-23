@@ -2,6 +2,42 @@ import { type Registry } from "shadcn/schema"
 
 export const reui: Registry["items"] = [
   {
+    "name": "accordion",
+    "type": "registry:ui",
+    "title": "Accordion",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/accordion.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/accordion.tsx"
+      }
+    ]
+  },
+  {
+    "name": "alert-dialog",
+    "type": "registry:ui",
+    "title": "Alert Dialog",
+    "description": "",
+    "registryDependencies": [
+      "button"
+    ],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/alert-dialog.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/alert-dialog.tsx"
+      }
+    ]
+  },
+  {
     "name": "alert",
     "type": "registry:ui",
     "title": "Alert",
@@ -43,6 +79,21 @@ export const reui: Registry["items"] = [
     }
   },
   {
+    "name": "aspect-ratio",
+    "type": "registry:ui",
+    "title": "Aspect Ratio",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [],
+    "files": [
+      {
+        "path": "reui/aspect-ratio.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/aspect-ratio.tsx"
+      }
+    ]
+  },
+  {
     "name": "autocomplete",
     "type": "registry:ui",
     "title": "Autocomplete",
@@ -59,6 +110,23 @@ export const reui: Registry["items"] = [
         "path": "reui/autocomplete.tsx",
         "type": "registry:ui",
         "target": "components/reui/autocomplete.tsx"
+      }
+    ]
+  },
+  {
+    "name": "avatar",
+    "type": "registry:ui",
+    "title": "Avatar",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/avatar.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/avatar.tsx"
       }
     ]
   },
@@ -103,6 +171,205 @@ export const reui: Registry["items"] = [
         "invert-foreground": "var(--color-zinc-50)"
       }
     }
+  },
+  {
+    "name": "breadcrumb",
+    "type": "registry:ui",
+    "title": "Breadcrumb",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/breadcrumb.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/breadcrumb.tsx"
+      }
+    ]
+  },
+  {
+    "name": "button-group",
+    "type": "registry:ui",
+    "title": "Button Group",
+    "description": "",
+    "registryDependencies": [
+      "separator"
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "reui/button-group.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/button-group.tsx"
+      }
+    ]
+  },
+  {
+    "name": "button",
+    "type": "registry:ui",
+    "title": "Button",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "reui/button.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/button.tsx"
+      }
+    ]
+  },
+  {
+    "name": "calendar",
+    "type": "registry:ui",
+    "title": "Calendar",
+    "description": "",
+    "registryDependencies": [
+      "button"
+    ],
+    "dependencies": [
+      "react-day-picker"
+    ],
+    "files": [
+      {
+        "path": "reui/calendar.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/calendar.tsx"
+      }
+    ]
+  },
+  {
+    "name": "card",
+    "type": "registry:ui",
+    "title": "Card",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [],
+    "files": [
+      {
+        "path": "reui/card.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/card.tsx"
+      }
+    ]
+  },
+  {
+    "name": "carousel",
+    "type": "registry:ui",
+    "title": "Carousel",
+    "description": "",
+    "registryDependencies": [
+      "button"
+    ],
+    "dependencies": [
+      "embla-carousel-react"
+    ],
+    "files": [
+      {
+        "path": "reui/carousel.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/carousel.tsx"
+      }
+    ]
+  },
+  {
+    "name": "checkbox",
+    "type": "registry:ui",
+    "title": "Checkbox",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/checkbox.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/checkbox.tsx"
+      }
+    ]
+  },
+  {
+    "name": "collapsible",
+    "type": "registry:ui",
+    "title": "Collapsible",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/collapsible.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/collapsible.tsx"
+      }
+    ]
+  },
+  {
+    "name": "combobox",
+    "type": "registry:ui",
+    "title": "Combobox",
+    "description": "",
+    "registryDependencies": [
+      "button",
+      "input-group"
+    ],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/combobox.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/combobox.tsx"
+      }
+    ]
+  },
+  {
+    "name": "command",
+    "type": "registry:ui",
+    "title": "Command",
+    "description": "",
+    "registryDependencies": [
+      "dialog",
+      "input-group"
+    ],
+    "dependencies": [
+      "cmdk"
+    ],
+    "files": [
+      {
+        "path": "reui/command.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/command.tsx"
+      }
+    ]
+  },
+  {
+    "name": "context-menu",
+    "type": "registry:ui",
+    "title": "Context Menu",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/context-menu.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/context-menu.tsx"
+      }
+    ]
   },
   {
     "name": "data-grid-column-filter",
@@ -343,6 +610,96 @@ export const reui: Registry["items"] = [
     ]
   },
   {
+    "name": "dialog",
+    "type": "registry:ui",
+    "title": "Dialog",
+    "description": "",
+    "registryDependencies": [
+      "button"
+    ],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/dialog.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/dialog.tsx"
+      }
+    ]
+  },
+  {
+    "name": "drawer",
+    "type": "registry:ui",
+    "title": "Drawer",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "vaul"
+    ],
+    "files": [
+      {
+        "path": "reui/drawer.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/drawer.tsx"
+      }
+    ]
+  },
+  {
+    "name": "dropdown-menu",
+    "type": "registry:ui",
+    "title": "Dropdown Menu",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/dropdown-menu.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/dropdown-menu.tsx"
+      }
+    ]
+  },
+  {
+    "name": "empty",
+    "type": "registry:ui",
+    "title": "Empty",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "reui/empty.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/empty.tsx"
+      }
+    ]
+  },
+  {
+    "name": "field",
+    "type": "registry:ui",
+    "title": "Field",
+    "description": "",
+    "registryDependencies": [
+      "label",
+      "separator"
+    ],
+    "dependencies": [
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "reui/field.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/field.tsx"
+      }
+    ]
+  },
+  {
     "name": "filters",
     "type": "registry:ui",
     "title": "Filters",
@@ -370,6 +727,46 @@ export const reui: Registry["items"] = [
     ]
   },
   {
+    "name": "form-tanstack",
+    "type": "registry:ui",
+    "title": "Form Tanstack",
+    "description": "",
+    "registryDependencies": [
+      "label"
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "@tanstack/react-form"
+    ],
+    "files": [
+      {
+        "path": "reui/form-tanstack.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/form-tanstack.tsx"
+      }
+    ]
+  },
+  {
+    "name": "form",
+    "type": "registry:ui",
+    "title": "Form",
+    "description": "",
+    "registryDependencies": [
+      "label"
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "react-hook-form"
+    ],
+    "files": [
+      {
+        "path": "reui/form.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/form.tsx"
+      }
+    ]
+  },
+  {
     "name": "frame",
     "type": "registry:ui",
     "title": "Frame",
@@ -383,6 +780,98 @@ export const reui: Registry["items"] = [
         "path": "reui/frame.tsx",
         "type": "registry:ui",
         "target": "components/reui/frame.tsx"
+      }
+    ]
+  },
+  {
+    "name": "hover-card",
+    "type": "registry:ui",
+    "title": "Hover Card",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/hover-card.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/hover-card.tsx"
+      }
+    ]
+  },
+  {
+    "name": "input-group",
+    "type": "registry:ui",
+    "title": "Input Group",
+    "description": "",
+    "registryDependencies": [
+      "button",
+      "input",
+      "textarea"
+    ],
+    "dependencies": [
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "reui/input-group.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/input-group.tsx"
+      }
+    ]
+  },
+  {
+    "name": "input-otp",
+    "type": "registry:ui",
+    "title": "Input Otp",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "input-otp"
+    ],
+    "files": [
+      {
+        "path": "reui/input-otp.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/input-otp.tsx"
+      }
+    ]
+  },
+  {
+    "name": "input",
+    "type": "registry:ui",
+    "title": "Input",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/input.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/input.tsx"
+      }
+    ]
+  },
+  {
+    "name": "item",
+    "type": "registry:ui",
+    "title": "Item",
+    "description": "",
+    "registryDependencies": [
+      "separator"
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "reui/item.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/item.tsx"
       }
     ]
   },
@@ -407,6 +896,105 @@ export const reui: Registry["items"] = [
     ]
   },
   {
+    "name": "kbd",
+    "type": "registry:ui",
+    "title": "Kbd",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [],
+    "files": [
+      {
+        "path": "reui/kbd.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/kbd.tsx"
+      }
+    ]
+  },
+  {
+    "name": "label",
+    "type": "registry:ui",
+    "title": "Label",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [],
+    "files": [
+      {
+        "path": "reui/label.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/label.tsx"
+      }
+    ]
+  },
+  {
+    "name": "menu",
+    "type": "registry:ui",
+    "title": "Menu",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/menu.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/menu.tsx"
+      }
+    ]
+  },
+  {
+    "name": "menubar",
+    "type": "registry:ui",
+    "title": "Menubar",
+    "description": "",
+    "registryDependencies": [
+      "dropdown-menu"
+    ],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/menubar.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/menubar.tsx"
+      }
+    ]
+  },
+  {
+    "name": "native-select",
+    "type": "registry:ui",
+    "title": "Native Select",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [],
+    "files": [
+      {
+        "path": "reui/native-select.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/native-select.tsx"
+      }
+    ]
+  },
+  {
+    "name": "navigation-menu",
+    "type": "registry:ui",
+    "title": "Navigation Menu",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "reui/navigation-menu.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/navigation-menu.tsx"
+      }
+    ]
+  },
+  {
     "name": "number-field",
     "type": "registry:ui",
     "title": "Number Field",
@@ -423,6 +1011,23 @@ export const reui: Registry["items"] = [
         "path": "reui/number-field.tsx",
         "type": "registry:ui",
         "target": "components/reui/number-field.tsx"
+      }
+    ]
+  },
+  {
+    "name": "pagination",
+    "type": "registry:ui",
+    "title": "Pagination",
+    "description": "",
+    "registryDependencies": [
+      "button"
+    ],
+    "dependencies": [],
+    "files": [
+      {
+        "path": "reui/pagination.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/pagination.tsx"
       }
     ]
   },
@@ -449,6 +1054,74 @@ export const reui: Registry["items"] = [
     ]
   },
   {
+    "name": "popover",
+    "type": "registry:ui",
+    "title": "Popover",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/popover.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/popover.tsx"
+      }
+    ]
+  },
+  {
+    "name": "preview-card",
+    "type": "registry:ui",
+    "title": "Preview Card",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/preview-card.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/preview-card.tsx"
+      }
+    ]
+  },
+  {
+    "name": "progress",
+    "type": "registry:ui",
+    "title": "Progress",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/progress.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/progress.tsx"
+      }
+    ]
+  },
+  {
+    "name": "radio-group",
+    "type": "registry:ui",
+    "title": "Radio Group",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/radio-group.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/radio-group.tsx"
+      }
+    ]
+  },
+  {
     "name": "rating",
     "type": "registry:ui",
     "title": "Rating",
@@ -466,6 +1139,40 @@ export const reui: Registry["items"] = [
     ]
   },
   {
+    "name": "resizable",
+    "type": "registry:ui",
+    "title": "Resizable",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "react-resizable-panels"
+    ],
+    "files": [
+      {
+        "path": "reui/resizable.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/resizable.tsx"
+      }
+    ]
+  },
+  {
+    "name": "scroll-area",
+    "type": "registry:ui",
+    "title": "Scroll Area",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/scroll-area.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/scroll-area.tsx"
+      }
+    ]
+  },
+  {
     "name": "scrollspy",
     "type": "registry:ui",
     "title": "Scrollspy",
@@ -477,6 +1184,117 @@ export const reui: Registry["items"] = [
         "path": "reui/scrollspy.tsx",
         "type": "registry:ui",
         "target": "components/reui/scrollspy.tsx"
+      }
+    ]
+  },
+  {
+    "name": "select",
+    "type": "registry:ui",
+    "title": "Select",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/select.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/select.tsx"
+      }
+    ]
+  },
+  {
+    "name": "separator",
+    "type": "registry:ui",
+    "title": "Separator",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/separator.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/separator.tsx"
+      }
+    ]
+  },
+  {
+    "name": "sheet",
+    "type": "registry:ui",
+    "title": "Sheet",
+    "description": "",
+    "registryDependencies": [
+      "button"
+    ],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/sheet.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/sheet.tsx"
+      }
+    ]
+  },
+  {
+    "name": "sidebar",
+    "type": "registry:ui",
+    "title": "Sidebar",
+    "description": "",
+    "registryDependencies": [
+      "button",
+      "input",
+      "separator",
+      "sheet",
+      "skeleton",
+      "tooltip",
+      "use-mobile"
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "reui/sidebar.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/sidebar.tsx"
+      }
+    ]
+  },
+  {
+    "name": "skeleton",
+    "type": "registry:ui",
+    "title": "Skeleton",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [],
+    "files": [
+      {
+        "path": "reui/skeleton.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/skeleton.tsx"
+      }
+    ]
+  },
+  {
+    "name": "slider",
+    "type": "registry:ui",
+    "title": "Slider",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/slider.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/slider.tsx"
       }
     ]
   },
@@ -501,6 +1319,21 @@ export const reui: Registry["items"] = [
     ]
   },
   {
+    "name": "spinner",
+    "type": "registry:ui",
+    "title": "Spinner",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [],
+    "files": [
+      {
+        "path": "reui/spinner.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/spinner.tsx"
+      }
+    ]
+  },
+  {
     "name": "stepper",
     "type": "registry:ui",
     "title": "Stepper",
@@ -512,6 +1345,71 @@ export const reui: Registry["items"] = [
         "path": "reui/stepper.tsx",
         "type": "registry:ui",
         "target": "components/reui/stepper.tsx"
+      }
+    ]
+  },
+  {
+    "name": "switch",
+    "type": "registry:ui",
+    "title": "Switch",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/switch.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/switch.tsx"
+      }
+    ]
+  },
+  {
+    "name": "table",
+    "type": "registry:ui",
+    "title": "Table",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [],
+    "files": [
+      {
+        "path": "reui/table.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/table.tsx"
+      }
+    ]
+  },
+  {
+    "name": "tabs",
+    "type": "registry:ui",
+    "title": "Tabs",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "reui/tabs.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/tabs.tsx"
+      }
+    ]
+  },
+  {
+    "name": "textarea",
+    "type": "registry:ui",
+    "title": "Textarea",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [],
+    "files": [
+      {
+        "path": "reui/textarea.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/textarea.tsx"
       }
     ]
   },
@@ -529,6 +1427,61 @@ export const reui: Registry["items"] = [
         "path": "reui/timeline.tsx",
         "type": "registry:ui",
         "target": "components/reui/timeline.tsx"
+      }
+    ]
+  },
+  {
+    "name": "toggle-group",
+    "type": "registry:ui",
+    "title": "Toggle Group",
+    "description": "",
+    "registryDependencies": [
+      "toggle"
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "reui/toggle-group.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/toggle-group.tsx"
+      }
+    ]
+  },
+  {
+    "name": "toggle",
+    "type": "registry:ui",
+    "title": "Toggle",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ],
+    "files": [
+      {
+        "path": "reui/toggle.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/toggle.tsx"
+      }
+    ]
+  },
+  {
+    "name": "tooltip",
+    "type": "registry:ui",
+    "title": "Tooltip",
+    "description": "",
+    "registryDependencies": [],
+    "dependencies": [
+      "@base-ui/react"
+    ],
+    "files": [
+      {
+        "path": "reui/tooltip.tsx",
+        "type": "registry:ui",
+        "target": "components/reui/tooltip.tsx"
       }
     ]
   },

@@ -1,3 +1,16 @@
+import clsx, { ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+/**
+ * Merges Tailwind class names, resolving any conflicts.
+ *
+ * @param inputs - An array of class names to merge.
+ * @returns A string of merged and optimized class names.
+ */
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
 /**
  * If the provided className is a string, it will be returned as is.
  * Otherwise, the function will call the className function with the state as the first argument.

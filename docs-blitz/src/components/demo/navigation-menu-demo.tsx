@@ -10,7 +10,6 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuPopup,
   NavigationMenuPositioner,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
@@ -169,9 +168,7 @@ export default function NavigationMenuDemo() {
         </NavigationMenuItem>
       </NavigationMenuList>
 
-      <NavigationMenuPositioner>
-        <NavigationMenuPopup />
-      </NavigationMenuPositioner>
+      <NavigationMenuPositioner />
     </NavigationMenu>
   );
 }

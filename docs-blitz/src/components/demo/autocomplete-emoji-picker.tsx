@@ -10,7 +10,6 @@ import {
   AutocompleteInput,
   AutocompleteItem,
   AutocompleteList,
-  AutocompletePopup,
   AutocompletePositioner,
   AutocompleteRow,
   AutocompleteTrigger,
@@ -68,41 +67,39 @@ export default function AutocompleteEmojiPicker() {
         >
           <Smile className="size-4.5" />
         </AutocompleteTrigger>
-        <AutocompletePositioner sideOffset={6} align="start">
-          <AutocompletePopup className="w-full">
-            <div className="px-3 mt-2">
-              <AutocompleteInput placeholder="Search emojis…" className="w-64" />
-            </div>
-            <AutocompleteEmpty className="not-empty:py-4">No emojis found.</AutocompleteEmpty>
-            <AutocompleteList>
-              {(group: EmojiGroup) => (
-                <AutocompleteGroup key={group.value} items={group.items}>
-                  <AutocompleteGroupLabel className="uppercase">
-                    {group.label}
-                  </AutocompleteGroupLabel>
-                  <div className="p-1" role="presentation">
-                    {chunkArray(group.items, COLUMNS).map((row, rowIdx) => (
-                      <AutocompleteRow key={rowIdx} className="grid grid-cols-5">
-                        {row.map((rowItem) => (
-                          <AutocompleteItem
-                            key={rowItem.emoji}
-                            value={rowItem}
-                            onClick={() => {
-                              handleInsertEmoji(rowItem.emoji);
-                              setPickerOpen(false);
-                            }}
-                            className="text-2xl leading-none ml-1"
-                          >
-                            {rowItem.emoji}
-                          </AutocompleteItem>
-                        ))}
-                      </AutocompleteRow>
-                    ))}
-                  </div>
-                </AutocompleteGroup>
-              )}
-            </AutocompleteList>
-          </AutocompletePopup>
+        <AutocompletePositioner className="w-full" sideOffset={6} align="start">
+          {/* <AutocompletePopup className="w-full"> */}
+          <div className="px-3 mt-2">
+            <AutocompleteInput placeholder="Search emojis…" className="w-64" />
+          </div>
+          <AutocompleteEmpty className="not-empty:py-4">No emojis found.</AutocompleteEmpty>
+          <AutocompleteList>
+            {(group: EmojiGroup) => (
+              <AutocompleteGroup key={group.value} items={group.items}>
+                <AutocompleteGroupLabel className="uppercase">{group.label}</AutocompleteGroupLabel>
+                <div className="p-1" role="presentation">
+                  {chunkArray(group.items, COLUMNS).map((row, rowIdx) => (
+                    <AutocompleteRow key={rowIdx} className="grid grid-cols-5">
+                      {row.map((rowItem) => (
+                        <AutocompleteItem
+                          key={rowItem.emoji}
+                          value={rowItem}
+                          onClick={() => {
+                            handleInsertEmoji(rowItem.emoji);
+                            setPickerOpen(false);
+                          }}
+                          className="text-2xl leading-none ml-1"
+                        >
+                          {rowItem.emoji}
+                        </AutocompleteItem>
+                      ))}
+                    </AutocompleteRow>
+                  ))}
+                </div>
+              </AutocompleteGroup>
+            )}
+          </AutocompleteList>
+          {/* </AutocompletePopup> */}
         </AutocompletePositioner>
       </Autocomplete>
       <Input

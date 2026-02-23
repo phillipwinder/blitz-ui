@@ -6,10 +6,9 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPositioner,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@blitz-ui/react/menu';
+} from '@blitz-ui/react/dropdown-menu';
 
 export default function ButtonSplit() {
   return (
@@ -21,20 +20,20 @@ export default function ButtonSplit() {
         <DropdownMenuTrigger render={<Button className="rounded-l-none" />}>
           <ChevronDown />
         </DropdownMenuTrigger>
-        <DropdownMenuPositioner>
-          <DropdownMenuContent>
-            <DropdownMenuGroup>
-              <DropdownMenuLabel>Schedule at</DropdownMenuLabel>
-              <DropdownMenuItem>Today 9:00 AM</DropdownMenuItem>
-              <DropdownMenuItem>Tomorrow 10:00 AM</DropdownMenuItem>
-              <DropdownMenuItem>Next week 11:00 AM</DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>Custom Schedule</DropdownMenuItem>
-            </DropdownMenuGroup>
-          </DropdownMenuContent>
-        </DropdownMenuPositioner>
+        {/* <DropdownMenuPositioner> */}
+        <DropdownMenuContent>
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>Schedule at</DropdownMenuLabel>
+            <DropdownMenuItem>Today 9:00 AM</DropdownMenuItem>
+            <DropdownMenuItem>Tomorrow 10:00 AM</DropdownMenuItem>
+            <DropdownMenuItem>Next week 11:00 AM</DropdownMenuItem>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuItem>Custom Schedule</DropdownMenuItem>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+        {/* </DropdownMenuPositioner> */}
       </DropdownMenu>
     </div>
   );

@@ -6,7 +6,6 @@ import {
   AutocompleteInput,
   AutocompleteItem,
   AutocompleteList,
-  AutocompletePopup,
   AutocompletePositioner,
   AutocompleteStatus,
 } from '@blitz-ui/react/autocomplete';
@@ -37,28 +36,28 @@ export default function AutocompleteLimitResults() {
         <Label htmlFor="tags">Tags</Label>
         <AutocompleteInput id="tags" placeholder="e.g. feature" className="mt-2" />
         <AutocompletePositioner sideOffset={6}>
-          <AutocompletePopup>
-            <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
+          {/* <AutocompletePopup> */}
+          <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
 
-            <AutocompleteStatus>
-              {moreCount > 0
-                ? `Hiding ${moreCount} results (type a more specific query to narrow results)`
-                : null}
-            </AutocompleteStatus>
-            <AutocompleteList>
-              {(tag) => (
-                <AutocompleteItem key={tag.id} value={tag.value}>
-                  {tag.value}
-                </AutocompleteItem>
-              )}
-            </AutocompleteList>
+          <AutocompleteStatus>
+            {moreCount > 0
+              ? `Hiding ${moreCount} results (type a more specific query to narrow results)`
+              : null}
+          </AutocompleteStatus>
+          <AutocompleteList>
+            {(tag) => (
+              <AutocompleteItem key={tag.id} value={tag.value}>
+                {tag.value}
+              </AutocompleteItem>
+            )}
+          </AutocompleteList>
 
-            <AutocompleteStatus>
-              {moreCount > 0
-                ? `Hiding ${moreCount} results (type a more specific query to narrow results)`
-                : null}
-            </AutocompleteStatus>
-          </AutocompletePopup>
+          <AutocompleteStatus>
+            {moreCount > 0
+              ? `Hiding ${moreCount} results (type a more specific query to narrow results)`
+              : null}
+          </AutocompleteStatus>
+          {/* </AutocompletePopup> */}
         </AutocompletePositioner>
       </Autocomplete>
     </div>

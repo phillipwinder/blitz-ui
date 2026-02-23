@@ -2,14 +2,11 @@
 
 import {
   Combobox,
-  ComboboxClear,
+  ComboboxContent,
   ComboboxEmpty,
   ComboboxInput,
   ComboboxItem,
-  ComboboxItemIndicator,
   ComboboxList,
-  ComboboxPopup,
-  ComboboxPositioner,
   ComboboxTrigger,
 } from '@blitz-ui/react/combobox';
 import { Label } from '@blitz-ui/react/label';
@@ -26,7 +23,7 @@ export default function ComboboxDemo() {
           <Label htmlFor={id}>Choose a fruit</Label>
           <ComboboxInput placeholder="e.g. Apple" id={id} />
           <div className="absolute right-2 bottom-0 flex h-9 items-center justify-center text-muted-foreground">
-            <ComboboxClear />
+            {/* <ComboboxClear /> */}
             <ComboboxTrigger
               className="h-9 w-6 text-muted-foreground shadow-none bg-transparent hover:bg-transparent border-none"
               aria-label="Open popup"
@@ -36,19 +33,20 @@ export default function ComboboxDemo() {
           </div>
         </div>
 
-        <ComboboxPositioner sideOffset={6}>
-          <ComboboxPopup>
-            <ComboboxEmpty>No fruits found.</ComboboxEmpty>
-            <ComboboxList>
-              {(item: string) => (
-                <ComboboxItem key={item} value={item}>
-                  <ComboboxItemIndicator />
-                  <div className="col-start-2">{item}</div>
-                </ComboboxItem>
-              )}
-            </ComboboxList>
-          </ComboboxPopup>
-        </ComboboxPositioner>
+        {/* <ComboboxPositioner sideOffset={6}>
+          <ComboboxPopup> */}
+        <ComboboxContent sideOffset={6}>
+          <ComboboxEmpty>No fruits found.</ComboboxEmpty>
+          <ComboboxList>
+            {(item: string) => (
+              <ComboboxItem key={item} value={item}>
+                <div className="col-start-2">{item}</div>
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+        {/* </ComboboxPopup>
+        </ComboboxPositioner> */}
       </Combobox>
     </div>
   );

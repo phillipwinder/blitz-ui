@@ -66,8 +66,7 @@ interface MetadataData {
 
 // Constants
 const DEFAULT_STYLE = "radix-nova"
-const BASE_URL =
-  process.env.NEXT_PUBLIC_APP_URL || "https://reui.io"
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://reui.io"
 
 // ---------------------------------------------------------------------------
 // Metadata loading (mirrors registry-server.ts but with absolute paths)
@@ -82,25 +81,19 @@ async function getMetadata(base: string): Promise<MetadataData> {
 
   // Load reui components
   try {
-    const mod = await import(
-      `../registry-reui/bases/${base}/reui/_registry.ts`
-    )
+    const mod = await import(`../registry-reui/bases/${base}/reui/_registry.ts`)
     for (const item of mod.reui || []) metadata[item.name] = item
   } catch {}
 
   // Load hooks
   try {
-    const mod = await import(
-      `../registry-reui/bases/${base}/hooks/_registry.ts`
-    )
+    const mod = await import(`../registry-reui/bases/${base}/hooks/_registry.ts`)
     for (const item of mod.hooks || []) metadata[item.name] = item
   } catch {}
 
   // Load patterns
   try {
-    const mod = await import(
-      `../registry-reui/bases/${base}/patterns/_registry.ts`
-    )
+    const mod = await import(`../registry-reui/bases/${base}/patterns/_registry.ts`)
     for (const item of mod.patterns || []) metadata[item.name] = item
   } catch {}
 
@@ -117,10 +110,7 @@ function parseStyleName(styleName: string): { base: string; style: string } {
   if (parts.length >= 2) {
     const base = parts[0]
     const style = parts.slice(1).join("-")
-    if (
-      BASES.some((b: any) => b.name === base) &&
-      STYLES.some((s: any) => s.name === style)
-    ) {
+    if (BASES.some((b: any) => b.name === base) && STYLES.some((s: any) => s.name === style)) {
       return { base, style }
     }
   }
@@ -153,51 +143,21 @@ function transformImportPaths(code: string, base: string): string {
       /@\/registry-reui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/patterns\//g,
       "@/components/patterns/"
     )
-    .replace(
-      new RegExp(`@/registry-reui/bases/${base}/reui/`, "g"),
-      "@/components/reui/"
-    )
-    .replace(
-      new RegExp(`@/registry-reui/bases/${base}/ui/`, "g"),
-      "@/components/ui/"
-    )
-    .replace(
-      new RegExp(`@/registry-reui/bases/${base}/hooks/`, "g"),
-      "@/hooks/"
-    )
+    .replace(new RegExp(`@/registry-reui/bases/${base}/reui/`, "g"), "@/components/reui/")
+    .replace(new RegExp(`@/registry-reui/bases/${base}/ui/`, "g"), "@/components/ui/")
+    .replace(new RegExp(`@/registry-reui/bases/${base}/hooks/`, "g"), "@/hooks/")
     .replace(new RegExp(`@/registry-reui/bases/${base}/lib/`, "g"), "@/lib/")
-    .replace(
-      new RegExp(`@/registry-reui/bases/${base}/patterns/`, "g"),
-      "@/components/patterns/"
-    )
-    .replace(
-      /@\/registry(?:-reui)?\/bases\/(?:base|radix)\/reui\//g,
-      "@/components/reui/"
-    )
-    .replace(
-      /@\/registry(?:-reui)?\/bases\/(?:base|radix)\/ui\//g,
-      "@/components/ui/"
-    )
-    .replace(
-      /@\/registry(?:-reui)?\/bases\/(?:base|radix)\/hooks\//g,
-      "@/hooks/"
-    )
+    .replace(new RegExp(`@/registry-reui/bases/${base}/patterns/`, "g"), "@/components/patterns/")
+    .replace(/@\/registry(?:-reui)?\/bases\/(?:base|radix)\/reui\//g, "@/components/reui/")
+    .replace(/@\/registry(?:-reui)?\/bases\/(?:base|radix)\/ui\//g, "@/components/ui/")
+    .replace(/@\/registry(?:-reui)?\/bases\/(?:base|radix)\/hooks\//g, "@/hooks/")
     .replace(/@\/registry(?:-reui)?\/bases\/(?:base|radix)\/lib\//g, "@/lib/")
-    .replace(
-      /@\/registry(?:-reui)?\/bases\/(?:base|radix)\/patterns\//g,
-      "@/components/patterns/"
-    )
+    .replace(/@\/registry(?:-reui)?\/bases\/(?:base|radix)\/patterns\//g, "@/components/patterns/")
     .replace(/@\/registry\/bases\/(?:base|radix)\/ui\//g, "@/components/ui/")
-    .replace(
-      /@\/registry\/bases\/(?:base|radix)\/reui\//g,
-      "@/components/reui/"
-    )
+    .replace(/@\/registry\/bases\/(?:base|radix)\/reui\//g, "@/components/reui/")
     .replace(/@\/registry\/bases\/(?:base|radix)\/hooks\//g, "@/hooks/")
     .replace(/@\/registry\/bases\/(?:base|radix)\/lib\//g, "@/lib/")
-    .replace(
-      /^\s*\/\/\s*(?:Description|Order|GridSize|PreviewHeight):.*$\n?/gm,
-      ""
-    )
+    .replace(/^\s*\/\/\s*(?:Description|Order|GridSize|PreviewHeight):.*$\n?/gm, "")
     .trimStart()
 }
 
@@ -235,13 +195,7 @@ async function buildRegistryItem(
     const fileType = typeof file === "string" ? "registry:file" : file.type
     const fileTarget = typeof file === "string" ? undefined : file.target
 
-    const fullPath = path.join(
-      PROJECT_ROOT,
-      "registry-reui",
-      "bases",
-      base,
-      filePath
-    )
+    const fullPath = path.join(PROJECT_ROOT, "registry-reui", "bases", base, filePath)
 
     let content = ""
     try {
@@ -327,15 +281,16 @@ async function getAllItemNames(): Promise<string[]> {
 
 function resolveRegistryDeps(
   item: Record<string, any>,
-  styleName: string,
+  _styleName: string,
   allNames: Set<string>
 ): void {
   if (!item.registryDependencies) return
 
   item.registryDependencies = item.registryDependencies.map((dep: string) => {
-    if (allNames.has(dep)) {
-      return `${BASE_URL}/r/styles/${styleName}/${dep}.json`
-    }
+    // If it's an internal registry item name, namespace it
+    if (allNames.has(dep)) return `@reui/${dep}`
+
+    // Otherwise leave it (npm packages should NOT be here anyway)
     return dep
   })
 }
@@ -363,9 +318,7 @@ async function main() {
 
   console.log(`  Styles: ${styleNames.length}`)
   console.log(`  Items: ${allItemNames.length}`)
-  console.log(
-    `  Total files to generate: ${styleNames.length * allItemNames.length}`
-  )
+  console.log(`  Total files to generate: ${styleNames.length * allItemNames.length}`)
   console.log(`  Default style: ${DEFAULT_STYLE} (served via redirect)`)
   console.log()
 
@@ -396,11 +349,7 @@ async function main() {
         resolveRegistryDeps(item, styleName, allNamesSet)
 
         const json = JSON.stringify(item)
-        await fs.writeFile(
-          path.join(styleDir, `${itemName}.json`),
-          json,
-          "utf-8"
-        )
+        await fs.writeFile(path.join(styleDir, `${itemName}.json`), json, "utf-8")
         styleFiles++
         totalBytes += json.length
       } catch (error) {
@@ -470,7 +419,9 @@ async function main() {
           if (!file.content || typeof file.content !== "string") {
             verifyErrors++
             corruptedFiles.push(`${styleName}/${entry}`)
-            console.error(`  EMPTY CONTENT: ${styleName}/${entry} — file "${file.path}" has no content`)
+            console.error(
+              `  EMPTY CONTENT: ${styleName}/${entry} — file "${file.path}" has no content`
+            )
             break
           }
 
@@ -500,7 +451,10 @@ async function main() {
           }
 
           // 6. Check for unresolved internal import paths
-          if (/@\/registry-reui\//.test(file.content) || /@\/registry\/bases\//.test(file.content)) {
+          if (
+            /@\/registry-reui\//.test(file.content) ||
+            /@\/registry\/bases\//.test(file.content)
+          ) {
             verifyErrors++
             corruptedFiles.push(`${styleName}/${entry}`)
             console.error(
@@ -520,7 +474,9 @@ async function main() {
 
   console.log(`  Verified: ${verified} files`)
   if (verifyErrors > 0) {
-    console.error(`  Verification FAILED: ${verifyErrors} issues in ${[...new Set(corruptedFiles)].length} files`)
+    console.error(
+      `  Verification FAILED: ${verifyErrors} issues in ${[...new Set(corruptedFiles)].length} files`
+    )
     console.error(`  Affected: ${[...new Set(corruptedFiles)].join(", ")}`)
     process.exit(1)
   } else {

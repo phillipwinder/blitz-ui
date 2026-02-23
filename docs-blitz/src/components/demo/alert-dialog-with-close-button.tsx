@@ -1,6 +1,6 @@
 import { AlertDialog as AlertDialogPrimitive } from '@base-ui/react/alert-dialog';
 import { OctagonAlert, XIcon } from 'lucide-react';
-import { Button, buttonVariants } from '@blitz-ui/react/button';
+import { Button } from '@blitz-ui/react/button';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,7 +12,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@blitz-ui/react/alert-dialog';
-import { cn } from '@/lib/utils';
 
 export default function AlertDialogWithCloseButton() {
   return (
@@ -28,10 +27,13 @@ export default function AlertDialogWithCloseButton() {
               </div>
 
               <AlertDialogPrimitive.Close
-                className={cn(
-                  buttonVariants({ variant: 'outline', size: 'icon' }),
-                  "size-6 p-0 [&_svg:not([class*='size-'])]:size-3.5",
-                )}
+                render={
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="size-6 p-0 [&_svg:not([class*='size-'])]:size-3.5"
+                  />
+                }
               >
                 <XIcon />
               </AlertDialogPrimitive.Close>
@@ -44,9 +46,7 @@ export default function AlertDialogWithCloseButton() {
         </AlertDialogHeader>
         <AlertDialogFooter className="mt-2">
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction className={buttonVariants({ variant: 'destructive' })}>
-            Continue
-          </AlertDialogAction>
+          <AlertDialogAction variant="destructive">Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

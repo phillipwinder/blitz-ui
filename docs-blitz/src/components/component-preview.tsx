@@ -5,6 +5,9 @@ import fs from 'fs/promises';
 import path from 'path';
 import { CodeBlock } from './code-block';
 
+const DEMO_SRC_PREFIX = 'src/components/demo/';
+const DEMO_SRC_ROOT = path.join(process.cwd(), 'src', 'components', 'demo');
+
 export default async function ComponentPreview({
   name,
   importParadigm,
@@ -30,7 +33,16 @@ export default async function ComponentPreview({
     throw new Error(`Component not found in registry: ${name}`);
   }
 
-  const code = await fs.readFile(path.join(process.cwd(), src), 'utf-8');
+  if (!src.startsWith(DEMO_SRC_PREFIX)) {
+    throw new Error(`Unsupported source path for component: ${src}`);
+  }
+
+  const relativeSrcPath = path.normalize(src.slice(DEMO_SRC_PREFIX.length));
+  if (relativeSrcPath.startsWith('..') || path.isAbsolute(relativeSrcPath)) {
+    throw new Error(`Invalid source path for component: ${src}`);
+  }
+
+  const code = await fs.readFile(path.join(DEMO_SRC_ROOT, relativeSrcPath), 'utf-8');
 
   let codeWithUpdatedImports = code.replaceAll('@/registry/components/ui/', '@/components/ui/');
   codeWithUpdatedImports = codeWithUpdatedImports.replaceAll(

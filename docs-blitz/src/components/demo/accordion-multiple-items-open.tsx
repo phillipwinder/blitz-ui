@@ -1,14 +1,13 @@
 import {
-  AccordionPanel,
-  AccordionHeader,
   AccordionItem,
-  AccordionRoot,
+  AccordionContent,
   AccordionTrigger,
+  Accordion,
 } from '@blitz-ui/react/accordion';
 
 export default function AccordionMultipleItemsOpen() {
   return (
-    <AccordionRoot
+    <Accordion
       className="w-full max-w-md mx-auto space-y-2"
       defaultValue={[accordionItems[0].value]}
     >
@@ -18,17 +17,15 @@ export default function AccordionMultipleItemsOpen() {
           value={item.value}
           className="last:border-b border rounded-md"
         >
-          <AccordionHeader>
-            <AccordionTrigger className="py-3 px-5 text-base items-center">
-              {item.title}
-            </AccordionTrigger>
-          </AccordionHeader>
-          <AccordionPanel className="flex flex-col gap-4 px-5">
+          <AccordionTrigger className="py-3 px-5 text-base items-center">
+            {item.title}
+          </AccordionTrigger>
+          <AccordionContent className="flex flex-col gap-4 px-5">
             <p>{item.content}</p>
-          </AccordionPanel>
+          </AccordionContent>
         </AccordionItem>
       ))}
-    </AccordionRoot>
+    </Accordion>
   );
 }
 

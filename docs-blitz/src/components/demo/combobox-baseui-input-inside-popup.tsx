@@ -1,20 +1,16 @@
 'use client';
 
-import { Button } from '@blitz-ui/react/button';
 import {
   Combobox,
+  ComboboxContent,
   ComboboxEmpty,
-  ComboboxIcon,
   ComboboxInput,
   ComboboxItem,
-  ComboboxItemIndicator,
   ComboboxList,
-  ComboboxPopup,
-  ComboboxPositioner,
   ComboboxTrigger,
   ComboboxValue,
 } from '@blitz-ui/react/combobox';
-import { ChevronsUpDownIcon, MapPinHouseIcon } from 'lucide-react';
+import { MapPinHouseIcon } from 'lucide-react';
 
 export default function ExamplePopoverCombobox() {
   return (
@@ -24,26 +20,27 @@ export default function ExamplePopoverCombobox() {
           <MapPinHouseIcon />
           <ComboboxValue />
         </div>
-        <ComboboxIcon className="flex">
+        {/* <ComboboxIcon className="flex">
           <ChevronsUpDownIcon />
-        </ComboboxIcon>
+        </ComboboxIcon> */}
       </ComboboxTrigger>
-      <ComboboxPositioner align="start" sideOffset={4}>
-        <ComboboxPopup className="w-full pt-0" aria-label="Select country">
-          <div className="w-64 text-center p-2 sticky top-0 z-1 bg-popover">
-            <ComboboxInput placeholder="e.g. United Kingdom" />
-          </div>
-          <ComboboxEmpty>No countries found.</ComboboxEmpty>
-          <ComboboxList>
-            {(country: Country) => (
-              <ComboboxItem key={country.code} value={country}>
-                <ComboboxItemIndicator />
-                <div className="col-start-2">{country.label ?? country.value}</div>
-              </ComboboxItem>
-            )}
-          </ComboboxList>
-        </ComboboxPopup>
-      </ComboboxPositioner>
+      {/* <ComboboxPositioner align="start" sideOffset={4}>
+        <ComboboxPopup className="w-full pt-0" aria-label="Select country"> */}
+      <ComboboxContent align="start" sideOffset={4}>
+        <div className="w-64 text-center p-2 sticky top-0 z-1 bg-popover">
+          <ComboboxInput placeholder="e.g. United Kingdom" />
+        </div>
+        <ComboboxEmpty>No countries found.</ComboboxEmpty>
+        <ComboboxList>
+          {(country: Country) => (
+            <ComboboxItem key={country.code} value={country}>
+              <div className="col-start-2">{country.label ?? country.value}</div>
+            </ComboboxItem>
+          )}
+        </ComboboxList>
+      </ComboboxContent>
+      {/* </ComboboxPopup>
+      </ComboboxPositioner> */}
     </Combobox>
   );
 }

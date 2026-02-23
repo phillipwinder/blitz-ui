@@ -3,135 +3,70 @@
 import * as React from 'react';
 import { AlertDialog as AlertDialogPrimitive } from '@base-ui/react/alert-dialog';
 
-import { cn } from '@/lib/utils';
-import { buttonVariants } from '@/registry/components/ui/button';
+import { cn } from '@/registry/lib/utils';
+import { Button } from '@/registry/components/ui/button';
 
-function resolveClassName<State>(
-  className: string | ((state: State) => string | undefined) | undefined,
-  state: State,
-) {
-  return typeof className === 'function' ? className(state) : className;
+function AlertDialog({ ...props }: AlertDialogPrimitive.Root.Props) {
+  return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />;
 }
 
-interface UnstyledProps {
-  unstyled?: boolean;
-}
-
-const UnstyledContext = React.createContext<{ unstyled: boolean } | undefined>(undefined);
-
-function useAlertDialogContext() {
-  const context = React.useContext(UnstyledContext);
-  if (context === undefined) {
-    throw new Error(
-      `Blitz UI: AlertDialogContext is missing. Component must be placed within <AlertDialogRoot>.`,
-    );
-  }
-  return context;
-}
-
-function AlertDialog({
-  unstyled,
-  ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Root> & UnstyledProps) {
-  const unstyledContextValue = React.useMemo(() => ({ unstyled: unstyled ?? false }), [unstyled]);
-
-  return (
-    <UnstyledContext.Provider value={unstyledContextValue}>
-      <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />
-    </UnstyledContext.Provider>
-  );
-}
-
-function AlertDialogTrigger({
-  ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Trigger>) {
+function AlertDialogTrigger({ ...props }: AlertDialogPrimitive.Trigger.Props) {
   return <AlertDialogPrimitive.Trigger data-slot="alert-dialog-trigger" {...props} />;
 }
 
-function AlertDialogPortal({ ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Portal>) {
+function AlertDialogPortal({ ...props }: AlertDialogPrimitive.Portal.Props) {
   return <AlertDialogPrimitive.Portal data-slot="alert-dialog-portal" {...props} />;
 }
 
-function AlertDialogOverlay({
-  unstyled: unstyledProp,
-  className,
-  ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Backdrop> & UnstyledProps) {
-  const { unstyled: unstyledContext } = useAlertDialogContext();
-  const unstyled = unstyledProp ?? unstyledContext;
-
+function AlertDialogOverlay({ className, ...props }: AlertDialogPrimitive.Backdrop.Props) {
   return (
     <AlertDialogPrimitive.Backdrop
       data-slot="alert-dialog-overlay"
-      className={(state) =>
-        cn(
-          !unstyled &&
-            'data-[open]:animate-in data-[open]:fade-in-0 data-[closed]:animate-out data-[closed]:fade-out-0 data-[closed]:animation-duration-[200ms] fixed inset-0 z-50 bg-black/50',
-          resolveClassName(className, state),
-        )
-      }
+      className={cn('cn-alert-dialog-overlay fixed inset-0 isolate z-50', className)}
       {...props}
     />
   );
 }
 
 function AlertDialogContent({
-  unstyled: unstyledProp,
   className,
+  size = 'default',
   ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Popup> & UnstyledProps) {
-  const { unstyled: unstyledContext } = useAlertDialogContext();
-  const unstyled = unstyledProp ?? unstyledContext;
-
+}: AlertDialogPrimitive.Popup.Props & {
+  size?: 'default' | 'sm';
+}) {
   return (
     <AlertDialogPortal>
       <AlertDialogOverlay />
       <AlertDialogPrimitive.Popup
         data-slot="alert-dialog-content"
-        className={(state) =>
-          cn(
-            unstyled
-              ? 'fixed top-[50%] left-[50%] z-50 translate-x-[-50%] translate-y-[-50%]'
-              : 'bg-background data-[open]:animate-in data-[closed]:animate-out data-[closed]:fade-out-0 data-[open]:fade-in-0 data-[closed]:zoom-out-95 data-[open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg',
-            resolveClassName(className, state),
-          )
-        }
+        data-size={size}
+        className={cn(
+          'cn-alert-dialog-content group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 outline-none',
+          className,
+        )}
         {...props}
       />
     </AlertDialogPortal>
   );
 }
 
-function AlertDialogHeader({
-  unstyled: unstyledProp,
-  className,
-  ...props
-}: React.ComponentProps<'div'> & UnstyledProps) {
-  const { unstyled: unstyledContext } = useAlertDialogContext();
-  const unstyled = unstyledProp ?? unstyledContext;
-
+function AlertDialogHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="alert-dialog-header"
-      className={cn(!unstyled && 'flex flex-col gap-2 text-center sm:text-left', className)}
+      className={cn('cn-alert-dialog-header', className)}
       {...props}
     />
   );
 }
 
-function AlertDialogFooter({
-  unstyled: unstyledProp,
-  className,
-  ...props
-}: React.ComponentProps<'div'> & UnstyledProps) {
-  const { unstyled: unstyledContext } = useAlertDialogContext();
-  const unstyled = unstyledProp ?? unstyledContext;
-
+function AlertDialogFooter({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="alert-dialog-footer"
       className={cn(
-        !unstyled && 'flex flex-col-reverse gap-2 sm:flex-row sm:justify-end',
+        'cn-alert-dialog-footer flex flex-col-reverse gap-2 group-data-[size=sm]/alert-dialog-content:grid group-data-[size=sm]/alert-dialog-content:grid-cols-2 sm:flex-row sm:justify-end',
         className,
       )}
       {...props}
@@ -139,73 +74,64 @@ function AlertDialogFooter({
   );
 }
 
+function AlertDialogMedia({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="alert-dialog-media"
+      className={cn('cn-alert-dialog-media', className)}
+      {...props}
+    />
+  );
+}
+
 function AlertDialogTitle({
-  unstyled: unstyledProp,
   className,
   ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Title> & UnstyledProps) {
-  const { unstyled: unstyledContext } = useAlertDialogContext();
-  const unstyled = unstyledProp ?? unstyledContext;
-
+}: React.ComponentProps<typeof AlertDialogPrimitive.Title>) {
   return (
     <AlertDialogPrimitive.Title
       data-slot="alert-dialog-title"
-      className={(state) =>
-        cn(!unstyled && 'text-lg font-semibold', resolveClassName(className, state))
-      }
+      className={cn('cn-alert-dialog-title', className)}
       {...props}
     />
   );
 }
 
 function AlertDialogDescription({
-  unstyled: unstyledProp,
   className,
   ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Description> & UnstyledProps) {
-  const { unstyled: unstyledContext } = useAlertDialogContext();
-  const unstyled = unstyledProp ?? unstyledContext;
-
+}: React.ComponentProps<typeof AlertDialogPrimitive.Description>) {
   return (
     <AlertDialogPrimitive.Description
       data-slot="alert-dialog-description"
-      className={(state) =>
-        cn(!unstyled && 'text-muted-foreground text-sm', resolveClassName(className, state))
-      }
+      className={cn('cn-alert-dialog-description', className)}
       {...props}
     />
   );
 }
 
-function AlertDialogAction({
-  unstyled: unstyledProp,
-  className,
-  ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Close> & UnstyledProps) {
-  const { unstyled: unstyledContext } = useAlertDialogContext();
-  const unstyled = unstyledProp ?? unstyledContext;
-
+function AlertDialogAction({ className, ...props }: React.ComponentProps<typeof Button>) {
   return (
-    <AlertDialogPrimitive.Close
-      className={(state) => cn(!unstyled && buttonVariants(), resolveClassName(className, state))}
+    <Button
+      data-slot="alert-dialog-action"
+      className={cn('cn-alert-dialog-action', className)}
       {...props}
     />
   );
 }
 
 function AlertDialogCancel({
-  unstyled: unstyledProp,
   className,
+  variant = 'outline',
+  size = 'default',
   ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Close> & UnstyledProps) {
-  const { unstyled: unstyledContext } = useAlertDialogContext();
-  const unstyled = unstyledProp ?? unstyledContext;
-
+}: AlertDialogPrimitive.Close.Props &
+  Pick<React.ComponentProps<typeof Button>, 'variant' | 'size'>) {
   return (
     <AlertDialogPrimitive.Close
-      className={(state) =>
-        cn(!unstyled && buttonVariants({ variant: 'outline' }), resolveClassName(className, state))
-      }
+      data-slot="alert-dialog-cancel"
+      className={cn('cn-alert-dialog-cancel', className)}
+      render={<Button variant={variant} size={size} />}
       {...props}
     />
   );
@@ -213,14 +139,15 @@ function AlertDialogCancel({
 
 export {
   AlertDialog,
-  AlertDialogPortal,
-  AlertDialogOverlay,
-  AlertDialogTrigger,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogFooter,
-  AlertDialogTitle,
-  AlertDialogDescription,
   AlertDialogAction,
   AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogMedia,
+  AlertDialogOverlay,
+  AlertDialogPortal,
+  AlertDialogTitle,
+  AlertDialogTrigger,
 };
