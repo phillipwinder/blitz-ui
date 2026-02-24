@@ -66,7 +66,7 @@ interface MetadataData {
 
 // Constants
 const DEFAULT_STYLE = "radix-nova"
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://reui.io"
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://blitz-ui.com"
 
 // ---------------------------------------------------------------------------
 // Metadata loading (mirrors registry-server.ts but with absolute paths)
@@ -79,21 +79,21 @@ async function getMetadata(base: string): Promise<MetadataData> {
 
   const metadata: Record<string, RegistryItem> = {}
 
-  // Load reui components
+  // Load Blitz UI components
   try {
-    const mod = await import(`../registry-reui/bases/${base}/reui/_registry.ts`)
-    for (const item of mod.reui || []) metadata[item.name] = item
+    const mod = await import(`../registry-blitz-ui/bases/${base}/blitz-ui/_registry.ts`)
+    for (const item of mod.blitzUi || []) metadata[item.name] = item
   } catch {}
 
   // Load hooks
   try {
-    const mod = await import(`../registry-reui/bases/${base}/hooks/_registry.ts`)
+    const mod = await import(`../registry-blitz-ui/bases/${base}/hooks/_registry.ts`)
     for (const item of mod.hooks || []) metadata[item.name] = item
   } catch {}
 
   // Load patterns
   try {
-    const mod = await import(`../registry-reui/bases/${base}/patterns/_registry.ts`)
+    const mod = await import(`../registry-blitz-ui/bases/${base}/patterns/_registry.ts`)
     for (const item of mod.patterns || []) metadata[item.name] = item
   } catch {}
 
@@ -124,37 +124,37 @@ function parseStyleName(styleName: string): { base: string; style: string } {
 function transformImportPaths(code: string, base: string): string {
   return code
     .replace(
-      /@\/registry-reui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/reui\//g,
-      "@/components/reui/"
+      /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/blitz-ui\//g,
+      "@/components/blitz-ui/"
     )
     .replace(
-      /@\/registry-reui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/ui\//g,
+      /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/ui\//g,
       "@/components/ui/"
     )
     .replace(
-      /@\/registry-reui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/hooks\//g,
+      /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/hooks\//g,
       "@/hooks/"
     )
     .replace(
-      /@\/registry-reui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/lib\//g,
+      /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/lib\//g,
       "@/lib/"
     )
     .replace(
-      /@\/registry-reui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/patterns\//g,
+      /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/patterns\//g,
       "@/components/patterns/"
     )
-    .replace(new RegExp(`@/registry-reui/bases/${base}/reui/`, "g"), "@/components/reui/")
-    .replace(new RegExp(`@/registry-reui/bases/${base}/ui/`, "g"), "@/components/ui/")
-    .replace(new RegExp(`@/registry-reui/bases/${base}/hooks/`, "g"), "@/hooks/")
-    .replace(new RegExp(`@/registry-reui/bases/${base}/lib/`, "g"), "@/lib/")
-    .replace(new RegExp(`@/registry-reui/bases/${base}/patterns/`, "g"), "@/components/patterns/")
-    .replace(/@\/registry(?:-reui)?\/bases\/(?:base|radix)\/reui\//g, "@/components/reui/")
-    .replace(/@\/registry(?:-reui)?\/bases\/(?:base|radix)\/ui\//g, "@/components/ui/")
-    .replace(/@\/registry(?:-reui)?\/bases\/(?:base|radix)\/hooks\//g, "@/hooks/")
-    .replace(/@\/registry(?:-reui)?\/bases\/(?:base|radix)\/lib\//g, "@/lib/")
-    .replace(/@\/registry(?:-reui)?\/bases\/(?:base|radix)\/patterns\//g, "@/components/patterns/")
+    .replace(new RegExp(`@/registry-blitz-ui/bases/${base}/blitz-ui/`, "g"), "@/components/blitz-ui/")
+    .replace(new RegExp(`@/registry-blitz-ui/bases/${base}/ui/`, "g"), "@/components/ui/")
+    .replace(new RegExp(`@/registry-blitz-ui/bases/${base}/hooks/`, "g"), "@/hooks/")
+    .replace(new RegExp(`@/registry-blitz-ui/bases/${base}/lib/`, "g"), "@/lib/")
+    .replace(new RegExp(`@/registry-blitz-ui/bases/${base}/patterns/`, "g"), "@/components/patterns/")
+    .replace(/@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/blitz-ui\//g, "@/components/blitz-ui/")
+    .replace(/@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/ui\//g, "@/components/ui/")
+    .replace(/@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/hooks\//g, "@/hooks/")
+    .replace(/@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/lib\//g, "@/lib/")
+    .replace(/@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/patterns\//g, "@/components/patterns/")
     .replace(/@\/registry\/bases\/(?:base|radix)\/ui\//g, "@/components/ui/")
-    .replace(/@\/registry\/bases\/(?:base|radix)\/reui\//g, "@/components/reui/")
+    .replace(/@\/registry\/bases\/(?:base|radix)\/blitz-ui\//g, "@/components/blitz-ui/")
     .replace(/@\/registry\/bases\/(?:base|radix)\/hooks\//g, "@/hooks/")
     .replace(/@\/registry\/bases\/(?:base|radix)\/lib\//g, "@/lib/")
     .replace(/^\s*\/\/\s*(?:Description|Order|GridSize|PreviewHeight):.*$\n?/gm, "")
@@ -165,8 +165,8 @@ function transformImportPaths(code: string, base: string): string {
 // Determine registry source type
 // ---------------------------------------------------------------------------
 
-function getRegistrySource(name: string): { type: "patterns" | "reui" } {
-  return { type: name.startsWith("p-") ? "patterns" : "reui" }
+function getRegistrySource(name: string): { type: "patterns" | "blitz-ui" } {
+  return { type: name.startsWith("p-") ? "patterns" : "blitz-ui" }
 }
 
 // ---------------------------------------------------------------------------
@@ -195,7 +195,7 @@ async function buildRegistryItem(
     const fileType = typeof file === "string" ? "registry:file" : file.type
     const fileTarget = typeof file === "string" ? undefined : file.target
 
-    const fullPath = path.join(PROJECT_ROOT, "registry-reui", "bases", base, filePath)
+    const fullPath = path.join(PROJECT_ROOT, "registry-blitz-ui", "bases", base, filePath)
 
     let content = ""
     try {
@@ -225,7 +225,7 @@ async function buildRegistryItem(
       if (sourceType === "patterns") {
         target = `components/patterns/${fileName}`
       } else if (fileType === "registry:ui") {
-        target = `components/reui/${fileName}`
+        target = `components/blitz-ui/${fileName}`
       } else if (fileType === "registry:hook") {
         target = `hooks/${fileName}`
       } else if (fileType === "registry:lib") {
@@ -288,7 +288,7 @@ function resolveRegistryDeps(
 
   item.registryDependencies = item.registryDependencies.map((dep: string) => {
     // If it's an internal registry item name, namespace it
-    if (allNames.has(dep)) return `@reui/${dep}`
+    if (allNames.has(dep)) return `@blitz-ui/${dep}`
 
     // Otherwise leave it (npm packages should NOT be here anyway)
     return dep
@@ -452,7 +452,7 @@ async function main() {
 
           // 6. Check for unresolved internal import paths
           if (
-            /@\/registry-reui\//.test(file.content) ||
+            /@\/registry-blitz-ui\//.test(file.content) ||
             /@\/registry\/bases\//.test(file.content)
           ) {
             verifyErrors++

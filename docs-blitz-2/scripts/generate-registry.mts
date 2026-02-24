@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const PROJECT_ROOT = path.resolve(__dirname, "..")
-const BASES_DIR = path.join(PROJECT_ROOT, "registry-reui/bases")
+const BASES_DIR = path.join(PROJECT_ROOT, "registry-blitz-ui/bases")
 const PACKAGE_JSON_FILE = path.join(PROJECT_ROOT, "package.json")
 const REGISTRY_JSON_FILE = path.join(BASES_DIR, "registry.json")
 
@@ -118,7 +118,7 @@ async function parseFile(filePath: string, packageDeps: string[]) {
     // If it's a deep import into a component directory, take the component name
     // e.g. bases/base/ui/select/select-content -> select
     const componentName =
-      parts.length > 4 && (parts[2] === "ui" || parts[2] === "reui")
+      parts.length > 4 && (parts[2] === "ui" || parts[2] === "blitz-ui")
         ? parts[3]
         : parts[parts.length - 1].replace(".tsx", "")
 
@@ -127,15 +127,15 @@ async function parseFile(filePath: string, packageDeps: string[]) {
     }
   }
 
-  // Also check for @/registry-reui dependencies
-  const importReuiRegex = /from\s+["']@\/registry-reui\/([^"']+)["']/g
-  while ((match = importReuiRegex.exec(content)) !== null) {
+  // Also check for @/registry-blitz-ui dependencies
+  const importBlitzUiRegex = /from\s+["']@\/registry-blitz-ui\/([^"']+)["']/g
+  while ((match = importBlitzUiRegex.exec(content)) !== null) {
     const importPath = match[1]
     const parts = importPath.split("/")
     // If it's a deep import into a component directory, take the component name
-    // e.g. bases/base/reui/data-grid/data-grid-pagination -> data-grid
+    // e.g. bases/base/blitz-ui/data-grid/data-grid-pagination -> data-grid
     const componentName =
-      parts.length > 4 && (parts[2] === "ui" || parts[2] === "reui")
+      parts.length > 4 && (parts[2] === "ui" || parts[2] === "blitz-ui")
         ? parts[3]
         : parts[parts.length - 1].replace(".tsx", "")
 
@@ -193,11 +193,11 @@ async function generate() {
 
   for (const base of bases) {
     const baseDir = path.join(BASES_DIR, base)
-    const reuiDir = path.join(baseDir, "reui")
+    const blitzUiDir = path.join(baseDir, "blitz-ui")
     const hooksDir = path.join(baseDir, "hooks")
     const patternsDir = path.join(baseDir, "patterns")
 
-    const reuiItems: any[] = []
+    const blitzUiItems: any[] = []
     const hooksItems: any[] = []
     const patternItems: any[] = []
 
@@ -228,62 +228,62 @@ async function generate() {
       }
     }
 
-    // Process REUI components
-    if (fsSync.existsSync(reuiDir)) {
-      const entries = await fs.readdir(reuiDir)
-      
+    // Process Blitz UI components
+    if (fsSync.existsSync(blitzUiDir)) {
+      const entries = await fs.readdir(blitzUiDir)
+
       for (const entry of entries) {
         if (entry.startsWith("_")) continue
-        
-        const entryPath = path.join(reuiDir, entry)
+
+        const entryPath = path.join(blitzUiDir, entry)
         const stat = await fs.stat(entryPath)
-        
+
         if (stat.isDirectory()) {
           // Handle subdirectory (e.g., data-grid/)
           const subFiles = await fs.readdir(entryPath)
           const tsxFiles = subFiles.filter(f => f.endsWith(".tsx") && !f.startsWith("_"))
-          
+
           // Find the main component file (matches directory name)
           const mainFileName = `${entry}.tsx`
           const hasMainFile = tsxFiles.includes(mainFileName)
-          
+
           // Get all sub-component names (excluding main file) - used to filter internal deps
           const subComponentNames = new Set(
             tsxFiles
               .filter(f => f !== mainFileName)
               .map(f => f.replace(".tsx", ""))
           )
-          
+
           // First pass: collect all dependencies from all files in the directory
           const allExternalRegistryDeps = new Set<string>()
           const allDependencies = new Set<string>()
           const fileInfoMap = new Map<string, Awaited<ReturnType<typeof parseFile>>>()
-          
+
           for (const file of tsxFiles) {
             const filePath = path.join(entryPath, file)
             const info = await parseFile(filePath, packageDeps)
             fileInfoMap.set(file, info)
-            
+
             // Collect external registry dependencies (exclude internal sub-components)
             for (const dep of info.registryDependencies) {
               if (!subComponentNames.has(dep) && dep !== entry) {
                 allExternalRegistryDeps.add(dep)
               }
             }
-            
+
             // Collect all package dependencies
             for (const dep of info.dependencies) {
               allDependencies.add(dep)
             }
           }
-          
+
           // Second pass: create registry items
           for (const file of tsxFiles) {
             const name = file.replace(".tsx", "")
             const info = fileInfoMap.get(file)!
-            
+
             const isMainFile = file === mainFileName
-            
+
             // Build meta object
             let meta: { order?: number; gridSize?: number } | undefined
             if (info.order !== undefined || info.gridSize !== undefined) {
@@ -291,16 +291,16 @@ async function generate() {
               if (info.order !== undefined) meta.order = info.order
               if (info.gridSize !== undefined) meta.gridSize = info.gridSize
             }
-            
+
             // For main file, include all files and merge external dependencies from all sub-components
             if (isMainFile && hasMainFile) {
               const allFiles = tsxFiles.map(f => ({
-                path: `reui/${entry}/${f}`,
+                path: `blitz-ui/${entry}/${f}`,
                 type: "registry:ui",
-                target: `components/reui/${entry}/${f}`,
+                target: `components/blitz-ui/${entry}/${f}`,
               }))
-              
-              reuiItems.push({
+
+              blitzUiItems.push({
                 name,
                 type: "registry:ui",
                 title: info.description || info.title || formatTitle(name),
@@ -316,15 +316,15 @@ async function generate() {
               const externalDeps = info.registryDependencies.filter(
                 dep => !subComponentNames.has(dep) && dep !== entry
               )
-              
-              reuiItems.push({
+
+              blitzUiItems.push({
                 name,
                 type: "registry:ui",
                 title: info.description || info.title || formatTitle(name),
                 description: info.description,
                 registryDependencies: externalDeps,
                 dependencies: info.dependencies,
-                files: [{ path: `reui/${entry}/${file}`, type: "registry:ui", target: `component/reui/${entry}/${file}` }],
+                files: [{ path: `blitz-ui/${entry}/${file}`, type: "registry:ui", target: `component/blitz-ui/${entry}/${file}` }],
                 meta,
                 cssVars: (name === "badge" || name === "alert") ? SHARED_CSS_VARS : undefined,
               })
@@ -343,14 +343,14 @@ async function generate() {
             if (info.gridSize !== undefined) meta.gridSize = info.gridSize
           }
 
-          reuiItems.push({
+          blitzUiItems.push({
             name,
             type: "registry:ui",
             title: info.description || info.title || formatTitle(name),
             description: info.description,
             registryDependencies: info.registryDependencies,
             dependencies: info.dependencies,
-            files: [{ path: `reui/${entry}`, type: "registry:ui", target: `components/reui/${entry}` }],
+            files: [{ path: `blitz-ui/${entry}`, type: "registry:ui", target: `components/blitz-ui/${entry}` }],
             meta,
             cssVars: (name === "badge" || name === "alert") ? SHARED_CSS_VARS : undefined,
           })
@@ -358,13 +358,13 @@ async function generate() {
       }
     }
 
-    // Build a set of known REUI component names (to filter from pattern dependencies)
-    const reuiComponentNames = new Set<string>()
-    for (const item of reuiItems) {
-      reuiComponentNames.add(item.name)
+    // Build a set of known Blitz UI component names (to filter from pattern dependencies)
+    const blitzUiComponentNames = new Set<string>()
+    for (const item of blitzUiItems) {
+      blitzUiComponentNames.add(item.name)
     }
     for (const item of hooksItems) {
-      reuiComponentNames.add(item.name)
+      blitzUiComponentNames.add(item.name)
     }
 
     // Process Patterns
@@ -418,11 +418,11 @@ async function generate() {
     }
 
     // Write individual _registry.ts files
-    if (reuiItems.length > 0) {
-      const reuiRegistryPath = path.join(reuiDir, "_registry.ts")
+    if (blitzUiItems.length > 0) {
+      const blitzUiRegistryPath = path.join(blitzUiDir, "_registry.ts")
       await fs.writeFile(
-        reuiRegistryPath,
-        `import { type Registry } from "shadcn/schema"\n\nexport const reui: Registry["items"] = ${JSON.stringify(reuiItems, null, 2)}\n`
+        blitzUiRegistryPath,
+        `import { type Registry } from "shadcn/schema"\n\nexport const blitz-ui: Registry["items"] = ${JSON.stringify(blitzUiItems, null, 2)}\n`
       )
     }
 
@@ -450,19 +450,19 @@ async function generate() {
 
 import { hooks } from "./hooks/_registry"
 import { patterns } from "./patterns/_registry"
-import { reui } from "./reui/_registry"
+import { blitzUi } from "./blitz-ui/_registry"
 
 export const registry = {
   name: "shadcn/ui",
   homepage: "https://ui.shadcn.com",
-  items: registryItemSchema.array().parse([...reui, ...hooks, ...patterns]),
+  items: registryItemSchema.array().parse([...blitzUi, ...hooks, ...patterns]),
 } satisfies Registry
 `
     )
 
     // Build global index for this base
     globalIndex[base] = {}
-    const allItems = [...reuiItems, ...hooksItems, ...patternItems]
+    const allItems = [...blitzUiItems, ...hooksItems, ...patternItems]
     for (const item of allItems) {
       globalIndex[base][item.name] = {
         name: item.name,
@@ -472,7 +472,7 @@ export const registry = {
         registryDependencies: item.registryDependencies.length > 0 ? item.registryDependencies : undefined,
         dependencies: item.dependencies.length > 0 ? item.dependencies : undefined,
         files: item.files.map((f: any) => ({
-          path: `registry-reui/bases/${base}/${f.path}`,
+          path: `registry-blitz-ui/bases/${base}/${f.path}`,
           type: f.type,
           target: f.target,
         })),
@@ -490,7 +490,7 @@ export const registry = {
   // Calculate stats
   let totalPatterns = 0
   const patternCounts: Record<string, number> = {}
-  
+
   // Only count from "base" to avoid double counting
   const baseRegistry = globalIndex["base"] || {}
   for (const [name, item] of Object.entries(baseRegistry)) {

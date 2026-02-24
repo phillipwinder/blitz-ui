@@ -121,7 +121,7 @@ function getMetadata(base: string = "base"): MetadataData {
       const metadata: Record<string, RegistryItem> = {}
 
       try {
-        const reuiMod = require(`../registry-reui/bases/${base}/reui/_registry`)
+        const reuiMod = require(`../registry-blitz-ui/bases/${base}/reui/_registry`)
         const reuiItems = reuiMod.reui || []
         for (const item of reuiItems) {
           metadata[item.name] = item
@@ -132,7 +132,7 @@ function getMetadata(base: string = "base"): MetadataData {
 
       try {
         const hooksMod = require(
-          `../registry-reui/bases/${base}/hooks/_registry`
+          `../registry-blitz-ui/bases/${base}/hooks/_registry`
         )
         const hooksItems = hooksMod.hooks || []
         for (const item of hooksItems) {
@@ -144,7 +144,7 @@ function getMetadata(base: string = "base"): MetadataData {
 
       try {
         const patternsMod = require(
-          `../registry-reui/bases/${base}/patterns/_registry`
+          `../registry-blitz-ui/bases/${base}/patterns/_registry`
         )
         const patternItems = patternsMod.patterns || []
         for (const item of patternItems) {
@@ -257,41 +257,41 @@ export function transformImportPaths(code: string, base: string): string {
     code
       // Handle __generated style-specific paths
       .replace(
-        /@\/registry-reui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/reui\//g,
+        /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/reui\//g,
         "@/components/reui/"
       )
       .replace(
-        /@\/registry-reui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/ui\//g,
+        /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/ui\//g,
         "@/components/ui/"
       )
       .replace(
-        /@\/registry-reui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/hooks\//g,
+        /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/hooks\//g,
         "@/hooks/"
       )
       .replace(
-        /@\/registry-reui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/lib\//g,
+        /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/lib\//g,
         "@/lib/"
       )
       .replace(
-        /@\/registry-reui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/patterns\//g,
+        /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/patterns\//g,
         "@/components/patterns/"
       )
       // Handle base paths
       .replace(
-        new RegExp(`@/registry-reui/bases/${base}/reui/`, "g"),
+        new RegExp(`@/registry-blitz-ui/bases/${base}/reui/`, "g"),
         "@/components/reui/"
       )
       .replace(
-        new RegExp(`@/registry-reui/bases/${base}/ui/`, "g"),
+        new RegExp(`@/registry-blitz-ui/bases/${base}/ui/`, "g"),
         "@/components/ui/"
       )
       .replace(
-        new RegExp(`@/registry-reui/bases/${base}/hooks/`, "g"),
+        new RegExp(`@/registry-blitz-ui/bases/${base}/hooks/`, "g"),
         "@/hooks/"
       )
-      .replace(new RegExp(`@/registry-reui/bases/${base}/lib/`, "g"), "@/lib/")
+      .replace(new RegExp(`@/registry-blitz-ui/bases/${base}/lib/`, "g"), "@/lib/")
       .replace(
-        new RegExp(`@/registry-reui/bases/${base}/patterns/`, "g"),
+        new RegExp(`@/registry-blitz-ui/bases/${base}/patterns/`, "g"),
         "@/components/patterns/"
       )
       // Generic registry path replacements
@@ -366,7 +366,7 @@ export async function getRegistryItemForApi(
     // Resolve the full path
     const fullPath = path.join(
       projectRoot,
-      "registry-reui",
+      "registry-blitz-ui",
       "bases",
       base,
       filePath

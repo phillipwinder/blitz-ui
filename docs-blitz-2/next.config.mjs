@@ -11,7 +11,7 @@ const nextConfig = {
   outputFileTracingIncludes: {
     "/*": [
       "./registry/**/*",
-      "./registry-reui/**/*",
+      "./registry-blitz-ui/**/*",
       "./public/r/styles/**/*",
     ],
   },

@@ -17,7 +17,7 @@ async function getSourceForRegistryItem(name: string, styleName: string) {
   const registryKey = getRegistryKey(styleName)
   let source = rawSource
   source = source.replaceAll(
-    `@/registry-reui/bases/${registryKey}/`,
+    `@/registry-blitz-ui/bases/${registryKey}/`,
     "@/components/"
   )
   source = source.replaceAll("export default", "export")

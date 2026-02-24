@@ -103,7 +103,7 @@ let _categoryIndex: Map<string, PatternData[]> | null = null
 function getStats(): StatsData {
   if (!_stats) {
     try {
-      _stats = require("../registry-reui/bases/registry.json") as StatsData
+      _stats = require("../registry-blitz-ui/bases/registry.json") as StatsData
     } catch (e) {
       console.error("Failed to load registry stats", e)
       _stats = { categories: [], totalPatterns: 0 }
@@ -120,7 +120,7 @@ function getMetadata(base: string = "base"): MetadataData {
       // Directly load patterns and reui registries for reliability and performance
       // This avoids potential issues with the aggregate registry.ts file
       try {
-        const reuiMod = require(`../registry-reui/bases/${base}/reui/_registry`)
+        const reuiMod = require(`../registry-blitz-ui/bases/${base}/reui/_registry`)
         const reuiItems = reuiMod.reui || []
         for (const item of reuiItems) {
           metadata[item.name] = item
@@ -131,7 +131,7 @@ function getMetadata(base: string = "base"): MetadataData {
 
       try {
         const patternsMod = require(
-          `../registry-reui/bases/${base}/patterns/_registry`
+          `../registry-blitz-ui/bases/${base}/patterns/_registry`
         )
         const patternItems = patternsMod.patterns || []
         for (const item of patternItems) {
@@ -201,11 +201,11 @@ export function getComponent(
   }
 
   // Extract relative path from metadata
-  // e.g., "registry-reui/bases/base/reui/alert.tsx" -> "reui/alert.tsx"
-  const path = item.files[0].path.replace(`registry-reui/bases/${base}/`, "")
+  // e.g., "registry-blitz-ui/bases/base/reui/alert.tsx" -> "reui/alert.tsx"
+  const path = item.files[0].path.replace(`registry-blitz-ui/bases/${base}/`, "")
 
   const lazyComponent = React.lazy(
-    () => import(`@/registry-reui/bases/${base}/${path}`)
+    () => import(`@/registry-blitz-ui/bases/${base}/${path}`)
   )
 
   componentCache.set(cacheKey, lazyComponent)
@@ -329,7 +329,7 @@ function ensurePatternIndexes() {
 
   try {
     // Load from patterns.json - Compact manifest for high performance
-    const patterns = require("../registry-reui/bases/patterns.json")
+    const patterns = require("../registry-blitz-ui/bases/patterns.json")
 
     for (const pattern of patterns) {
       const itemCategories = pattern.categories || []
@@ -558,10 +558,10 @@ function getRegistryKey(styleName: string): string {
 function transformReuiPath(filePath: string, _styleName: string): string {
   if (filePath.includes("/__generated/")) {
     return filePath.replace(
-      /registry-reui\/bases\/__generated\/[^/]+\//,
+      /registry-blitz-ui\/bases\/__generated\/[^/]+\//,
       (match) => {
-        if (match.includes("base-")) return "registry-reui/bases/base/"
-        if (match.includes("radix-")) return "registry-reui/bases/radix/"
+        if (match.includes("base-")) return "registry-blitz-ui/bases/base/"
+        if (match.includes("radix-")) return "registry-blitz-ui/bases/radix/"
         return match
       }
     )

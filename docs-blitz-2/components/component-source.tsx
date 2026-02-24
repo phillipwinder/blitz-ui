@@ -34,14 +34,14 @@ function normalizeRegistryPath(value: string) {
 
   if (
     !normalized.startsWith("registry/") &&
-    !normalized.startsWith("registry-reui/")
+    !normalized.startsWith("registry-blitz-ui/")
   ) {
     return null
   }
 
   return normalized.replace(
-    /^registry-reui\/bases\/__generated\/[^/]+\//,
-    "registry-reui/bases/"
+    /^registry-blitz-ui\/bases\/__generated\/[^/]+\//,
+    "registry-blitz-ui/bases/"
   )
 }
 
