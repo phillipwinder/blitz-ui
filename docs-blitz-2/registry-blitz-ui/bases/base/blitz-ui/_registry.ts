@@ -377,6 +377,7 @@ export const blitz-ui: Registry["items"] = [
     "title": "Data Grid Column Filter",
     "description": "",
     "registryDependencies": [
+      "badge",
       "button",
       "input",
       "popover",
@@ -522,6 +523,7 @@ export const blitz-ui: Registry["items"] = [
     "title": "Data Grid",
     "description": "",
     "registryDependencies": [
+      "badge",
       "button",
       "checkbox",
       "dropdown-menu",

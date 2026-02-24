@@ -57,6 +57,7 @@ export const patterns: Registry["items"] = [
     "description": "Accordion pattern for onboarding or setup steps with icons, badges, and QR codes",
     "registryDependencies": [
       "accordion",
+      "badge",
       "button",
       "button-group",
       "input",
@@ -177,7 +178,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Advanced accordion with custom icons and badges",
     "registryDependencies": [
-      "accordion"
+      "accordion",
+      "badge"
     ],
     "dependencies": [],
     "files": [
@@ -200,7 +202,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Accordion items integrated within Frame and FramePanel",
     "registryDependencies": [
-      "accordion"
+      "accordion",
+      "badge",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -247,7 +251,9 @@ export const patterns: Registry["items"] = [
     "description": "User list accordion with avatars and role indicators",
     "registryDependencies": [
       "accordion",
-      "avatar"
+      "avatar",
+      "badge",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -269,7 +275,9 @@ export const patterns: Registry["items"] = [
       "alert"
     ],
     "description": "Basic alert",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "alert"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -291,6 +299,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Alert with icon and action buttons",
     "registryDependencies": [
+      "alert",
       "button"
     ],
     "dependencies": [],
@@ -314,6 +323,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Alert with description and action buttons",
     "registryDependencies": [
+      "alert",
       "button"
     ],
     "dependencies": [],
@@ -336,7 +346,10 @@ export const patterns: Registry["items"] = [
       "alert"
     ],
     "description": "Alert integrated within a Frame with reset borders",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "alert",
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -358,7 +371,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Stacked alerts within a Frame",
     "registryDependencies": [
-      "button"
+      "alert",
+      "button",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -381,7 +396,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Alert with actions integrated within a Frame",
     "registryDependencies": [
-      "button"
+      "alert",
+      "button",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -404,7 +421,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Inverted alert variant",
     "registryDependencies": [
-      "button"
+      "alert",
+      "button",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -427,7 +446,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Urgent billing notice",
     "registryDependencies": [
-      "button"
+      "alert",
+      "button",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -450,7 +471,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Service status summary stacked within a frame",
     "registryDependencies": [
-      "button"
+      "alert",
+      "button",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -473,7 +496,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Feature discovery alert",
     "registryDependencies": [
-      "button"
+      "alert",
+      "button",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -496,8 +521,10 @@ export const patterns: Registry["items"] = [
     ],
     "description": "User message notification alert",
     "registryDependencies": [
+      "alert",
       "avatar",
-      "button"
+      "button",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -519,7 +546,9 @@ export const patterns: Registry["items"] = [
       "alert"
     ],
     "description": "Alert with icon",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "alert"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -541,8 +570,10 @@ export const patterns: Registry["items"] = [
     ],
     "description": "User message notification alert",
     "registryDependencies": [
+      "alert",
       "avatar",
-      "button"
+      "button",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -565,6 +596,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Alert with icon and action buttons",
     "registryDependencies": [
+      "alert",
       "button"
     ],
     "dependencies": [],
@@ -587,7 +619,9 @@ export const patterns: Registry["items"] = [
       "alert"
     ],
     "description": "Destructive alert with icon and action buttons",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "alert"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -608,7 +642,9 @@ export const patterns: Registry["items"] = [
       "alert"
     ],
     "description": "Info alert with icon and action buttons",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "alert"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -629,7 +665,9 @@ export const patterns: Registry["items"] = [
       "alert"
     ],
     "description": "Success alert",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "alert"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -650,7 +688,9 @@ export const patterns: Registry["items"] = [
       "alert"
     ],
     "description": "Warning alert",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "alert"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -671,7 +711,9 @@ export const patterns: Registry["items"] = [
       "alert"
     ],
     "description": "Error alert",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "alert"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -692,7 +734,9 @@ export const patterns: Registry["items"] = [
       "alert"
     ],
     "description": "Invert alert",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "alert"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -763,6 +807,7 @@ export const patterns: Registry["items"] = [
     "description": "System update notification requiring application restart",
     "registryDependencies": [
       "alert-dialog",
+      "badge",
       "button"
     ],
     "dependencies": [],
@@ -787,6 +832,7 @@ export const patterns: Registry["items"] = [
     "description": "Billing warning for expired subscriptions or failed payments",
     "registryDependencies": [
       "alert-dialog",
+      "badge",
       "button"
     ],
     "dependencies": [],
@@ -835,6 +881,7 @@ export const patterns: Registry["items"] = [
     "description": "Advanced security audit confirmation",
     "registryDependencies": [
       "alert-dialog",
+      "badge",
       "button"
     ],
     "dependencies": [],
@@ -1032,6 +1079,7 @@ export const patterns: Registry["items"] = [
       "alert-dialog",
       "button",
       "checkbox",
+      "frame",
       "label"
     ],
     "dependencies": [],
@@ -1238,7 +1286,9 @@ export const patterns: Registry["items"] = [
       "autocomplete"
     ],
     "description": "Basic autocomplete control",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "autocomplete"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -1259,7 +1309,9 @@ export const patterns: Registry["items"] = [
       "autocomplete"
     ],
     "description": "Small autocomplete",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "autocomplete"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -1280,7 +1332,9 @@ export const patterns: Registry["items"] = [
       "autocomplete"
     ],
     "description": "Large autocomplete",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "autocomplete"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -1303,6 +1357,7 @@ export const patterns: Registry["items"] = [
     "description": "Form integration",
     "registryDependencies": [
       "alert",
+      "autocomplete",
       "button",
       "field"
     ],
@@ -1331,7 +1386,9 @@ export const patterns: Registry["items"] = [
       "autocomplete"
     ],
     "description": "Disabled state",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "autocomplete"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -1352,7 +1409,9 @@ export const patterns: Registry["items"] = [
       "autocomplete"
     ],
     "description": "Auto highlight option as you type",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "autocomplete"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -1374,6 +1433,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Control with label",
     "registryDependencies": [
+      "autocomplete",
       "label"
     ],
     "dependencies": [],
@@ -1396,7 +1456,9 @@ export const patterns: Registry["items"] = [
       "autocomplete"
     ],
     "description": "With clear button",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "autocomplete"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -1417,7 +1479,9 @@ export const patterns: Registry["items"] = [
       "autocomplete"
     ],
     "description": "With trigger button",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "autocomplete"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -1438,7 +1502,9 @@ export const patterns: Registry["items"] = [
       "autocomplete"
     ],
     "description": "With clear and trigger buttons",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "autocomplete"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -1460,6 +1526,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "With groups and labels",
     "registryDependencies": [
+      "autocomplete",
       "avatar"
     ],
     "dependencies": [
@@ -1485,6 +1552,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "With search results",
     "registryDependencies": [
+      "autocomplete",
       "avatar"
     ],
     "dependencies": [
@@ -1671,7 +1739,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Avatar with user details and badge",
     "registryDependencies": [
-      "avatar"
+      "avatar",
+      "badge"
     ],
     "dependencies": [],
     "files": [
@@ -1810,7 +1879,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Compact social proof with initials",
     "registryDependencies": [
-      "avatar"
+      "avatar",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -2323,7 +2393,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Default badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2344,7 +2416,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Info outline badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2365,7 +2439,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Success outline badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2386,7 +2462,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Warning outline badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2407,7 +2485,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Primary light badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2428,7 +2508,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Destructive light badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2449,7 +2531,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Success light badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2470,7 +2554,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Info light badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2491,7 +2577,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Warning light badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2512,7 +2600,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Badge size variations",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2533,7 +2623,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Badge with full radius",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2554,7 +2646,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Secondary badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2575,7 +2669,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Badge with an icon",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2597,6 +2693,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Badge with a dismiss button",
     "registryDependencies": [
+      "badge",
       "button"
     ],
     "dependencies": [],
@@ -2619,7 +2716,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Badge with a status dot",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2640,7 +2739,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Badge rendered as a link",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2663,6 +2764,7 @@ export const patterns: Registry["items"] = [
     "description": "Badge with avatar",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button"
     ],
     "dependencies": [],
@@ -2685,7 +2787,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Badge with flag image",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2706,7 +2810,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Destructive badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2727,7 +2833,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Success badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2748,7 +2856,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Info badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2769,7 +2879,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Warning badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2790,7 +2902,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Outline badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2811,7 +2925,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Primary outline badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2832,7 +2948,9 @@ export const patterns: Registry["items"] = [
       "badge"
     ],
     "description": "Destructive outline badge",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -2877,7 +2995,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Pill-style breadcrumb inside frame",
     "registryDependencies": [
-      "breadcrumb"
+      "breadcrumb",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -2900,6 +3019,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Breadcrumb items containing badge with count",
     "registryDependencies": [
+      "badge",
       "breadcrumb"
     ],
     "dependencies": [],
@@ -2995,7 +3115,8 @@ export const patterns: Registry["items"] = [
     "description": "Breadcrumb with project, user and document info",
     "registryDependencies": [
       "avatar",
-      "breadcrumb"
+      "breadcrumb",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -3945,6 +4066,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Button with an unread badge",
     "registryDependencies": [
+      "badge",
       "button"
     ],
     "dependencies": [],
@@ -4109,6 +4231,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Outline button with inline count badge",
     "registryDependencies": [
+      "badge",
       "button"
     ],
     "dependencies": [],
@@ -4155,6 +4278,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Ghost button with a status badge",
     "registryDependencies": [
+      "badge",
       "button"
     ],
     "dependencies": [],
@@ -4178,6 +4302,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Icon button with notification badge",
     "registryDependencies": [
+      "badge",
       "button"
     ],
     "dependencies": [],
@@ -4769,6 +4894,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Star button group with count and dropdown",
     "registryDependencies": [
+      "badge",
       "button",
       "button-group",
       "dropdown-menu"
@@ -5168,6 +5294,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Button group with buttons and badge",
     "registryDependencies": [
+      "badge",
       "button",
       "button-group"
     ],
@@ -6440,6 +6567,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Full card with image and shadow fade effect",
     "registryDependencies": [
+      "badge",
       "card"
     ],
     "dependencies": [],
@@ -6681,6 +6809,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Card with image",
     "registryDependencies": [
+      "badge",
       "button",
       "card"
     ],
@@ -6728,6 +6857,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Card with full image",
     "registryDependencies": [
+      "badge",
       "button",
       "card"
     ],
@@ -7018,6 +7148,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Basic bar chart",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7044,6 +7175,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Duotone gradient bar chart",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7070,6 +7202,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Animated monochrome bar chart",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7097,6 +7230,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Vertical bar chart",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7123,6 +7257,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Gradient area chart with stripe overlay",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7149,6 +7284,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Stacked area chart with dashed strokes",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7175,6 +7311,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Step area chart with dotted pattern fill",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7201,6 +7338,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Area chart with glowing dot markers",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7253,6 +7391,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Stacked area chart with crosshatch pattern fill",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7305,6 +7444,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Multi-dataset bar chart",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7487,6 +7627,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Diagonal stripe bar chart",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7513,6 +7654,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Dotted pattern bar chart",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7539,6 +7681,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Striped and solid bar chart",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7565,6 +7708,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "3D gradient bar chart",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7591,6 +7735,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Gradient bar chart",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7617,6 +7762,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "3D isometric bar chart",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7643,6 +7789,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Dotted and solid bar chart",
     "registryDependencies": [
+      "badge",
       "card",
       "chart"
     ],
@@ -7695,6 +7842,7 @@ export const patterns: Registry["items"] = [
     "registryDependencies": [
       "checkbox",
       "field",
+      "frame",
       "separator"
     ],
     "dependencies": [],
@@ -7916,6 +8064,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Checkbox group with badge",
     "registryDependencies": [
+      "badge",
       "checkbox",
       "field"
     ],
@@ -8206,6 +8355,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Basic collapsible",
     "registryDependencies": [
+      "badge",
       "button",
       "collapsible"
     ],
@@ -8360,7 +8510,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Collapsible frame",
     "registryDependencies": [
-      "collapsible"
+      "collapsible",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -8385,7 +8536,9 @@ export const patterns: Registry["items"] = [
     "registryDependencies": [
       "button",
       "collapsible",
-      "dropdown-menu"
+      "dropdown-menu",
+      "frame",
+      "use-copy-to-clipboard"
     ],
     "dependencies": [],
     "files": [
@@ -8409,7 +8562,8 @@ export const patterns: Registry["items"] = [
     "description": "Collapsible User profile",
     "registryDependencies": [
       "avatar",
-      "collapsible"
+      "collapsible",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -9051,6 +9205,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "File search command palette",
     "registryDependencies": [
+      "badge",
       "button",
       "command",
       "kbd"
@@ -9077,6 +9232,7 @@ export const patterns: Registry["items"] = [
     "description": "User search command with avatars",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
       "command"
     ],
@@ -9381,6 +9537,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Data grid with pagination",
     "registryDependencies": [
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9408,6 +9565,7 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with column icons",
     "registryDependencies": [
       "avatar",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9435,6 +9593,7 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with sortable columns",
     "registryDependencies": [
       "avatar",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9462,6 +9621,8 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with movable columns",
     "registryDependencies": [
       "avatar",
+      "badge",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9489,6 +9650,8 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with draggable columns",
     "registryDependencies": [
       "avatar",
+      "badge",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9518,6 +9681,7 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with draggable rows",
     "registryDependencies": [
       "avatar",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9547,6 +9711,8 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with column resizing",
     "registryDependencies": [
       "avatar",
+      "badge",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9574,6 +9740,8 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with pinnable columns",
     "registryDependencies": [
       "avatar",
+      "badge",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9601,6 +9769,8 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with sticky header",
     "registryDependencies": [
       "avatar",
+      "badge",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9628,6 +9798,8 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with column controls",
     "registryDependencies": [
       "avatar",
+      "badge",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9655,8 +9827,10 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with card container",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
       "card",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9684,6 +9858,7 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with cell border",
     "registryDependencies": [
       "avatar",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9711,8 +9886,10 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with column visibility controls",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
       "card",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9740,8 +9917,10 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with loading skeleton",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
       "card",
+      "data-grid",
       "scroll-area",
       "skeleton"
     ],
@@ -9770,14 +9949,17 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with CRUD features",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
       "card",
       "checkbox",
+      "data-grid",
       "dropdown-menu",
       "input-group",
       "label",
       "popover",
-      "scroll-area"
+      "scroll-area",
+      "use-copy-to-clipboard"
     ],
     "dependencies": [
       "@tanstack/react-table",
@@ -9805,6 +9987,7 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with dense layout",
     "registryDependencies": [
       "avatar",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9832,6 +10015,8 @@ export const patterns: Registry["items"] = [
     "description": "Data grid without table borders",
     "registryDependencies": [
       "avatar",
+      "badge",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9859,6 +10044,7 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with striped rows",
     "registryDependencies": [
       "avatar",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9886,6 +10072,7 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with auto width table layout",
     "registryDependencies": [
       "avatar",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9913,6 +10100,7 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with row selection",
     "registryDependencies": [
       "avatar",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9940,7 +10128,9 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with expandable rows",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9968,7 +10158,9 @@ export const patterns: Registry["items"] = [
     "description": "Data grid with sub table",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
+      "data-grid",
       "scroll-area"
     ],
     "dependencies": [
@@ -9996,7 +10188,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Basic date selector",
     "registryDependencies": [
-      "card"
+      "card",
+      "date-selector"
     ],
     "dependencies": [
       "date-fns"
@@ -10023,6 +10216,7 @@ export const patterns: Registry["items"] = [
     "description": "Date selector with popover",
     "registryDependencies": [
       "button",
+      "date-selector",
       "popover",
       "separator"
     ],
@@ -10048,6 +10242,7 @@ export const patterns: Registry["items"] = [
     "description": "Date selector with dialog",
     "registryDependencies": [
       "button",
+      "date-selector",
       "dialog"
     ],
     "dependencies": [],
@@ -10072,6 +10267,7 @@ export const patterns: Registry["items"] = [
     "description": "Date selector with dropdown menu",
     "registryDependencies": [
       "button",
+      "date-selector",
       "dialog",
       "dropdown-menu"
     ],
@@ -10513,6 +10709,7 @@ export const patterns: Registry["items"] = [
     "description": "Notifications dropdown menu",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
       "dropdown-menu"
     ],
@@ -10586,6 +10783,7 @@ export const patterns: Registry["items"] = [
     "description": "User profile dropdown menu with theme toggle and status selector",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
       "dropdown-menu",
       "tabs"
@@ -11561,7 +11759,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Basic file upload",
     "registryDependencies": [
-      "button"
+      "button",
+      "use-file-upload"
     ],
     "dependencies": [],
     "files": [
@@ -11584,7 +11783,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Cover image upload.",
     "registryDependencies": [
-      "button"
+      "alert",
+      "button",
+      "use-file-upload"
     ],
     "dependencies": [],
     "files": [
@@ -11608,7 +11809,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Avatar upload",
     "registryDependencies": [
-      "button"
+      "alert",
+      "button",
+      "use-file-upload"
     ],
     "dependencies": [],
     "files": [
@@ -11631,7 +11834,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Basic drag and drop file upload",
     "registryDependencies": [
-      "button"
+      "alert",
+      "button",
+      "use-file-upload"
     ],
     "dependencies": [],
     "files": [
@@ -11655,9 +11860,11 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Gallery file upload",
     "registryDependencies": [
+      "alert",
       "button",
       "dialog",
-      "spinner"
+      "spinner",
+      "use-file-upload"
     ],
     "dependencies": [],
     "files": [
@@ -11681,8 +11888,11 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Progress file upload",
     "registryDependencies": [
+      "alert",
+      "badge",
       "button",
-      "progress"
+      "progress",
+      "use-file-upload"
     ],
     "dependencies": [],
     "files": [
@@ -11706,8 +11916,11 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Table file upload",
     "registryDependencies": [
+      "alert",
+      "badge",
       "button",
-      "table"
+      "table",
+      "use-file-upload"
     ],
     "dependencies": [],
     "files": [
@@ -11731,6 +11944,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Image upload",
     "registryDependencies": [
+      "alert",
       "button",
       "card",
       "progress"
@@ -11757,9 +11971,11 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Image upload with sorting.",
     "registryDependencies": [
+      "alert",
       "button",
       "card",
-      "progress"
+      "progress",
+      "sortable"
     ],
     "dependencies": [
       "sonner"
@@ -11785,8 +12001,10 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Card file upload.",
     "registryDependencies": [
+      "alert",
       "button",
-      "tooltip"
+      "tooltip",
+      "use-file-upload"
     ],
     "dependencies": [],
     "files": [
@@ -11811,7 +12029,8 @@ export const patterns: Registry["items"] = [
     "description": "Filters with various field types",
     "registryDependencies": [
       "avatar",
-      "button"
+      "button",
+      "filters"
     ],
     "dependencies": [],
     "files": [
@@ -11835,7 +12054,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Filters with input validation",
     "registryDependencies": [
-      "button"
+      "button",
+      "filters"
     ],
     "dependencies": [
       "zod"
@@ -11862,7 +12082,8 @@ export const patterns: Registry["items"] = [
     "description": "Filters with custom trigger button",
     "registryDependencies": [
       "avatar",
-      "button"
+      "button",
+      "filters"
     ],
     "dependencies": [],
     "files": [
@@ -11886,7 +12107,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Filters with small size controls",
     "registryDependencies": [
-      "button"
+      "button",
+      "filters"
     ],
     "dependencies": [],
     "files": [
@@ -11910,7 +12132,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Filters with large size controls",
     "registryDependencies": [
-      "button"
+      "button",
+      "filters"
     ],
     "dependencies": [],
     "files": [
@@ -11936,7 +12159,9 @@ export const patterns: Registry["items"] = [
     "registryDependencies": [
       "button",
       "calendar",
+      "date-selector",
       "dialog",
+      "filters",
       "popover",
       "scroll-area",
       "slider"
@@ -11966,8 +12191,12 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Filters with data grid",
     "registryDependencies": [
+      "alert",
       "avatar",
+      "badge",
       "button",
+      "data-grid",
+      "filters",
       "scroll-area",
       "skeleton"
     ],
@@ -11995,8 +12224,12 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Filters with data grid and async mode",
     "registryDependencies": [
+      "alert",
       "avatar",
+      "badge",
       "button",
+      "data-grid",
+      "filters",
       "scroll-area",
       "skeleton"
     ],
@@ -12026,7 +12259,8 @@ export const patterns: Registry["items"] = [
     "description": "Filters with i18n support",
     "registryDependencies": [
       "button",
-      "dropdown-menu"
+      "dropdown-menu",
+      "filters"
     ],
     "dependencies": [],
     "files": [
@@ -12049,7 +12283,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Basic frame",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12070,7 +12306,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with small spacing",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12091,7 +12329,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with default spacing",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12112,7 +12352,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with large spacing",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12133,7 +12375,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with small border radius",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12154,7 +12398,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with medium border radius",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12175,7 +12421,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with large border radius",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12196,7 +12444,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with default border radius",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12217,7 +12467,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with extra large border radius",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12238,7 +12490,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with separated panels",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12259,7 +12513,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with stacked panels",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12280,7 +12536,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with stacked panels and dense style",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12302,7 +12560,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Frame with collapsible panels",
     "registryDependencies": [
-      "collapsible"
+      "collapsible",
+      "frame"
     ],
     "dependencies": [],
     "files": [
@@ -12324,7 +12583,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with ghost(no outer border) variant",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12345,7 +12606,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with dense layout",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12366,7 +12629,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with stacked panels",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12387,7 +12652,9 @@ export const patterns: Registry["items"] = [
       "frame"
     ],
     "description": "Frame with extra small spacing",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -12558,6 +12825,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Timestamp hover card with active relative time",
     "registryDependencies": [
+      "badge",
       "hover-card",
       "separator"
     ],
@@ -12584,6 +12852,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Hover card with paginated release notes",
     "registryDependencies": [
+      "badge",
       "button",
       "hover-card"
     ],
@@ -12803,6 +13072,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Input label with badge",
     "registryDependencies": [
+      "badge",
       "field",
       "input"
     ],
@@ -12827,6 +13097,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Input label with optional badge",
     "registryDependencies": [
+      "badge",
       "field",
       "input"
     ],
@@ -14393,6 +14664,7 @@ export const patterns: Registry["items"] = [
     "description": "Item with header and footer sections",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
       "item",
       "progress"
@@ -14418,6 +14690,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Integration items with connect actions",
     "registryDependencies": [
+      "badge",
       "button",
       "item"
     ],
@@ -14443,6 +14716,7 @@ export const patterns: Registry["items"] = [
     "description": "Activity feed items with avatars and actions",
     "registryDependencies": [
       "avatar",
+      "badge",
       "item"
     ],
     "dependencies": [],
@@ -14539,6 +14813,7 @@ export const patterns: Registry["items"] = [
     "description": "Item group with status badges",
     "registryDependencies": [
       "avatar",
+      "badge",
       "item"
     ],
     "dependencies": [],
@@ -14562,6 +14837,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "File items with icon media, size, and actions",
     "registryDependencies": [
+      "badge",
       "button",
       "item"
     ],
@@ -14610,6 +14886,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Small-size items with badges",
     "registryDependencies": [
+      "badge",
       "item"
     ],
     "dependencies": [],
@@ -14634,6 +14911,7 @@ export const patterns: Registry["items"] = [
     "description": "Team members with roles and multiple actions",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
       "dropdown-menu",
       "item"
@@ -14660,8 +14938,10 @@ export const patterns: Registry["items"] = [
     "description": "Kanban board with placeholder overlay",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
-      "card"
+      "card",
+      "kanban"
     ],
     "dependencies": [],
     "files": [
@@ -14686,8 +14966,10 @@ export const patterns: Registry["items"] = [
     "description": "Kanban board with dynamic overlay",
     "registryDependencies": [
       "avatar",
+      "badge",
       "button",
-      "card"
+      "card",
+      "kanban"
     ],
     "dependencies": [],
     "files": [
@@ -14710,7 +14992,11 @@ export const patterns: Registry["items"] = [
       "kanban"
     ],
     "description": "Kanban board with frame columns",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge",
+      "frame",
+      "kanban"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -14734,6 +15020,9 @@ export const patterns: Registry["items"] = [
     "description": "Minimal kanban with stacked frame",
     "registryDependencies": [
       "avatar",
+      "badge",
+      "frame",
+      "kanban",
       "progress"
     ],
     "dependencies": [],
@@ -14758,6 +15047,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Feature roadmap kanban with progress",
     "registryDependencies": [
+      "badge",
+      "frame",
+      "kanban",
       "progress"
     ],
     "dependencies": [],
@@ -15201,6 +15493,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Label with badge indicator",
     "registryDependencies": [
+      "badge",
       "field",
       "input",
       "label"
@@ -15597,7 +15890,9 @@ export const patterns: Registry["items"] = [
       "number-field"
     ],
     "description": "Basic number field",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "number-field"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -15618,7 +15913,9 @@ export const patterns: Registry["items"] = [
       "number-field"
     ],
     "description": "Basic number field",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "number-field"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -15639,7 +15936,9 @@ export const patterns: Registry["items"] = [
       "number-field"
     ],
     "description": "Basic number field",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "number-field"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -15660,7 +15959,9 @@ export const patterns: Registry["items"] = [
       "number-field"
     ],
     "description": "Number filed with buttons on right",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "number-field"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -15681,7 +15982,9 @@ export const patterns: Registry["items"] = [
       "number-field"
     ],
     "description": "Number field with spinner buttons",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "number-field"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -15705,7 +16008,8 @@ export const patterns: Registry["items"] = [
     "registryDependencies": [
       "alert",
       "button",
-      "field"
+      "field",
+      "number-field"
     ],
     "dependencies": [
       "@hookform/resolvers",
@@ -16085,7 +16389,9 @@ export const patterns: Registry["items"] = [
       "phone-input"
     ],
     "description": "Basic phone input",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "phone-input"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -16106,7 +16412,9 @@ export const patterns: Registry["items"] = [
       "phone-input"
     ],
     "description": "Small phone input",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "phone-input"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -16127,7 +16435,9 @@ export const patterns: Registry["items"] = [
       "phone-input"
     ],
     "description": "Large phone input",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "phone-input"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -16148,7 +16458,9 @@ export const patterns: Registry["items"] = [
       "phone-input"
     ],
     "description": "Disabled phone input",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "phone-input"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -16169,7 +16481,9 @@ export const patterns: Registry["items"] = [
       "phone-input"
     ],
     "description": "Phone input with preset value",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "phone-input"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -16190,7 +16504,9 @@ export const patterns: Registry["items"] = [
       "phone-input"
     ],
     "description": "Phone input with error state",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "phone-input"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -16211,7 +16527,9 @@ export const patterns: Registry["items"] = [
       "phone-input"
     ],
     "description": "Phone input with specific default country",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "phone-input"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -16232,7 +16550,9 @@ export const patterns: Registry["items"] = [
       "phone-input"
     ],
     "description": "Read-only phone input",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "phone-input"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -16502,6 +16822,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Relative time popover with timezone details",
     "registryDependencies": [
+      "badge",
       "popover"
     ],
     "dependencies": [
@@ -16738,6 +17059,7 @@ export const patterns: Registry["items"] = [
     "description": "Radio group in frame",
     "registryDependencies": [
       "field",
+      "frame",
       "radio-group",
       "separator"
     ],
@@ -17128,7 +17450,9 @@ export const patterns: Registry["items"] = [
       "rating"
     ],
     "description": "Basic rating.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "rating"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -17149,7 +17473,9 @@ export const patterns: Registry["items"] = [
       "rating"
     ],
     "description": "Rating with decimal value.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "rating"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -17170,7 +17496,9 @@ export const patterns: Registry["items"] = [
       "rating"
     ],
     "description": "Rating with show value.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "rating"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -17191,7 +17519,9 @@ export const patterns: Registry["items"] = [
       "rating"
     ],
     "description": "Rating with editable.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "rating"
+    ],
     "dependencies": [
       "sonner"
     ],
@@ -17214,7 +17544,9 @@ export const patterns: Registry["items"] = [
       "rating"
     ],
     "description": "Rating with size.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "rating"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -17237,6 +17569,7 @@ export const patterns: Registry["items"] = [
     "description": "Rating with review summary",
     "registryDependencies": [
       "progress",
+      "rating",
       "separator"
     ],
     "dependencies": [],
@@ -17259,7 +17592,9 @@ export const patterns: Registry["items"] = [
       "rating"
     ],
     "description": "Interactive half-star rating",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "rating"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -17305,6 +17640,7 @@ export const patterns: Registry["items"] = [
       "button",
       "card",
       "label",
+      "rating",
       "textarea"
     ],
     "dependencies": [],
@@ -17684,7 +18020,8 @@ export const patterns: Registry["items"] = [
     "description": "Basic scrollspy",
     "registryDependencies": [
       "button",
-      "scroll-area"
+      "scroll-area",
+      "scrollspy"
     ],
     "dependencies": [],
     "files": [
@@ -17709,7 +18046,8 @@ export const patterns: Registry["items"] = [
     "description": "Basic scroll area",
     "registryDependencies": [
       "button",
-      "scroll-area"
+      "scroll-area",
+      "scrollspy"
     ],
     "dependencies": [],
     "files": [
@@ -17976,6 +18314,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Select with status badges",
     "registryDependencies": [
+      "badge",
       "field",
       "select"
     ],
@@ -18096,6 +18435,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Multi-select with overlapping dots",
     "registryDependencies": [
+      "badge",
       "field",
       "select"
     ],
@@ -18289,6 +18629,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Priority select with colored badges",
     "registryDependencies": [
+      "badge",
       "field",
       "select"
     ],
@@ -19832,7 +20173,10 @@ export const patterns: Registry["items"] = [
       "sortable"
     ],
     "description": "Sortable list of items with drag-and-drop",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge",
+      "sortable"
+    ],
     "dependencies": [
       "sonner"
     ],
@@ -19856,7 +20200,10 @@ export const patterns: Registry["items"] = [
       "sortable"
     ],
     "description": "Sortable list of items with grid layout",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge",
+      "sortable"
+    ],
     "dependencies": [
       "sonner"
     ],
@@ -19881,7 +20228,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Sortable list of items with nested layout",
     "registryDependencies": [
-      "card"
+      "card",
+      "sortable"
     ],
     "dependencies": [
       "sonner"
@@ -19906,7 +20254,11 @@ export const patterns: Registry["items"] = [
       "sortable"
     ],
     "description": "Sortable playlist with frame",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge",
+      "frame",
+      "sortable"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -19929,6 +20281,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Sortable settings priority with frame",
     "registryDependencies": [
+      "frame",
+      "sortable",
       "switch"
     ],
     "dependencies": [],
@@ -19952,7 +20306,11 @@ export const patterns: Registry["items"] = [
       "sortable"
     ],
     "description": "Sortable sidebar navigation with frame",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge",
+      "frame",
+      "sortable"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -19974,7 +20332,10 @@ export const patterns: Registry["items"] = [
       "sortable"
     ],
     "description": "Sortable image gallery grid with frame",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "frame",
+      "sortable"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20112,6 +20473,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Spinners in badges.",
     "registryDependencies": [
+      "badge",
       "spinner"
     ],
     "dependencies": [],
@@ -20279,7 +20641,9 @@ export const patterns: Registry["items"] = [
       "stepper"
     ],
     "description": "Basic stepper",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "stepper"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20301,7 +20665,9 @@ export const patterns: Registry["items"] = [
       "stepper"
     ],
     "description": "Stepper with content for each step",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "stepper"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20323,7 +20689,9 @@ export const patterns: Registry["items"] = [
       "stepper"
     ],
     "description": "Stepper with progress bar and titles",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "stepper"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20346,7 +20714,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Stepper with segmented progress bar",
     "registryDependencies": [
-      "button"
+      "button",
+      "stepper"
     ],
     "dependencies": [],
     "files": [
@@ -20369,7 +20738,9 @@ export const patterns: Registry["items"] = [
       "stepper"
     ],
     "description": "Stepper with vertical orientation and descriptions",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "stepper"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20391,7 +20762,9 @@ export const patterns: Registry["items"] = [
       "stepper"
     ],
     "description": "Stepper with vertical orientation",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "stepper"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20413,7 +20786,9 @@ export const patterns: Registry["items"] = [
       "stepper"
     ],
     "description": "Stepper with vertical orientation and titles",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "stepper"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20435,7 +20810,9 @@ export const patterns: Registry["items"] = [
       "stepper"
     ],
     "description": "Stepper with completed state",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "stepper"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20457,7 +20834,9 @@ export const patterns: Registry["items"] = [
       "stepper"
     ],
     "description": "Stepper with loading state",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "stepper"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20480,7 +20859,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Controlled stepper",
     "registryDependencies": [
-      "button"
+      "button",
+      "stepper"
     ],
     "dependencies": [],
     "files": [
@@ -20503,7 +20883,9 @@ export const patterns: Registry["items"] = [
       "stepper"
     ],
     "description": "Stepper with title and indicator",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "stepper"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20525,7 +20907,9 @@ export const patterns: Registry["items"] = [
       "stepper"
     ],
     "description": "Stepper with progress bar indicator",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "stepper"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20548,7 +20932,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Stepper with icons and badges",
     "registryDependencies": [
-      "button"
+      "badge",
+      "button",
+      "stepper"
     ],
     "dependencies": [],
     "files": [
@@ -20571,7 +20957,9 @@ export const patterns: Registry["items"] = [
       "stepper"
     ],
     "description": "Stepper with descriptions",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "stepper"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20593,7 +20981,9 @@ export const patterns: Registry["items"] = [
       "stepper"
     ],
     "description": "Stepper with inline titles",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "stepper"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -20910,6 +21300,7 @@ export const patterns: Registry["items"] = [
     "description": "Switch in frame",
     "registryDependencies": [
       "field",
+      "frame",
       "separator",
       "switch"
     ],
@@ -20982,7 +21373,9 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Subscriptions table with plan badges and billing info",
     "registryDependencies": [
+      "badge",
       "button",
+      "frame",
       "table"
     ],
     "dependencies": [],
@@ -21007,6 +21400,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Product inventory table with stock badges and prices",
     "registryDependencies": [
+      "badge",
       "button",
       "dropdown-menu",
       "table"
@@ -21033,6 +21427,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "API keys table with permission badges and actions",
     "registryDependencies": [
+      "badge",
       "button",
       "card",
       "table"
@@ -21060,6 +21455,7 @@ export const patterns: Registry["items"] = [
     "description": "File manager table with owners and sharing badges",
     "registryDependencies": [
       "avatar",
+      "badge",
       "table"
     ],
     "dependencies": [],
@@ -21085,6 +21481,7 @@ export const patterns: Registry["items"] = [
     "description": "Issues table with priority, assignee, and labels",
     "registryDependencies": [
       "avatar",
+      "badge",
       "card",
       "table"
     ],
@@ -21111,6 +21508,7 @@ export const patterns: Registry["items"] = [
     "description": "Leaderboard table with rank, score, and level badges",
     "registryDependencies": [
       "avatar",
+      "badge",
       "table"
     ],
     "dependencies": [],
@@ -21136,6 +21534,7 @@ export const patterns: Registry["items"] = [
     "description": "Vertical table with employee profile details",
     "registryDependencies": [
       "avatar",
+      "badge",
       "table"
     ],
     "dependencies": [],
@@ -21160,6 +21559,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Vertical table with server configuration details",
     "registryDependencies": [
+      "badge",
+      "frame",
       "table"
     ],
     "dependencies": [],
@@ -21283,6 +21684,8 @@ export const patterns: Registry["items"] = [
     "description": "Team members table with avatars, roles, and status",
     "registryDependencies": [
       "avatar",
+      "badge",
+      "frame",
       "table"
     ],
     "dependencies": [],
@@ -21307,6 +21710,7 @@ export const patterns: Registry["items"] = [
     "description": "Orders table with customer info and payment status",
     "registryDependencies": [
       "avatar",
+      "badge",
       "table"
     ],
     "dependencies": [],
@@ -21332,6 +21736,7 @@ export const patterns: Registry["items"] = [
     "description": "Projects table with team avatars and status",
     "registryDependencies": [
       "avatar",
+      "badge",
       "table"
     ],
     "dependencies": [],
@@ -21357,6 +21762,8 @@ export const patterns: Registry["items"] = [
     "description": "Activity log table with user avatars and timestamps",
     "registryDependencies": [
       "avatar",
+      "badge",
+      "frame",
       "table"
     ],
     "dependencies": [],
@@ -21546,6 +21953,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Tabs with badge counts",
     "registryDependencies": [
+      "badge",
       "card",
       "tabs"
     ],
@@ -21571,6 +21979,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Tabs with icons and line variant",
     "registryDependencies": [
+      "badge",
       "card",
       "tabs"
     ],
@@ -21762,7 +22171,9 @@ export const patterns: Registry["items"] = [
       "timeline"
     ],
     "description": "Basic timeline.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "timeline"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -21784,7 +22195,10 @@ export const patterns: Registry["items"] = [
       "timeline"
     ],
     "description": "Deployment log timeline",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge",
+      "timeline"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -21807,7 +22221,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Activity feed timeline with user avatars",
     "registryDependencies": [
-      "avatar"
+      "avatar",
+      "timeline"
     ],
     "dependencies": [],
     "files": [
@@ -21830,7 +22245,10 @@ export const patterns: Registry["items"] = [
       "timeline"
     ],
     "description": "Compact horizontal milestone timeline",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "badge",
+      "timeline"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -21852,7 +22270,9 @@ export const patterns: Registry["items"] = [
       "timeline"
     ],
     "description": "Timeline with roadmap.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "timeline"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -21874,7 +22294,9 @@ export const patterns: Registry["items"] = [
       "timeline"
     ],
     "description": "Timeline with order status.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "timeline"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -21896,7 +22318,9 @@ export const patterns: Registry["items"] = [
       "timeline"
     ],
     "description": "Timeline with git activity.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "timeline"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -21918,7 +22342,9 @@ export const patterns: Registry["items"] = [
       "timeline"
     ],
     "description": "Timeline with milestones.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "timeline"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -21942,8 +22368,11 @@ export const patterns: Registry["items"] = [
     "description": "Timeline with pipeline steps.",
     "registryDependencies": [
       "avatar",
+      "badge",
       "collapsible",
-      "spinner"
+      "frame",
+      "spinner",
+      "timeline"
     ],
     "dependencies": [],
     "files": [
@@ -21966,7 +22395,9 @@ export const patterns: Registry["items"] = [
       "timeline"
     ],
     "description": "Timeline with roadmap items.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "timeline"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -21988,7 +22419,9 @@ export const patterns: Registry["items"] = [
       "timeline"
     ],
     "description": "Vertical timeline",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "timeline"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -22010,7 +22443,9 @@ export const patterns: Registry["items"] = [
       "timeline"
     ],
     "description": "Horizontal timeline with leading labels",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "timeline"
+    ],
     "dependencies": [],
     "files": [
       {
@@ -22288,6 +22723,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Toggle with notification count badge",
     "registryDependencies": [
+      "badge",
       "toggle"
     ],
     "dependencies": [],
@@ -22749,6 +23185,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Tooltip with feature badge and upgrade link",
     "registryDependencies": [
+      "badge",
       "button",
       "tooltip"
     ],
@@ -22774,6 +23211,7 @@ export const patterns: Registry["items"] = [
     "description": "Tooltip with avatar and role badge",
     "registryDependencies": [
       "avatar",
+      "badge",
       "tooltip"
     ],
     "dependencies": [],
@@ -22845,6 +23283,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Tooltip with file info and badges",
     "registryDependencies": [
+      "badge",
       "tooltip"
     ],
     "dependencies": [],
@@ -22868,6 +23307,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Tooltip with label badges",
     "registryDependencies": [
+      "badge",
       "tooltip"
     ],
     "dependencies": [],
@@ -22988,6 +23428,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Tooltip on notification bell with badge count",
     "registryDependencies": [
+      "badge",
       "button",
       "tooltip"
     ],
@@ -23012,6 +23453,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Tooltip with status badge",
     "registryDependencies": [
+      "badge",
       "button",
       "tooltip"
     ],
@@ -23036,6 +23478,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Tooltip with icon and description",
     "registryDependencies": [
+      "badge",
       "tooltip"
     ],
     "dependencies": [],
@@ -23084,6 +23527,7 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Tooltip with warning badge",
     "registryDependencies": [
+      "badge",
       "button",
       "tooltip"
     ],
@@ -23107,7 +23551,9 @@ export const patterns: Registry["items"] = [
       "tree"
     ],
     "description": "Basic tree.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "tree"
+    ],
     "dependencies": [
       "@headless-tree/core",
       "@headless-tree/react"
@@ -23131,7 +23577,9 @@ export const patterns: Registry["items"] = [
       "tree"
     ],
     "description": "Tree with indented lines.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "tree"
+    ],
     "dependencies": [
       "@headless-tree/core",
       "@headless-tree/react"
@@ -23155,7 +23603,9 @@ export const patterns: Registry["items"] = [
       "tree"
     ],
     "description": "Tree with custom indent.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "tree"
+    ],
     "dependencies": [
       "@headless-tree/core",
       "@headless-tree/react"
@@ -23179,7 +23629,9 @@ export const patterns: Registry["items"] = [
       "tree"
     ],
     "description": "Tree with custom indent.",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "tree"
+    ],
     "dependencies": [
       "@headless-tree/core",
       "@headless-tree/react"
@@ -23203,7 +23655,9 @@ export const patterns: Registry["items"] = [
       "tree"
     ],
     "description": "File explorer tree with type icons",
-    "registryDependencies": [],
+    "registryDependencies": [
+      "tree"
+    ],
     "dependencies": [
       "@headless-tree/core",
       "@headless-tree/react"
@@ -23228,7 +23682,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Organization chart tree with avatars",
     "registryDependencies": [
-      "avatar"
+      "avatar",
+      "tree"
     ],
     "dependencies": [
       "@headless-tree/core",
@@ -23254,7 +23709,8 @@ export const patterns: Registry["items"] = [
     ],
     "description": "Permissions tree with checkboxes",
     "registryDependencies": [
-      "checkbox"
+      "checkbox",
+      "tree"
     ],
     "dependencies": [
       "@headless-tree/core",

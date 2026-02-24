@@ -324,6 +324,7 @@ export const blitz-ui: Registry["items"] = [
     "description": "",
     "registryDependencies": [
       "button",
+      "data-grid",
       "select",
       "skeleton"
     ],
