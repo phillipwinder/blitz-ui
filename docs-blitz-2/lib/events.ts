@@ -8,13 +8,11 @@ const eventSchema = z.object({
     "copy_component_code",
     "copy_pattern_cli",
     "registry_access",
+    "set_layout",
   ]),
   // declare type AllowedPropertyValues = string | number | boolean | null
   properties: z
-    .record(
-      z.string(),
-      z.union([z.string(), z.number(), z.boolean(), z.null()])
-    )
+    .record(z.string(), z.union([z.string(), z.number(), z.boolean(), z.null()]))
     .optional(),
 })
 

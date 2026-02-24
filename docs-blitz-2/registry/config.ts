@@ -1,8 +1,4 @@
-import {
-  iconLibraries,
-  type IconLibrary,
-  type IconLibraryName,
-} from "shadcn/icons"
+import { iconLibraries, type IconLibrary, type IconLibraryName } from "shadcn/icons"
 import { z } from "zod"
 
 import { BASE_COLORS, type BaseColor } from "@/registry/base-colors"
@@ -26,10 +22,7 @@ export type ThemeName = Theme["name"]
 export type BaseColorName = BaseColor["name"]
 
 // Derive font values from registry fonts (e.g., "font-inter" -> "inter").
-const fontValues = fonts.map((f) => f.name.replace("font-", "")) as [
-  string,
-  ...string[],
-]
+const fontValues = fonts.map((f) => f.name.replace("font-", "")) as [string, ...string[]]
 
 export type FontValue = (typeof fontValues)[number]
 
@@ -66,46 +59,33 @@ export const designSystemConfigSchema = z
   .object({
     base: z.enum(BASES.map((b) => b.name) as [BaseName, ...BaseName[]]),
     style: z.enum(STYLES.map((s) => s.name) as [StyleName, ...StyleName[]]),
-    iconLibrary: z.enum(
-      Object.keys(iconLibraries) as [IconLibraryName, ...IconLibraryName[]]
-    ),
+    iconLibrary: z.enum(Object.keys(iconLibraries) as [IconLibraryName, ...IconLibraryName[]]),
     baseColor: z
-      .enum(
-        BASE_COLORS.map((c) => c.name) as [BaseColorName, ...BaseColorName[]]
-      )
+      .enum(BASE_COLORS.map((c) => c.name) as [BaseColorName, ...BaseColorName[]])
       .default("neutral"),
     theme: z.enum(THEMES.map((t) => t.name) as [ThemeName, ...ThemeName[]]),
     font: z.enum(fontValues).default("inter"),
     item: z.string().optional(),
     rtl: z.boolean().default(false),
     menuAccent: z
-      .enum(
-        MENU_ACCENTS.map((a) => a.value) as [
-          MenuAccentValue,
-          ...MenuAccentValue[],
-        ]
-      )
+      .enum(MENU_ACCENTS.map((a) => a.value) as [MenuAccentValue, ...MenuAccentValue[]])
       .default("subtle"),
     menuColor: z
-      .enum(
-        MENU_COLORS.map((m) => m.value) as [MenuColorValue, ...MenuColorValue[]]
-      )
+      .enum(MENU_COLORS.map((m) => m.value) as [MenuColorValue, ...MenuColorValue[]])
       .default("default"),
-    radius: z
-      .enum(RADII.map((r) => r.name) as [RadiusValue, ...RadiusValue[]])
-      .default("default"),
+    radius: z.enum(RADII.map((r) => r.name) as [RadiusValue, ...RadiusValue[]]).default("default"),
     template: z.enum(["next", "start", "vite"]).default("next").optional(),
   })
-  .refine(
-    (data) => {
-      const availableThemes = getThemesForBaseColor(data.baseColor)
-      return availableThemes.some((t) => t.name === data.theme)
-    },
-    (data) => ({
-      message: `Theme "${data.theme}" is not available for base color "${data.baseColor}"`,
-      path: ["theme"],
-    })
-  )
+  .superRefine((data, ctx) => {
+    const availableThemes = getThemesForBaseColor(data.baseColor)
+    if (!availableThemes.some((theme) => theme.name === data.theme)) {
+      ctx.addIssue({
+        code: "custom",
+        message: `Theme "${data.theme}" is not available for base color "${data.baseColor}"`,
+        path: ["theme"],
+      })
+    }
+  })
 
 export type DesignSystemConfig = z.infer<typeof designSystemConfigSchema>
 
@@ -332,9 +312,7 @@ export function buildRegistryTheme(config: DesignSystemConfig) {
   const theme = getTheme(config.theme)
 
   if (!baseColor || !theme) {
-    throw new Error(
-      `Base color "${config.baseColor}" or theme "${config.theme}" not found`
-    )
+    throw new Error(`Base color "${config.baseColor}" or theme "${config.theme}" not found`)
   }
 
   // Merge base color and theme CSS vars.
@@ -385,9 +363,7 @@ export function buildRegistryBase(config: DesignSystemConfig) {
   const iconLibraryItem = getIconLibrary(config.iconLibrary)
 
   if (!baseItem || !iconLibraryItem) {
-    throw new Error(
-      `Base "${config.base}" or icon library "${config.iconLibrary}" not found`
-    )
+    throw new Error(`Base "${config.base}" or icon library "${config.iconLibrary}" not found`)
   }
 
   const registryTheme = buildRegistryTheme(config)

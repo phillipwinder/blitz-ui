@@ -1,12 +1,6 @@
 import fs from "fs"
-import path from "path"
 import { glob } from "glob"
-import {
-  JsxOpeningElement,
-  JsxSelfClosingElement,
-  Project,
-  SyntaxKind,
-} from "ts-morph"
+import { JsxOpeningElement, JsxSelfClosingElement, Project, SyntaxKind } from "ts-morph"
 
 // Only scan base folder - radix is a mirror created by migrate-radix.mts
 const TARGET_DIR = "registry-reui/bases/base"
@@ -50,9 +44,7 @@ async function scanIcons() {
       // Also check opening elements if it's not self-closing (though it should be)
       const openingPlaceholders = sourceFile
         .getDescendantsOfKind(SyntaxKind.JsxOpeningElement)
-        .filter(
-          (el) => el.getTagNameNode().getText() === "IconPlaceholder"
-        ) as JsxOpeningElement[]
+        .filter((el) => el.getTagNameNode().getText() === "IconPlaceholder") as JsxOpeningElement[]
 
       const allPlaceholders = [...placeholders, ...openingPlaceholders]
 
@@ -71,9 +63,7 @@ async function scanIcons() {
                   .getLiteralValue()
                   .trim()
               } else if (initializer.getKind() === SyntaxKind.JsxExpression) {
-                const expr = initializer
-                  .asKindOrThrow(SyntaxKind.JsxExpression)
-                  .getExpression()
+                const expr = initializer.asKindOrThrow(SyntaxKind.JsxExpression).getExpression()
                 if (expr && expr.getKind() === SyntaxKind.StringLiteral) {
                   attrs[name] = expr
                     .asKindOrThrow(SyntaxKind.StringLiteral)
@@ -102,10 +92,7 @@ async function scanIcons() {
           imp.getNamedImports().forEach((named) => {
             const originalName = named.getName()
             const localName = named.getAliasNode()?.getText() || originalName
-            if (
-              originalName !== "LucideProps" &&
-              originalName !== "LucideIcon"
-            ) {
+            if (originalName !== "LucideProps" && originalName !== "LucideIcon") {
               importedNames.set(localName, originalName)
             }
           })
@@ -114,52 +101,48 @@ async function scanIcons() {
           const namespaceImport = imp.getNamespaceImport()
           if (namespaceImport) {
             const starName = namespaceImport.getText()
-            sourceFile
-              .getDescendantsOfKind(SyntaxKind.PropertyAccessExpression)
-              .forEach((prop) => {
-                if (prop.getExpression().getText() === starName) {
-                  const iconName = prop.getName().trim()
-                  if (iconName && /^[A-Z]/.test(iconName)) {
-                    unmappedMatches.push({
-                      icon: iconName,
-                      _path: file,
-                    })
-                  }
-                }
-              })
-          }
-        }
-
-        // Find all usages of named imports
-        if (importedNames.size > 0) {
-          sourceFile
-            .getDescendantsOfKind(SyntaxKind.Identifier)
-            .forEach((ident) => {
-              const localName = ident.getText().trim()
-              if (importedNames.has(localName)) {
-                const parent = ident.getParent()
-                if (!parent) return
-
-                const kind = parent.getKind()
-                // Skip declarations and type references
-                if (
-                  kind === SyntaxKind.ImportSpecifier ||
-                  kind === SyntaxKind.TypeReference ||
-                  kind === SyntaxKind.InterfaceDeclaration ||
-                  kind === SyntaxKind.TypeAliasDeclaration
-                )
-                  return
-
-                const iconName = importedNames.get(localName)?.trim()
+            sourceFile.getDescendantsOfKind(SyntaxKind.PropertyAccessExpression).forEach((prop) => {
+              if (prop.getExpression().getText() === starName) {
+                const iconName = prop.getName().trim()
                 if (iconName && /^[A-Z]/.test(iconName)) {
                   unmappedMatches.push({
                     icon: iconName,
-                    localName: localName !== iconName ? localName : undefined,
                     _path: file,
                   })
                 }
               }
             })
+          }
+        }
+
+        // Find all usages of named imports
+        if (importedNames.size > 0) {
+          sourceFile.getDescendantsOfKind(SyntaxKind.Identifier).forEach((ident) => {
+            const localName = ident.getText().trim()
+            if (importedNames.has(localName)) {
+              const parent = ident.getParent()
+              if (!parent) return
+
+              const kind = parent.getKind()
+              // Skip declarations and type references
+              if (
+                kind === SyntaxKind.ImportSpecifier ||
+                kind === SyntaxKind.TypeReference ||
+                kind === SyntaxKind.InterfaceDeclaration ||
+                kind === SyntaxKind.TypeAliasDeclaration
+              )
+                return
+
+              const iconName = importedNames.get(localName)?.trim()
+              if (iconName && /^[A-Z]/.test(iconName)) {
+                unmappedMatches.push({
+                  icon: iconName,
+                  localName: localName !== iconName ? localName : undefined,
+                  _path: file,
+                })
+              }
+            }
+          })
         }
       }
     }
@@ -170,18 +153,13 @@ async function scanIcons() {
 
   // Save results
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(matches, null, 2))
-  fs.writeFileSync(
-    UNMAPPED_OUTPUT_FILE,
-    JSON.stringify(unmappedMatches, null, 2)
-  )
+  fs.writeFileSync(UNMAPPED_OUTPUT_FILE, JSON.stringify(unmappedMatches, null, 2))
 
   console.log(`\nScan Summary:`)
   console.log(`- Mapped (IconPlaceholder): ${matches.length}`)
   console.log(`- Unmapped (lucide-react): ${unmappedMatches.length}`)
 
-  console.log(
-    `\nFull reports saved to ${OUTPUT_FILE} and ${UNMAPPED_OUTPUT_FILE}`
-  )
+  console.log(`\nFull reports saved to ${OUTPUT_FILE} and ${UNMAPPED_OUTPUT_FILE}`)
 }
 
 scanIcons().catch(console.error)

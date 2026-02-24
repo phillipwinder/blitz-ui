@@ -21,10 +21,7 @@ import {
 } from "@/registry/bases/radix/ui/dropdown-menu"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 
-interface DataGridColumnHeaderProps<
-  TData,
-  TValue,
-> extends HTMLAttributes<HTMLDivElement> {
+interface DataGridColumnHeaderProps<TData, TValue> extends HTMLAttributes<HTMLDivElement> {
   column: Column<TData, TValue>
   title?: string
   icon?: ReactNode
@@ -332,13 +329,10 @@ function DataGridColumnHeaderInner<TData, TValue>({
             />
             <span>Columns</span>
           </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent side="right">
+          <DropdownMenuSubContent>
             {table
               .getAllColumns()
-              .filter(
-                (col) =>
-                  typeof col.accessorFn !== "undefined" && col.getCanHide()
-              )
+              .filter((col) => typeof col.accessorFn !== "undefined" && col.getCanHide())
               .map((col) => (
                 <DropdownMenuCheckboxItem
                   key={col.id}
@@ -444,8 +438,6 @@ function DataGridColumnHeaderInner<TData, TValue>({
   )
 }
 
-const DataGridColumnHeader = memo(
-  DataGridColumnHeaderInner
-) as typeof DataGridColumnHeaderInner
+const DataGridColumnHeader = memo(DataGridColumnHeaderInner) as typeof DataGridColumnHeaderInner
 
 export { DataGridColumnHeader, type DataGridColumnHeaderProps }

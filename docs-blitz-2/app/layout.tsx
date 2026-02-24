@@ -13,8 +13,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 import "@/styles/globals.css"
 
-const appUrl =
-  process.env.NEXT_PUBLIC_APP_URL || siteConfig.url || "https://reui.io"
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || siteConfig.url || "https://reui.io"
 
 export const metadata: Metadata = {
   title: {
@@ -81,11 +80,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={cn(fontVariables, "overscroll-none")}
-    >
+    <html lang="en" suppressHydrationWarning className={cn(fontVariables, "overscroll-none")}>
       <head>
         <script
           dangerouslySetInnerHTML={{

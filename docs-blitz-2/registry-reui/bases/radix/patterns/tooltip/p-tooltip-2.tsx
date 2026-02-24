@@ -9,14 +9,7 @@ import {
   TooltipTrigger,
 } from "@/registry/bases/radix/ui/tooltip"
 
-const sides = [
-  "inline-start",
-  "left",
-  "top",
-  "bottom",
-  "right",
-  "inline-end",
-] as const
+const sides = ["left", "top", "bottom", "right"] as const
 
 export default function Pattern() {
   return (
@@ -26,8 +19,7 @@ export default function Pattern() {
           <Tooltip key={side}>
             <TooltipTrigger asChild>
               <Button variant="outline" className="w-full">
-                {side.replace("-", " ")[0].toUpperCase() +
-                  side.replace("-", " ").slice(1)}
+                {side.replace("-", " ")[0].toUpperCase() + side.replace("-", " ").slice(1)}
               </Button>
             </TooltipTrigger>
             <TooltipContent side={side}>

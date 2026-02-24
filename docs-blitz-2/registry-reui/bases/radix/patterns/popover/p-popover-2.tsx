@@ -2,20 +2,9 @@
 // Order: 2
 
 import { Button } from "@/registry/bases/radix/ui/button"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/bases/radix/ui/popover"
+import { Popover, PopoverContent, PopoverTrigger } from "@/registry/bases/radix/ui/popover"
 
-const sides = [
-  "inline-start",
-  "left",
-  "top",
-  "bottom",
-  "right",
-  "inline-end",
-] as const
+const sides = ["left", "top", "bottom", "right"] as const
 
 export default function Pattern() {
   return (
@@ -24,11 +13,11 @@ export default function Pattern() {
         <Popover key={side}>
           <PopoverTrigger asChild>
             <Button variant="outline" className="w-full capitalize">
-              {side.replace("-", " ")}
+              {side}
             </Button>
           </PopoverTrigger>
           <PopoverContent side={side} className="w-40">
-            <p>Popover on {side.replace("-", " ")}</p>
+            <p>Popover on {side}</p>
           </PopoverContent>
         </Popover>
       ))}

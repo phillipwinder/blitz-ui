@@ -25,11 +25,9 @@ function buildIframeSrc(
   category: string | undefined,
   base: string,
   searchQuery: string | undefined,
-  params?: Record<string, string | null>
+  params?: Record<string, string | number | boolean | null | undefined>
 ): string {
-  const basePath = category
-    ? `/preview/${base}/patterns/${category}`
-    : `/preview/${base}/patterns`
+  const basePath = category ? `/preview/${base}/patterns/${category}` : `/preview/${base}/patterns`
 
   const urlParams: Record<string, string> = {}
 
@@ -57,7 +55,7 @@ function buildIframeSrc(
     urlParams.search = searchQuery
   }
 
-  return serializeDesignSystemSearchParams(basePath, urlParams as any)
+  return serializeDesignSystemSearchParams(basePath, urlParams)
 }
 
 interface PatternsIframeViewProps {
@@ -66,11 +64,7 @@ interface PatternsIframeViewProps {
   count?: number
 }
 
-export function PatternsIframeView({
-  category,
-  searchQuery,
-  count,
-}: PatternsIframeViewProps) {
+export function PatternsIframeView({ category, searchQuery, count }: PatternsIframeViewProps) {
   const [params] = useDesignSystemSearchParams()
   const [config] = useConfig()
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
@@ -99,8 +93,7 @@ export function PatternsIframeView({
   }, [params, config])
 
   // Debounce search query to avoid too many iframe reloads
-  const [debouncedSearchQuery, setDebouncedSearchQuery] =
-    React.useState(searchQuery)
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = React.useState(searchQuery)
 
   React.useEffect(() => {
     // If searchQuery is empty/null, update immediately to show categories
@@ -236,9 +229,7 @@ export function PatternsIframeView({
               isLoading ? "opacity-100" : "pointer-events-none opacity-0"
             )}
           >
-            <span className="text-muted-foreground text-sm">
-              Loading patterns...
-            </span>
+            <span className="text-muted-foreground text-sm">Loading patterns...</span>
           </div>
           <iframe
             ref={iframeRef}
@@ -252,10 +243,7 @@ export function PatternsIframeView({
       </div>
       <Sheet open={sourceSheetOpen} onOpenChange={setSourceSheetOpen}>
         {selectedPattern && (
-          <PatternSourceSheetContent
-            name={selectedPattern.name}
-            base={selectedPattern.base}
-          />
+          <PatternSourceSheetContent name={selectedPattern.name} base={selectedPattern.base} />
         )}
       </Sheet>
     </div>

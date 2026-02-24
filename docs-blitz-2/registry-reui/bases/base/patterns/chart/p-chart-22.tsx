@@ -4,7 +4,7 @@
 "use client"
 
 import { CSSProperties } from "react"
-import { Label, Pie, PieChart } from "recharts"
+import { Label, Pie, PieChart, Sector, type SectorProps } from "recharts"
 
 import {
   Card,
@@ -46,15 +46,10 @@ export default function Pattern() {
     <Card className="w-full max-w-xs">
       <CardHeader className="items-center pb-0">
         <CardTitle>Conversion Funnel</CardTitle>
-        <CardDescription>
-          {conversionRate}% of users are on paid plans
-        </CardDescription>
+        <CardDescription>{conversionRate}% of users are on paid plans</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
-        <ChartContainer
-          config={chartConfig}
-          className="mx-auto aspect-square max-h-[300px]"
-        >
+        <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[300px]">
           <PieChart accessibilityLayer>
             <ChartTooltip
               content={
@@ -72,8 +67,7 @@ export default function Pattern() {
                           }
                         />
                         <span className="text-muted-foreground">
-                          {chartConfig[name as keyof typeof chartConfig]
-                            ?.label || name}
+                          {chartConfig[name as keyof typeof chartConfig]?.label || name}
                         </span>
                       </div>
                       <span className="text-foreground font-semibold tabular-nums">
@@ -98,7 +92,7 @@ export default function Pattern() {
               stroke="var(--background)"
               strokeWidth={3}
               activeIndex={2}
-              activeShape={{ outerRadius: 110 }}
+              activeShape={(props: SectorProps) => <Sector {...props} outerRadius={110} />}
             >
               <Label
                 content={({ viewBox }) => {
