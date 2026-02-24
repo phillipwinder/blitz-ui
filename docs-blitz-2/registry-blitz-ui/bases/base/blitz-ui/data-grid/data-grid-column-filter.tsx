@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 import { Column } from "@tanstack/react-table"
 
 import { cn } from "@/registry/bases/base/lib/utils"

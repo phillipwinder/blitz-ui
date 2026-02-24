@@ -1,6 +1,6 @@
 import { type Registry } from "shadcn/schema"
 
-export const blitzUi: Registry["items"] = [
+export const blitz-ui: Registry["items"] = [
   {
     "name": "accordion",
     "type": "registry:ui",
@@ -12,9 +12,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/accordion.tsx",
+        "path": "blitz-ui/accordion.tsx",
         "type": "registry:ui",
-        "target": "components/reui/accordion.tsx"
+        "target": "components/blitz-ui/accordion.tsx"
       }
     ]
   },
@@ -31,9 +31,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/alert-dialog.tsx",
+        "path": "blitz-ui/alert-dialog.tsx",
         "type": "registry:ui",
-        "target": "components/reui/alert-dialog.tsx"
+        "target": "components/blitz-ui/alert-dialog.tsx"
       }
     ]
   },
@@ -48,9 +48,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/alert.tsx",
+        "path": "blitz-ui/alert.tsx",
         "type": "registry:ui",
-        "target": "components/reui/alert.tsx"
+        "target": "components/blitz-ui/alert.tsx"
       }
     ],
     "cssVars": {
@@ -87,9 +87,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/aspect-ratio.tsx",
+        "path": "blitz-ui/aspect-ratio.tsx",
         "type": "registry:ui",
-        "target": "components/reui/aspect-ratio.tsx"
+        "target": "components/blitz-ui/aspect-ratio.tsx"
       }
     ]
   },
@@ -107,9 +107,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/autocomplete.tsx",
+        "path": "blitz-ui/autocomplete.tsx",
         "type": "registry:ui",
-        "target": "components/reui/autocomplete.tsx"
+        "target": "components/blitz-ui/autocomplete.tsx"
       }
     ]
   },
@@ -124,9 +124,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/avatar.tsx",
+        "path": "blitz-ui/avatar.tsx",
         "type": "registry:ui",
-        "target": "components/reui/avatar.tsx"
+        "target": "components/blitz-ui/avatar.tsx"
       }
     ]
   },
@@ -142,9 +142,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/badge.tsx",
+        "path": "blitz-ui/badge.tsx",
         "type": "registry:ui",
-        "target": "components/reui/badge.tsx"
+        "target": "components/blitz-ui/badge.tsx"
       }
     ],
     "cssVars": {
@@ -183,9 +183,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/breadcrumb.tsx",
+        "path": "blitz-ui/breadcrumb.tsx",
         "type": "registry:ui",
-        "target": "components/reui/breadcrumb.tsx"
+        "target": "components/blitz-ui/breadcrumb.tsx"
       }
     ]
   },
@@ -203,9 +203,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/button-group.tsx",
+        "path": "blitz-ui/button-group.tsx",
         "type": "registry:ui",
-        "target": "components/reui/button-group.tsx"
+        "target": "components/blitz-ui/button-group.tsx"
       }
     ]
   },
@@ -221,9 +221,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/button.tsx",
+        "path": "blitz-ui/button.tsx",
         "type": "registry:ui",
-        "target": "components/reui/button.tsx"
+        "target": "components/blitz-ui/button.tsx"
       }
     ]
   },
@@ -240,9 +240,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/calendar.tsx",
+        "path": "blitz-ui/calendar.tsx",
         "type": "registry:ui",
-        "target": "components/reui/calendar.tsx"
+        "target": "components/blitz-ui/calendar.tsx"
       }
     ]
   },
@@ -255,9 +255,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/card.tsx",
+        "path": "blitz-ui/card.tsx",
         "type": "registry:ui",
-        "target": "components/reui/card.tsx"
+        "target": "components/blitz-ui/card.tsx"
       }
     ]
   },
@@ -274,9 +274,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/carousel.tsx",
+        "path": "blitz-ui/carousel.tsx",
         "type": "registry:ui",
-        "target": "components/reui/carousel.tsx"
+        "target": "components/blitz-ui/carousel.tsx"
       }
     ]
   },
@@ -291,9 +291,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/checkbox.tsx",
+        "path": "blitz-ui/checkbox.tsx",
         "type": "registry:ui",
-        "target": "components/reui/checkbox.tsx"
+        "target": "components/blitz-ui/checkbox.tsx"
       }
     ]
   },
@@ -308,9 +308,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/collapsible.tsx",
+        "path": "blitz-ui/collapsible.tsx",
         "type": "registry:ui",
-        "target": "components/reui/collapsible.tsx"
+        "target": "components/blitz-ui/collapsible.tsx"
       }
     ]
   },
@@ -328,9 +328,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/combobox.tsx",
+        "path": "blitz-ui/combobox.tsx",
         "type": "registry:ui",
-        "target": "components/reui/combobox.tsx"
+        "target": "components/blitz-ui/combobox.tsx"
       }
     ]
   },
@@ -348,9 +348,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/command.tsx",
+        "path": "blitz-ui/command.tsx",
         "type": "registry:ui",
-        "target": "components/reui/command.tsx"
+        "target": "components/blitz-ui/command.tsx"
       }
     ]
   },
@@ -365,9 +365,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/context-menu.tsx",
+        "path": "blitz-ui/context-menu.tsx",
         "type": "registry:ui",
-        "target": "components/reui/context-menu.tsx"
+        "target": "components/blitz-ui/context-menu.tsx"
       }
     ]
   },
@@ -377,7 +377,6 @@ export const blitzUi: Registry["items"] = [
     "title": "Data Grid Column Filter",
     "description": "",
     "registryDependencies": [
-      "badge",
       "button",
       "input",
       "popover",
@@ -388,9 +387,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/data-grid/data-grid-column-filter.tsx",
+        "path": "blitz-ui/data-grid/data-grid-column-filter.tsx",
         "type": "registry:ui",
-        "target": "component/reui/data-grid/data-grid-column-filter.tsx"
+        "target": "component/blitz-ui/data-grid/data-grid-column-filter.tsx"
       }
     ]
   },
@@ -408,9 +407,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/data-grid/data-grid-column-header.tsx",
+        "path": "blitz-ui/data-grid/data-grid-column-header.tsx",
         "type": "registry:ui",
-        "target": "component/reui/data-grid/data-grid-column-header.tsx"
+        "target": "component/blitz-ui/data-grid/data-grid-column-header.tsx"
       }
     ]
   },
@@ -427,9 +426,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/data-grid/data-grid-column-visibility.tsx",
+        "path": "blitz-ui/data-grid/data-grid-column-visibility.tsx",
         "type": "registry:ui",
-        "target": "component/reui/data-grid/data-grid-column-visibility.tsx"
+        "target": "component/blitz-ui/data-grid/data-grid-column-visibility.tsx"
       }
     ]
   },
@@ -446,9 +445,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/data-grid/data-grid-pagination.tsx",
+        "path": "blitz-ui/data-grid/data-grid-pagination.tsx",
         "type": "registry:ui",
-        "target": "component/reui/data-grid/data-grid-pagination.tsx"
+        "target": "component/blitz-ui/data-grid/data-grid-pagination.tsx"
       }
     ]
   },
@@ -469,9 +468,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/data-grid/data-grid-table-dnd-rows.tsx",
+        "path": "blitz-ui/data-grid/data-grid-table-dnd-rows.tsx",
         "type": "registry:ui",
-        "target": "component/reui/data-grid/data-grid-table-dnd-rows.tsx"
+        "target": "component/blitz-ui/data-grid/data-grid-table-dnd-rows.tsx"
       }
     ]
   },
@@ -491,9 +490,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/data-grid/data-grid-table-dnd.tsx",
+        "path": "blitz-ui/data-grid/data-grid-table-dnd.tsx",
         "type": "registry:ui",
-        "target": "component/reui/data-grid/data-grid-table-dnd.tsx"
+        "target": "component/blitz-ui/data-grid/data-grid-table-dnd.tsx"
       }
     ]
   },
@@ -511,9 +510,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/data-grid/data-grid-table.tsx",
+        "path": "blitz-ui/data-grid/data-grid-table.tsx",
         "type": "registry:ui",
-        "target": "component/reui/data-grid/data-grid-table.tsx"
+        "target": "component/blitz-ui/data-grid/data-grid-table.tsx"
       }
     ]
   },
@@ -523,7 +522,6 @@ export const blitzUi: Registry["items"] = [
     "title": "Data Grid",
     "description": "",
     "registryDependencies": [
-      "badge",
       "button",
       "checkbox",
       "dropdown-menu",
@@ -543,44 +541,44 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/data-grid/data-grid-column-filter.tsx",
+        "path": "blitz-ui/data-grid/data-grid-column-filter.tsx",
         "type": "registry:ui",
-        "target": "components/reui/data-grid/data-grid-column-filter.tsx"
+        "target": "components/blitz-ui/data-grid/data-grid-column-filter.tsx"
       },
       {
-        "path": "reui/data-grid/data-grid-column-header.tsx",
+        "path": "blitz-ui/data-grid/data-grid-column-header.tsx",
         "type": "registry:ui",
-        "target": "components/reui/data-grid/data-grid-column-header.tsx"
+        "target": "components/blitz-ui/data-grid/data-grid-column-header.tsx"
       },
       {
-        "path": "reui/data-grid/data-grid-column-visibility.tsx",
+        "path": "blitz-ui/data-grid/data-grid-column-visibility.tsx",
         "type": "registry:ui",
-        "target": "components/reui/data-grid/data-grid-column-visibility.tsx"
+        "target": "components/blitz-ui/data-grid/data-grid-column-visibility.tsx"
       },
       {
-        "path": "reui/data-grid/data-grid-pagination.tsx",
+        "path": "blitz-ui/data-grid/data-grid-pagination.tsx",
         "type": "registry:ui",
-        "target": "components/reui/data-grid/data-grid-pagination.tsx"
+        "target": "components/blitz-ui/data-grid/data-grid-pagination.tsx"
       },
       {
-        "path": "reui/data-grid/data-grid-table-dnd-rows.tsx",
+        "path": "blitz-ui/data-grid/data-grid-table-dnd-rows.tsx",
         "type": "registry:ui",
-        "target": "components/reui/data-grid/data-grid-table-dnd-rows.tsx"
+        "target": "components/blitz-ui/data-grid/data-grid-table-dnd-rows.tsx"
       },
       {
-        "path": "reui/data-grid/data-grid-table-dnd.tsx",
+        "path": "blitz-ui/data-grid/data-grid-table-dnd.tsx",
         "type": "registry:ui",
-        "target": "components/reui/data-grid/data-grid-table-dnd.tsx"
+        "target": "components/blitz-ui/data-grid/data-grid-table-dnd.tsx"
       },
       {
-        "path": "reui/data-grid/data-grid-table.tsx",
+        "path": "blitz-ui/data-grid/data-grid-table.tsx",
         "type": "registry:ui",
-        "target": "components/reui/data-grid/data-grid-table.tsx"
+        "target": "components/blitz-ui/data-grid/data-grid-table.tsx"
       },
       {
-        "path": "reui/data-grid/data-grid.tsx",
+        "path": "blitz-ui/data-grid/data-grid.tsx",
         "type": "registry:ui",
-        "target": "components/reui/data-grid/data-grid.tsx"
+        "target": "components/blitz-ui/data-grid/data-grid.tsx"
       }
     ]
   },
@@ -603,9 +601,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/date-selector.tsx",
+        "path": "blitz-ui/date-selector.tsx",
         "type": "registry:ui",
-        "target": "components/reui/date-selector.tsx"
+        "target": "components/blitz-ui/date-selector.tsx"
       }
     ]
   },
@@ -622,9 +620,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/dialog.tsx",
+        "path": "blitz-ui/dialog.tsx",
         "type": "registry:ui",
-        "target": "components/reui/dialog.tsx"
+        "target": "components/blitz-ui/dialog.tsx"
       }
     ]
   },
@@ -639,9 +637,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/drawer.tsx",
+        "path": "blitz-ui/drawer.tsx",
         "type": "registry:ui",
-        "target": "components/reui/drawer.tsx"
+        "target": "components/blitz-ui/drawer.tsx"
       }
     ]
   },
@@ -656,9 +654,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/dropdown-menu.tsx",
+        "path": "blitz-ui/dropdown-menu.tsx",
         "type": "registry:ui",
-        "target": "components/reui/dropdown-menu.tsx"
+        "target": "components/blitz-ui/dropdown-menu.tsx"
       }
     ]
   },
@@ -673,9 +671,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/empty.tsx",
+        "path": "blitz-ui/empty.tsx",
         "type": "registry:ui",
-        "target": "components/reui/empty.tsx"
+        "target": "components/blitz-ui/empty.tsx"
       }
     ]
   },
@@ -693,9 +691,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/field.tsx",
+        "path": "blitz-ui/field.tsx",
         "type": "registry:ui",
-        "target": "components/reui/field.tsx"
+        "target": "components/blitz-ui/field.tsx"
       }
     ]
   },
@@ -720,9 +718,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/filters.tsx",
+        "path": "blitz-ui/filters.tsx",
         "type": "registry:ui",
-        "target": "components/reui/filters.tsx"
+        "target": "components/blitz-ui/filters.tsx"
       }
     ]
   },
@@ -740,9 +738,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/form-tanstack.tsx",
+        "path": "blitz-ui/form-tanstack.tsx",
         "type": "registry:ui",
-        "target": "components/reui/form-tanstack.tsx"
+        "target": "components/blitz-ui/form-tanstack.tsx"
       }
     ]
   },
@@ -760,9 +758,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/form.tsx",
+        "path": "blitz-ui/form.tsx",
         "type": "registry:ui",
-        "target": "components/reui/form.tsx"
+        "target": "components/blitz-ui/form.tsx"
       }
     ]
   },
@@ -777,9 +775,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/frame.tsx",
+        "path": "blitz-ui/frame.tsx",
         "type": "registry:ui",
-        "target": "components/reui/frame.tsx"
+        "target": "components/blitz-ui/frame.tsx"
       }
     ]
   },
@@ -794,9 +792,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/hover-card.tsx",
+        "path": "blitz-ui/hover-card.tsx",
         "type": "registry:ui",
-        "target": "components/reui/hover-card.tsx"
+        "target": "components/blitz-ui/hover-card.tsx"
       }
     ]
   },
@@ -815,9 +813,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/input-group.tsx",
+        "path": "blitz-ui/input-group.tsx",
         "type": "registry:ui",
-        "target": "components/reui/input-group.tsx"
+        "target": "components/blitz-ui/input-group.tsx"
       }
     ]
   },
@@ -832,9 +830,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/input-otp.tsx",
+        "path": "blitz-ui/input-otp.tsx",
         "type": "registry:ui",
-        "target": "components/reui/input-otp.tsx"
+        "target": "components/blitz-ui/input-otp.tsx"
       }
     ]
   },
@@ -849,9 +847,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/input.tsx",
+        "path": "blitz-ui/input.tsx",
         "type": "registry:ui",
-        "target": "components/reui/input.tsx"
+        "target": "components/blitz-ui/input.tsx"
       }
     ]
   },
@@ -869,9 +867,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/item.tsx",
+        "path": "blitz-ui/item.tsx",
         "type": "registry:ui",
-        "target": "components/reui/item.tsx"
+        "target": "components/blitz-ui/item.tsx"
       }
     ]
   },
@@ -889,9 +887,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/kanban.tsx",
+        "path": "blitz-ui/kanban.tsx",
         "type": "registry:ui",
-        "target": "components/reui/kanban.tsx"
+        "target": "components/blitz-ui/kanban.tsx"
       }
     ]
   },
@@ -904,9 +902,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/kbd.tsx",
+        "path": "blitz-ui/kbd.tsx",
         "type": "registry:ui",
-        "target": "components/reui/kbd.tsx"
+        "target": "components/blitz-ui/kbd.tsx"
       }
     ]
   },
@@ -919,9 +917,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/label.tsx",
+        "path": "blitz-ui/label.tsx",
         "type": "registry:ui",
-        "target": "components/reui/label.tsx"
+        "target": "components/blitz-ui/label.tsx"
       }
     ]
   },
@@ -936,9 +934,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/menu.tsx",
+        "path": "blitz-ui/menu.tsx",
         "type": "registry:ui",
-        "target": "components/reui/menu.tsx"
+        "target": "components/blitz-ui/menu.tsx"
       }
     ]
   },
@@ -955,9 +953,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/menubar.tsx",
+        "path": "blitz-ui/menubar.tsx",
         "type": "registry:ui",
-        "target": "components/reui/menubar.tsx"
+        "target": "components/blitz-ui/menubar.tsx"
       }
     ]
   },
@@ -970,9 +968,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/native-select.tsx",
+        "path": "blitz-ui/native-select.tsx",
         "type": "registry:ui",
-        "target": "components/reui/native-select.tsx"
+        "target": "components/blitz-ui/native-select.tsx"
       }
     ]
   },
@@ -988,9 +986,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/navigation-menu.tsx",
+        "path": "blitz-ui/navigation-menu.tsx",
         "type": "registry:ui",
-        "target": "components/reui/navigation-menu.tsx"
+        "target": "components/blitz-ui/navigation-menu.tsx"
       }
     ]
   },
@@ -1008,9 +1006,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/number-field.tsx",
+        "path": "blitz-ui/number-field.tsx",
         "type": "registry:ui",
-        "target": "components/reui/number-field.tsx"
+        "target": "components/blitz-ui/number-field.tsx"
       }
     ]
   },
@@ -1025,9 +1023,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/pagination.tsx",
+        "path": "blitz-ui/pagination.tsx",
         "type": "registry:ui",
-        "target": "components/reui/pagination.tsx"
+        "target": "components/blitz-ui/pagination.tsx"
       }
     ]
   },
@@ -1047,9 +1045,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/phone-input.tsx",
+        "path": "blitz-ui/phone-input.tsx",
         "type": "registry:ui",
-        "target": "components/reui/phone-input.tsx"
+        "target": "components/blitz-ui/phone-input.tsx"
       }
     ]
   },
@@ -1064,9 +1062,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/popover.tsx",
+        "path": "blitz-ui/popover.tsx",
         "type": "registry:ui",
-        "target": "components/reui/popover.tsx"
+        "target": "components/blitz-ui/popover.tsx"
       }
     ]
   },
@@ -1081,9 +1079,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/preview-card.tsx",
+        "path": "blitz-ui/preview-card.tsx",
         "type": "registry:ui",
-        "target": "components/reui/preview-card.tsx"
+        "target": "components/blitz-ui/preview-card.tsx"
       }
     ]
   },
@@ -1098,9 +1096,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/progress.tsx",
+        "path": "blitz-ui/progress.tsx",
         "type": "registry:ui",
-        "target": "components/reui/progress.tsx"
+        "target": "components/blitz-ui/progress.tsx"
       }
     ]
   },
@@ -1115,9 +1113,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/radio-group.tsx",
+        "path": "blitz-ui/radio-group.tsx",
         "type": "registry:ui",
-        "target": "components/reui/radio-group.tsx"
+        "target": "components/blitz-ui/radio-group.tsx"
       }
     ]
   },
@@ -1132,9 +1130,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/rating.tsx",
+        "path": "blitz-ui/rating.tsx",
         "type": "registry:ui",
-        "target": "components/reui/rating.tsx"
+        "target": "components/blitz-ui/rating.tsx"
       }
     ]
   },
@@ -1149,9 +1147,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/resizable.tsx",
+        "path": "blitz-ui/resizable.tsx",
         "type": "registry:ui",
-        "target": "components/reui/resizable.tsx"
+        "target": "components/blitz-ui/resizable.tsx"
       }
     ]
   },
@@ -1166,9 +1164,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/scroll-area.tsx",
+        "path": "blitz-ui/scroll-area.tsx",
         "type": "registry:ui",
-        "target": "components/reui/scroll-area.tsx"
+        "target": "components/blitz-ui/scroll-area.tsx"
       }
     ]
   },
@@ -1181,9 +1179,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/scrollspy.tsx",
+        "path": "blitz-ui/scrollspy.tsx",
         "type": "registry:ui",
-        "target": "components/reui/scrollspy.tsx"
+        "target": "components/blitz-ui/scrollspy.tsx"
       }
     ]
   },
@@ -1198,9 +1196,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/select.tsx",
+        "path": "blitz-ui/select.tsx",
         "type": "registry:ui",
-        "target": "components/reui/select.tsx"
+        "target": "components/blitz-ui/select.tsx"
       }
     ]
   },
@@ -1215,9 +1213,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/separator.tsx",
+        "path": "blitz-ui/separator.tsx",
         "type": "registry:ui",
-        "target": "components/reui/separator.tsx"
+        "target": "components/blitz-ui/separator.tsx"
       }
     ]
   },
@@ -1234,9 +1232,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/sheet.tsx",
+        "path": "blitz-ui/sheet.tsx",
         "type": "registry:ui",
-        "target": "components/reui/sheet.tsx"
+        "target": "components/blitz-ui/sheet.tsx"
       }
     ]
   },
@@ -1260,9 +1258,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/sidebar.tsx",
+        "path": "blitz-ui/sidebar.tsx",
         "type": "registry:ui",
-        "target": "components/reui/sidebar.tsx"
+        "target": "components/blitz-ui/sidebar.tsx"
       }
     ]
   },
@@ -1275,9 +1273,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/skeleton.tsx",
+        "path": "blitz-ui/skeleton.tsx",
         "type": "registry:ui",
-        "target": "components/reui/skeleton.tsx"
+        "target": "components/blitz-ui/skeleton.tsx"
       }
     ]
   },
@@ -1292,9 +1290,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/slider.tsx",
+        "path": "blitz-ui/slider.tsx",
         "type": "registry:ui",
-        "target": "components/reui/slider.tsx"
+        "target": "components/blitz-ui/slider.tsx"
       }
     ]
   },
@@ -1312,9 +1310,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/sortable.tsx",
+        "path": "blitz-ui/sortable.tsx",
         "type": "registry:ui",
-        "target": "components/reui/sortable.tsx"
+        "target": "components/blitz-ui/sortable.tsx"
       }
     ]
   },
@@ -1327,9 +1325,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/spinner.tsx",
+        "path": "blitz-ui/spinner.tsx",
         "type": "registry:ui",
-        "target": "components/reui/spinner.tsx"
+        "target": "components/blitz-ui/spinner.tsx"
       }
     ]
   },
@@ -1342,9 +1340,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/stepper.tsx",
+        "path": "blitz-ui/stepper.tsx",
         "type": "registry:ui",
-        "target": "components/reui/stepper.tsx"
+        "target": "components/blitz-ui/stepper.tsx"
       }
     ]
   },
@@ -1359,9 +1357,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/switch.tsx",
+        "path": "blitz-ui/switch.tsx",
         "type": "registry:ui",
-        "target": "components/reui/switch.tsx"
+        "target": "components/blitz-ui/switch.tsx"
       }
     ]
   },
@@ -1374,9 +1372,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/table.tsx",
+        "path": "blitz-ui/table.tsx",
         "type": "registry:ui",
-        "target": "components/reui/table.tsx"
+        "target": "components/blitz-ui/table.tsx"
       }
     ]
   },
@@ -1392,9 +1390,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/tabs.tsx",
+        "path": "blitz-ui/tabs.tsx",
         "type": "registry:ui",
-        "target": "components/reui/tabs.tsx"
+        "target": "components/blitz-ui/tabs.tsx"
       }
     ]
   },
@@ -1407,9 +1405,9 @@ export const blitzUi: Registry["items"] = [
     "dependencies": [],
     "files": [
       {
-        "path": "reui/textarea.tsx",
+        "path": "blitz-ui/textarea.tsx",
         "type": "registry:ui",
-        "target": "components/reui/textarea.tsx"
+        "target": "components/blitz-ui/textarea.tsx"
       }
     ]
   },
@@ -1424,9 +1422,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/timeline.tsx",
+        "path": "blitz-ui/timeline.tsx",
         "type": "registry:ui",
-        "target": "components/reui/timeline.tsx"
+        "target": "components/blitz-ui/timeline.tsx"
       }
     ]
   },
@@ -1444,9 +1442,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/toggle-group.tsx",
+        "path": "blitz-ui/toggle-group.tsx",
         "type": "registry:ui",
-        "target": "components/reui/toggle-group.tsx"
+        "target": "components/blitz-ui/toggle-group.tsx"
       }
     ]
   },
@@ -1462,9 +1460,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/toggle.tsx",
+        "path": "blitz-ui/toggle.tsx",
         "type": "registry:ui",
-        "target": "components/reui/toggle.tsx"
+        "target": "components/blitz-ui/toggle.tsx"
       }
     ]
   },
@@ -1479,9 +1477,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/tooltip.tsx",
+        "path": "blitz-ui/tooltip.tsx",
         "type": "registry:ui",
-        "target": "components/reui/tooltip.tsx"
+        "target": "components/blitz-ui/tooltip.tsx"
       }
     ]
   },
@@ -1497,9 +1495,9 @@ export const blitzUi: Registry["items"] = [
     ],
     "files": [
       {
-        "path": "reui/tree.tsx",
+        "path": "blitz-ui/tree.tsx",
         "type": "registry:ui",
-        "target": "components/reui/tree.tsx"
+        "target": "components/blitz-ui/tree.tsx"
       }
     ]
   }

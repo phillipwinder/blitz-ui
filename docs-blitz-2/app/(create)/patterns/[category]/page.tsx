@@ -47,7 +47,7 @@ export async function generateMetadata({
 
   if (!category) {
     return {
-      title: "Patterns - ReUI",
+      title: "Patterns - Blitz UI",
       description:
         "Patterns are composed components showing real-world usage. Filter by category and tags to find the perfect pattern for your project.",
     }
@@ -57,7 +57,7 @@ export async function generateMetadata({
 
   if (!isValidCategory(normalized)) {
     return {
-      title: "Patterns - ReUI",
+      title: "Patterns - Blitz UI",
       description: "Pattern not found",
     }
   }
@@ -67,7 +67,7 @@ export async function generateMetadata({
   const title = `${categoryLabel} Patterns`
   const seoDescription =
     description ||
-    `Explore professional ${categoryLabel.toLowerCase()} patterns and examples for ReUI. High-quality, accessible React components built with Tailwind CSS.`
+    `Explore professional ${categoryLabel.toLowerCase()} patterns and examples for Blitz UI. High-quality, accessible React components built with Tailwind CSS.`
 
   return {
     title,
@@ -78,12 +78,12 @@ export async function generateMetadata({
       `${categoryLabel} examples`,
       "React components",
       "Tailwind CSS",
-      "ReUI patterns",
+      "Blitz UI patterns",
       "shadcn create",
       "shadcn components",
     ],
     openGraph: {
-      title: `${title} - ReUI`,
+      title: `${title} - Blitz UI`,
       description: seoDescription,
       type: "website",
       images: [
@@ -96,7 +96,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} - ReUI`,
+      title: `${title} - Blitz UI`,
       description: seoDescription,
       images: [
         {

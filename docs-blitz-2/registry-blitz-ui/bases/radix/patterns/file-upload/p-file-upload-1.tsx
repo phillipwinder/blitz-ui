@@ -4,7 +4,7 @@
 "use client"
 
 import Image from "next/image"
-import { useFileUpload } from "@/registry-reui/bases/radix/hooks/use-file-upload"
+import { useFileUpload } from "@/registry-blitz-ui/bases/radix/hooks/use-file-upload"
 
 import { Button } from "@/registry/bases/radix/ui/button"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"

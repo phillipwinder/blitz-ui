@@ -10,7 +10,7 @@ import {
   formatDateValue,
   type DateSelectorI18nConfig,
   type DateSelectorValue,
-} from "@/registry-reui/bases/base/reui/date-selector"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/date-selector"
 
 import { Button } from "@/registry/bases/base/ui/button"
 import {

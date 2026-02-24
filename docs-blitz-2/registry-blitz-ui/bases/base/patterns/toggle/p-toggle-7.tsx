@@ -4,7 +4,7 @@
 "use client"
 
 import { useState } from "react"
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 
 import { Toggle } from "@/registry/bases/base/ui/toggle"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"

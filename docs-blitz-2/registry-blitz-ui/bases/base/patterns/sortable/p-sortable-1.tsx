@@ -5,12 +5,12 @@
 "use client"
 
 import { useState } from "react"
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 import {
   Sortable,
   SortableItem,
   SortableItemHandle,
-} from "@/registry-reui/bases/base/reui/sortable"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/sortable"
 import { toast } from "sonner"
 
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"

@@ -5,19 +5,19 @@
 "use client"
 
 import { useState } from "react"
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 import {
   Frame,
   FrameDescription,
   FrameHeader,
   FramePanel,
   FrameTitle,
-} from "@/registry-reui/bases/base/reui/frame"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/frame"
 import {
   Sortable,
   SortableItem,
   SortableItemHandle,
-} from "@/registry-reui/bases/base/reui/sortable"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/sortable"
 
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 

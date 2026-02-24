@@ -1,7 +1,7 @@
 // Description: Priority select with colored badges
 // Order: 30
 
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 
 import { Field } from "@/registry/bases/base/ui/field"
 import {

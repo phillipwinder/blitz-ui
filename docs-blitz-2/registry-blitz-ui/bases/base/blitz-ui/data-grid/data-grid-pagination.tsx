@@ -1,7 +1,7 @@
 "use client"
 
 import React, { ReactNode } from "react"
-import { useDataGrid } from "@/registry-reui/bases/base/reui/data-grid/data-grid"
+import { useDataGrid } from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid"
 
 import { cn } from "@/registry/bases/base/lib/utils"
 import { Button } from "@/registry/bases/base/ui/button"

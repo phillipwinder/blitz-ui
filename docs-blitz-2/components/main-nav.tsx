@@ -49,7 +49,7 @@ export function MainNav({
           return (
             <Tooltip key={item.href}>
               <TooltipTrigger asChild>{button}</TooltipTrigger>
-              <TooltipContent>🔥 ReUI Pro - Coming Soon!</TooltipContent>
+              <TooltipContent>🔥 Blitz UI Pro - Coming Soon!</TooltipContent>
             </Tooltip>
           )
         }

@@ -2,7 +2,7 @@
 // Order: 10
 // GridSize: 1
 
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 import {
   Timeline,
   TimelineContent,
@@ -12,7 +12,7 @@ import {
   TimelineItem,
   TimelineSeparator,
   TimelineTitle,
-} from "@/registry-reui/bases/base/reui/timeline"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/timeline"
 
 import { cn } from "@/registry/bases/base/lib/utils"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"

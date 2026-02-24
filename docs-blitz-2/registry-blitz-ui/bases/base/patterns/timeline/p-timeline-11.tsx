@@ -10,7 +10,7 @@ import {
   TimelineIndicator,
   TimelineItem,
   TimelineSeparator,
-} from "@/registry-reui/bases/base/reui/timeline"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/timeline"
 
 import {
   Avatar,

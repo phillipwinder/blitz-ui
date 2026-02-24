@@ -1,7 +1,7 @@
 // Description: Rating with size.
 // Order: 5
 
-import { Rating } from "@/registry-reui/bases/base/reui/rating"
+import { Rating } from "@/registry-blitz-ui/bases/base/blitz-ui/rating"
 
 export default function Pattern() {
   return (

@@ -1,7 +1,7 @@
 // Description: Warning for unsaved changes when navigating away
 // Order: 9
 
-import { Frame, FramePanel } from "@/registry-reui/bases/base/reui/frame"
+import { Frame, FramePanel } from "@/registry-blitz-ui/bases/base/blitz-ui/frame"
 
 import {
   AlertDialog,

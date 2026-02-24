@@ -2,7 +2,7 @@
 // Order: 12
 // GridSize: 1
 
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 
 import { Button } from "@/registry/bases/radix/ui/button"
 import { Card, CardContent } from "@/registry/bases/radix/ui/card"

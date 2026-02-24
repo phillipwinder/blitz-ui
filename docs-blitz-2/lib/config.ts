@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: "ReUI",
-  url: "https://reui.io",
+  name: "Blitz UI",
+  url: "https://blitz-ui.com",
   description:
     "Free & open-source library of 1,000+ components and patterns to 10x your productivity in shadcn projects.",
   links: {
-    twitter: "https://x.com/reui_io",
-    github: "https://github.com/keenthemes/reui",
+    twitter: "https://x.com/blitz_ui_official",
+    github: "https://github.com/phillipwinder/blitz-ui",
   },
   navItems: [
     {
@@ -17,8 +17,8 @@ export const siteConfig = {
       label: "Patterns",
     },
     {
-      href: "/built-with-reui",
-      label: "Built with ReUI",
+      href: "/built-with-blitz-ui",
+      label: "Built with Blitz UI",
     },
     {
       href: "#",

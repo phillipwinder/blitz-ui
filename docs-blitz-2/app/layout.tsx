@@ -13,7 +13,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 import "@/styles/globals.css"
 
-const appUrl = process.env.NEXT_PUBLIC_APP_URL || siteConfig.url || "https://reui.io"
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || siteConfig.url || "https://blitz-ui.com"
 
 export const metadata: Metadata = {
   title: {
@@ -32,17 +32,17 @@ export const metadata: Metadata = {
     "TypeScript",
     "Blocks",
     "Patterns",
-    "ReUI",
+    "Blitz UI",
     "registry",
     "shadcn",
   ],
   authors: [
     {
-      name: "ReUI",
-      url: "https://reui.io",
+      name: "Blitz UI",
+      url: "https://blitz-ui.com",
     },
   ],
-  creator: "reui_io",
+  creator: "blitz_ui_official",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [`${appUrl}/brand/logo-default.png`],
-    creator: "@reui_io",
+    creator: "@blitz_ui_official",
   },
   icons: {
     icon: "/favicon.ico",

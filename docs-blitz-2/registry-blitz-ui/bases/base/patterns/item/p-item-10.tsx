@@ -1,7 +1,7 @@
 // Description: Item with header and footer sections
 // Order: 10
 
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 
 import {
   Avatar,

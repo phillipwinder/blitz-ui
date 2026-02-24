@@ -4,7 +4,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 import { format, formatDistanceToNow } from "date-fns"
 
 import {

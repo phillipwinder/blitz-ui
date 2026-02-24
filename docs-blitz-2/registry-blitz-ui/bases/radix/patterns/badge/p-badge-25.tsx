@@ -2,7 +2,7 @@
 // Order: 25
 
 import Image from "next/image"
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 
 export default function Pattern() {
   return (

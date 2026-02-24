@@ -4,13 +4,13 @@
 "use client"
 
 import { useState } from "react"
-import { useCopyToClipboard } from "@/registry-reui/bases/base/hooks/use-copy-to-clipboard"
+import { useCopyToClipboard } from "@/registry-blitz-ui/bases/base/hooks/use-copy-to-clipboard"
 import {
   Frame,
   FrameHeader,
   FramePanel,
   FrameTitle,
-} from "@/registry-reui/bases/base/reui/frame"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/frame"
 
 import { Button } from "@/registry/bases/base/ui/button"
 import {

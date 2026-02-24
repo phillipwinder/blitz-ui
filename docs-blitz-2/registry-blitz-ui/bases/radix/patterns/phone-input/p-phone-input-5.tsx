@@ -1,7 +1,7 @@
 // Description: Phone input with preset value
 // Order: 5
 
-import { PhoneInput } from "@/registry-reui/bases/radix/reui/phone-input"
+import { PhoneInput } from "@/registry-blitz-ui/bases/radix/blitz-ui/phone-input"
 
 export default function Pattern() {
   return <PhoneInput value="+12125551234" placeholder="Enter phone number" />

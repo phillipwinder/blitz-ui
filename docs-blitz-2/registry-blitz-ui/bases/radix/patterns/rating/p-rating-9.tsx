@@ -4,7 +4,7 @@
 "use client"
 
 import { useState } from "react"
-import { Rating } from "@/registry-reui/bases/radix/reui/rating"
+import { Rating } from "@/registry-blitz-ui/bases/radix/blitz-ui/rating"
 
 import { Button } from "@/registry/bases/radix/ui/button"
 import { Card, CardContent } from "@/registry/bases/radix/ui/card"

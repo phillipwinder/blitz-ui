@@ -2,12 +2,12 @@
 // Order: 6
 // GridSize: 1
 
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 import {
   Frame,
   FrameHeader,
   FramePanel,
-} from "@/registry-reui/bases/radix/reui/frame"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/frame"
 import {
   Timeline,
   TimelineContent,
@@ -16,7 +16,7 @@ import {
   TimelineItem,
   TimelineSeparator,
   TimelineTitle,
-} from "@/registry-reui/bases/radix/reui/timeline"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/timeline"
 
 import { cn } from "@/registry/bases/radix/lib/utils"
 import {

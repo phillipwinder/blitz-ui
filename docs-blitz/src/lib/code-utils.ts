@@ -11,7 +11,7 @@ export async function formatCode(code: string, styleName: string) {
   for (const base of BASES as RegistryItem[]) {
     code = code.replaceAll(`@/registry/bases/${base.name}/`, "@/components/")
     code = code.replaceAll(
-      `@/registry-reui/bases/${base.name}/`,
+      `@/registry-blitz-ui/bases/${base.name}/`,
       "@/components/"
     )
   }

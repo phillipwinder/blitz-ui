@@ -1,7 +1,7 @@
 // Description: Avatar with user details and badge
 // Order: 16
 
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 
 import {
   Avatar,

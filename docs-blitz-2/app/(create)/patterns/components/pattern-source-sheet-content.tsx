@@ -29,7 +29,7 @@ export function PatternSourceSheetContent({
   const styleName = `${config.base || "base"}-${config.style || "vega"}`
 
   const v0Url = React.useMemo(() => {
-    const registryUrl = `https://reui.io/r/styles/${styleName}/${name}.json`
+    const registryUrl = `https://blitz-ui.com/r/styles/${styleName}/${name}.json`
     const paramsString = serializeDesignSystemSearchParams("", params)
     return `https://v0.dev/chat/api/open?url=${encodeURIComponent(registryUrl + paramsString)}`
   }, [styleName, name, params])
@@ -45,10 +45,10 @@ export function PatternSourceSheetContent({
       <div className="flex flex-1 flex-col overflow-hidden px-6 pb-6">
         <div className="border-border relative rounded-lg border">
           <CodeBlockCommand
-            __bun__={`bunx --bun shadcn@latest add @reui/${name}`}
-            __npm__={`npx shadcn@latest add @reui/${name}`}
-            __pnpm__={`pnpm dlx shadcn@latest add @reui/${name}`}
-            __yarn__={`yarn dlx shadcn@latest add @reui/${name}`}
+            __bun__={`bunx --bun shadcn@latest add @blitz-ui/${name}`}
+            __npm__={`npx shadcn@latest add @blitz-ui/${name}`}
+            __pnpm__={`pnpm dlx shadcn@latest add @blitz-ui/${name}`}
+            __yarn__={`yarn dlx shadcn@latest add @blitz-ui/${name}`}
           />
         </div>
         <div className="flex h-full flex-1 flex-col overflow-hidden">

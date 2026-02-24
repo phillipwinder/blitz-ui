@@ -1,4 +1,4 @@
-# ReUI v2 - Cursor Rules
+# Blitz UI v2 - Cursor Rules
 
 ## Agent Response Rules
 
@@ -13,14 +13,14 @@
 
 ## Project Overview
 
-ReUI is a React UI component library built on shadcn/ui patterns, providing accessible, customizable components styled with Tailwind CSS v4. The project powers the **shadcn create** customizer experience.
+Blitz UI is a React UI component library built on shadcn/ui patterns, providing accessible, customizable components styled with Tailwind CSS v4. The project powers the **shadcn create** customizer experience.
 
 ### Key Architecture
 
 - **Multi-Base Support**: Components available in `base` (Base UI) and `radix` (Radix UI) variants
 - **Multi-Style Support**: 5 visual styles - `vega`, `nova`, `maia`, `lyra`, `mira`
 - **Style Name Format**: `{base}-{style}` (e.g., `radix-nova`, `base-vega`)
-- **Registry System**: Serves components via API for `npx shadcn add @reui/component`
+- **Registry System**: Serves components via API for `npx shadcn add @blitz-ui/component`
 
 ### Core Systems
 
@@ -90,14 +90,14 @@ oss/
 │   ├── config.ts                    # Bases, styles, themes, fonts config
 │   ├── themes.ts                    # Theme definitions with CSS vars
 │   └── bases.ts                     # Base definitions
-├── registry-blitz-ui/                   # ReUI pattern registry
+├── registry-blitz-ui/                   # Blitz UI pattern registry
 │   ├── bases/
 │   │   ├── base/                    # Base UI patterns
 │   │   │   ├── patterns/            # Pattern components by category
 │   │   │   │   ├── alert/           # p-alert-1.tsx, p-alert-2.tsx...
 │   │   │   │   ├── button/
 │   │   │   │   └── .../             # 40+ categories
-│   │   │   ├── reui/                # ReUI-specific components
+│   │   │   ├── blitz-ui/                # Blitz UI-specific components
 │   │   │   │   ├── data-grid/       # Complex data grid
 │   │   │   │   ├── kanban/
 │   │   │   │   └── .../
@@ -107,7 +107,7 @@ oss/
 │   │       ├── base-vega/
 │   │       ├── radix-nova/
 │   │       └── .../                 # 10 combinations (2 bases × 5 styles)
-│   ├── styles/                      # ReUI-specific style CSS
+│   ├── styles/                      # Blitz UI-specific style CSS
 │   ├── patterns.json                # Pattern manifest for search/browse
 │   └── registry.json                # Categories and stats
 ├── lib/
@@ -465,7 +465,7 @@ GET /api/registry/{name}?styleName={styleName}&iconLibrary={iconLibrary}
 
 ### Public CLI API (`/r/[...path]`)
 
-Compatible with `npx shadcn add @reui/component`:
+Compatible with `npx shadcn add @blitz-ui/component`:
 
 ```
 GET /r/{name}.json              → default style (radix-nova)
@@ -501,7 +501,7 @@ Users configure in `components.json`:
 ```json
 {
   "registries": {
-    "@reui": "https://reui.io/r"
+    "@blitz-ui": "https://blitz-ui.com/r"
   }
 }
 ```
@@ -509,8 +509,8 @@ Users configure in `components.json`:
 Then install:
 
 ```bash
-npx shadcn@latest add @reui/alert
-npx shadcn@latest add @reui/p-statistic-card-1
+npx shadcn@latest add @blitz-ui/alert
+npx shadcn@latest add @blitz-ui/p-statistic-card-1
 ```
 
 ## Hydration Safety Pattern

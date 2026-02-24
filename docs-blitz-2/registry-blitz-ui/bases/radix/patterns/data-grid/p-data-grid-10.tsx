@@ -9,10 +9,10 @@ import Link from "next/link"
 import {
   DataGrid,
   DataGridContainer,
-} from "@/registry-reui/bases/radix/reui/data-grid/data-grid"
-import { DataGridColumnHeader } from "@/registry-reui/bases/radix/reui/data-grid/data-grid-column-header"
-import { DataGridPagination } from "@/registry-reui/bases/radix/reui/data-grid/data-grid-pagination"
-import { DataGridTable } from "@/registry-reui/bases/radix/reui/data-grid/data-grid-table"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/data-grid/data-grid"
+import { DataGridColumnHeader } from "@/registry-blitz-ui/bases/radix/blitz-ui/data-grid/data-grid-column-header"
+import { DataGridPagination } from "@/registry-blitz-ui/bases/radix/blitz-ui/data-grid/data-grid-pagination"
+import { DataGridTable } from "@/registry-blitz-ui/bases/radix/blitz-ui/data-grid/data-grid-table"
 import {
   ColumnDef,
   getCoreRowModel,

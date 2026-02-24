@@ -13,7 +13,7 @@ import {
   StepperPanel,
   StepperSeparator,
   StepperTrigger,
-} from "@/registry-reui/bases/base/reui/stepper"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/stepper"
 
 const steps = [1, 2, 3, 4]
 

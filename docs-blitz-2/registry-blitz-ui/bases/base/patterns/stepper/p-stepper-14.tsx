@@ -13,7 +13,7 @@ import {
   StepperPanel,
   StepperSeparator,
   StepperTrigger,
-} from "@/registry-reui/bases/base/reui/stepper"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/stepper"
 
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 

@@ -1,7 +1,7 @@
 // Description: Activity feed items with avatars and actions
 // Order: 12
 
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 
 import {
   Avatar,

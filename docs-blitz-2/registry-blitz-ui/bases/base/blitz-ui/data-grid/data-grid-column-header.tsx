@@ -1,7 +1,7 @@
 "use client"
 
 import { HTMLAttributes, memo, ReactNode, useMemo } from "react"
-import { useDataGrid } from "@/registry-reui/bases/base/reui/data-grid/data-grid"
+import { useDataGrid } from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid"
 import { Column } from "@tanstack/react-table"
 
 import { cn } from "@/registry/bases/base/lib/utils"

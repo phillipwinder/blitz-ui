@@ -184,7 +184,7 @@ const testimonials: Testimonial[] = [
     },
   },
   {
-    text: "As usual @reui_io always delivers; Quality UI, Code etc. I love the Data Grid + @tan_stack Table integration 🫶",
+    text: "As usual @blitz_ui_official always delivers; Quality UI, Code etc. I love the Data Grid + @tan_stack Table integration 🫶",
     author: {
       name: "David Benson",
       handle: "@DavidBensonX",
@@ -256,7 +256,7 @@ const testimonials: Testimonial[] = [
     },
   },
   {
-    text: "Cannot wait for this to drop. Using ReUI on a current project and am loving it.",
+    text: "Cannot wait for this to drop. Using Blitz UI on a current project and am loving it.",
     author: {
       name: "Jalen Parham",
       handle: "@JalenParham97",
@@ -292,7 +292,7 @@ const testimonials: Testimonial[] = [
     },
   },
   {
-    text: "This sounds amazing! Excited to see all the new features and the UI patterns you’ve put together. Can’t wait to try it out! @reui_io  🔥",
+    text: "This sounds amazing! Excited to see all the new features and the UI patterns you’ve put together. Can’t wait to try it out! @blitz_ui_official  🔥",
     author: {
       name: "ADil Sarfraz",
       handle: "@adilsarfraz02",

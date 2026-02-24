@@ -1,7 +1,7 @@
 // Description: Billing warning for expired subscriptions or failed payments
 // Order: 12
 
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 
 import {
   AlertDialog,

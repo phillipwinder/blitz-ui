@@ -1,8 +1,8 @@
 // Description: Team members table with avatars, roles, and status
 // Order: 6
 
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
-import { Frame, FramePanel } from "@/registry-reui/bases/radix/reui/frame"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
+import { Frame, FramePanel } from "@/registry-blitz-ui/bases/radix/blitz-ui/frame"
 
 import {
   Avatar,

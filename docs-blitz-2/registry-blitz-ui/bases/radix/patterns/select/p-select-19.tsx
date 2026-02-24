@@ -1,7 +1,7 @@
 // Description: Select with status badges
 // Order: 19
 
-import { Badge, BadgeProps } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge, BadgeProps } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 
 import { Field } from "@/registry/bases/radix/ui/field"
 import {

@@ -2,8 +2,8 @@
 // Order: 10
 // GridSize: 1
 
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
-import { Frame, FramePanel } from "@/registry-reui/bases/radix/reui/frame"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
+import { Frame, FramePanel } from "@/registry-blitz-ui/bases/radix/blitz-ui/frame"
 
 import { Button } from "@/registry/bases/base/ui/button"
 import {

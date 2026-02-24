@@ -2,29 +2,29 @@
 
 Free & open-source library of 1,000+ components and patterns to 10x your productivity in shadcn projects.
 
-**Live Demo** → [https://reui.io](https://reui.io)
+**Live Demo** → [https://blitz-ui.com](https://blitz-ui.com)
 
 ## Documentation
 
-Follow [ReUI Documentation](https://reui.io/docs) to get started with ReUI quckly.
+Follow [Blitz UI Documentation](https://blitz-ui.com/docs) to get started with Blitz UI quckly.
 
 ## Installation
 
-Follow [Installation](https://reui.io/docs/get-started) guide to start using ReUI components in your React projects.
+Follow [Installation](https://blitz-ui.com/docs/get-started) guide to start using Blitz UI components in your React projects.
 
 ## Contributing
 
-You are welcome for contribution to imrpvoe ReUI.
-Check out our [Contribution Guidelines](https://github.com/keenthemes/reui/blob/main/CONTRIBUTING.md)
+You are welcome for contribution to imrpvoe Blitz UI.
+Check out our [Contribution Guidelines](https://github.com/phillipwinder/blitz-ui/blob/main/CONTRIBUTING.md)
 to learn how to submit improvements and new features.
 
 ## License
 
-ReUI is licensed under the [MIT License](https://github.com/keenthemes/reui/blob/main/LICENSE.md).
-If you have any questions just reach us via [@reui_io](https://x.com/reui_io) or [hello@reui.io](mailto:hello@reui.io).
+Blitz UI is licensed under the [MIT License](https://github.com/phillipwinder/blitz-ui/blob/main/LICENSE.md).
+If you have any questions just reach us via [@blitz_ui_official](https://x.com/blitz_ui_official) or [hello@blitz-ui.com](mailto:hello@blitz-ui.com).
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=keenthemes/reui&type=Date)](https://www.star-history.com/#keenthemes/reui&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=phillipwinder/blitz-ui&type=Date)](https://www.star-history.com/#phillipwinder/blitz-ui&Date)
 
-Happy coding with ReUI!
+Happy coding with Blitz UI!

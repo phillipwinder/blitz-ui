@@ -10,7 +10,7 @@ export function SiteFooter() {
         <div className="container flex flex-col items-center justify-between gap-2 py-4 group-has-[.docs-nav]/body:max-w-none group-has-[.docs-nav]/body:px-0 md:h-16 md:flex-row md:gap-4">
           <div className="text-muted-foreground order-2 text-center text-sm leading-loose text-balance md:order-1 md:flex-none md:text-left">
             &copy;
-            {new Date().getFullYear()} ReUI. All rights reserved.
+            {new Date().getFullYear()} Blitz UI. All rights reserved.
           </div>
 
           <div className="order-1 flex items-center gap-2.5 text-sm leading-loose text-balance md:order-2">

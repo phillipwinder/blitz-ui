@@ -5,7 +5,7 @@
 "use client"
 
 import { useState } from "react"
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 import {
   Stepper,
   StepperContent,
@@ -16,7 +16,7 @@ import {
   StepperSeparator,
   StepperTitle,
   StepperTrigger,
-} from "@/registry-reui/bases/radix/reui/stepper"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/stepper"
 
 import { Button } from "@/registry/bases/radix/ui/button"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"

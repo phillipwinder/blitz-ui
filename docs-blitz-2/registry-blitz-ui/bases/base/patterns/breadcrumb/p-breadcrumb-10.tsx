@@ -1,7 +1,7 @@
 // Description: Pill-style breadcrumb inside frame
 // Order: 10
 
-import { Frame, FramePanel } from "@/registry-reui/bases/base/reui/frame"
+import { Frame, FramePanel } from "@/registry-blitz-ui/bases/base/blitz-ui/frame"
 
 import {
   Breadcrumb,

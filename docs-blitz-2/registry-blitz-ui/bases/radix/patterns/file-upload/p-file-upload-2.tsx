@@ -7,12 +7,12 @@ import {
   formatBytes,
   useFileUpload,
   type FileWithPreview,
-} from "@/registry-reui/bases/radix/hooks/use-file-upload"
+} from "@/registry-blitz-ui/bases/radix/hooks/use-file-upload"
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry-reui/bases/radix/reui/alert"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/alert"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/bases/radix/ui/button"

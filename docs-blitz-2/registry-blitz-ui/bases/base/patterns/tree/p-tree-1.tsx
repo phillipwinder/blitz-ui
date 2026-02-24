@@ -7,7 +7,7 @@ import {
   Tree,
   TreeItem,
   TreeItemLabel,
-} from "@/registry-reui/bases/base/reui/tree"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/tree"
 import { hotkeysCoreFeature, syncDataLoaderFeature } from "@headless-tree/core"
 import { useTree } from "@headless-tree/react"
 

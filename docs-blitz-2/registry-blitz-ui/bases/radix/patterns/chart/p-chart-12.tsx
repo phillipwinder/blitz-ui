@@ -4,7 +4,7 @@
 "use client"
 
 import { CSSProperties } from "react"
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 import { Bar, BarChart, XAxis, YAxis } from "recharts"
 
 import {

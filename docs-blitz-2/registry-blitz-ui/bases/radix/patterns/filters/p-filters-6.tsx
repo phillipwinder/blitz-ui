@@ -9,13 +9,13 @@ import {
   DateSelector,
   formatDateValue,
   type DateSelectorValue,
-} from "@/registry-reui/bases/radix/reui/date-selector"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/date-selector"
 import {
   createFilter,
   Filters,
   type Filter,
   type FilterFieldConfig,
-} from "@/registry-reui/bases/radix/reui/filters"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/filters"
 import {
   endOfMonth,
   endOfYear,

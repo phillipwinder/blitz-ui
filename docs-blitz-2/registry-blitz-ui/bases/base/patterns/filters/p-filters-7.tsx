@@ -5,21 +5,21 @@
 "use client"
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
-import { Alert, AlertTitle } from "@/registry-reui/bases/base/reui/alert"
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Alert, AlertTitle } from "@/registry-blitz-ui/bases/base/blitz-ui/alert"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 import {
   DataGrid,
   DataGridContainer,
-} from "@/registry-reui/bases/base/reui/data-grid/data-grid"
-import { DataGridColumnHeader } from "@/registry-reui/bases/base/reui/data-grid/data-grid-column-header"
-import { DataGridPagination } from "@/registry-reui/bases/base/reui/data-grid/data-grid-pagination"
-import { DataGridTable } from "@/registry-reui/bases/base/reui/data-grid/data-grid-table"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid"
+import { DataGridColumnHeader } from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid-column-header"
+import { DataGridPagination } from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid-pagination"
+import { DataGridTable } from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid-table"
 import {
   createFilter,
   Filters,
   type Filter,
   type FilterFieldConfig,
-} from "@/registry-reui/bases/base/reui/filters"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/filters"
 import {
   ColumnDef,
   getCoreRowModel,

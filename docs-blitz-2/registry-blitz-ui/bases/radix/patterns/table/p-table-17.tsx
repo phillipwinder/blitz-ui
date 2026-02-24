@@ -2,14 +2,14 @@
 // Order: 17
 // GridSize: 1
 
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 import {
   Frame,
   FrameDescription,
   FrameHeader,
   FramePanel,
   FrameTitle,
-} from "@/registry-reui/bases/radix/reui/frame"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/frame"
 
 import {
   Table,

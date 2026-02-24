@@ -1,7 +1,7 @@
 // Description: Tooltip with icon and description
 // Order: 7
 
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 
 import {
   Tooltip,

@@ -72,7 +72,7 @@ export function PatternCard({
             {process.env.NODE_ENV === "development" && (
               <PatternName name={name} />
             )}
-            <CopyRegistry value={`@reui/${name}`} />
+            <CopyRegistry value={`@blitz-ui/${name}`} />
             <Sheet>
               <SheetTrigger asChild>
                 <Button

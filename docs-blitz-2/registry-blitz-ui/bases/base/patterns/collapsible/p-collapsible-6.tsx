@@ -6,7 +6,7 @@ import {
   FrameHeader,
   FramePanel,
   FrameTitle,
-} from "@/registry-reui/bases/base/reui/frame"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/frame"
 
 import {
   Collapsible,

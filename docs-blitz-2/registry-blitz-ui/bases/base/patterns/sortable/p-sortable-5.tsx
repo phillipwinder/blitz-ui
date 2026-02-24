@@ -11,12 +11,12 @@ import {
   FrameHeader,
   FramePanel,
   FrameTitle,
-} from "@/registry-reui/bases/base/reui/frame"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/frame"
 import {
   Sortable,
   SortableItem,
   SortableItemHandle,
-} from "@/registry-reui/bases/base/reui/sortable"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/sortable"
 
 import { Switch } from "@/registry/bases/base/ui/switch"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"

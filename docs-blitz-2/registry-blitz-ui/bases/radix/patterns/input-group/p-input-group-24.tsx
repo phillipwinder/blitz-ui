@@ -13,7 +13,7 @@ export default function Pattern() {
   return (
     <Field className="max-w-xs">
       <InputGroup>
-        <InputGroupInput defaultValue="reui_dev" />
+        <InputGroupInput defaultValue="blitz-ui_dev" />
         <InputGroupAddon align="inline-end">
           <div className="flex size-4 items-center justify-center rounded-full bg-emerald-500">
             <IconPlaceholder

@@ -106,10 +106,10 @@ export function getIconLibraryForStyle(styleName: string): IconLibraryName {
 }
 
 /**
- * Determine if a name is a pattern or reui component
+ * Determine if a name is a pattern or blitz-ui component
  */
-function getRegistrySource(name: string): { type: "patterns" | "reui" } {
-  return { type: name.startsWith("p-") ? "patterns" : "reui" }
+function getRegistrySource(name: string): { type: "patterns" | "blitz-ui" } {
+  return { type: name.startsWith("p-") ? "patterns" : "blitz-ui" }
 }
 
 /**
@@ -121,13 +121,13 @@ function getMetadata(base: string = "base"): MetadataData {
       const metadata: Record<string, RegistryItem> = {}
 
       try {
-        const reuiMod = require(`../registry-blitz-ui/bases/${base}/reui/_registry`)
-        const reuiItems = reuiMod.reui || []
-        for (const item of reuiItems) {
+        const blitzUiMod = require(`../registry-blitz-ui/bases/${base}/blitz-ui/_registry`)
+        const blitzUiItems = blitzUiMod.blitzUi || []
+        for (const item of blitzUiItems) {
           metadata[item.name] = item
         }
       } catch (e) {
-        console.warn(`Could not load reui registry for ${base}`, e)
+        console.warn(`Could not load blitz-ui registry for ${base}`, e)
       }
 
       try {
@@ -257,8 +257,8 @@ export function transformImportPaths(code: string, base: string): string {
     code
       // Handle __generated style-specific paths
       .replace(
-        /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/reui\//g,
-        "@/components/reui/"
+        /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/blitz-ui\//g,
+        "@/components/blitz-ui/"
       )
       .replace(
         /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/ui\//g,
@@ -278,8 +278,8 @@ export function transformImportPaths(code: string, base: string): string {
       )
       // Handle base paths
       .replace(
-        new RegExp(`@/registry-blitz-ui/bases/${base}/reui/`, "g"),
-        "@/components/reui/"
+        new RegExp(`@/registry-blitz-ui/bases/${base}/blitz-ui/`, "g"),
+        "@/components/blitz-ui/"
       )
       .replace(
         new RegExp(`@/registry-blitz-ui/bases/${base}/ui/`, "g"),
@@ -296,27 +296,27 @@ export function transformImportPaths(code: string, base: string): string {
       )
       // Generic registry path replacements
       .replace(
-        /@\/registry(?:-reui)?\/bases\/(?:base|radix)\/reui\//g,
-        "@/components/reui/"
+        /@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/blitz-ui\//g,
+        "@/components/blitz-ui/"
       )
       .replace(
-        /@\/registry(?:-reui)?\/bases\/(?:base|radix)\/ui\//g,
+        /@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/ui\//g,
         "@/components/ui/"
       )
       .replace(
-        /@\/registry(?:-reui)?\/bases\/(?:base|radix)\/hooks\//g,
+        /@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/hooks\//g,
         "@/hooks/"
       )
-      .replace(/@\/registry(?:-reui)?\/bases\/(?:base|radix)\/lib\//g, "@/lib/")
+      .replace(/@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/lib\//g, "@/lib/")
       .replace(
-        /@\/registry(?:-reui)?\/bases\/(?:base|radix)\/patterns\//g,
+        /@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/patterns\//g,
         "@/components/patterns/"
       )
       // Handle @/registry/bases paths
       .replace(/@\/registry\/bases\/(?:base|radix)\/ui\//g, "@/components/ui/")
       .replace(
-        /@\/registry\/bases\/(?:base|radix)\/reui\//g,
-        "@/components/reui/"
+        /@\/registry\/bases\/(?:base|radix)\/blitz-ui\//g,
+        "@/components/blitz-ui/"
       )
       .replace(/@\/registry\/bases\/(?:base|radix)\/hooks\//g, "@/hooks/")
       .replace(/@\/registry\/bases\/(?:base|radix)\/lib\//g, "@/lib/")
@@ -404,7 +404,7 @@ export async function getRegistryItemForApi(
       if (sourceType === "patterns") {
         target = `components/patterns/${fileName}`
       } else if (fileType === "registry:ui") {
-        target = `components/reui/${fileName}`
+        target = `components/blitz-ui/${fileName}`
       } else if (fileType === "registry:hook") {
         target = `hooks/${fileName}`
       } else if (fileType === "registry:lib") {

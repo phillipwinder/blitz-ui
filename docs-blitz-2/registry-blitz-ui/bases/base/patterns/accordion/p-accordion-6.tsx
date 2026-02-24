@@ -1,7 +1,7 @@
 // Description: Advanced accordion with custom icons and badges
 // Order: 6
 
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 
 import {
   Accordion,

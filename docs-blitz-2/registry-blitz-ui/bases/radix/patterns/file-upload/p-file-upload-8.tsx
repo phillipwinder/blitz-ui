@@ -9,12 +9,12 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry-reui/bases/radix/reui/alert"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/alert"
 import {
   Sortable,
   SortableItem,
   SortableItemHandle,
-} from "@/registry-reui/bases/radix/reui/sortable"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/sortable"
 import { toast } from "sonner"
 
 import { cn } from "@/lib/utils"

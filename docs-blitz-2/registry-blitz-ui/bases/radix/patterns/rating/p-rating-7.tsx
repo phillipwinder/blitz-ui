@@ -4,7 +4,7 @@
 "use client"
 
 import { useState } from "react"
-import { Rating } from "@/registry-reui/bases/radix/reui/rating"
+import { Rating } from "@/registry-blitz-ui/bases/radix/blitz-ui/rating"
 
 export default function Pattern() {
   const [rating, setRating] = useState(3.5)

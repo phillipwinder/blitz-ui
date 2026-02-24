@@ -1,7 +1,7 @@
 "use client"
 
 import { CSSProperties, Fragment, useId, useRef } from "react"
-import { useDataGrid } from "@/registry-reui/bases/base/reui/data-grid/data-grid"
+import { useDataGrid } from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid"
 import {
   DataGridTableBase,
   DataGridTableBody,
@@ -16,7 +16,7 @@ import {
   DataGridTableHeadRowCell,
   DataGridTableHeadRowCellResize,
   DataGridTableRowSpacer,
-} from "@/registry-reui/bases/base/reui/data-grid/data-grid-table"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid-table"
 import {
   closestCenter,
   DndContext,

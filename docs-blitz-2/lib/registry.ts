@@ -117,16 +117,16 @@ function getMetadata(base: string = "base"): MetadataData {
     try {
       const metadata: Record<string, RegistryItem> = {}
 
-      // Directly load patterns and reui registries for reliability and performance
+      // Directly load patterns and blitz-ui registries for reliability and performance
       // This avoids potential issues with the aggregate registry.ts file
       try {
-        const reuiMod = require(`../registry-blitz-ui/bases/${base}/reui/_registry`)
-        const reuiItems = reuiMod.reui || []
-        for (const item of reuiItems) {
+        const blitzUiMod = require(`../registry-blitz-ui/bases/${base}/blitz-ui/_registry`)
+        const blitzUiItems = blitzUiMod.blitzUi || []
+        for (const item of blitzUiItems) {
           metadata[item.name] = item
         }
       } catch (e) {
-        console.warn(`Could not load reui registry for ${base}`, e)
+        console.warn(`Could not load blitz-ui registry for ${base}`, e)
       }
 
       try {
@@ -201,7 +201,7 @@ export function getComponent(
   }
 
   // Extract relative path from metadata
-  // e.g., "registry-blitz-ui/bases/base/reui/alert.tsx" -> "reui/alert.tsx"
+  // e.g., "registry-blitz-ui/bases/base/blitz-ui/alert.tsx" -> "blitz-ui/alert.tsx"
   const path = item.files[0].path.replace(`registry-blitz-ui/bases/${base}/`, "")
 
   const lazyComponent = React.lazy(

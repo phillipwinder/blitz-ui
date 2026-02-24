@@ -13,7 +13,7 @@ import {
   TimelineItem,
   TimelineSeparator,
   TimelineTitle,
-} from "@/registry-reui/bases/base/reui/timeline"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/timeline"
 
 const projectJourney = [
   {

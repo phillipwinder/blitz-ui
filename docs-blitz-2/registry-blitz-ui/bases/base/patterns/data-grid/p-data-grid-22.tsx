@@ -5,16 +5,16 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { useCopyToClipboard } from "@/registry-reui/bases/base/hooks/use-copy-to-clipboard"
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
-import { DataGrid } from "@/registry-reui/bases/base/reui/data-grid/data-grid"
-import { DataGridColumnHeader } from "@/registry-reui/bases/base/reui/data-grid/data-grid-column-header"
-import { DataGridPagination } from "@/registry-reui/bases/base/reui/data-grid/data-grid-pagination"
+import { useCopyToClipboard } from "@/registry-blitz-ui/bases/base/hooks/use-copy-to-clipboard"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
+import { DataGrid } from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid"
+import { DataGridColumnHeader } from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid-column-header"
+import { DataGridPagination } from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid-pagination"
 import {
   DataGridTable,
   DataGridTableRowSelect,
   DataGridTableRowSelectAll,
-} from "@/registry-reui/bases/base/reui/data-grid/data-grid-table"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid-table"
 import {
   ColumnDef,
   getCoreRowModel,

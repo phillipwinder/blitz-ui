@@ -8,7 +8,7 @@ import {
   NumberFieldIncrement,
   NumberFieldInput,
   NumberFieldScrubArea,
-} from "@/registry-reui/bases/radix/reui/number-field"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/number-field"
 
 export default function Pattern() {
   return (

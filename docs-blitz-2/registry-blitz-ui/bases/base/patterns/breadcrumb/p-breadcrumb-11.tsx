@@ -1,7 +1,7 @@
 // Description: Breadcrumb items containing badge with count
 // Order: 11
 
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 
 import {
   Breadcrumb,

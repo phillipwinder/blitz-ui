@@ -1,7 +1,7 @@
 // Description: Badge with full radius
 // Order: 19
 
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 
 export default function Pattern() {
   return (

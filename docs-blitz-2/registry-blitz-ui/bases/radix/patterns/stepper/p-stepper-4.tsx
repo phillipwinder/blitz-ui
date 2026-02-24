@@ -14,7 +14,7 @@ import {
   StepperPanel,
   StepperSeparator,
   StepperTrigger,
-} from "@/registry-reui/bases/radix/reui/stepper"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/stepper"
 
 import { Button } from "@/registry/bases/radix/ui/button"
 

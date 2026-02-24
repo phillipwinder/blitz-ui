@@ -1,7 +1,7 @@
 // Description: Tooltip with feature badge and upgrade link
 // Order: 10
 
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 
 import { Button } from "@/registry/bases/base/ui/button"
 import {

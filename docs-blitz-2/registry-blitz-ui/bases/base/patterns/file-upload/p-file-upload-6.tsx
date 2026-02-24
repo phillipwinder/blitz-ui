@@ -11,13 +11,13 @@ import {
   useFileUpload,
   type FileMetadata,
   type FileWithPreview,
-} from "@/registry-reui/bases/base/hooks/use-file-upload"
+} from "@/registry-blitz-ui/bases/base/hooks/use-file-upload"
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry-reui/bases/base/reui/alert"
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/alert"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/bases/base/ui/button"

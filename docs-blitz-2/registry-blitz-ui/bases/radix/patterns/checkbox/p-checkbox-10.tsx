@@ -6,7 +6,7 @@ import {
   FrameHeader,
   FramePanel,
   FrameTitle,
-} from "@/registry-reui/bases/radix/reui/frame"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/frame"
 
 import { Checkbox } from "@/registry/bases/radix/ui/checkbox"
 import {

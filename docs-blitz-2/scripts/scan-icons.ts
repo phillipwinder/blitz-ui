@@ -3,7 +3,7 @@ import { glob } from "glob"
 import { JsxOpeningElement, JsxSelfClosingElement, Project, SyntaxKind } from "ts-morph"
 
 // Only scan base folder - radix is a mirror created by migrate-radix.mts
-const TARGET_DIR = "registry-reui/bases/base"
+const TARGET_DIR = "registry-blitz-ui/bases/base"
 const OUTPUT_FILE = "registry/icons/scanned-icons.json"
 const UNMAPPED_OUTPUT_FILE = "registry/icons/unmapped-icons.json"
 

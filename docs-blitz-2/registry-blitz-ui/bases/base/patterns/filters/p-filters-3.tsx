@@ -10,7 +10,7 @@ import {
   Filters,
   type Filter,
   type FilterFieldConfig,
-} from "@/registry-reui/bases/base/reui/filters"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/filters"
 
 import {
   Avatar,

@@ -9,12 +9,12 @@ import Link from "next/link"
 import {
   DataGrid,
   DataGridContainer,
-} from "@/registry-reui/bases/radix/reui/data-grid/data-grid"
-import { DataGridPagination } from "@/registry-reui/bases/radix/reui/data-grid/data-grid-pagination"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/data-grid/data-grid"
+import { DataGridPagination } from "@/registry-blitz-ui/bases/radix/blitz-ui/data-grid/data-grid-pagination"
 import {
   DataGridTableDndRowHandle,
   DataGridTableDndRows,
-} from "@/registry-reui/bases/radix/reui/data-grid/data-grid-table-dnd-rows"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/data-grid/data-grid-table-dnd-rows"
 import { DragEndEvent, UniqueIdentifier } from "@dnd-kit/core"
 import { arrayMove } from "@dnd-kit/sortable"
 import {

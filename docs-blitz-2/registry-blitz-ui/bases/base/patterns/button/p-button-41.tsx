@@ -14,7 +14,7 @@ export default function Pattern() {
     <Button
       variant="outline"
       aria-label={isCopied ? "Copied" : "Copy"}
-      onClick={() => copyToClipboard("https://reui.io")}
+      onClick={() => copyToClipboard("https://blitz-ui.com")}
     >
       {isCopied ? (
         <IconPlaceholder

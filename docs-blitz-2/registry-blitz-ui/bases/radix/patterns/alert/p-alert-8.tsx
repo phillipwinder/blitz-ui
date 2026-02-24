@@ -5,7 +5,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry-reui/bases/radix/reui/alert"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/alert"
 
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 

@@ -11,7 +11,7 @@ import {
   TimelineItem,
   TimelineSeparator,
   TimelineTitle,
-} from "@/registry-reui/bases/radix/reui/timeline"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/timeline"
 
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 

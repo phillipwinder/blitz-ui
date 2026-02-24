@@ -1,7 +1,7 @@
 // Description: Spinners in badges.
 // Order: 3
 
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 
 import { Spinner } from "@/registry/bases/base/ui/spinner"
 

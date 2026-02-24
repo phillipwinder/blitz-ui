@@ -1,7 +1,7 @@
 // Description: Basic bar chart
 // Order: 1
 
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
 import {

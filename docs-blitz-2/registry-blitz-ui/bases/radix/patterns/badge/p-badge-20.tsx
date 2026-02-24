@@ -1,7 +1,7 @@
 // Description: Badge with an icon
 // Order: 20
 
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 

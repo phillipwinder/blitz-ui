@@ -1,7 +1,7 @@
 // Description: Basic phone input
 // Order: 1
 
-import { PhoneInput } from "@/registry-reui/bases/radix/reui/phone-input"
+import { PhoneInput } from "@/registry-blitz-ui/bases/radix/blitz-ui/phone-input"
 
 export default function Pattern() {
   return <PhoneInput placeholder="Enter phone number" />

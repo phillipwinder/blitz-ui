@@ -1,4 +1,4 @@
-// This script syncs the generated Blitz UI components from the `react-blitz` package to the `registry-reui` base.
+// This script syncs the generated Blitz UI components from the `react-blitz` package to the `registry-blitz-ui` base.
 // It copies the component files and rewrites the imports to point to the correct locations in the registry.
 
 import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';

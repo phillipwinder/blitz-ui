@@ -9,7 +9,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry-reui/bases/base/reui/alert"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/alert"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/bases/base/ui/button"

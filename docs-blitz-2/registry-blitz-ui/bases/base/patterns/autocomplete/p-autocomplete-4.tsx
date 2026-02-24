@@ -8,7 +8,7 @@ import {
   AutocompleteInput,
   AutocompleteItem,
   AutocompleteList,
-} from "@/registry-reui/bases/base/reui/autocomplete"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/autocomplete"
 
 import { Label } from "@/registry/bases/base/ui/label"
 

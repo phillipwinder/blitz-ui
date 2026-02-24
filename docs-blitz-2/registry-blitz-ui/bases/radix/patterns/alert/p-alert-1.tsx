@@ -5,7 +5,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry-reui/bases/radix/reui/alert"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/alert"
 
 export default function Pattern() {
   return (

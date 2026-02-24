@@ -10,7 +10,7 @@ import {
   AutocompleteInput,
   AutocompleteItem,
   AutocompleteList,
-} from "@/registry-reui/bases/base/reui/autocomplete"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/autocomplete"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
 import { toast } from "sonner"

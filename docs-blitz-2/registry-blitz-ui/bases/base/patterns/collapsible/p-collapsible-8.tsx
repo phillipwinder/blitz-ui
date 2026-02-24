@@ -5,7 +5,7 @@ import {
   Frame,
   FrameHeader,
   FramePanel,
-} from "@/registry-reui/bases/base/reui/frame"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/frame"
 
 import {
   Avatar,

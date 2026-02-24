@@ -1,7 +1,7 @@
 // Description: Breadcrumb with project, user and document info
 // Order: 15
 
-import { Frame, FramePanel } from "@/registry-reui/bases/base/reui/frame"
+import { Frame, FramePanel } from "@/registry-blitz-ui/bases/base/blitz-ui/frame"
 
 import {
   Avatar,

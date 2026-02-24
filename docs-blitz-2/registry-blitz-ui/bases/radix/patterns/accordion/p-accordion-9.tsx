@@ -1,8 +1,8 @@
 // Description: User list accordion with avatars and role indicators
 // Order: 9
 
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
-import { Frame, FramePanel } from "@/registry-reui/bases/radix/reui/frame"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
+import { Frame, FramePanel } from "@/registry-blitz-ui/bases/radix/blitz-ui/frame"
 
 import {
   Accordion,

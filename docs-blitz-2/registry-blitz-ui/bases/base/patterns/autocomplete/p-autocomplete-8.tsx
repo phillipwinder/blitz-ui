@@ -14,7 +14,7 @@ import {
   AutocompleteInput,
   AutocompleteItem,
   AutocompleteList,
-} from "@/registry-reui/bases/base/reui/autocomplete"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/autocomplete"
 import { Autocomplete as AutocompletePrimitive } from "@base-ui/react/autocomplete"
 
 import {

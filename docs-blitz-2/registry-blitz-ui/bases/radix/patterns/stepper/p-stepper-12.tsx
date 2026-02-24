@@ -13,7 +13,7 @@ import {
   StepperNav,
   StepperPanel,
   StepperTrigger,
-} from "@/registry-reui/bases/radix/reui/stepper"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/stepper"
 
 import { cn } from "@/registry/bases/radix/lib/utils"
 import { Button } from "@/registry/bases/radix/ui/button"

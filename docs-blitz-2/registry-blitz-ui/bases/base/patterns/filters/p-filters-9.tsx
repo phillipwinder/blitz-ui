@@ -11,7 +11,7 @@ import {
   type Filter,
   type FilterFieldConfig,
   type FilterI18nConfig,
-} from "@/registry-reui/bases/base/reui/filters"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/filters"
 
 import { Button } from "@/registry/bases/base/ui/button"
 import {

@@ -52,7 +52,7 @@ export default function Pattern() {
           </Popover>
         </InputGroupAddon>
         <InputGroupInput
-          defaultValue="https://reui.com"
+          defaultValue="https://blitz-ui.com"
           className="pl-0.5!"
           readOnly
         />

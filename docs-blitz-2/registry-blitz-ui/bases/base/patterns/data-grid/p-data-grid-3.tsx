@@ -9,9 +9,9 @@ import Link from "next/link"
 import {
   DataGrid,
   DataGridContainer,
-} from "@/registry-reui/bases/base/reui/data-grid/data-grid"
-import { DataGridPagination } from "@/registry-reui/bases/base/reui/data-grid/data-grid-pagination"
-import { DataGridTable } from "@/registry-reui/bases/base/reui/data-grid/data-grid-table"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid"
+import { DataGridPagination } from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid-pagination"
+import { DataGridTable } from "@/registry-blitz-ui/bases/base/blitz-ui/data-grid/data-grid-table"
 import {
   ColumnDef,
   getCoreRowModel,

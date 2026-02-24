@@ -5,7 +5,7 @@
 "use client"
 
 import { ComponentProps, useState } from "react"
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 import {
   Kanban,
   KanbanBoard,
@@ -15,7 +15,7 @@ import {
   KanbanItem,
   KanbanItemHandle,
   KanbanOverlay,
-} from "@/registry-reui/bases/base/reui/kanban"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/kanban"
 
 import {
   Avatar,

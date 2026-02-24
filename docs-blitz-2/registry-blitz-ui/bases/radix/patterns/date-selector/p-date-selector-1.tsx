@@ -8,7 +8,7 @@ import { useState } from "react"
 import {
   DateSelector,
   type DateSelectorValue,
-} from "@/registry-reui/bases/radix/reui/date-selector"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/date-selector"
 import { format } from "date-fns"
 
 import { Card, CardContent } from "@/registry/bases/radix/ui/card"

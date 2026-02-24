@@ -1,4 +1,4 @@
-// This script syncs the generated Blitz UI components from the `react-blitz` package to the `registry-reui` base.
+// This script syncs the generated Blitz UI components from the `react-blitz` package to the `registry-blitz-ui` base.
 // It copies the component files and rewrites the imports to point to the correct locations in the registry.
 
 import { cp, mkdir, readFile, writeFile } from "node:fs/promises"
@@ -121,7 +121,7 @@ async function main() {
       )
       const destination = path.join(
         import.meta.dirname,
-        `../registry-reui/bases/base/reui/${toKebabCase(component)}.tsx`
+        `../registry-blitz-ui/bases/base/blitz-ui/${toKebabCase(component)}.tsx`
       )
       await copy(component, source, destination)
       await rewriteGeneratedFileImports(destination, componentImports)

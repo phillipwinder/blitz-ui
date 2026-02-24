@@ -11,7 +11,7 @@ import {
   AutocompleteInput,
   AutocompleteItem,
   AutocompleteList,
-} from "@/registry-reui/bases/radix/reui/autocomplete"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/autocomplete"
 
 export default function Pattern() {
   const [value, setValue] = useState<string>("")

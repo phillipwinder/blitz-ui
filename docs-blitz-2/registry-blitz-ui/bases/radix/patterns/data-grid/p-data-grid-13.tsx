@@ -6,13 +6,13 @@
 
 import { useMemo, useState } from "react"
 import Link from "next/link"
-import { Badge } from "@/registry-reui/bases/radix/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/radix/blitz-ui/badge"
 import {
   DataGrid,
   DataGridContainer,
-} from "@/registry-reui/bases/radix/reui/data-grid/data-grid"
-import { DataGridPagination } from "@/registry-reui/bases/radix/reui/data-grid/data-grid-pagination"
-import { DataGridTableDnd } from "@/registry-reui/bases/radix/reui/data-grid/data-grid-table-dnd"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/data-grid/data-grid"
+import { DataGridPagination } from "@/registry-blitz-ui/bases/radix/blitz-ui/data-grid/data-grid-pagination"
+import { DataGridTableDnd } from "@/registry-blitz-ui/bases/radix/blitz-ui/data-grid/data-grid-table-dnd"
 import { DragEndEvent } from "@dnd-kit/core"
 import { arrayMove } from "@dnd-kit/sortable"
 import {

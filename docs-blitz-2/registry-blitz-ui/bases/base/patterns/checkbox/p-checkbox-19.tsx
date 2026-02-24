@@ -1,7 +1,7 @@
 // Description: Checkbox group with badge
 // Order: 19
 
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 
 import { Checkbox } from "@/registry/bases/base/ui/checkbox"
 import { Field, FieldLabel } from "@/registry/bases/base/ui/field"

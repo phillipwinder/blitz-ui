@@ -8,7 +8,7 @@ import {
   DateSelector,
   formatDateValue,
   type DateSelectorValue,
-} from "@/registry-reui/bases/radix/reui/date-selector"
+} from "@/registry-blitz-ui/bases/radix/blitz-ui/date-selector"
 
 import { Button } from "@/registry/bases/radix/ui/button"
 import {

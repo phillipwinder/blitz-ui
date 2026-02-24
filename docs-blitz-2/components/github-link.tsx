@@ -29,7 +29,7 @@ export async function StarsCount() {
   }
 
   try {
-    const data = await fetch("https://api.github.com/repos/keenthemes/reui", {
+    const data = await fetch("https://api.github.com/repos/phillipwinder/blitz-ui", {
       next: { revalidate: 86400 }, // Cache for 1 day (86400 seconds)
     })
     const json = await data.json()

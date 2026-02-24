@@ -16,7 +16,7 @@ export default function Pattern() {
   return (
     <Field className="w-full max-w-xs">
       <InputGroup>
-        <InputGroupInput defaultValue="https://reui.com/share" readOnly />
+        <InputGroupInput defaultValue="https://blitz-ui.com/share" readOnly />
         <InputGroupAddon align="inline-end">
           <InputGroupButton
             variant="ghost"

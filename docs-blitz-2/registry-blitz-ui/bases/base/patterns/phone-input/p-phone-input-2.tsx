@@ -1,7 +1,7 @@
 // Description: Small phone input
 // Order: 2
 
-import { PhoneInput } from "@/registry-reui/bases/base/reui/phone-input"
+import { PhoneInput } from "@/registry-blitz-ui/bases/base/blitz-ui/phone-input"
 
 export default function Pattern() {
   return (

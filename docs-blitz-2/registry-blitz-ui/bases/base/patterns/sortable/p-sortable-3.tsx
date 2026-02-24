@@ -9,7 +9,7 @@ import {
   Sortable,
   SortableItem,
   SortableItemHandle,
-} from "@/registry-reui/bases/base/reui/sortable"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/sortable"
 import { toast } from "sonner"
 
 import { Card, CardContent } from "@/registry/bases/base/ui/card"

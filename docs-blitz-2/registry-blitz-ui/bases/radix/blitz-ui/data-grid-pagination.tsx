@@ -1,7 +1,7 @@
 "use client"
 
 import { ReactNode } from "react"
-import { useDataGrid } from "@/registry-reui/bases/radix/reui/data-grid/data-grid"
+import { useDataGrid } from "@/registry-blitz-ui/bases/radix/blitz-ui/data-grid/data-grid"
 
 import { cn } from "@/registry/bases/radix/lib/utils"
 import { Button } from "@/registry/bases/radix/ui/button"

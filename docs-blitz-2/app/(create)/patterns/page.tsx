@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     "accessible UI",
   ],
   openGraph: {
-    title: `${title} - ReUI`,
+    title: `${title} - Blitz UI`,
     description,
     type: "website",
     images: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${title} - ReUI`,
+    title: `${title} - Blitz UI`,
     description,
     images: [
       {

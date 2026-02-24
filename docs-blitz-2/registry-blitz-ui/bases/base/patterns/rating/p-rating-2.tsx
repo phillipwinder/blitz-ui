@@ -1,7 +1,7 @@
 // Description: Rating with decimal value.
 // Order: 2
 
-import { Rating } from "@/registry-reui/bases/base/reui/rating"
+import { Rating } from "@/registry-blitz-ui/bases/base/blitz-ui/rating"
 
 export default function Pattern() {
   return <Rating rating={3.5} />

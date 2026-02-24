@@ -1,20 +1,20 @@
-# Contributing to ReUI
+# Contributing to Blitz UI
 
-Thank you for considering contributing to reui! Your contributions help improve the project for everyone.
+Thank you for considering contributing to Blitz UI! Your contributions help improve the project for everyone.
 Please follow these guidelines to ensure a smooth collaboration. 
-If you need any help, feel free to reach out us via [@reui_io](https://x.com/reui_io).
+If you need any help, feel free to reach out us via [@blitz_ui_official](https://x.com/blitz_ui_official).
 
 ## Getting Started
 
 1. **Fork the Repository**: Click the 'Fork' button on the top right of the repository page.
 2. **Clone Your Fork**:
    ```sh
-   git clone https://github.com/keenthemes/reui.git
-   cd reui
+   git clone https://github.com/phillipwinder/blitz-ui.git
+   cd blitz-ui
    ```
 3. **Set Up Upstream Remote**:
    ```sh
-   git remote add upstream https://github.com/keenthemes/reui.git
+   git remote add upstream https://github.com/phillipwinder/blitz-ui.git
    ```
 
 ## Setting Up the Development Environment
@@ -75,13 +75,13 @@ feat(components): add new prop to the avatar component
    git push origin feature-branch
    ```
 4. Open a pull request:
-   - Go to the [ReUI GitHub repository](https://github.com/keenthemes/reui.git).
+   - Go to the [Blitz UI GitHub repository](https://github.com/phillipwinder/blitz-ui.git).
    - Click on 'New Pull Request'.
    - Select your branch and submit the PR.
 
 ## Code Review
 
-Code is reviewed under strict terms to make sure it matches ReUI code standards and design guidelines.
+Code is reviewed under strict terms to make sure it matches Blitz UI code standards and design guidelines.
 
 ---
 

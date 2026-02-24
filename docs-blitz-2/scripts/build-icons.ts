@@ -31,8 +31,8 @@ function scanIconUsage() {
   // Only scan base folder - radix is a mirror created by migrate-radix.mts
   const scanDirs = [
     path.join(process.cwd(), "registry/bases"),
-    path.join(process.cwd(), "registry-reui/bases/base/patterns"),
-    path.join(process.cwd(), "registry-reui/bases/base/reui"),
+    path.join(process.cwd(), "registry-blitz-ui/bases/base/patterns"),
+    path.join(process.cwd(), "registry-blitz-ui/bases/base/blitz-ui"),
   ]
 
   const files: string[] = []
@@ -169,8 +169,8 @@ if (isWatchMode) {
   // Only watch base folder - radix is a mirror created by migrate-radix.mts
   const SCAN_DIRS = [
     path.join(process.cwd(), "registry/bases"),
-    path.join(process.cwd(), "registry-reui/bases/base/patterns"),
-    path.join(process.cwd(), "registry-reui/bases/base/reui"),
+    path.join(process.cwd(), "registry-blitz-ui/bases/base/patterns"),
+    path.join(process.cwd(), "registry-blitz-ui/bases/base/blitz-ui"),
   ].filter((dir) => fs.existsSync(dir))
 
   async function startWatcher() {

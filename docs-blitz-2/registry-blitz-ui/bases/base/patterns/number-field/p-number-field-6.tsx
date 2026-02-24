@@ -9,7 +9,7 @@ import {
   NumberFieldGroup,
   NumberFieldIncrement,
   NumberFieldInput,
-} from "@/registry-reui/bases/base/reui/number-field"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/number-field"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
 import { toast } from "sonner"

@@ -99,7 +99,7 @@ let _categoryIndex: Map<string, PatternData[]> | null = null;
 function getStats(): StatsData {
   if (!_stats) {
     try {
-      _stats = require('../registry-reui/bases/registry.json') as StatsData;
+      _stats = require('../registry-blitz-ui/bases/registry.json') as StatsData;
     } catch (e) {
       console.error('Failed to load registry stats', e);
       _stats = { categories: [], totalPatterns: 0 };
@@ -113,20 +113,20 @@ function getMetadata(base: string = 'base'): MetadataData {
     try {
       const metadata: Record<string, RegistryItem> = {};
 
-      // Directly load patterns and reui registries for reliability and performance
+      // Directly load patterns and blitz-ui registries for reliability and performance
       // This avoids potential issues with the aggregate registry.ts file
       try {
-        const reuiMod = require(`../registry-reui/bases/${base}/reui/_registry`);
-        const reuiItems = reuiMod.reui || [];
-        for (const item of reuiItems) {
+        const blitzUiMod = require(`../registry-blitz-ui/bases/${base}/blitz-ui/_registry`);
+        const blitzUiItems = blitzUiMod.blitzUi || [];
+        for (const item of blitzUiItems) {
           metadata[item.name] = item;
         }
       } catch (e) {
-        console.warn(`Could not load reui registry for ${base}`, e);
+        console.warn(`Could not load blitz-ui registry for ${base}`, e);
       }
 
       try {
-        const patternsMod = require(`../registry-reui/bases/${base}/patterns/_registry`);
+        const patternsMod = require(`../registry-blitz-ui/bases/${base}/patterns/_registry`);
         const patternItems = patternsMod.patterns || [];
         for (const item of patternItems) {
           metadata[item.name] = item;
@@ -192,10 +192,10 @@ export function getComponent(base: string, name: string): React.LazyExoticCompon
   }
 
   // Extract relative path from metadata
-  // e.g., "registry-reui/bases/base/reui/alert.tsx" -> "reui/alert.tsx"
-  const path = item.files[0].path.replace(`registry-reui/bases/${base}/`, '');
+  // e.g., "registry-blitz-ui/bases/base/blitz-ui/alert.tsx" -> "blitz-ui/alert.tsx"
+  const path = item.files[0].path.replace(`registry-blitz-ui/bases/${base}/`, '');
 
-  const lazyComponent = React.lazy(() => import(`@/registry-reui/bases/${base}/${path}`));
+  const lazyComponent = React.lazy(() => import(`@/registry-blitz-ui/bases/${base}/${path}`));
 
   componentCache.set(cacheKey, lazyComponent);
   return lazyComponent;
@@ -318,7 +318,7 @@ function ensurePatternIndexes() {
 
   try {
     // Load from patterns.json - Compact manifest for high performance
-    const patterns = require('../registry-reui/bases/patterns.json');
+    const patterns = require('../registry-blitz-ui/bases/patterns.json');
 
     for (const pattern of patterns) {
       const itemCategories = pattern.categories || [];
@@ -536,11 +536,11 @@ function getRegistryKey(styleName: string): string {
   return styleName;
 }
 
-function transformReuiPath(filePath: string, _styleName: string): string {
+function transformBlitzUiPath(filePath: string, _styleName: string): string {
   if (filePath.includes('/__generated/')) {
-    return filePath.replace(/registry-reui\/bases\/__generated\/[^/]+\//, (match) => {
-      if (match.includes('base-')) return 'registry-reui/bases/base/';
-      if (match.includes('radix-')) return 'registry-reui/bases/radix/';
+    return filePath.replace(/registry-blitz-ui\/bases\/__generated\/[^/]+\//, (match) => {
+      if (match.includes('base-')) return 'registry-blitz-ui/bases/base/';
+      if (match.includes('radix-')) return 'registry-blitz-ui/bases/radix/';
       return match;
     });
   }
@@ -644,7 +644,7 @@ export async function getRegistryItem(
       const files: RegistryItemFile[] = (item.files ?? []).map((file) => {
         const fileObj =
           typeof file === 'string' ? { path: file, type: 'registry:file' } : { ...file };
-        fileObj.path = transformReuiPath(fileObj.path, styleName);
+        fileObj.path = transformBlitzUiPath(fileObj.path, styleName);
         return fileObj;
       });
 

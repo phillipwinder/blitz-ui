@@ -1,7 +1,7 @@
 // Description: Rating with review summary
 // Order: 6
 
-import { Rating } from "@/registry-reui/bases/base/reui/rating"
+import { Rating } from "@/registry-blitz-ui/bases/base/blitz-ui/rating"
 
 import { Progress } from "@/registry/bases/base/ui/progress"
 import { Separator } from "@/registry/bases/base/ui/separator"

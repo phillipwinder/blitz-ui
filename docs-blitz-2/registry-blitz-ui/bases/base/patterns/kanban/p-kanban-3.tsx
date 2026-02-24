@@ -5,13 +5,13 @@
 "use client"
 
 import { ComponentProps, useState } from "react"
-import { Badge } from "@/registry-reui/bases/base/reui/badge"
+import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
 import {
   Frame,
   FrameHeader,
   FramePanel,
   FrameTitle,
-} from "@/registry-reui/bases/base/reui/frame"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/frame"
 import {
   Kanban,
   KanbanBoard,
@@ -20,7 +20,7 @@ import {
   KanbanItem,
   KanbanItemHandle,
   KanbanOverlay,
-} from "@/registry-reui/bases/base/reui/kanban"
+} from "@/registry-blitz-ui/bases/base/blitz-ui/kanban"
 
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 

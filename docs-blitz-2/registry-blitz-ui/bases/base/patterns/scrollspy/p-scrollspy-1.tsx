@@ -5,7 +5,7 @@
 "use client"
 
 import { useRef } from "react"
-import { Scrollspy } from "@/registry-reui/bases/base/reui/scrollspy"
+import { Scrollspy } from "@/registry-blitz-ui/bases/base/blitz-ui/scrollspy"
 
 import { Button } from "@/registry/bases/base/ui/button"
 import { ScrollArea } from "@/registry/bases/base/ui/scroll-area"
