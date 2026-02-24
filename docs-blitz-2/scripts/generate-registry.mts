@@ -422,7 +422,7 @@ async function generate() {
       const blitzUiRegistryPath = path.join(blitzUiDir, "_registry.ts")
       await fs.writeFile(
         blitzUiRegistryPath,
-        `import { type Registry } from "shadcn/schema"\n\nexport const blitz-ui: Registry["items"] = ${JSON.stringify(blitzUiItems, null, 2)}\n`
+        `import { type Registry } from "shadcn/schema"\n\nexport const blitzUi: Registry["items"] = ${JSON.stringify(blitzUiItems, null, 2)}\n`
       )
     }
 

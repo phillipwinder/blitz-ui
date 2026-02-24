@@ -555,7 +555,7 @@ function getRegistryKey(styleName: string): string {
   return styleName
 }
 
-function transformReuiPath(filePath: string, _styleName: string): string {
+function transformBlitzUiPath(filePath: string, _styleName: string): string {
   if (filePath.includes("/__generated/")) {
     return filePath.replace(
       /registry-blitz-ui\/bases\/__generated\/[^/]+\//,
@@ -668,7 +668,7 @@ export async function getRegistryItem(
           typeof file === "string"
             ? { path: file, type: "registry:file" }
             : { ...file }
-        fileObj.path = transformReuiPath(fileObj.path, styleName)
+        fileObj.path = transformBlitzUiPath(fileObj.path, styleName)
         return fileObj
       })
 

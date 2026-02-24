@@ -1,6 +1,6 @@
 import { type Registry } from "shadcn/schema"
 
-export const blitz-ui: Registry["items"] = [
+export const blitzUi: Registry["items"] = [
   {
     "name": "accordion",
     "type": "registry:ui",

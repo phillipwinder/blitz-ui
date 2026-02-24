@@ -15,7 +15,7 @@ const STACK_LABELS: Record<string, string> = {
   nextjs: "Next.js",
   tailwind: "Tailwind CSS",
   motion: "Motion",
-  blitz-ui: "Blitz UI",
+  blitzUi: "Blitz UI",
   shadcn: "shadcn/ui",
   radix: "Radix UI",
   supabase: "Supabase",
