@@ -23,6 +23,9 @@
     },
     {
       "path": "packages/react-blitz/tsconfig.json"
+    },
+    {
+      "path": "playground/vite-app/tsconfig.json"
     }
   ]
 }
