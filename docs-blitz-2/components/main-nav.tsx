@@ -6,11 +6,7 @@ import { usePathname } from "next/navigation"
 
 import { cn, isActive } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 export function MainNav({
   items,
@@ -26,23 +22,22 @@ export function MainNav({
       {items.map((item) => {
         const active = !item.soon && isActive(pathname, item.href)
 
-        const button = (
+        const button = item.soon ? (
           <Button
             variant="ghost"
             size="sm"
-            asChild={!item.soon}
-            className={cn(
-              "relative",
-              active && "bg-muted text-primary",
-              item.soon && "opacity-60"
-            )}
+            className={cn("relative", active && "bg-muted text-primary", item.soon && "opacity-60")}
           >
-            {item.soon ? (
-              <span>{item.label}</span>
-            ) : (
-              <Link href={item.href}>{item.label}</Link>
-            )}
+            <span>{item.label}</span>
           </Button>
+        ) : (
+          <Button
+            variant="ghost"
+            size="sm"
+            className={cn("relative", active && "bg-muted text-primary", item.soon && "opacity-60")}
+            nativeButton={false}
+            render={<Link href={item.href}>{item.label}</Link>}
+          />
         )
 
         if (item.soon) {

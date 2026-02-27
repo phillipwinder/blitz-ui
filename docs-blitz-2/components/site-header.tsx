@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 import { siteConfig } from "@/lib/config"
@@ -11,6 +10,7 @@ import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
 import { ModeSwitcher } from "@/components/mode-switcher"
 import { XLink } from "@/components/x-link"
+import { Zap } from "lucide-react"
 
 export function SiteHeader() {
   const pageTree = source.getPageTree()
@@ -21,20 +21,8 @@ export function SiteHeader() {
       <div className="container-wrapper">
         <div className="flex h-[calc(var(--header-height)-1px)] items-center gap-3.5 **:data-[slot=separator]:h-4!">
           <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/brand/logo-text-light.svg"
-              alt={siteConfig.name}
-              width={75}
-              height={0}
-              className="shrink-0 dark:hidden"
-            />
-            <Image
-              src="/brand/logo-text-dark.svg"
-              alt={siteConfig.name}
-              width={75}
-              height={0}
-              className="hidden shrink-0 dark:inline-block"
-            />
+            <Zap className="text-foreground/70 fill-foreground/10" />
+            <span className="text-lg font-bold">{siteConfig.name}</span>
             <span className="sr-only">{siteConfig.name}</span>
           </Link>
           <MobileNav

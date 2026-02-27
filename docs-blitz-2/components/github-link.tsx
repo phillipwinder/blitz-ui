@@ -8,24 +8,26 @@ import { Icons } from "@/components/icons"
 
 export function GitHubLink() {
   return (
-    <Button asChild size="sm" variant="ghost" className="h-8 shadow-none">
-      <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
-        <Icons.gitHub />
-        <React.Suspense fallback={<Skeleton className="h-4 w-6" />}>
-          <StarsCount />
-        </React.Suspense>
-      </Link>
-    </Button>
+    <Button
+      size="sm"
+      variant="ghost"
+      className="h-8 shadow-none"
+      nativeButton={false}
+      render={
+        <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
+          <Icons.gitHub />
+          <React.Suspense fallback={<Skeleton className="h-4 w-6" />}>
+            <StarsCount />
+          </React.Suspense>
+        </Link>
+      }
+    />
   )
 }
 
 export async function StarsCount() {
   if (process.env.NODE_ENV === "development") {
-    return (
-      <span className="text-muted-foreground w-6 text-xs tabular-nums">
-        2.5k
-      </span>
-    )
+    return <span className="text-muted-foreground w-6 text-xs tabular-nums">2.5k</span>
   }
 
   try {
@@ -37,11 +39,7 @@ export async function StarsCount() {
 
     // Handle undefined/null count
     if (typeof count !== "number") {
-      return (
-        <span className="text-muted-foreground w-6 text-xs tabular-nums">
-          2.5k
-        </span>
-      )
+      return <span className="text-muted-foreground w-6 text-xs tabular-nums">2.5k</span>
     }
 
     return (
@@ -51,8 +49,6 @@ export async function StarsCount() {
     )
   } catch {
     // Fallback on fetch error
-    return (
-      <span className="text-muted-foreground w-6 text-xs tabular-nums">—</span>
-    )
+    return <span className="text-muted-foreground w-6 text-xs tabular-nums">—</span>
   }
 }

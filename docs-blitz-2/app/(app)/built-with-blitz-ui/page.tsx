@@ -1,6 +1,5 @@
 "use client"
 
-import React from "react"
 import Link from "next/link"
 import { ChevronRight, ExternalLink } from "lucide-react"
 
@@ -42,31 +41,35 @@ export default function Page() {
                 {template.free && <Badge variant="outline">Free</Badge>}
               </div>
 
-              <div className="text-muted-foreground text-base">
-                {template.description}
-              </div>
+              <div className="text-muted-foreground text-base">{template.description}</div>
 
               <div className="flex items-center gap-3.5">
-                <Button asChild variant="default" size="lg">
-                  <Link
-                    href={template.purchaseUrl || template.previewUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Purchase on {template.market} - {template.price}
-                    <ChevronRight className="size-4" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link
-                    href={template.previewUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live Preview
-                    <ExternalLink className="size-4" />
-                  </Link>
-                </Button>
+                <Button
+                  variant="default"
+                  size="lg"
+                  nativeButton={false}
+                  render={
+                    <Link
+                      href={template.purchaseUrl || template.previewUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Purchase on {template.market} - {template.price}
+                      <ChevronRight className="size-4" />
+                    </Link>
+                  }
+                />
+                <Button
+                  variant="outline"
+                  size="lg"
+                  nativeButton={false}
+                  render={
+                    <Link href={template.previewUrl} target="_blank" rel="noopener noreferrer">
+                      Live Preview
+                      <ExternalLink className="size-4" />
+                    </Link>
+                  }
+                />
               </div>
 
               {template.stack && template.stack.length > 0 && (

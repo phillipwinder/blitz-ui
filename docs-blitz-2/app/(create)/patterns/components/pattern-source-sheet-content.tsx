@@ -19,10 +19,7 @@ interface PatternSourceSheetContentProps {
   base: string
 }
 
-export function PatternSourceSheetContent({
-  name,
-  base,
-}: PatternSourceSheetContentProps) {
+export function PatternSourceSheetContent({ name, base }: PatternSourceSheetContentProps) {
   const [config] = useConfig()
   const [params] = useDesignSystemSearchParams()
 
@@ -54,12 +51,17 @@ export function PatternSourceSheetContent({
         <div className="flex h-full flex-1 flex-col overflow-hidden">
           <div className="flex items-center justify-between gap-2">
             <h2 className="mt-6 mb-4 text-base font-semibold">Code</h2>
-            <Button asChild variant="outline" size="sm">
-              <Link href={v0Url} rel="noopener noreferrer" target="_blank">
-                Open in<span className="sr-only">v0</span>
-                <Icons.v0 className="ml-1 size-4" />
-              </Link>
-            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              nativeButton={false}
+              render={
+                <Link href={v0Url} rel="noopener noreferrer" target="_blank">
+                  Open in<span className="sr-only">v0</span>
+                  <Icons.v0 className="ml-1 size-4" />
+                </Link>
+              }
+            />
           </div>
           <div className="bg-code relative flex-1 grow overflow-hidden rounded-md border">
             <ComponentSourceClient

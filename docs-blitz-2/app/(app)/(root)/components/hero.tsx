@@ -1,13 +1,10 @@
 import Link from "next/link"
 import { ArrowRightIcon, ChevronRight } from "lucide-react"
+
+import { getPatternsTotalCount } from "@/lib/registry"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { getPatternsTotalCount } from "@/lib/registry"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Icons } from "@/components/icons"
 
 export default function Hero() {
@@ -63,9 +60,7 @@ export default function Hero() {
             </span>
           </Link>
 
-          <h1 className="text-center text-3xl font-bold lg:text-5xl">
-            Shadcn UI Patterns
-          </h1>
+          <h1 className="text-center text-3xl font-bold lg:text-5xl">Shadcn UI Patterns</h1>
 
           <div className="text-l max-w-lg text-center">
             Supercharge your <strong>shadcn/ui</strong> projects with a free &{" "}
@@ -74,19 +69,22 @@ export default function Hero() {
           </div>
 
           <div className="mb-3 flex flex-wrap items-center justify-center gap-2 md:gap-3.5">
-            <Button asChild className="gap-1.5 rounded-lg px-5 text-nowrap">
-              <Link href="/docs/get-started">
-                Get Started
-                <ChevronRight />
-              </Link>
-            </Button>
             <Button
-              asChild
+              className="gap-1.5 rounded-lg px-5 text-nowrap"
+              nativeButton={false}
+              render={
+                <Link href="/docs/get-started">
+                  Get Started
+                  <ChevronRight />
+                </Link>
+              }
+            />
+            <Button
               variant="outline"
               className="gap-1.5 rounded-lg px-5 text-nowrap"
-            >
-              <Link href="/patterns">Explore {totalCount}+ Patterns</Link>
-            </Button>
+              nativeButton={false}
+              render={<Link href="/patterns">Explore {totalCount}+ Patterns</Link>}
+            />
           </div>
 
           <div className="flex items-center justify-center gap-6">
@@ -95,11 +93,7 @@ export default function Hero() {
                 <Tooltip>
                   <TooltipTrigger className="size-5">
                     {brand.logo({
-                      className:
-                        "" +
-                        (brand.className
-                          ? ` ${brand.className}`
-                          : "w-full h-full"),
+                      className: "" + (brand.className ? ` ${brand.className}` : "w-full h-full"),
                     })}
                   </TooltipTrigger>
                   <TooltipContent>{brand.title}</TooltipContent>

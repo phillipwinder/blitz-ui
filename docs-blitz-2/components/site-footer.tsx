@@ -18,19 +18,19 @@ export function SiteFooter() {
               <span className="text-muted-foreground">A project by</span>{" "}
               <Link
                 className="text-foreground font-medium hover:underline hover:underline-offset-2"
-                href="https://keenthemes.com"
+                href="https://phillipwinder.com"
                 target="_blank"
               >
-                Keenthemes
+                Phillip Winder
               </Link>
             </div>
             <Separator orientation="vertical" className="h-4!" />
             <Link
               className="text-foreground font-medium hover:underline hover:underline-offset-2"
-              href="https://keenthemes.studio"
+              href="https://phillipwinder.com"
               target="_blank"
             >
-              Hire Us
+              Hire Me
             </Link>
           </div>
         </div>

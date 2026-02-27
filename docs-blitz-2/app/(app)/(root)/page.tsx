@@ -1,16 +1,14 @@
 import { Metadata } from "next"
+import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 
-import { SiteFooter } from "@/components/site-footer"
-import { SiteSubscribe } from "@/components/site-subscribe"
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern"
 
-import Hero from "./components/hero"
-import { Patterns } from "./components/patterns"
-import { Stats } from "./components/stats"
-import { WallOfLove } from "./components/wall-of-love"
-
-const title = "The Foundation for your Design System"
+const title = "Blitz UI | Flexible UI components that adapt to how you build"
 const description =
-  "A set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own. Open Source. Open Code."
+  "The UI library that lets you choose, per component, between dependency-based usage and full source integration — enterprise-ready, accessible and feature-rich."
 
 export const dynamic = "force-static"
 export const revalidate = false
@@ -39,15 +37,57 @@ export const metadata: Metadata = {
   },
 }
 
+// export default function IndexPage() {
+//   return (
+//     <div className="homepage relative overflow-hidden bg-linear-to-b to-gray-100 to-35% dark:to-zinc-900">
+//       <Hero />
+//       <Stats />
+//       <Patterns />
+//       <WallOfLove />
+//       <SiteSubscribe />
+//       <SiteFooter />
+//     </div>
+//   )
+// }
+
 export default function IndexPage() {
   return (
-    <div className="homepage relative overflow-hidden bg-linear-to-b to-gray-100 to-35% dark:to-zinc-900">
-      <Hero />
-      <Stats />
-      <Patterns />
-      <WallOfLove />
-      <SiteSubscribe />
-      <SiteFooter />
-    </div>
+    <>
+      {/* Hero content */}
+      <div className="relative z-10 mx-auto max-w-3xl py-20 text-center">
+        <h1 className="mb-4 text-4xl leading-snug font-medium tracking-[-0.06em] text-balance sm:text-5xl md:text-7xl">
+          Flexible UI components that adapt to how{" "}
+          <span className="bg-primary text-primary-foreground inline-block rounded px-4 py-1 leading-none">
+            you
+          </span>{" "}
+          build.
+        </h1>
+        <p className="text-fd-muted-foreground text-xl">
+          The UI library that lets you choose, per component, between dependency-based usage and
+          full source integration — enterprise-ready, accessible and feature-rich.
+        </p>
+        <Button
+          size={"lg"}
+          className="mt-4"
+          nativeButton={false}
+          render={
+            <Link href="/docs/">
+              Get Started <ArrowUpRight />
+            </Link>
+          }
+        />
+      </div>
+
+      {/* Animated grid background */}
+      <AnimatedGridPattern
+        numSquares={30}
+        maxOpacity={0.1}
+        duration={3}
+        className={cn(
+          '-z-10 [mask-image:radial-gradient(500px_circle_at_center,white,transparent)]',
+          'inset-x-0 inset-y-[-70%] h-[200%] skew-y-12',
+        )}
+      />
+    </>
   )
 }

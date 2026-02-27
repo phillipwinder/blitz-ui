@@ -1,11 +1,7 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getMDXComponents } from "@/mdx-components"
-import {
-  IconArrowLeft,
-  IconArrowRight,
-  IconArrowUpRight,
-} from "@tabler/icons-react"
+import { IconArrowLeft, IconArrowRight, IconArrowUpRight } from "@tabler/icons-react"
 import fm from "front-matter"
 import { findNeighbour } from "fumadocs-core/page-tree"
 import { createRelativeLink } from "fumadocs-ui/mdx"
@@ -27,9 +23,7 @@ export function generateStaticParams() {
   return source.generateParams()
 }
 
-export async function generateMetadata(props: {
-  params: Promise<{ slug: string[] }>
-}) {
+export async function generateMetadata(props: { params: Promise<{ slug: string[] }> }) {
   const params = await props.params
   const page = source.getPage(params.slug)
 
@@ -71,9 +65,7 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function Page(props: {
-  params: Promise<{ slug: string[] }>
-}) {
+export default async function Page(props: { params: Promise<{ slug: string[] }> }) {
   const params = await props.params
   const page = source.getPage(params.slug)
   if (!page) {
@@ -102,8 +94,7 @@ export default async function Page(props: {
   // Extract component name from slug for the base switcher
   // URL structure: /docs/base/{component} or /docs/radix/{component}
   const isComponentDoc = component === true && base !== undefined
-  const componentName =
-    isComponentDoc && params.slug?.length >= 2 ? params.slug[1] : undefined
+  const componentName = isComponentDoc && params.slug?.length >= 2 ? params.slug[1] : undefined
 
   return (
     <div className="flex items-stretch text-[1.05rem] sm:text-[15px] xl:w-full">
@@ -124,26 +115,28 @@ export default async function Page(props: {
                       variant="secondary"
                       size="icon"
                       className="extend-touch-target ml-auto hidden size-8 shadow-none md:size-7"
-                      asChild
-                    >
-                      <Link href={neighbours.previous.url}>
-                        <IconArrowLeft />
-                        <span className="sr-only">Previous</span>
-                      </Link>
-                    </Button>
+                      nativeButton={false}
+                      render={
+                        <Link href={neighbours.previous.url}>
+                          <IconArrowLeft />
+                          <span className="sr-only">Previous</span>
+                        </Link>
+                      }
+                    />
                   )}
                   {neighbours.next && (
                     <Button
                       variant="secondary"
                       size="icon"
                       className="extend-touch-target hidden size-8 shadow-none md:size-7"
-                      asChild
-                    >
-                      <Link href={neighbours.next.url}>
-                        <span className="sr-only">Next</span>
-                        <IconArrowRight />
-                      </Link>
-                    </Button>
+                      nativeButton={false}
+                      render={
+                        <Link href={neighbours.next.url}>
+                          <span className="sr-only">Next</span>
+                          <IconArrowRight />
+                        </Link>
+                      }
+                    />
                   )}
                 </div>
               </div>
@@ -154,11 +147,7 @@ export default async function Page(props: {
               )}
             </div>
             {isComponentDoc && base && componentName && (
-              <DocsBaseSwitcher
-                base={base}
-                component={componentName}
-                className="mt-4"
-              />
+              <DocsBaseSwitcher base={base} component={componentName} className="mt-4" />
             )}
             {links ? (
               <div className="flex items-center gap-2 pt-4">
@@ -192,25 +181,27 @@ export default async function Page(props: {
             <Button
               variant="secondary"
               size="sm"
-              asChild
               className="shadow-none"
-            >
-              <Link href={neighbours.previous.url}>
-                <IconArrowLeft /> {neighbours.previous.name}
-              </Link>
-            </Button>
+              nativeButton={false}
+              render={
+                <Link href={neighbours.previous.url}>
+                  <IconArrowLeft /> {neighbours.previous.name}
+                </Link>
+              }
+            />
           )}
           {neighbours.next && (
             <Button
               variant="secondary"
               size="sm"
               className="ml-auto shadow-none"
-              asChild
-            >
-              <Link href={neighbours.next.url}>
-                {neighbours.next.name} <IconArrowRight />
-              </Link>
-            </Button>
+              nativeButton={false}
+              render={
+                <Link href={neighbours.next.url}>
+                  {neighbours.next.name} <IconArrowRight />
+                </Link>
+              }
+            />
           )}
         </div>
       </div>
