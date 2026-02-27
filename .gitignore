@@ -32,11 +32,11 @@ docs/public/llms.txt
 docs/public/llms-full.txt
 docs/public/react
 
-/docs-blitz/.next
-/docs-blitz/.contentlayer
-/docs-blitz/.content-collections
-/docs-blitz/.source
-/docs-blitz/next-env.d.ts
+/docs-blitz-old/.next
+/docs-blitz-old/.contentlayer
+/docs-blitz-old/.content-collections
+/docs-blitz-old/.source
+/docs-blitz-old/next-env.d.ts
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
 
