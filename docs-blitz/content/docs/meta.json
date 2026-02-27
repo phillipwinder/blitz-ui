@@ -1,3 +1,7 @@
 {
-  "pages": ["---Overview---", "...(root)", "---Components---", "...components"]
+  "root": true,
+  "pages": [
+    "(root)",
+    "(components)"
+  ]
 }

@@ -16,10 +16,10 @@
       "path": "scripts/tsconfig.json"
     },
     {
-      "path": "docs-blitz/tsconfig.json"
+      "path": "docs-blitz-old/tsconfig.json"
     },
     {
-      "path": "docs-blitz-2/tsconfig.json"
+      "path": "docs-blitz/tsconfig.json"
     },
     {
       "path": "packages/react-blitz/tsconfig.json"

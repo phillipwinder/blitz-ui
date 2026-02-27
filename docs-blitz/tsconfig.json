@@ -2,7 +2,7 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "ESNext",
+    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -19,7 +19,7 @@
     "paths": {
       "fumadocs-mdx:collections/*": [".source/*"],
       "@/.source": ["./.source/index.ts"],
-      "@/*": ["./src/*"],
+      "@/*": ["./*"],
       "@blitz-ui/react": ["../packages/react-blitz/src"],
       "@blitz-ui/react/*": ["../packages/react-blitz/src/*"]
     },
@@ -34,6 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
+    "next.config.mjs",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": ["node_modules"],

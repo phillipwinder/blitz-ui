@@ -21,8 +21,8 @@
       "docs/*": ["./docs/*"],
       "@blitz-ui/react": ["./packages/react-blitz/src"],
       "@blitz-ui/react/*": ["./packages/react-blitz/src/*"],
-      "docs-blitz/*": ["./docs-blitz/*"],
-      "docs-blitz-2/*": ["./docs-blitz-2/*"]
+      "docs-blitz-old/*": ["./docs-blitz-old/*"],
+      "docs-blitz/*": ["./docs-blitz/*"]
     }
   },
   "exclude": ["**/.*/", "**/build", "**/build-tests", "**/node_modules", "docs/export"]

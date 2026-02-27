@@ -1,26 +1,28 @@
-import { defineConfig, defineDocs, frontmatterSchema, metaSchema } from 'fumadocs-mdx/config';
-import { z } from 'zod';
+import { defineConfig, defineDocs } from "fumadocs-mdx/config"
+import rehypePrettyCode from "rehype-pretty-code"
 
-// You can customise Zod schemas for frontmatter and `meta.json` here
-// see https://fumadocs.vercel.app/docs/mdx/collections#define-docs
+import { transformers } from "./lib/highlight-code"
+
 export const docs = defineDocs({
-  docs: {
-    schema: frontmatterSchema.extend({
-      links: z
-        .object({
-          docs: z.string().optional(),
-          api: z.string().optional(),
-        })
-        .optional(),
-    }),
-  },
-  meta: {
-    schema: metaSchema,
-  },
-});
+  dir: "content/docs",
+})
 
 export default defineConfig({
   mdxOptions: {
-    // MDX options
+    rehypePlugins: (plugins) => {
+      plugins.shift()
+      plugins.push([
+        rehypePrettyCode,
+        {
+          theme: {
+            dark: "github-dark",
+            light: "github-light-default",
+          },
+          transformers,
+        },
+      ])
+
+      return plugins
+    },
   },
-});
+})

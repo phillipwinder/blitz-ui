@@ -1,157 +1,88 @@
-# Contributing to basecn
+# Contributing to Blitz UI
 
-Thank you for your interest in contributing to basecn! We welcome contributions from the community and are excited to see what you'll bring to the project.
+Thank you for considering contributing to Blitz UI! Your contributions help improve the project for everyone.
+Please follow these guidelines to ensure a smooth collaboration. 
+If you need any help, feel free to reach out us via [@blitz_ui_official](https://x.com/blitz_ui_official).
 
-## 🚀 Getting Started
+## Getting Started
 
-### Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- **Node.js** (version 18 or higher)
-- **pnpm** (recommended) or npm
-- **Git**
-
-### Setting Up Your Development Environment
-
-1. **Fork the repository** on GitHub
-2. **Clone your fork** locally:
-
-   ```bash
-   git clone https://github.com/your-username/basecn.git
-   cd basecn
-
+1. **Fork the Repository**: Click the 'Fork' button on the top right of the repository page.
+2. **Clone Your Fork**:
+   ```sh
+   git clone https://github.com/phillipwinder/blitz-ui.git
+   cd blitz-ui
+   ```
+3. **Set Up Upstream Remote**:
+   ```sh
+   git remote add upstream https://github.com/phillipwinder/blitz-ui.git
    ```
 
-3. **Install dependencies**:
+## Setting Up the Development Environment
 
-   ```bash
-   pnpm install
+1. Install dependencies:
+   ```sh
+   npm install
+   ```
+2. Run format:
+   ```sh
+   npm run format
+   ```
+3. Lint your code:
+   ```sh
+   npm run lint
    ```
 
-4. **Start the development server**:
+## Format and lint your code
 
-   ```bash
-   pnpm dev
-   ```
+Ensure your code is formatted and linted before submitting any changes. Run the following commands:
 
-5. **Open your browser** and navigate to [http://localhost:3000](http://localhost:3000)
-
-## 📋 Types of Contributions
-
-We welcome several types of contributions:
-
-### 🐛 Bug Reports
-
-- Use the GitHub issue tracker
-- Include a clear description of the problem
-- Provide steps to reproduce the issue
-- Include screenshots or code snippets when helpful
-
-### ✨ Feature Requests
-
-- Open an issue with the "feature request" label
-- Describe the feature and its use case
-- Explain why this feature would be beneficial
-
-### 🔧 Code Contributions
-
-- Bug fixes
-- New components
-- Component enhancements
-- Documentation improvements
-- Performance optimizations
-
-### 📚 Documentation
-
-- Improve existing documentation
-- Add examples and use cases
-- Fix typos and grammatical errors
-
-## 🛠️ Development Workflow
-
-### Branch Naming Convention
-
-Use descriptive branch names that indicate the type of work:
-
-```bash
-feature/add-button-component
-fix/avatar-fallback-issue
-docs/update-installation-guide
-refactor/improve-component-structure
+```sh
+npm run format
+npm run lint
 ```
 
-### Making Changes
+## Commit Convention
 
-1. **Create a new branch** from `main`:
+Please follow the commit message format below:
 
-   ```bash
-   git checkout -b feature/your-feature-name
+- **feat:** All changes that introduce completely new code or new features.
+- **fix:** Changes that fix a bug (ideally, reference an issue if present).
+- **refactor:** Any code-related change that is not a fix nor a feature.
+- **docs:** Changing existing or creating new documentation (e.g., README, usage docs).
+- **build:** Changes regarding the build of the software, dependencies, or adding new dependencies.
+- **ci:** Changes regarding the configuration of continuous integration (e.g., GitHub Actions, CI systems).
+- **chore:** Repository changes that do not fit into any of the above categories.
+
+**Example commit message:**
+
+```sh
+feat(components): add new prop to the avatar component
+```
+
+## Submitting a Pull Request
+
+1. Create a new branch:
+   ```sh
+   git checkout -b feature-branch
    ```
-
-2. **Make your changes** following our coding standards (see below)
-
-3. **Test your changes** thoroughly:
-
-   ```bash
-   pnpm dev  # Test in development
-   pnpm build  # Ensure it builds correctly
-   ```
-
-4. **Commit your changes** with a descriptive message:
-
-   ```bash
+2. Make changes and commit:
+   ```sh
    git add .
-   git commit -m "feat: add new button component with variants"
+   git commit -m "Add new feature"
    ```
-
-5. **Push to your fork**:
-
-   ```bash
-   git push origin feature/your-feature-name
+3. Push to your fork:
+   ```sh
+   git push origin feature-branch
    ```
+4. Open a pull request:
+   - Go to the [Blitz UI GitHub repository](https://github.com/phillipwinder/blitz-ui.git).
+   - Click on 'New Pull Request'.
+   - Select your branch and submit the PR.
 
-6. **Open a Pull Request** on GitHub
+## Code Review
 
-## 📝 Coding Standards
+Code is reviewed under strict terms to make sure it matches Blitz UI code standards and design guidelines.
 
-### TypeScript Guidelines
+---
 
-- Use TypeScript for all new code
-- Prefer `interface` over `type` for object shapes
-- Avoid `any` types - use proper typing
-- Export interfaces for component props
-
-### File Organization
-
-- Place new components in `src/registry/components/ui/`
-- Add demo examples in `src/components/demo/`
-- Follow the existing naming conventions
-- Create corresponding documentation in `content/docs/components/`
-
-## 🤝 Community Guidelines
-
-### Code of Conduct
-
-- Be respectful and inclusive
-- Provide constructive feedback
-- Help others learn and grow
-- Maintain a positive environment
-
-### Communication
-
-- Use GitHub issues for bug reports and feature requests
-- Join discussions in pull requests
-- Ask questions in GitHub discussions
-- Be patient and helpful with newcomers
-
-## Getting Help
-
-If you need help or have questions:
-
-1. **Check existing issues** on GitHub
-2. **Search the documentation** for answers
-3. **Open a discussion** on GitHub
-4. **Ask in pull request comments** for specific code questions
-
-Thank you for contributing to basecn! Your efforts help make this project better for everyone.
+Thank you for contributing! 🚀

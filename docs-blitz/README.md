@@ -1,35 +1,30 @@
-# basecn
+## Overview
 
-A modern React component library offering beautifully designed, accessible [shadcn/ui](https://ui.shadcn.com/) components built on top of [Base UI](https://base-ui.com/), with advanced examples and customization options.
+Free & open-source library of 1,000+ components and patterns to 10x your productivity in shadcn projects.
 
-basecn extends the popular shadcn/ui components with enhanced functionality, additional variants, and comprehensive documentation. Each component comes with multiple examples showcasing different use cases and styling options.
+**Live Demo** → [https://blitz-ui.com](https://blitz-ui.com)
 
-## ✨ Features
+## Documentation
 
-- 🎨 **Enhanced shadcn/ui Components** - All your favorite shadcn/ui components with additional variants and styling options
-- 🏗️ **Built on Base UI** - Leverages the robust foundation of MUI's Base UI for accessibility and performance
-- 📚 **Comprehensive Examples** - Multiple demo variations for each component showing different use cases
-- 🎯 **TypeScript First** - Full TypeScript support with proper type definitions
-- 🎨 **Tailwind CSS** - Styled with Tailwind CSS for easy customization
-- ♿ **Accessibility** - WAI-ARIA compliant components built for everyone
-- 🔧 **Customizable** - Easy to customize and extend with your own design system
+Follow [Blitz UI Documentation](https://blitz-ui.com/docs) to get started with Blitz UI quckly.
 
-## 🤝 Contributing
+## Installation
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on how to get started.
+Follow [Installation](https://blitz-ui.com/docs/get-started) guide to start using Blitz UI components in your React projects.
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## Contributing
 
-## 📄 License
+You are welcome for contribution to imrpvoe Blitz UI.
+Check out our [Contribution Guidelines](https://github.com/phillipwinder/blitz-ui/blob/main/CONTRIBUTING.md)
+to learn how to submit improvements and new features.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## License
 
-## 🙏 Acknowledgments
+Blitz UI is licensed under the [MIT License](https://github.com/phillipwinder/blitz-ui/blob/main/LICENSE.md).
+If you have any questions just reach us via [@blitz_ui_official](https://x.com/blitz_ui_official) or [hello@blitz-ui.com](mailto:hello@blitz-ui.com).
 
-- [shadcn/ui](https://ui.shadcn.com/) - For the amazing component foundation
-- [Base UI](https://base-ui.com/) - For the robust accessibility layer
-- [Tailwind CSS](https://tailwindcss.com/) - For the utility-first CSS framework
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=phillipwinder/blitz-ui&type=Date)](https://www.star-history.com/#phillipwinder/blitz-ui&Date)
+
+Happy coding with Blitz UI!

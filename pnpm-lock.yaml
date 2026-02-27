@@ -363,7 +363,7 @@ importers:
         specifier: 4.3.6
         version: 4.3.6
 
-  docs-blitz:
+  docs-blitz-old:
     dependencies:
       '@ai-sdk/google':
         specifier: ^2.0.11
@@ -622,7 +622,7 @@ importers:
         specifier: ^5.9.2
         version: 5.9.3
 
-  docs-blitz-2:
+  docs-blitz:
     dependencies:
       '@base-ui/react':
         specifier: ^1.1.0
