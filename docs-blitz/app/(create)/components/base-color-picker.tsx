@@ -5,7 +5,12 @@ import { useTheme } from "next-themes"
 
 import { useConfig } from "@/hooks/use-config"
 import { useMounted } from "@/hooks/use-mounted"
-import { BASE_COLORS, type BaseColorName } from "@/registry/config"
+import {
+  BASE_COLORS,
+  getThemesForBaseColor,
+  type BaseColorName,
+  type ThemeName,
+} from "@/registry/config"
 import { LockButton } from "@/app/(create)/components/lock-button"
 import {
   Picker,
@@ -46,10 +51,23 @@ export function BaseColorPicker({
       }
 
       const newBaseColor = value as BaseColorName
-      setParams({ baseColor: newBaseColor })
-      setConfig((prev) => ({ ...prev, baseColor: newBaseColor }))
+      const currentTheme = params.theme ?? config.theme
+      const availableThemes = getThemesForBaseColor(newBaseColor)
+      const hasCurrentTheme = availableThemes.some(
+        (theme) => theme.name === currentTheme
+      )
+      const nextTheme = (hasCurrentTheme
+        ? currentTheme
+        : availableThemes[0]?.name ?? currentTheme) as ThemeName
+
+      setParams({ baseColor: newBaseColor, theme: nextTheme })
+      setConfig((prev) => ({
+        ...prev,
+        baseColor: newBaseColor,
+        theme: nextTheme,
+      }))
     },
-    [setParams, setConfig, setTheme, resolvedTheme]
+    [setParams, setConfig, setTheme, resolvedTheme, params.theme, config.theme]
   )
 
   return (

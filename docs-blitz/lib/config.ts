@@ -16,6 +16,10 @@ export const siteConfig = {
       href: "/patterns",
       label: "Patterns",
     },
+    {
+      href: "/showcase",
+      label: "Showcase",
+    },
     // {
     //   href: "/built-with-blitz-ui",
     //   label: "Built with Blitz UI",

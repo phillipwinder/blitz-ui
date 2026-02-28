@@ -1,16 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { Settings2Icon } from "lucide-react"
+import { Zap } from "lucide-react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 import { useCustomizer } from "./patterns-provider"
 
@@ -46,19 +41,12 @@ export function CustomizerSidebarToggle() {
     <Tooltip>
       <TooltipTrigger asChild>
         <Button variant="outline" size="sm" onClick={toggleCustomizer}>
-          <Settings2Icon className="size-3.5" />
-          <span className="inline-flex items-center gap-1">
-            <Avatar className="size-4">
-              <AvatarImage src="https://github.com/phillipwinder.png" />
-              <AvatarFallback>PW</AvatarFallback>
-            </Avatar>
-            <span className="text-xs leading-none">/</span>
-            <span className="text-sm leading-none">create</span>
-          </span>
+          <Zap className="size-3.5" />
+          <span className="text-xm leading-none">Edit theme</span>
         </Button>
       </TooltipTrigger>
       <TooltipContent side="right" className="flex items-center gap-2">
-        Toggle shadcn/create customizer
+        Toggle theme customizer
         <Kbd>C</Kbd>
       </TooltipContent>
     </Tooltip>
