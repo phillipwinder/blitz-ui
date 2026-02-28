@@ -39,18 +39,20 @@ export function PresetPicker({
       style: context?.style ?? params.style ?? config.style,
       baseColor: context?.baseColor ?? params.baseColor ?? config.baseColor,
       theme: context?.theme ?? params.theme ?? config.theme,
-      iconLibrary:
-        context?.iconLibrary ?? params.iconLibrary ?? config.iconLibrary,
+      iconLibrary: context?.iconLibrary ?? params.iconLibrary ?? config.iconLibrary,
       font: context?.font ?? params.font ?? config.font,
       menuAccent: context?.menuAccent ?? params.menuAccent ?? config.menuAccent,
       menuColor: context?.menuColor ?? params.menuColor ?? config.menuColor,
       radius: context?.radius ?? params.radius ?? config.radius,
+      custom: params.custom ?? config.custom,
     }),
     [context, params, config]
   )
 
   const currentPreset = React.useMemo(() => {
     if (!mounted) return null
+    if (effectiveParams.custom) return null
+
     return presets.find(
       (preset) =>
         preset.base === effectiveParams.base &&
@@ -75,6 +77,7 @@ export function PresetPicker({
     effectiveParams.menuAccent,
     effectiveParams.menuColor,
     effectiveParams.radius,
+    effectiveParams.custom,
   ])
 
   // Filter presets for current base only
@@ -122,10 +125,7 @@ export function PresetPicker({
         align={isMobile ? "center" : "start"}
         className="md:w-72"
       >
-        <PickerRadioGroup
-          value={currentPreset?.title ?? ""}
-          onValueChange={handlePresetChange}
-        >
+        <PickerRadioGroup value={currentPreset?.title ?? ""} onValueChange={handlePresetChange}>
           <PickerGroup>
             {currentBasePresets.map((preset) => {
               const style = STYLES.find((s) => s.name === preset.style)

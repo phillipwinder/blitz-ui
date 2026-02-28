@@ -1,6 +1,7 @@
 import { useAtom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
 
+import { createEmptyCustomThemeVars, type CustomThemeVars } from "@/lib/custom-theme"
 import type {
   BaseColorName,
   BaseName,
@@ -35,6 +36,7 @@ export type Config = {
   template: "next" | "start" | "vite"
   size: number
   custom: boolean
+  customThemeVars: CustomThemeVars
   customizerOpen: boolean
 }
 
@@ -59,6 +61,7 @@ export const DEFAULT_CONFIG: Config = {
   template: "next",
   size: 100,
   custom: false,
+  customThemeVars: createEmptyCustomThemeVars(),
 }
 
 export const configAtom = atomWithStorage<Config>("config", DEFAULT_CONFIG)

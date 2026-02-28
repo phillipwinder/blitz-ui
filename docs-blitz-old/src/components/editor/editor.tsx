@@ -106,7 +106,7 @@ const Editor: React.FC<EditorProps> = ({ themePromise }) => {
       <div className="relative isolate flex flex-1 overflow-hidden">
         <div className="size-full">
           <ResizablePanelGroup
-            // direction="horizontal"
+            direction="horizontal"
             className="isolate"
           >
             <ResizablePanel

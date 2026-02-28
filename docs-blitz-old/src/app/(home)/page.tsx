@@ -27,6 +27,7 @@ export default function HomePage() {
         <Button
           size={'lg'}
           className="mt-4"
+          nativeButton={false}
           render={
             <Link href="/docs/">
               Get Started <ArrowUpRight />

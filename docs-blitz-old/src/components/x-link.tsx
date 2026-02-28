@@ -10,6 +10,7 @@ export function XLink() {
       size="sm"
       variant="ghost"
       className="h-8 shadow-none"
+      nativeButton={false}
       render={
         <Link href={siteConfig.links.twitter} target="_blank" rel="noreferrer">
           <Icons.twitter className="size-3.25" />

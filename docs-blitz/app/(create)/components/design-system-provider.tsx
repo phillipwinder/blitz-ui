@@ -2,6 +2,7 @@
 
 import * as React from "react"
 
+import { mergeCustomThemeVars } from "@/lib/custom-theme"
 import { useConfig } from "@/hooks/use-config"
 import {
   buildRegistryTheme,
@@ -9,10 +10,7 @@ import {
   type DesignSystemConfig,
   type IconLibraryName,
 } from "@/registry/config"
-import {
-  isInIframe,
-  useIframeMessageListener,
-} from "@/app/(create)/hooks/use-iframe-sync"
+import { isInIframe, useIframeMessageListener } from "@/app/(create)/hooks/use-iframe-sync"
 import { FONTS } from "@/app/(create)/lib/fonts"
 import {
   loadDesignSystemSearchParams,
@@ -31,15 +29,12 @@ interface DesignSystemContextValue {
   iconLibrary: IconLibraryName | null
 }
 
-export const DesignSystemContext =
-  React.createContext<DesignSystemContextValue | null>(null)
+export const DesignSystemContext = React.createContext<DesignSystemContextValue | null>(null)
 
 export function useDesignSystem() {
   const context = React.useContext(DesignSystemContext)
   if (!context) {
-    throw new Error(
-      "useDesignSystem must be used within a DesignSystemProvider"
-    )
+    throw new Error("useDesignSystem must be used within a DesignSystemProvider")
   }
   return context
 }
@@ -69,11 +64,7 @@ export const DESIGN_SYSTEM_URL_KEYS = [
  * NOTE: This provider renders children immediately to avoid causing
  * child components (like iframes) to mount/unmount during hydration.
  */
-export function DesignSystemSyncProvider({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export function DesignSystemSyncProvider({ children }: { children: React.ReactNode }) {
   const [config, setConfig] = useConfig()
   const hasSyncedRef = React.useRef(false)
 
@@ -84,9 +75,7 @@ export function DesignSystemSyncProvider({
     hasSyncedRef.current = true
 
     const urlParams = new URLSearchParams(window.location.search)
-    const hasDesignSystemParams = DESIGN_SYSTEM_URL_KEYS.some((key) =>
-      urlParams.has(key)
-    )
+    const hasDesignSystemParams = DESIGN_SYSTEM_URL_KEYS.some((key) => urlParams.has(key))
 
     if (hasDesignSystemParams) {
       // URL HAS params -> Sync them to localStorage (user arrived via deep link)
@@ -116,11 +105,7 @@ export function DesignSystemSyncProvider({
  * Applies design system styles (CSS classes, CSS variables, fonts) to the page.
  * Use this in iframe preview pages.
  */
-export function DesignSystemProvider({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export function DesignSystemProvider({ children }: { children: React.ReactNode }) {
   const [params] = useDesignSystemSearchParams({
     shallow: true,
     history: "replace",
@@ -129,9 +114,7 @@ export function DesignSystemProvider({
 
   // Use local state for overrides received from parent via postMessage.
   // This prevents URL updates which would trigger server-side re-renders.
-  const [overrides, setOverrides] = React.useState<
-    Partial<DesignSystemSearchParams>
-  >({})
+  const [overrides, setOverrides] = React.useState<Partial<DesignSystemSearchParams>>({})
 
   // Listen for design system params from parent window (iframe mode)
   // Store in local state instead of updating URL to avoid re-renders
@@ -142,12 +125,11 @@ export function DesignSystemProvider({
   const theme = overrides.theme ?? params.theme ?? config.theme
   const font = overrides.font ?? params.font ?? config.font
   const baseColor = overrides.baseColor ?? params.baseColor ?? config.baseColor
-  const menuAccent =
-    overrides.menuAccent ?? params.menuAccent ?? config.menuAccent
+  const menuAccent = overrides.menuAccent ?? params.menuAccent ?? config.menuAccent
   const menuColor = overrides.menuColor ?? params.menuColor ?? config.menuColor
   const radius = overrides.radius ?? params.radius ?? config.radius
-  const iconLibrary =
-    overrides.iconLibrary ?? params.iconLibrary ?? config.iconLibrary
+  const iconLibrary = overrides.iconLibrary ?? params.iconLibrary ?? config.iconLibrary
+  const custom = overrides.custom ?? params.custom ?? config.custom
 
   const [isReady, setIsReady] = React.useState(false)
 
@@ -190,7 +172,7 @@ export function DesignSystemProvider({
       return null
     }
 
-    const config: DesignSystemConfig = {
+    const themeConfig: DesignSystemConfig = {
       ...DEFAULT_CONFIG,
       baseColor,
       theme,
@@ -198,8 +180,14 @@ export function DesignSystemProvider({
       radius,
     }
 
-    return buildRegistryTheme(config)
-  }, [baseColor, theme, menuAccent, radius])
+    const computedTheme = buildRegistryTheme(themeConfig)
+
+    if (!custom) {
+      return computedTheme
+    }
+
+    return mergeCustomThemeVars(computedTheme, config.customThemeVars)
+  }, [baseColor, theme, menuAccent, radius, custom, config.customThemeVars])
 
   // Use useLayoutEffect for synchronous CSS var updates.
   React.useLayoutEffect(() => {
@@ -208,9 +196,7 @@ export function DesignSystemProvider({
     }
 
     const styleId = "design-system-theme-vars"
-    let styleElement = document.getElementById(
-      styleId
-    ) as HTMLStyleElement | null
+    let styleElement = document.getElementById(styleId) as HTMLStyleElement | null
 
     if (!styleElement) {
       styleElement = document.createElement("style")
@@ -218,11 +204,7 @@ export function DesignSystemProvider({
       document.head.appendChild(styleElement)
     }
 
-    const {
-      light: lightVars,
-      dark: darkVars,
-      theme: themeVars,
-    } = registryTheme.cssVars
+    const { light: lightVars, dark: darkVars, theme: themeVars } = registryTheme.cssVars
 
     let cssText = ":root {\n"
     // Add theme vars (shared across light/dark).
@@ -261,10 +243,7 @@ export function DesignSystemProvider({
   // remove the loading overlay as soon as the iframe renders styled content.
   React.useEffect(() => {
     if (isReady && isInIframe()) {
-      window.parent.postMessage(
-        { type: "iframe-ready" },
-        window.location.origin
-      )
+      window.parent.postMessage({ type: "iframe-ready" }, window.location.origin)
     }
   }, [isReady])
 

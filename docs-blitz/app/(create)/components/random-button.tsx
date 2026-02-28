@@ -8,11 +8,7 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { DEFAULT_CONFIG, useConfig } from "@/hooks/use-config"
 import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import {
   BASE_COLORS,
   getThemesForBaseColor,
@@ -77,9 +73,7 @@ export function RandomButton() {
     const baseColor = locks.has("baseColor")
       ? effectiveParams.baseColor
       : randomItem(BASE_COLORS).name
-    const selectedStyle = locks.has("style")
-      ? effectiveParams.style
-      : randomItem(STYLES).name
+    const selectedStyle = locks.has("style") ? effectiveParams.style : randomItem(STYLES).name
 
     // Build context for bias application.
     const context: RandomizeContext = {
@@ -94,9 +88,7 @@ export function RandomButton() {
     const selectedTheme = locks.has("theme")
       ? effectiveParams.theme
       : randomItem(availableThemes).name
-    const selectedFont = locks.has("font")
-      ? effectiveParams.font
-      : randomItem(availableFonts).value
+    const selectedFont = locks.has("font") ? effectiveParams.font : randomItem(availableFonts).value
     const selectedRadius = locks.has("radius")
       ? effectiveParams.radius
       : randomItem(availableRadii).name
@@ -124,6 +116,7 @@ export function RandomButton() {
       menuAccent: selectedMenuAccent,
       menuColor: selectedMenuColor,
       radius: selectedRadius,
+      custom: false,
     }
 
     // Update URL params and config storage
@@ -170,19 +163,13 @@ export function RandomButton() {
         >
           <div className="flex flex-col justify-start text-left">
             <div className="text-muted-foreground text-xs">Shuffle</div>
-            <div className="text-foreground text-sm font-medium">
-              Try Random
-            </div>
+            <div className="text-foreground text-sm font-medium">Try Random</div>
           </div>
           <HugeiconsIcon icon={DiceFaces05Icon} className="size-5 md:hidden" />
-          <Kbd className="bg-foreground/10 text-foreground hidden md:flex">
-            R
-          </Kbd>
+          <Kbd className="bg-foreground/10 text-foreground hidden md:flex">R</Kbd>
         </Button>
       </TooltipTrigger>
-      <TooltipContent side="left">
-        Use browser back/forward to navigate history
-      </TooltipContent>
+      <TooltipContent side="left">Use browser back/forward to navigate history</TooltipContent>
     </Tooltip>
   )
 }
