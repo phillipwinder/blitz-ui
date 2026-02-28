@@ -2,29 +2,29 @@
 // Order: 5
 
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarImage,
+    Avatar,
+    AvatarFallback,
+    AvatarGroup,
+    AvatarImage,
 } from "@/registry/bases/radix/ui/avatar"
 import { Button } from "@/registry/bases/radix/ui/button"
 import {
-  ButtonGroup,
-  ButtonGroupText,
+    ButtonGroup,
+    ButtonGroupText,
 } from "@/registry/bases/radix/ui/button-group"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
 } from "@/registry/bases/radix/ui/dropdown-menu"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 
 const team = [
-  { name: "Shadcn", src: "https://github.com/shadcn.png", fallback: "CN" },
+  { name: "Shadcn", src: "https://github.com/phillipwinder.png", fallback: "CN" },
   { name: "Max", src: "https://github.com/maxleiter.png", fallback: "ML" },
   {
     name: "Evil Rabbit",

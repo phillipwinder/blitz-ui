@@ -2,11 +2,11 @@
 // Order: 28
 
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarGroupCount,
-  AvatarImage,
+    Avatar,
+    AvatarFallback,
+    AvatarGroup,
+    AvatarGroupCount,
+    AvatarImage,
 } from "@/registry/bases/radix/ui/avatar"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 
@@ -20,7 +20,7 @@ export default function Pattern() {
             alt="sarah@example.com"
             className="grayscale"
           />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarFallback>PW</AvatarFallback>
         </Avatar>
         <Avatar>
           <AvatarImage

@@ -7,9 +7,9 @@ import { useEffect, useState } from "react"
 
 import { Spinner } from "@/components/ui/spinner"
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
+    Avatar,
+    AvatarFallback,
+    AvatarImage,
 } from "@/registry/bases/base/ui/avatar"
 
 export default function Pattern() {
@@ -23,8 +23,8 @@ export default function Pattern() {
   return (
     <div className="relative">
       <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback>CN</AvatarFallback>
+        <AvatarImage src="https://github.com/phillipwinder.png" alt="@phillip_winder" />
+        <AvatarFallback>PW</AvatarFallback>
       </Avatar>
       {loading && (
         <div className="bg-background/60 absolute inset-0 flex items-center justify-center rounded-full">

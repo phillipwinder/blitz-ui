@@ -42,7 +42,7 @@ export default function FormDemo() {
               <field.Label>Username</field.Label>
               <field.Control>
                 <Input
-                  placeholder="shadcn"
+                  placeholder="Phillip Winder"
                   name={field.name}
                   value={field.state.value}
                   onBlur={field.handleBlur}

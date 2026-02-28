@@ -4,7 +4,7 @@ export default function AvatarInitials() {
   return (
     <div className="flex items-center gap-4">
       <Avatar>
-        <AvatarFallback>CN</AvatarFallback>
+        <AvatarFallback>PW</AvatarFallback>
       </Avatar>
       <Avatar>
         <AvatarFallback>L</AvatarFallback>

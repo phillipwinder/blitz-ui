@@ -2,9 +2,9 @@
 // Order: 33
 
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
+    Avatar,
+    AvatarFallback,
+    AvatarImage,
 } from "@/registry/bases/base/ui/avatar"
 
 export default function Pattern() {
@@ -15,7 +15,7 @@ export default function Pattern() {
 
       {/* Main Avatar */}
       <Avatar className="ring-background size-10 ring-2 transition-transform duration-500 group-hover/avatar:scale-95">
-        <AvatarImage src="https://github.com/shadcn.png" alt="User story" />
+        <AvatarImage src="https://github.com/phillipwinder.png" alt="User story" />
         <AvatarFallback>JD</AvatarFallback>
       </Avatar>
     </div>

@@ -60,7 +60,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string[]
           )}&description=${encodeURIComponent(doc.description || "")}`,
         },
       ],
-      creator: "@shadcn",
+      creator: "@phillip_winder",
     },
   }
 }

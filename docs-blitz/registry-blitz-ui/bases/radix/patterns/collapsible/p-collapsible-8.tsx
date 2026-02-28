@@ -28,11 +28,11 @@ export default function Pattern() {
             <FrameHeader className="flex grow flex-row items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <Avatar className="relative size-5">
-                  <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-                  <AvatarFallback>JD</AvatarFallback>
+                  <AvatarImage src="https://github.com/phillipwinder.png" alt="User" />
+                  <AvatarFallback>PW</AvatarFallback>
                 </Avatar>
                 <span className="text-foreground text-sm font-medium">
-                  @shadcn
+                  @phillip_winder
                 </span>
               </div>
               <IconPlaceholder

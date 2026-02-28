@@ -4,10 +4,10 @@
 import { Frame, FramePanel } from "@/registry-blitz-ui/bases/radix/blitz-ui/frame"
 
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarImage,
+    Avatar,
+    AvatarFallback,
+    AvatarGroup,
+    AvatarImage,
 } from "@/registry/bases/radix/ui/avatar"
 
 export default function Pattern() {
@@ -16,7 +16,7 @@ export default function Pattern() {
       <FramePanel className="flex items-center gap-2 p-2!">
         <AvatarGroup>
           <Avatar className="size-7">
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+            <AvatarImage src="https://github.com/phillipwinder.png" alt="@phillip_winder" />
             <AvatarFallback>CH</AvatarFallback>
           </Avatar>
           <Avatar className="size-7">

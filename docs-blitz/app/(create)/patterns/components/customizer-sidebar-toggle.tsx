@@ -7,9 +7,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
 } from "@/components/ui/tooltip"
 
 import { useCustomizer } from "./patterns-provider"
@@ -49,8 +49,8 @@ export function CustomizerSidebarToggle() {
           <Settings2Icon className="size-3.5" />
           <span className="inline-flex items-center gap-1">
             <Avatar className="size-4">
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarImage src="https://github.com/phillipwinder.png" />
+              <AvatarFallback>PW</AvatarFallback>
             </Avatar>
             <span className="text-xs leading-none">/</span>
             <span className="text-sm leading-none">create</span>

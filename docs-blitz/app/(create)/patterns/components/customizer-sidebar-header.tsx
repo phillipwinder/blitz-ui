@@ -21,8 +21,8 @@ export function CustomizerSidebarHeader() {
       <div className="min-w-0 flex-1 whitespace-nowrap">
         <h2 className="text-foreground inline-flex items-center gap-1 font-medium">
           <Avatar className="size-4">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarImage src="https://github.com/phillipwinder.png" />
+            <AvatarFallback>PW</AvatarFallback>
           </Avatar>
           <span className="text-xs leading-none">/</span>
           <span className="text-sm leading-none">create</span>

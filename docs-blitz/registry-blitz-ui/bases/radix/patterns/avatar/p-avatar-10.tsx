@@ -2,10 +2,10 @@
 // Order: 10
 
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarImage,
+    Avatar,
+    AvatarFallback,
+    AvatarGroup,
+    AvatarImage,
 } from "@/registry/bases/radix/ui/avatar"
 
 export default function Pattern() {
@@ -16,7 +16,7 @@ export default function Pattern() {
           src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=96&h=96&dpr=2&q=80"
           alt="Alex Johnson (away)"
         />
-        <AvatarFallback>CN</AvatarFallback>
+        <AvatarFallback>PW</AvatarFallback>
       </Avatar>
       <Avatar>
         <AvatarImage

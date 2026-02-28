@@ -5,20 +5,20 @@ export default function BadgeImage() {
     <div className="flex w-full justify-center flex-wrap gap-2">
       <Badge className="rounded-full ps-[3px]" variant="outline">
         <img
-          src="https://github.com/shadcn.png"
+          src="https://github.com/phillipwinder.png"
           className="h-5 w-5 rounded-full"
-          alt="shadcn"
+          alt="Phillip Winder"
           height={20}
           width={20}
         />
-        shadcn
+        Phillip Winder
       </Badge>
       <Badge className="rounded-full pe-[3px]" variant="outline">
-        shadcn
+        Phillip Winder
         <img
-          src="https://github.com/shadcn.png"
+          src="https://github.com/phillipwinder.png"
           className="h-5 w-5 rounded-full"
-          alt="shadcn"
+          alt="Phillip Winder"
           height={20}
           width={20}
         />

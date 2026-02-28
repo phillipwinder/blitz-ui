@@ -11,11 +11,11 @@ export default function Pattern() {
   return (
     <Avatar>
       <AvatarImage
-        src="https://github.com/shadcn.png"
-        alt="@shadcn"
+        src="https://github.com/phillipwinder.png"
+        alt="@phillip_winder"
         className="grayscale"
       />
-      <AvatarFallback>CN</AvatarFallback>
+      <AvatarFallback>PW</AvatarFallback>
     </Avatar>
   )
 }

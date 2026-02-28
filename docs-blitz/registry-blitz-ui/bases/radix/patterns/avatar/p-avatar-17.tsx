@@ -2,20 +2,20 @@
 // Order: 17
 
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
+    Avatar,
+    AvatarFallback,
+    AvatarImage,
 } from "@/registry/bases/radix/ui/avatar"
 
 export default function Pattern() {
   return (
     <Avatar>
       <AvatarImage
-        src="https://github.com/shadcn.png"
-        alt="@shadcn"
+        src="https://github.com/phillipwinder.png"
+        alt="@phillip_winder"
         className="grayscale"
       />
-      <AvatarFallback>CN</AvatarFallback>
+      <AvatarFallback>PW</AvatarFallback>
     </Avatar>
   )
 }

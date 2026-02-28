@@ -6,21 +6,21 @@ export default function AvatarShape() {
     <div className="flex flex-col gap-6">
       <div className="flex items-center gap-4">
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarImage src="https://github.com/phillipwinder.png" alt="@phillip_winder" />
+          <AvatarFallback>PW</AvatarFallback>
         </Avatar>
         <Avatar className="rounded-md">
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+          <AvatarImage src="https://github.com/phillipwinder.png" alt="@phillip_winder" />
           <AvatarFallback className="rounded-md">LR</AvatarFallback>
         </Avatar>
         <Avatar className="rounded-none">
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+          <AvatarImage src="https://github.com/phillipwinder.png" alt="@phillip_winder" />
           <AvatarFallback className="rounded-none">ER</AvatarFallback>
         </Avatar>
       </div>
       <div className="flex items-center gap-4">
         <Avatar>
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarFallback>PW</AvatarFallback>
         </Avatar>
         <Avatar className="rounded-md">
           <AvatarFallback className="rounded-md">

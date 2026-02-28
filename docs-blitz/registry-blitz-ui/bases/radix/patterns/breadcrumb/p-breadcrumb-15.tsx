@@ -44,17 +44,17 @@ export default function Pattern() {
               <BreadcrumbLink href="#" className="flex items-center gap-3">
                 <Avatar className="size-6">
                   <AvatarImage
-                    src="https://github.com/shadcn.png"
+                    src="https://github.com/phillipwinder.png"
                     className="object-cover"
                   />
-                  <AvatarFallback>MP</AvatarFallback>
+                  <AvatarFallback>PW</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col">
                   <span className="text-foreground leading-tight font-medium">
-                    shadcn
+                    Phillip Winder
                   </span>
                   <span className="text-muted-foreground leading-tight">
-                    ui@shadcn.com
+                    phillip.winder@icloud.com
                   </span>
                 </div>
               </BreadcrumbLink>

@@ -46,8 +46,8 @@ export default function Pattern() {
         <DropdownMenuTrigger asChild>
           <Button variant="outline" className="w-40">
             <Avatar className="size-4">
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarImage src="https://github.com/phillipwinder.png" />
+              <AvatarFallback>PW</AvatarFallback>
             </Avatar>
             <span className="text-sm font-medium">shadcn</span>
 
@@ -65,15 +65,15 @@ export default function Pattern() {
         <DropdownMenuContent className="w-60" align="start" sideOffset={8}>
           <div className="flex items-center gap-3 px-1 pt-1.5">
             <Avatar className="size-8">
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarImage src="https://github.com/phillipwinder.png" />
+              <AvatarFallback>PW</AvatarFallback>
             </Avatar>
             <div className="flex flex-col">
               <span className="text-foreground text-sm font-medium">
-                shadcn
+                Phillip Winder
               </span>
               <span className="text-muted-foreground text-xs">
-                ui@shadcn.com
+                phillip.winder@icloud.com
               </span>
             </div>
           </div>

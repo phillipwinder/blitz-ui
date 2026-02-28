@@ -2,17 +2,17 @@
 // Order: 29
 
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarGroupCount,
-  AvatarImage,
+    Avatar,
+    AvatarFallback,
+    AvatarGroup,
+    AvatarGroupCount,
+    AvatarImage,
 } from "@/registry/bases/base/ui/avatar"
 import { Button } from "@/registry/bases/base/ui/button"
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
 } from "@/registry/bases/base/ui/tooltip"
 import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
 
@@ -22,7 +22,7 @@ export default function Pattern() {
       <AvatarGroup>
         <Avatar>
           <AvatarImage src="https://github.com/leerob.png" alt="@leerob" />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarFallback>PW</AvatarFallback>
         </Avatar>
         <Avatar>
           <AvatarImage

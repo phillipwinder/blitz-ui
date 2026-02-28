@@ -35,12 +35,12 @@ export default function Pattern() {
       <InputGroup>
         <InputGroupAddon className="pr-1">
           <Avatar className="size-5">
-            <AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />
-            <AvatarFallback>LR</AvatarFallback>
+            <AvatarImage src="https://github.com/phillipwinder.png" alt="Avatar" />
+            <AvatarFallback>PW</AvatarFallback>
           </Avatar>
         </InputGroupAddon>
 
-        <InputGroupInput defaultValue="@shadcn" className="pl-1!" />
+        <InputGroupInput defaultValue="@phillip_winder" className="pl-1!" />
 
         <InputGroupAddon align="inline-end">
           <DropdownMenu>

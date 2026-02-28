@@ -32,10 +32,10 @@ export default function Pattern() {
         <BreadcrumbItem>
           <BreadcrumbLink href="#" className="flex items-center gap-2">
             <Avatar className="size-5">
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarImage src="https://github.com/phillipwinder.png" />
+              <AvatarFallback>PW</AvatarFallback>
             </Avatar>
-            @shadcn
+            @phillip_winder
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
