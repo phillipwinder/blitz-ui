@@ -21,6 +21,7 @@ export type Config = {
   packageManager: "npm" | "yarn" | "pnpm" | "bun"
   installationType: "cli" | "manual"
   gridColumns: PatternGridMode
+  themeApplyScope: "iframe" | "app"
 
   // Design system params (synced with URL)
   base: BaseName
@@ -46,6 +47,7 @@ export const DEFAULT_CONFIG: Config = {
   installationType: "cli",
   gridColumns: 2,
   customizerOpen: true,
+  themeApplyScope: "iframe",
 
   // Design system defaults (matching DEFAULT_CONFIG from registry/config.ts)
   base: "base",

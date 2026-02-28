@@ -2,7 +2,10 @@ import { Suspense } from "react"
 
 import { getCategories, getPatternsTotalCount } from "@/lib/registry"
 import { SiteHeader } from "@/components/site-header"
-import { DesignSystemSyncProvider } from "@/app/(create)/components/design-system-provider"
+import {
+  DesignSystemHostThemeProvider,
+  DesignSystemSyncProvider,
+} from "@/app/(create)/components/design-system-provider"
 import { LocksProvider } from "@/app/(create)/hooks/use-locks"
 import { PatternsProvider } from "@/app/(create)/patterns/components/patterns-provider"
 
@@ -28,6 +31,7 @@ export default function PatternsLayout({
         <Suspense fallback={null}>
           <LocksProvider>
             <DesignSystemSyncProvider>
+              <DesignSystemHostThemeProvider />
               <PatternsProvider
                 totalCount={totalCount}
                 categoryCounts={categoryCounts}

@@ -34,14 +34,14 @@ function ScrollBar({
       data-orientation={orientation}
       orientation={orientation}
       className={cn(
-        'cn-scroll-area-scrollbar flex touch-none p-px transition-colors select-none',
+        'cn-scroll-area-scrollbar flex touch-none p-px transition-colors select-none [&[data-hovering]_[data-slot=scroll-area-thumb]]:opacity-75',
         className,
       )}
       {...props}
     >
       <ScrollAreaPrimitive.Thumb
         data-slot="scroll-area-thumb"
-        className="cn-scroll-area-thumb bg-border relative flex-1"
+        className="cn-scroll-area-thumb bg-border relative flex-1 opacity-0 transition-opacity"
       />
     </ScrollAreaPrimitive.Scrollbar>
   );

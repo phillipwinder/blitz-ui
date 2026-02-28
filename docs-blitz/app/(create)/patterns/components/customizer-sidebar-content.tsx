@@ -37,6 +37,14 @@ import { CustomizerCollapsibleSection } from "@/app/(create)/components/customiz
 import { FontSelect } from "@/app/(create)/components/font-select"
 import { IconLibraryPicker } from "@/app/(create)/components/icon-library-picker"
 import { MenuColorPicker } from "@/app/(create)/components/menu-picker"
+import {
+  Picker,
+  PickerContent,
+  PickerGroup,
+  PickerRadioGroup,
+  PickerRadioItem,
+  PickerTrigger,
+} from "@/app/(create)/components/picker"
 import { PresetPicker } from "@/app/(create)/components/preset-picker"
 import { RadiusPicker } from "@/app/(create)/components/radius-picker"
 import { RandomButton } from "@/app/(create)/components/random-button"
@@ -52,6 +60,7 @@ interface CustomizerSidebarContentProps {
 
 type SectionKey = "general" | "colors" | "typography" | "other"
 type ThemeMode = "light" | "dark"
+type ThemeApplyScope = "iframe" | "app"
 type HslAdjustments = {
   hueShift: number
   saturationScale: number
@@ -110,6 +119,11 @@ const SECTIONS: Array<{
   { key: "typography", label: "Typography", icon: TypeIcon },
   { key: "other", label: "Other", icon: Settings2Icon },
 ]
+
+const THEME_APPLY_SCOPE_LABELS: Record<ThemeApplyScope, string> = {
+  iframe: "Iframe only",
+  app: "Whole application",
+}
 
 function parseLetterSpacingValue(value: string | undefined) {
   if (!value) {
@@ -190,6 +204,9 @@ function applyHslAdjustments(
 export function CustomizerSidebarContent({ isMobile, anchorRef }: CustomizerSidebarContentProps) {
   const { resolvedTheme } = useTheme()
   const [activeSection, setActiveSection] = React.useState<SectionKey | null>(null)
+  const sectionButtonRefs = React.useRef<Partial<Record<SectionKey, HTMLButtonElement | null>>>({})
+  const detailHeaderButtonRef = React.useRef<HTMLButtonElement | null>(null)
+  const previousActiveSectionRef = React.useRef<SectionKey | null>(null)
   const [params, setParams] = useDesignSystemSearchParams()
   const [config, setConfig] = useConfig()
 
@@ -377,10 +394,34 @@ export function CustomizerSidebarContent({ isMobile, anchorRef }: CustomizerSide
   }, [effectiveBaseColor, effectiveTheme, effectiveMenuAccent, effectiveRadius])
 
   const hslPreviewThemeVars = hslSourceThemeVarsRef.current ?? effectiveThemeVars
+  const themeApplyScope = config.themeApplyScope ?? "iframe"
+  const isSectionActive = activeSection !== null
+
+  React.useEffect(() => {
+    const previousActiveSection = previousActiveSectionRef.current
+
+    if (activeSection) {
+      detailHeaderButtonRef.current?.focus()
+    } else if (previousActiveSection) {
+      sectionButtonRefs.current[previousActiveSection]?.focus()
+    }
+
+    previousActiveSectionRef.current = activeSection
+  }, [activeSection])
+
+  const handleThemeApplyScopeChange = React.useCallback(
+    (value: string) => {
+      if (value !== "iframe" && value !== "app") {
+        return
+      }
+      setConfig((prev) => ({ ...prev, themeApplyScope: value }))
+    },
+    [setConfig]
+  )
 
   return (
     <>
-      <ScrollArea className="max-h-[calc(100svh-240px)] flex-1">
+      <ScrollArea className="max-h-[calc(100svh-320px)] flex-1">
         <div className="overflow-hidden p-2">
           <div
             className={cn(
@@ -388,15 +429,23 @@ export function CustomizerSidebarContent({ isMobile, anchorRef }: CustomizerSide
               activeSection ? "-translate-x-1/2" : "translate-x-0"
             )}
           >
-            <div className="w-1/2 shrink-0">
+            <div
+              className={cn("w-1/2 shrink-0", isSectionActive && "pointer-events-none")}
+              inert={isSectionActive}
+              aria-hidden={isSectionActive}
+            >
               <div className="space-y-1">
                 {SECTIONS.map((section) => (
                   <Button
                     key={section.key}
                     type="button"
                     variant="ghost"
+                    ref={(node) => {
+                      sectionButtonRefs.current[section.key] = node
+                    }}
                     className="h-11 w-full justify-between rounded-md px-3 text-sm"
                     onClick={() => setActiveSection(section.key)}
+                    tabIndex={isSectionActive ? -1 : undefined}
                   >
                     <span className="flex items-center gap-2">
                       <section.icon className="text-muted-foreground size-4" />
@@ -408,14 +457,20 @@ export function CustomizerSidebarContent({ isMobile, anchorRef }: CustomizerSide
               </div>
             </div>
 
-            <div className="w-1/2 shrink-0 pl-2">
+            <div
+              className={cn("w-1/2 shrink-0", !isSectionActive && "pointer-events-none")}
+              inert={!isSectionActive}
+              aria-hidden={!isSectionActive}
+            >
               <div className="border-border/80 mb-2 border-b pb-2">
                 <Button
                   type="button"
                   variant="ghost"
+                  ref={detailHeaderButtonRef}
                   className="h-11 w-full justify-between rounded-md px-3 text-sm"
                   onClick={() => setActiveSection(null)}
                   aria-label="Back to sections"
+                  tabIndex={!isSectionActive ? -1 : undefined}
                 >
                   <ChevronLeftIcon className="text-muted-foreground size-4" />
                   <span className="flex items-center gap-2">
@@ -621,6 +676,24 @@ export function CustomizerSidebarContent({ isMobile, anchorRef }: CustomizerSide
       </ScrollArea>
       <div className="border-border/80 flex flex-col gap-0 border-t p-3">
         <RandomButton />
+        <Picker>
+          <PickerTrigger className="border-foreground/10 bg-muted/50 h-[calc(--spacing(13.5))] w-[140px] touch-manipulation justify-between rounded-xl border px-2! select-none focus-visible:border-transparent focus-visible:ring-1 sm:rounded-lg md:w-full md:rounded-lg md:border-transparent md:bg-transparent md:pr-3.5! md:pl-2!">
+            <div className="flex flex-col justify-start text-left">
+              <div className="text-muted-foreground text-xs">Apply to</div>
+              <div className="text-foreground text-sm font-medium">
+                {THEME_APPLY_SCOPE_LABELS[themeApplyScope]}
+              </div>
+            </div>
+          </PickerTrigger>
+          <PickerContent align="start" side="top">
+            <PickerRadioGroup value={themeApplyScope} onValueChange={handleThemeApplyScopeChange}>
+              <PickerGroup>
+                <PickerRadioItem value="iframe">Patterns only</PickerRadioItem>
+                <PickerRadioItem value="app">Whole website</PickerRadioItem>
+              </PickerGroup>
+            </PickerRadioGroup>
+          </PickerContent>
+        </Picker>
         <ResetButton />
       </div>
     </>

@@ -1,13 +1,6 @@
 "use client"
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react"
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react"
 
 import { useConfig, usePatternsState } from "@/hooks/use-config"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
@@ -60,11 +53,7 @@ interface PatternsProviderProps {
   categoryCounts: Record<string, number>
 }
 
-export function PatternsProvider({
-  children,
-  totalCount,
-  categoryCounts,
-}: PatternsProviderProps) {
+export function PatternsProvider({ children, totalCount, categoryCounts }: PatternsProviderProps) {
   // Mount guard: use SSR defaults until after first client paint,
   // then switch to stored values from localStorage (via Jotai atoms).
   // This prevents hydration mismatch and flash of wrong layout.
@@ -137,13 +126,7 @@ export function PatternsProvider({
       sidebarMenuView,
       setSidebarMenuView,
     }),
-    [
-      totalCount,
-      categoryCounts,
-      sidebarCategoryFilter,
-      sidebarMenuView,
-      setSidebarMenuView,
-    ]
+    [totalCount, categoryCounts, sidebarCategoryFilter, sidebarMenuView, setSidebarMenuView]
   )
 
   const customizerValue = useMemo<CustomizerContextValue>(
@@ -158,17 +141,13 @@ export function PatternsProvider({
   return (
     <PatternsContext.Provider value={patternsValue}>
       <CustomizerContext.Provider value={customizerValue}>
-        <div
-          className={mounted ? "opacity-100" : "opacity-0"}
-          suppressHydrationWarning
-        >
+        <div className={mounted ? "opacity-100" : "opacity-0"} suppressHydrationWarning>
           {/* Suppress CSS transitions until layout has settled with stored values.
               This prevents sidebars from animating open→closed on initial load. */}
           {!settled && (
             <style
               dangerouslySetInnerHTML={{
-                __html:
-                  "[data-patterns-layout] * { transition-duration: 0s !important; }",
+                __html: "[data-patterns-layout] * { transition-duration: 0s !important; }",
               }}
             />
           )}

@@ -22,11 +22,11 @@ export function CustomizerSidebar() {
     <aside
       ref={anchorRef}
       className={cn(
-        "bg-background border-border/80 sticky top-(--header-height) hidden h-[calc(100svh-var(--header-height))] w-120 shrink-0 flex-col overflow-hidden border-l transition-[width,transform] duration-300 ease-in-out lg:flex",
+        "bg-background border-border/80 sticky top-(--header-height) hidden h-[calc(100svh-var(--header-height))] w-80 shrink-0 flex-col overflow-hidden border-l transition-[width,transform] duration-300 ease-in-out lg:flex",
         !customizerOpen && "w-0 border-l-0"
       )}
     >
-      <div className="flex h-full w-120 flex-col">
+      <div className="flex h-full w-80 flex-col">
         <CustomizerSidebarHeader />
         <CustomizerSidebarContent isMobile={isMobile} anchorRef={anchorRef} />
       </div>

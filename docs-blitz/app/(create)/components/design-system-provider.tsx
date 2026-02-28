@@ -18,6 +18,9 @@ import {
   type DesignSystemSearchParams,
 } from "@/app/(create)/lib/search-params"
 
+const IFRAME_THEME_STYLE_ID = "design-system-theme-vars"
+const HOST_THEME_STYLE_ID = "design-system-host-theme-vars"
+
 function getTrackingCss(letterSpacingValue: string | undefined) {
   if (!letterSpacingValue || letterSpacingValue.trim() === "") {
     return ""
@@ -32,6 +35,97 @@ function getTrackingCss(letterSpacingValue: string | undefined) {
     "  --tracking-wider: calc(var(--letter-spacing) + 0.05em);\n" +
     "  --tracking-widest: calc(var(--letter-spacing) + 0.1em);\n"
   )
+}
+
+function clearDesignSystemClasses(body: HTMLElement) {
+  body.classList.forEach((className) => {
+    if (className.startsWith("style-") || className.startsWith("base-color-")) {
+      body.classList.remove(className)
+    }
+  })
+}
+
+function applyStyleAndBaseColorClasses(
+  body: HTMLElement,
+  style: string,
+  baseColor: string
+) {
+  clearDesignSystemClasses(body)
+  body.classList.add(`style-${style}`)
+  body.classList.add(`base-color-${baseColor}`)
+}
+
+function applyFontVar(documentRef: Document, font: string) {
+  const selectedFont = FONTS.find((f) => f.value === font)
+  if (!selectedFont) {
+    return
+  }
+
+  const fontFamily = selectedFont.font.style.fontFamily
+  documentRef.documentElement.style.setProperty("--font-sans", fontFamily)
+}
+
+function buildThemeCssText(
+  registryTheme: ReturnType<typeof buildRegistryTheme>
+) {
+  const { light: lightVars, dark: darkVars, theme: themeVars } = registryTheme.cssVars ?? {}
+
+  let cssText = ":root {\n"
+  // Add theme vars (shared across light/dark).
+  if (themeVars) {
+    Object.entries(themeVars).forEach(([key, value]) => {
+      if (value) {
+        cssText += `  --${key}: ${value};\n`
+      }
+    })
+  }
+  // Add light mode vars.
+  if (lightVars) {
+    Object.entries(lightVars).forEach(([key, value]) => {
+      if (value) {
+        cssText += `  --${key}: ${value};\n`
+      }
+    })
+    cssText += getTrackingCss(lightVars["letter-spacing"])
+  }
+  cssText += "}\n\n"
+
+  cssText += ".dark {\n"
+  if (darkVars) {
+    Object.entries(darkVars).forEach(([key, value]) => {
+      if (value) {
+        cssText += `  --${key}: ${value};\n`
+      }
+    })
+    cssText += getTrackingCss(darkVars["letter-spacing"])
+  }
+  cssText += "}\n\n"
+
+  cssText += "body {\n"
+  cssText += "  letter-spacing: var(--letter-spacing, normal);\n"
+  cssText += "}\n"
+
+  return cssText
+}
+
+function applyThemeCssVars(
+  documentRef: Document,
+  registryTheme: ReturnType<typeof buildRegistryTheme>,
+  styleId: string
+) {
+  if (!registryTheme.cssVars) {
+    return
+  }
+
+  let styleElement = documentRef.getElementById(styleId) as HTMLStyleElement | null
+
+  if (!styleElement) {
+    styleElement = documentRef.createElement("style")
+    styleElement.id = styleId
+    documentRef.head.appendChild(styleElement)
+  }
+
+  styleElement.textContent = buildThemeCssText(registryTheme)
 }
 
 interface DesignSystemContextValue {
@@ -155,30 +249,8 @@ export function DesignSystemProvider({ children }: { children: React.ReactNode }
       return
     }
 
-    const body = document.body
-
-    // Update style class in place (remove old, add new).
-    body.classList.forEach((className) => {
-      if (className.startsWith("style-")) {
-        body.classList.remove(className)
-      }
-    })
-    body.classList.add(`style-${style}`)
-
-    // Update base color class in place.
-    body.classList.forEach((className) => {
-      if (className.startsWith("base-color-")) {
-        body.classList.remove(className)
-      }
-    })
-    body.classList.add(`base-color-${baseColor}`)
-
-    // Update font.
-    const selectedFont = FONTS.find((f) => f.value === font)
-    if (selectedFont) {
-      const fontFamily = selectedFont.font.style.fontFamily
-      document.documentElement.style.setProperty("--font-sans", fontFamily)
-    }
+    applyStyleAndBaseColorClasses(document.body, style, baseColor)
+    applyFontVar(document, font)
 
     setIsReady(true)
   }, [style, theme, font, baseColor, iconLibrary])
@@ -211,53 +283,7 @@ export function DesignSystemProvider({ children }: { children: React.ReactNode }
       return
     }
 
-    const styleId = "design-system-theme-vars"
-    let styleElement = document.getElementById(styleId) as HTMLStyleElement | null
-
-    if (!styleElement) {
-      styleElement = document.createElement("style")
-      styleElement.id = styleId
-      document.head.appendChild(styleElement)
-    }
-
-    const { light: lightVars, dark: darkVars, theme: themeVars } = registryTheme.cssVars
-
-    let cssText = ":root {\n"
-    // Add theme vars (shared across light/dark).
-    if (themeVars) {
-      Object.entries(themeVars).forEach(([key, value]) => {
-        if (value) {
-          cssText += `  --${key}: ${value};\n`
-        }
-      })
-    }
-    // Add light mode vars.
-    if (lightVars) {
-      Object.entries(lightVars).forEach(([key, value]) => {
-        if (value) {
-          cssText += `  --${key}: ${value};\n`
-        }
-      })
-      cssText += getTrackingCss(lightVars["letter-spacing"])
-    }
-    cssText += "}\n\n"
-
-    cssText += ".dark {\n"
-    if (darkVars) {
-      Object.entries(darkVars).forEach(([key, value]) => {
-        if (value) {
-          cssText += `  --${key}: ${value};\n`
-        }
-      })
-      cssText += getTrackingCss(darkVars["letter-spacing"])
-    }
-    cssText += "}\n\n"
-
-    cssText += "body {\n"
-    cssText += "  letter-spacing: var(--letter-spacing, normal);\n"
-    cssText += "}\n"
-
-    styleElement.textContent = cssText
+    applyThemeCssVars(document, registryTheme, IFRAME_THEME_STYLE_ID)
   }, [registryTheme])
 
   // Signal parent that iframe content is ready and interactive.
@@ -324,4 +350,137 @@ export function DesignSystemProvider({ children }: { children: React.ReactNode }
       {children}
     </DesignSystemContext.Provider>
   )
+}
+
+/**
+ * Host page provider for /patterns.
+ * Applies design system styles to the parent app shell when explicitly enabled.
+ */
+export function DesignSystemHostThemeProvider() {
+  const [params] = useDesignSystemSearchParams({
+    shallow: true,
+    history: "replace",
+  })
+  const [config] = useConfig()
+
+  const themeApplyScope = config.themeApplyScope ?? "iframe"
+  const style = params.style ?? config.style
+  const theme = params.theme ?? config.theme
+  const font = params.font ?? config.font
+  const baseColor = params.baseColor ?? config.baseColor
+  const menuAccent = params.menuAccent ?? config.menuAccent
+  const radius = params.radius ?? config.radius
+  const iconLibrary = params.iconLibrary ?? config.iconLibrary
+  const custom = params.custom ?? config.custom
+  const previousHostStyleRef = React.useRef<{
+    styleClass: string | null
+    baseColorClass: string | null
+    fontSans: string
+    captured: boolean
+  }>({
+    styleClass: null,
+    baseColorClass: null,
+    fontSans: "",
+    captured: false,
+  })
+
+  const registryTheme = React.useMemo(() => {
+    if (!baseColor || !theme || !menuAccent || !radius) {
+      return null
+    }
+
+    const themeConfig: DesignSystemConfig = {
+      ...DEFAULT_CONFIG,
+      baseColor,
+      theme,
+      menuAccent,
+      radius,
+    }
+
+    const computedTheme = buildRegistryTheme(themeConfig)
+
+    if (!custom) {
+      return computedTheme
+    }
+
+    return mergeCustomThemeVars(computedTheme, config.customThemeVars)
+  }, [baseColor, theme, menuAccent, radius, custom, config.customThemeVars])
+
+  const restoreHostThemeState = React.useCallback(() => {
+    const previous = previousHostStyleRef.current
+    if (!previous.captured) {
+      return
+    }
+
+    clearDesignSystemClasses(document.body)
+    if (previous.styleClass) {
+      document.body.classList.add(previous.styleClass)
+    }
+    if (previous.baseColorClass) {
+      document.body.classList.add(previous.baseColorClass)
+    }
+
+    if (previous.fontSans) {
+      document.documentElement.style.setProperty("--font-sans", previous.fontSans)
+    } else {
+      document.documentElement.style.removeProperty("--font-sans")
+    }
+
+    previousHostStyleRef.current = {
+      styleClass: null,
+      baseColorClass: null,
+      fontSans: "",
+      captured: false,
+    }
+  }, [])
+
+  React.useLayoutEffect(() => {
+    if (themeApplyScope !== "app") {
+      restoreHostThemeState()
+      return
+    }
+
+    if (!style || !theme || !font || !baseColor || !iconLibrary) {
+      return
+    }
+
+    if (!previousHostStyleRef.current.captured) {
+      previousHostStyleRef.current = {
+        styleClass:
+          Array.from(document.body.classList).find((className) => className.startsWith("style-")) ??
+          null,
+        baseColorClass:
+          Array.from(document.body.classList).find((className) =>
+            className.startsWith("base-color-")
+          ) ?? null,
+        fontSans: document.documentElement.style.getPropertyValue("--font-sans"),
+        captured: true,
+      }
+    }
+
+    applyStyleAndBaseColorClasses(document.body, style, baseColor)
+    applyFontVar(document, font)
+  }, [themeApplyScope, style, theme, font, baseColor, iconLibrary, restoreHostThemeState])
+
+  React.useLayoutEffect(() => {
+    if (themeApplyScope !== "app") {
+      document.getElementById(HOST_THEME_STYLE_ID)?.remove()
+      return
+    }
+
+    if (!registryTheme) {
+      return
+    }
+
+    applyThemeCssVars(document, registryTheme, HOST_THEME_STYLE_ID)
+  }, [themeApplyScope, registryTheme])
+
+  React.useEffect(() => {
+    return () => {
+      document.getElementById(HOST_THEME_STYLE_ID)?.remove()
+      restoreHostThemeState()
+    }
+  }, [restoreHostThemeState])
+
+  return null
 }
