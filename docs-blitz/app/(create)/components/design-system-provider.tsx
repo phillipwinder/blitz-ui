@@ -18,6 +18,22 @@ import {
   type DesignSystemSearchParams,
 } from "@/app/(create)/lib/search-params"
 
+function getTrackingCss(letterSpacingValue: string | undefined) {
+  if (!letterSpacingValue || letterSpacingValue.trim() === "") {
+    return ""
+  }
+
+  return (
+    `  --letter-spacing: ${letterSpacingValue};\n` +
+    "  --tracking-tighter: calc(var(--letter-spacing) - 0.05em);\n" +
+    "  --tracking-tight: calc(var(--letter-spacing) - 0.025em);\n" +
+    "  --tracking-normal: var(--letter-spacing);\n" +
+    "  --tracking-wide: calc(var(--letter-spacing) + 0.025em);\n" +
+    "  --tracking-wider: calc(var(--letter-spacing) + 0.05em);\n" +
+    "  --tracking-widest: calc(var(--letter-spacing) + 0.1em);\n"
+  )
+}
+
 interface DesignSystemContextValue {
   style: string | null
   theme: string | null
@@ -222,6 +238,7 @@ export function DesignSystemProvider({ children }: { children: React.ReactNode }
           cssText += `  --${key}: ${value};\n`
         }
       })
+      cssText += getTrackingCss(lightVars["letter-spacing"])
     }
     cssText += "}\n\n"
 
@@ -232,7 +249,12 @@ export function DesignSystemProvider({ children }: { children: React.ReactNode }
           cssText += `  --${key}: ${value};\n`
         }
       })
+      cssText += getTrackingCss(darkVars["letter-spacing"])
     }
+    cssText += "}\n\n"
+
+    cssText += "body {\n"
+    cssText += "  letter-spacing: var(--letter-spacing, normal);\n"
     cssText += "}\n"
 
     styleElement.textContent = cssText
