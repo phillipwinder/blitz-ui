@@ -2,8 +2,8 @@ import { Metadata } from "next"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern"
 
 const title = "Blitz UI | Flexible UI components that adapt to how you build"
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 
 export default function IndexPage() {
   return (
-    <>
+    <main className="flex flex-1 flex-col">
       {/* Hero content */}
       <div className="relative z-10 mx-auto max-w-3xl py-20 text-center">
         <h1 className="mb-4 text-4xl leading-snug font-medium tracking-[-0.06em] text-balance sm:text-5xl md:text-7xl">
@@ -84,10 +84,10 @@ export default function IndexPage() {
         maxOpacity={0.1}
         duration={3}
         className={cn(
-          '-z-10 [mask-image:radial-gradient(500px_circle_at_center,white,transparent)]',
-          'inset-x-0 inset-y-[-70%] h-[200%] skew-y-12',
+          "-z-10 [mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
+          "inset-x-0 inset-y-[-70%] h-[200%] skew-y-12"
         )}
       />
-    </>
+    </main>
   )
 }
