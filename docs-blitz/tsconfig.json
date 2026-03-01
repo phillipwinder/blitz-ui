@@ -21,8 +21,7 @@
       "@/.source": ["./.source/index.ts"],
       "@/*": ["./*"],
       "@blitz-ui/react": ["../packages/react-blitz/src"],
-      "@blitz-ui/react/*": ["../packages/react-blitz/src/*"],
-      "@base-ui/utils/*": ["../packages/utils/src/*"]
+      "@blitz-ui/react/*": ["../packages/react-blitz/src/*"]
     },
     "plugins": [
       {
