@@ -4,7 +4,7 @@ name: Trigger auto deployment for blitz-ui-docs-container-app
 on:
   # Automatically trigger it when detected changes in repo
   push:
-    branches: [initial-architecture]
+    branches: [master]
     paths:
       - '**'
       - '.github/workflows/blitz-ui-docs-container-app-AutoDeployTrigger-272d194e-9547-45fc-b5ac-7eac2860f965.yml'
