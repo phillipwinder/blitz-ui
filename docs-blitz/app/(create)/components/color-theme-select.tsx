@@ -19,6 +19,13 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { getThemesForBaseColor, type Theme } from "@/registry/config"
 import { useDesignSystemSearchParams } from "@/app/(create)/lib/search-params"
 
+const PREVIEW_FALLBACK_COLORS = [
+  "transparent",
+  "transparent",
+  "transparent",
+  "transparent",
+] as const
+
 export function ColorThemeSelect({ className }: { className?: string }) {
   const { resolvedTheme } = useTheme()
   const [open, setOpen] = React.useState(false)
@@ -42,13 +49,17 @@ export function ColorThemeSelect({ className }: { className?: string }) {
     }
 
     return themesForBaseColor.filter((theme) => {
-      return theme.title.toLowerCase().includes(term) || theme.name.toLowerCase().includes(term)
+      const title = theme.title ?? theme.name
+      return title.toLowerCase().includes(term) || theme.name.toLowerCase().includes(term)
     })
   }, [themesForBaseColor, search])
 
   const getThemePreviewColors = React.useCallback(
     (theme: Theme) => {
-      const cssVars = theme.cssVars[mode]
+      const cssVars = theme.cssVars?.[mode]
+      if (!cssVars) {
+        return PREVIEW_FALLBACK_COLORS
+      }
       return [cssVars.primary, cssVars.accent, cssVars.secondary, cssVars.border]
     },
     [mode]
@@ -84,9 +95,7 @@ export function ColorThemeSelect({ className }: { className?: string }) {
         >
           <div className="flex min-w-0 items-center gap-2">
             <div className="flex gap-0.5">
-              {(
-                currentPreviewColors ?? ["transparent", "transparent", "transparent", "transparent"]
-              ).map((color, index) => (
+              {(currentPreviewColors ?? PREVIEW_FALLBACK_COLORS).map((color, index) => (
                 <span
                   key={`${color}-${index}`}
                   className="border-border size-3 rounded-xs border"
@@ -129,7 +138,7 @@ export function ColorThemeSelect({ className }: { className?: string }) {
                         ))}
                       </div>
                       <div className="min-w-0">
-                        <div className="truncate">{theme.title}</div>
+                        <div className="truncate">{theme.title ?? theme.name}</div>
                       </div>
                     </div>
                     {selected && <CheckIcon className="ml-auto size-4 opacity-70" />}

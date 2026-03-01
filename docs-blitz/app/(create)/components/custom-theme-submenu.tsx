@@ -1,10 +1,10 @@
 "use client"
 
 import * as React from "react"
+import { useTimeout } from "@base-ui/utils/useTimeout"
 import { formatHex, parse } from "culori"
 import { CheckIcon, Grid2X2Icon, ListIcon, PaletteIcon } from "lucide-react"
 import tailwindColors from "tailwindcss/colors"
-import { useTimeout } from "@base-ui/utils/useTimeout"
 
 import { CUSTOM_THEME_TOKEN_LABELS, type CustomThemeToken } from "@/lib/custom-theme"
 import { cn } from "@/lib/utils"
