@@ -9,7 +9,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { useCustomizer } from "./patterns-provider"
 
 export function CustomizerSidebarHeader() {
-  const { toggleCustomizer } = useCustomizer()
+  const { closeCustomizer, closeSidebarButtonRef } = useCustomizer()
 
   return (
     <div className="border-border/80 flex h-[51px] shrink-0 items-center justify-between overflow-hidden border-b px-4">
@@ -23,9 +23,10 @@ export function CustomizerSidebarHeader() {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button
+            ref={closeSidebarButtonRef}
             variant="ghost"
             size="icon-sm"
-            onClick={toggleCustomizer}
+            onClick={closeCustomizer}
             className="shrink-0 opacity-60 hover:bg-transparent hover:opacity-100"
           >
             <PanelRightClose />

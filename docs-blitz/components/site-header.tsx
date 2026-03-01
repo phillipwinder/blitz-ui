@@ -1,8 +1,10 @@
 import Link from "next/link"
+import { Zap } from "lucide-react"
 
 import { siteConfig } from "@/lib/config"
 import { getCategories } from "@/lib/registry"
 import { source } from "@/lib/source"
+import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { CommandMenu } from "@/components/command-menu"
 import { GitHubLink } from "@/components/github-link"
@@ -10,7 +12,6 @@ import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
 import { ModeSwitcher } from "@/components/mode-switcher"
 import { XLink } from "@/components/x-link"
-import { Zap } from "lucide-react"
 
 export function SiteHeader() {
   const pageTree = source.getPageTree()
@@ -24,12 +25,9 @@ export function SiteHeader() {
             <Zap className="text-foreground/70 fill-foreground/10" />
             <span className="text-lg font-bold">{siteConfig.name}</span>
             <span className="sr-only">{siteConfig.name}</span>
+            <Badge variant="outline">Alpha</Badge>
           </Link>
-          <MobileNav
-            tree={pageTree}
-            items={siteConfig.navItems}
-            className="flex lg:hidden"
-          />
+          <MobileNav tree={pageTree} items={siteConfig.navItems} className="flex lg:hidden" />
           <div className="ml-auto flex items-center gap-1 md:flex-1 md:justify-end">
             <div className="mr-2 hidden w-full flex-1 md:flex md:w-auto md:flex-none">
               <CommandMenu

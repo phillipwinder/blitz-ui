@@ -1,6 +1,6 @@
 {
   "name": "docs-blitz",
-  "version": "2.0.0",
+  "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -19,7 +19,9 @@
     "registry:sync": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/sync-registry.mts",
     "icons:build": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-icons.ts",
     "icons:scan": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/scan-icons.ts",
-    "postinstall": "fumadocs-mdx"
+    "postinstall": "fumadocs-mdx",
+    "docker:build": "docker buildx build --platform linux/amd64,linux/arm64 -t pwinder/blitz-ui-docs:latest --load ..",
+    "docker:push": "docker buildx build --platform linux/amd64,linux/arm64 -t pwinder/blitz-ui-docs:latest --push .."
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",

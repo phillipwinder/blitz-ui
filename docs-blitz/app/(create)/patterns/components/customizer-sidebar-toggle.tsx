@@ -10,7 +10,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { useCustomizer } from "./patterns-provider"
 
 export function CustomizerSidebarToggle() {
-  const { customizerOpen, toggleCustomizer } = useCustomizer()
+  const { customizerOpen, openCustomizer, toggleCustomizer, editThemeButtonRef } = useCustomizer()
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -40,7 +40,7 @@ export function CustomizerSidebarToggle() {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="outline" size="sm" onClick={toggleCustomizer}>
+        <Button ref={editThemeButtonRef} variant="outline" size="sm" onClick={openCustomizer}>
           <Zap className="size-3.5" />
           <span className="text-xm leading-none">Edit theme</span>
         </Button>

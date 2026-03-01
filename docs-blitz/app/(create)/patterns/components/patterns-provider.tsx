@@ -1,6 +1,7 @@
 "use client"
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react"
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react"
+import type { RefObject } from "react"
 
 import { useConfig, usePatternsState } from "@/hooks/use-config"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
@@ -25,7 +26,11 @@ interface PatternsContextValue {
 interface CustomizerContextValue {
   customizerOpen: boolean
   toggleCustomizer: () => void
+  openCustomizer: () => void
+  closeCustomizer: () => void
   setCustomizerOpen: (open: boolean) => void
+  editThemeButtonRef: RefObject<HTMLButtonElement | null>
+  closeSidebarButtonRef: RefObject<HTMLButtonElement | null>
 }
 
 const PatternsContext = createContext<PatternsContextValue | null>(null)
@@ -75,6 +80,9 @@ export function PatternsProvider({ children, totalCount, categoryCounts }: Patte
 
   // Ephemeral state (not persisted)
   const [sidebarCategoryFilter, setSidebarCategoryFilter] = useState("")
+  const editThemeButtonRef = useRef<HTMLButtonElement | null>(null)
+  const closeSidebarButtonRef = useRef<HTMLButtonElement | null>(null)
+  const pendingCustomizerFocusRef = useRef<"open-button" | "close-button" | null>(null)
 
   // Single source of truth: Jotai atoms from use-config.ts
   const [patternsState, setPatternsState] = usePatternsState()
@@ -109,12 +117,34 @@ export function PatternsProvider({ children, totalCount, categoryCounts }: Patte
     setConfig((prev) => ({ ...prev, customizerOpen: !prev.customizerOpen }))
   }, [setConfig])
 
+  const openCustomizer = useCallback(() => {
+    pendingCustomizerFocusRef.current = "close-button"
+    setConfig((prev) => ({ ...prev, customizerOpen: true }))
+  }, [setConfig])
+
+  const closeCustomizer = useCallback(() => {
+    pendingCustomizerFocusRef.current = "open-button"
+    setConfig((prev) => ({ ...prev, customizerOpen: false }))
+  }, [setConfig])
+
   const handleSetCustomizerOpen = useCallback(
     (open: boolean) => {
       setConfig((prev) => ({ ...prev, customizerOpen: open }))
     },
     [setConfig]
   )
+
+  useEffect(() => {
+    if (pendingCustomizerFocusRef.current === "close-button" && customizerOpen) {
+      closeSidebarButtonRef.current?.focus()
+      pendingCustomizerFocusRef.current = null
+    }
+
+    if (pendingCustomizerFocusRef.current === "open-button" && !customizerOpen) {
+      editThemeButtonRef.current?.focus()
+      pendingCustomizerFocusRef.current = null
+    }
+  }, [customizerOpen])
 
   // Memoize context values to prevent unnecessary re-renders
   const patternsValue = useMemo<PatternsContextValue>(
@@ -133,9 +163,21 @@ export function PatternsProvider({ children, totalCount, categoryCounts }: Patte
     () => ({
       customizerOpen,
       toggleCustomizer,
+      openCustomizer,
+      closeCustomizer,
       setCustomizerOpen: handleSetCustomizerOpen,
+      editThemeButtonRef,
+      closeSidebarButtonRef,
     }),
-    [customizerOpen, toggleCustomizer, handleSetCustomizerOpen]
+    [
+      customizerOpen,
+      toggleCustomizer,
+      openCustomizer,
+      closeCustomizer,
+      handleSetCustomizerOpen,
+      closeSidebarButtonRef,
+      editThemeButtonRef,
+    ]
   )
 
   return (
