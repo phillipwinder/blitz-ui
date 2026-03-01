@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Provider as JotaiProvider } from "jotai"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { META_THEME_COLORS, siteConfig } from "@/lib/config"
 import { fontVariables } from "@/lib/fonts"
@@ -117,6 +118,7 @@ export default function RootLayout({
             <Analytics />
           </LayoutProvider>
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   )
