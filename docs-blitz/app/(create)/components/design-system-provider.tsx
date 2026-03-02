@@ -363,7 +363,7 @@ export function DesignSystemHostThemeProvider() {
   })
   const [config] = useConfig()
 
-  const themeApplyScope = config.themeApplyScope ?? "iframe"
+  const themeApplyScope = config.themeApplyScope ?? "app"
   const style = params.style ?? config.style
   const theme = params.theme ?? config.theme
   const font = params.font ?? config.font

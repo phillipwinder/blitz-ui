@@ -47,7 +47,7 @@ export const DEFAULT_CONFIG: Config = {
   installationType: "cli",
   gridColumns: 2,
   customizerOpen: true,
-  themeApplyScope: "iframe",
+  themeApplyScope: "app",
 
   // Design system defaults (matching DEFAULT_CONFIG from registry/config.ts)
   base: "base",

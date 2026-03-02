@@ -394,7 +394,7 @@ export function CustomizerSidebarContent({ isMobile, anchorRef }: CustomizerSide
   }, [effectiveBaseColor, effectiveTheme, effectiveMenuAccent, effectiveRadius])
 
   const hslPreviewThemeVars = hslSourceThemeVarsRef.current ?? effectiveThemeVars
-  const themeApplyScope = config.themeApplyScope ?? "iframe"
+  const themeApplyScope = config.themeApplyScope ?? "app"
   const isSectionActive = activeSection !== null
 
   React.useEffect(() => {
@@ -689,7 +689,7 @@ export function CustomizerSidebarContent({ isMobile, anchorRef }: CustomizerSide
             <PickerRadioGroup value={themeApplyScope} onValueChange={handleThemeApplyScopeChange}>
               <PickerGroup>
                 <PickerRadioItem value="iframe">Patterns only</PickerRadioItem>
-                <PickerRadioItem value="app">Whole website</PickerRadioItem>
+                <PickerRadioItem value="app">Whole application</PickerRadioItem>
               </PickerGroup>
             </PickerRadioGroup>
           </PickerContent>
