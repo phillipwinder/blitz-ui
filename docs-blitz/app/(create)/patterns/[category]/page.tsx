@@ -7,7 +7,7 @@ import {
   getCategoryNames,
   getPatternCountByCategory,
   isValidCategory,
-} from "@/lib/registry-stats"
+} from "@/lib/registry"
 import { formatLabel, normalizeSlug } from "@/lib/utils"
 import { Spinner } from "@/components/ui/spinner"
 

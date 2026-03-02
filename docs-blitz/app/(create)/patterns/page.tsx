@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import type { Metadata } from "next"
 
-import { getCategories } from "@/lib/registry-stats"
+import { getCategories } from "@/lib/registry"
 import { Spinner } from "@/components/ui/spinner"
 import { GridSkeleton } from "@/components/grid-skeleton"
 
