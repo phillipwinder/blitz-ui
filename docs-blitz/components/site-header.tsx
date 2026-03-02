@@ -11,6 +11,7 @@ import { GitHubLink } from "@/components/github-link"
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
 import { ModeSwitcher } from "@/components/mode-switcher"
+import { UserProfileDropdown } from "@/components/user-profile-dropdown"
 import { XLink } from "@/components/x-link"
 
 export function SiteHeader() {
@@ -45,6 +46,7 @@ export function SiteHeader() {
               <GitHubLink />
               <XLink />
               <ModeSwitcher />
+              <UserProfileDropdown />
             </div>
           </div>
         </div>

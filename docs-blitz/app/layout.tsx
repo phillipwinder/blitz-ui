@@ -11,6 +11,7 @@ import { Toaster } from "@/components/ui/sonner"
 import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
+import { AuthDialogWrapper } from "@/components/auth-dialog-wrapper"
 
 import "@/styles/globals.css"
 
@@ -111,6 +112,7 @@ export default function RootLayout({
             <JotaiProvider>
               <NuqsAdapter>
                 {children}
+                <AuthDialogWrapper />
                 <TailwindIndicator />
                 <Toaster position="top-center" />
               </NuqsAdapter>
