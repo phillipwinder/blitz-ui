@@ -1,6 +1,6 @@
 import { Suspense } from "react"
 
-import { getCategories, getPatternsTotalCount } from "@/lib/registry"
+import { getCategories, getPatternsTotalCount } from "@/lib/registry-stats"
 import { SiteHeader } from "@/components/site-header"
 import {
   DesignSystemHostThemeProvider,

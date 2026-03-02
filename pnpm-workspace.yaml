@@ -1,7 +1,6 @@
 packages:
   - packages/*
   - docs
-  - docs-blitz-old
   - docs-blitz
   - test
   - test/*

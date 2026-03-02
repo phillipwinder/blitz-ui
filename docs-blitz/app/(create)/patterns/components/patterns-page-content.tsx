@@ -4,7 +4,7 @@ import * as React from "react"
 import { useQueryStates } from "nuqs"
 
 import { parseAsSearchStringClient } from "@/lib/nuqs"
-import type { CategoryInfo } from "@/lib/registry"
+import type { CategoryInfo } from "@/lib/registry-stats"
 
 import { PatternsIframeView } from "./patterns-iframe-view"
 
