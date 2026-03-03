@@ -1,5 +1,4 @@
 import * as React from "react"
-import Image from "next/image"
 
 import { getRegistryComponent } from "@/lib/registry"
 import { ComponentClient } from "@/components/component-client"
@@ -7,7 +6,8 @@ import { ComponentPreviewTabs } from "@/components/component-preview-tabs"
 import { ComponentSource } from "@/components/component-source"
 
 // Default styleName - matches the API default
-const DEFAULT_STYLE_NAME = "radix-nova"
+const DEFAULT_STYLE_NAME = "base-nova"
+const DEFAULT_INSTALLATION_METHOD = "package"
 
 export function ComponentPreview({
   name,
@@ -18,10 +18,12 @@ export function ComponentPreview({
   hideCode = false,
   chromeLessOnMobile = false,
   styleName = DEFAULT_STYLE_NAME,
+  installationMethod = DEFAULT_INSTALLATION_METHOD,
   code,
   ...props
 }: React.ComponentProps<"div"> & {
   name: string
+  installationMethod?: "package" | "registry"
   styleName?: string
   align?: "center" | "start" | "end"
   description?: string
@@ -56,6 +58,7 @@ export function ComponentPreview({
         <ComponentSource
           name={name}
           collapsible={false}
+          installationMethod={installationMethod}
           styleName={styleName}
           code={code}
         />
@@ -63,6 +66,7 @@ export function ComponentPreview({
       sourcePreview={
         <ComponentSource
           name={name}
+          installationMethod={installationMethod}
           collapsible={false}
           styleName={styleName}
           maxLines={3}

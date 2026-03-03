@@ -3,7 +3,6 @@
 // GridSize: 1
 
 import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
-import { Frame, FramePanel } from "@/registry-blitz-ui/bases/radix/blitz-ui/frame"
 
 import { Button } from "@/registry/bases/base/ui/button"
 import {
@@ -83,9 +82,7 @@ export default function Pattern() {
               <TableCell>
                 <div className="flex flex-col">
                   <span className="text-sm font-medium">{sub.service}</span>
-                  <span className="text-muted-foreground text-xs">
-                    Next: {sub.nextBilling}
-                  </span>
+                  <span className="text-muted-foreground text-xs">Next: {sub.nextBilling}</span>
                 </div>
               </TableCell>
               <TableCell>

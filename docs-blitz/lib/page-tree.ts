@@ -20,44 +20,40 @@ export function getAllPagesFromFolder(folder: PageTreeFolder): PageTreePage[] {
   return pages
 }
 
-// Get the pages from a folder, handling nested base folders (radix/base).
+// Get the pages from a folder, handling nested installation method folders (package/registry).
 export function getPagesFromFolder(
   folder: PageTreeFolder,
-  currentBase: string
+  currentInstallationMethod: string
 ): PageTreePage[] {
-  // For the components folder, find the base subfolder.
+  // For the components folder, find the installation method subfolder.
   if (folder.$id === "components" || folder.name === "Components") {
     for (const child of folder.children) {
       if (child.type === "folder") {
         // Match by $id or by name.
-        const isRadix = child.$id === "radix" || child.name === "Radix UI"
-        const isBase = child.$id === "base" || child.name === "Base UI"
+        const isPackageInstallation =
+          child.$id === "package" || child.name === "Install from package"
+        const isRegistryInstallation =
+          child.$id === "registry" || child.name === "Install from registry"
 
         if (
-          (currentBase === "radix" && isRadix) ||
-          (currentBase === "base" && isBase)
+          (currentInstallationMethod === "package" && isPackageInstallation) ||
+          (currentInstallationMethod === "registry" && isRegistryInstallation)
         ) {
-          return child.children.filter(
-            (c): c is PageTreePage => c.type === "page"
-          )
+          return child.children.filter((c): c is PageTreePage => c.type === "page")
         }
       }
     }
 
     // Fallback: return all pages from nested folders.
-    return getAllPagesFromFolder(folder).filter(
-      (page) => !page.url.endsWith("/components")
-    )
+    return getAllPagesFromFolder(folder).filter((page) => !page.url.endsWith("/components"))
   }
 
   // For other folders, return direct page children.
-  return folder.children.filter(
-    (child): child is PageTreePage => child.type === "page"
-  )
+  return folder.children.filter((child): child is PageTreePage => child.type === "page")
 }
 
-// Get current base (radix or base) from pathname.
-export function getCurrentBase(pathname: string): string {
-  const baseMatch = pathname.match(/\/docs\/(radix|base)\//)
-  return baseMatch ? baseMatch[1] : DEFAULT_CONFIG.base // Default to base.
+// Get current installation method (package or registry) from pathname.
+export function getCurrentInstallationMethod(pathname: string): string {
+  const installationMethodMatch = pathname.match(/\/docs\/(package|registry)\//)
+  return installationMethodMatch ? installationMethodMatch[1] : DEFAULT_CONFIG.installationMethod // Default to package.
 }

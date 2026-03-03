@@ -13,8 +13,10 @@ import { source } from "@/lib/source"
 import { absoluteUrl } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher"
+import { ComponentPreview } from "@/components/component-preview"
+import { ComponentSource } from "@/components/component-source"
 import { DocsCopyPage } from "@/components/docs-copy-page"
+import { DocsInstallationMethodSwitcher } from "@/components/docs-instalation-method-switcher"
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -79,7 +81,11 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
 
   const raw = await page.data.getText("raw")
   const { attributes } = fm(raw)
-  const { links, base, component } = z
+  const {
+    links,
+    ["installation-method"]: installationMethod,
+    component,
+  } = z
     .object({
       links: z
         .object({
@@ -87,14 +93,14 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
           api: z.string().optional(),
         })
         .optional(),
-      base: z.enum(["base", "radix"]).optional(),
       component: z.boolean().optional(),
+      ["installation-method"]: z.enum(["package", "registry"]).optional(),
     })
     .parse(attributes)
 
-  // Extract component name from slug for the base switcher
-  // URL structure: /docs/base/{component} or /docs/radix/{component}
-  const isComponentDoc = component === true && base !== undefined
+  // Extract component name from slug for the installation method switcher
+  // URL structure: /docs/package/{component} or /docs/registry/{component}
+  const isComponentDoc = component === true && installationMethod !== undefined
   const componentName = isComponentDoc && params.slug?.length >= 2 ? params.slug[1] : undefined
 
   return (
@@ -148,8 +154,12 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
                   </p>
                 )}
               </div>
-              {isComponentDoc && base && componentName && (
-                <DocsBaseSwitcher base={base} component={componentName} className="mt-4" />
+              {isComponentDoc && installationMethod && componentName && (
+                <DocsInstallationMethodSwitcher
+                  installationMethod={installationMethod}
+                  component={componentName}
+                  className="mt-4"
+                />
               )}
               {links ? (
                 <div className="flex items-center gap-2 pt-4">
@@ -174,6 +184,18 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
               <MDX
                 components={getMDXComponents({
                   a: createRelativeLink(source, page),
+                  ComponentPreview: (props) => (
+                    <ComponentPreview
+                      {...props}
+                      installationMethod={installationMethod ?? "package"}
+                    />
+                  ),
+                  ComponentSource: (props) => (
+                    <ComponentSource
+                      {...props}
+                      installationMethod={installationMethod ?? "package"}
+                    />
+                  ),
                 })}
               />
             </div>

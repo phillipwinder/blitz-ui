@@ -2,6 +2,7 @@ import { useAtom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
 
 import { createEmptyCustomThemeVars, type CustomThemeVars } from "@/lib/custom-theme"
+import { InstallationMethod } from "@/lib/installation-methods"
 import type {
   BaseColorName,
   BaseName,
@@ -22,6 +23,7 @@ export type Config = {
   installationType: "cli" | "manual"
   gridColumns: PatternGridMode
   themeApplyScope: "iframe" | "app"
+  installationMethod: InstallationMethod["name"]
 
   // Design system params (synced with URL)
   base: BaseName
@@ -48,6 +50,7 @@ export const DEFAULT_CONFIG: Config = {
   gridColumns: 2,
   customizerOpen: true,
   themeApplyScope: "app",
+  installationMethod: "package",
 
   // Design system defaults (matching DEFAULT_CONFIG from registry/config.ts)
   base: "base",

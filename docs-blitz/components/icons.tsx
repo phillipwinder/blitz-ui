@@ -1,4 +1,4 @@
-import { FileIcon } from "lucide-react"
+import { FileIcon, Package } from "lucide-react"
 
 type IconProps = React.HTMLAttributes<SVGElement>
 
@@ -109,12 +109,7 @@ export const Icons = {
     </svg>
   ),
   npm: (props: IconProps) => (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path d="M0 10V20H9V22H16V20H32V10H0Z" fill="#CB3837" />
       <path
         d="M5.46205 12H2V18H5.46205V13.6111H7.22344V18H8.98482V12H5.46205ZM10.7462 12V20H14.269V18H17.731V12H10.7462ZM15.9696 16.3889H14.269V13.6111H15.9696V16.3889ZM22.9545 12H19.4924V18H22.9545V13.6111H24.7158V18H26.4772V13.6111H28.2386V18H30V12H22.9545Z"
@@ -276,12 +271,7 @@ export const Icons = {
     </svg>
   ),
   v0: (props: IconProps) => (
-    <svg
-      viewBox="0 0 40 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M23.3919 0H32.9188C36.7819 0 39.9136 3.13165 39.9136 6.99475V16.0805H36.0006V6.99475C36.0006 6.90167 35.9969 6.80925 35.9898 6.71766L26.4628 16.079C26.4949 16.08 26.5272 16.0805 26.5595 16.0805H36.0006V19.7762H26.5595C22.6964 19.7762 19.4788 16.6139 19.4788 12.7508V3.68923H23.3919V12.7508C23.3919 12.9253 23.4054 13.0977 23.4316 13.2668L33.1682 3.6995C33.0861 3.6927 33.003 3.68923 32.9188 3.68923H23.3919V0Z"
         fill="currentColor"
@@ -292,6 +282,7 @@ export const Icons = {
       ></path>
     </svg>
   ),
+  package: (props: IconProps) => <Package {...props} />,
 }
 
 export function getIconForLanguageExtension(

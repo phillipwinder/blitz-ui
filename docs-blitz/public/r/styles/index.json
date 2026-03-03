@@ -4,26 +4,6 @@
     "label": "Default"
   },
   {
-    "name": "radix-vega",
-    "label": "Radix Vega"
-  },
-  {
-    "name": "radix-nova",
-    "label": "Radix Nova"
-  },
-  {
-    "name": "radix-maia",
-    "label": "Radix Maia"
-  },
-  {
-    "name": "radix-lyra",
-    "label": "Radix Lyra"
-  },
-  {
-    "name": "radix-mira",
-    "label": "Radix Mira"
-  },
-  {
     "name": "base-vega",
     "label": "Base Vega"
   },

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 
 import { PAGES_NEW } from "@/lib/docs"
 import { showMcpDocs } from "@/lib/flags"
-import { getCurrentBase, getPagesFromFolder } from "@/lib/page-tree"
+import { getCurrentInstallationMethod, getPagesFromFolder } from "@/lib/page-tree"
 import type { source } from "@/lib/source"
 import {
   Sidebar,
@@ -28,7 +28,7 @@ export function DocsSidebar({
   tree: ReturnType<typeof source.getPageTree>
 }) {
   const pathname = usePathname()
-  const currentBase = getCurrentBase(pathname)
+  const currentInstallationMethod = getCurrentInstallationMethod(pathname)
 
   return (
     <Sidebar
@@ -51,7 +51,7 @@ export function DocsSidebar({
               <SidebarGroupContent>
                 {item.type === "folder" && (
                   <SidebarMenu className="gap-0.5">
-                    {getPagesFromFolder(item, currentBase).map((page) => {
+                    {getPagesFromFolder(item, currentInstallationMethod).map((page) => {
                       if (!showMcpDocs && page.url.includes("/mcp")) {
                         return null
                       }

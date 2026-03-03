@@ -21375,7 +21375,6 @@ export const patterns: Registry["items"] = [
     "registryDependencies": [
       "badge",
       "button",
-      "frame",
       "table"
     ],
     "dependencies": [],

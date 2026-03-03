@@ -3,7 +3,7 @@
 // GridSize: 1
 
 import { Badge } from "@/registry-blitz-ui/bases/base/blitz-ui/badge"
-import { Frame, FramePanel } from "@/registry-blitz-ui/bases/radix/blitz-ui/frame"
+import { Frame, FramePanel } from "@/registry-blitz-ui/bases/base/blitz-ui/frame"
 
 import {
   Avatar,

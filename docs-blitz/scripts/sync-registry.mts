@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const PROJECT_ROOT = path.resolve(__dirname, "..")
-const SOURCE_DIR = path.resolve(PROJECT_ROOT, "../shadcn/apps/v4/registry")
+const SOURCE_DIR = path.resolve(PROJECT_ROOT, "../../shadcn/apps/v4/registry")
 const DEST_DIR = path.resolve(PROJECT_ROOT, "registry")
 
 const SYNC_ITEMS = [
@@ -19,8 +19,8 @@ const SYNC_ITEMS = [
   "icons",
   "styles",
   "base-colors.ts",
-  "bases.ts",
-  "config.ts",
+  // "bases.ts",
+  // "config.ts",
   "fonts.ts",
   "styles.tsx",
   "themes.ts",

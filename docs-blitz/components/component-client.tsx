@@ -5,17 +5,8 @@ import { Suspense, useMemo } from "react"
 import { getRegistryComponent } from "@/lib/registry"
 import { Spinner } from "@/components/ui/spinner"
 
-export function ComponentClient({
-  name,
-  styleName,
-}: {
-  name: string
-  styleName: string
-}) {
-  const Component = useMemo(
-    () => getRegistryComponent(name, styleName),
-    [name, styleName]
-  )
+export function ComponentClient({ name, styleName }: { name: string; styleName: string }) {
+  const Component = useMemo(() => getRegistryComponent(name, styleName), [name, styleName])
 
   if (!Component) {
     return null

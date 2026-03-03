@@ -65,7 +65,7 @@ interface MetadataData {
 }
 
 // Constants
-const DEFAULT_STYLE = "radix-nova"
+const DEFAULT_STYLE = "base-nova"
 const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://blitz-ui.com"
 
 // ---------------------------------------------------------------------------
@@ -114,49 +114,95 @@ function parseStyleName(styleName: string): { base: string; style: string } {
       return { base, style }
     }
   }
-  return { base: "radix", style: "nova" }
+  return { base: "base", style: "nova" }
 }
 
 // ---------------------------------------------------------------------------
 // Import path transformation (mirrors registry-server.ts)
 // ---------------------------------------------------------------------------
 
-function transformImportPaths(code: string, base: string): string {
+function transformImportPaths(
+  code: string,
+  base: string,
+  installationMethod?: "package" | "registry"
+): string {
   return code
     .replace(
       /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/blitz-ui\//g,
-      "@/components/blitz-ui/"
+      installationMethod === "package" ? "@blitz-ui/react" : "@/components/blitz-ui/"
     )
     .replace(
       /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/ui\//g,
-      "@/components/ui/"
+      installationMethod === "package" ? "@blitz-ui/react" : "@/components/ui/"
     )
     .replace(
       /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/hooks\//g,
-      "@/hooks/"
+      installationMethod === "package" ? "@blitz-ui/react" : "@/hooks/"
     )
     .replace(
       /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/lib\//g,
-      "@/lib/"
+      installationMethod === "package" ? "@blitz-ui/react" : "@/lib/"
     )
     .replace(
       /@\/registry-blitz-ui\/bases\/__generated\/(?:base|radix)-(?:vega|nova|maia|lyra|mira)\/patterns\//g,
-      "@/components/patterns/"
+      installationMethod === "package" ? "@blitz-ui/react" : "@/components/patterns/"
     )
-    .replace(new RegExp(`@/registry-blitz-ui/bases/${base}/blitz-ui/`, "g"), "@/components/blitz-ui/")
-    .replace(new RegExp(`@/registry-blitz-ui/bases/${base}/ui/`, "g"), "@/components/ui/")
-    .replace(new RegExp(`@/registry-blitz-ui/bases/${base}/hooks/`, "g"), "@/hooks/")
-    .replace(new RegExp(`@/registry-blitz-ui/bases/${base}/lib/`, "g"), "@/lib/")
-    .replace(new RegExp(`@/registry-blitz-ui/bases/${base}/patterns/`, "g"), "@/components/patterns/")
-    .replace(/@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/blitz-ui\//g, "@/components/blitz-ui/")
-    .replace(/@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/ui\//g, "@/components/ui/")
-    .replace(/@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/hooks\//g, "@/hooks/")
-    .replace(/@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/lib\//g, "@/lib/")
-    .replace(/@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/patterns\//g, "@/components/patterns/")
-    .replace(/@\/registry\/bases\/(?:base|radix)\/ui\//g, "@/components/ui/")
-    .replace(/@\/registry\/bases\/(?:base|radix)\/blitz-ui\//g, "@/components/blitz-ui/")
-    .replace(/@\/registry\/bases\/(?:base|radix)\/hooks\//g, "@/hooks/")
-    .replace(/@\/registry\/bases\/(?:base|radix)\/lib\//g, "@/lib/")
+    .replace(
+      new RegExp(`@/registry-blitz-ui/bases/${base}/blitz-ui/`, "g"),
+      installationMethod === "package" ? "@blitz-ui/react" : "@/components/blitz-ui/"
+    )
+    .replace(
+      new RegExp(`@/registry-blitz-ui/bases/${base}/ui/`, "g"),
+      installationMethod === "package" ? "@blitz-ui/react" : "@/components/ui/"
+    )
+    .replace(
+      new RegExp(`@/registry-blitz-ui/bases/${base}/hooks/`, "g"),
+      installationMethod === "package" ? "@blitz-ui/react" : "@/hooks/"
+    )
+    .replace(
+      new RegExp(`@/registry-blitz-ui/bases/${base}/lib/`, "g"),
+      installationMethod === "package" ? "@blitz-ui/react" : "@/lib/"
+    )
+    .replace(
+      new RegExp(`@/registry-blitz-ui/bases/${base}/patterns/`, "g"),
+      installationMethod === "package" ? "@blitz-ui/react" : "@/components/patterns/"
+    )
+    .replace(
+      /@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/blitz-ui\//g,
+      installationMethod === "package" ? "@blitz-ui/react" : "@/components/blitz-ui/"
+    )
+    .replace(
+      /@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/ui\//g,
+      installationMethod === "package" ? "@blitz-ui/react" : "@/components/ui/"
+    )
+    .replace(
+      /@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/hooks\//g,
+      installationMethod === "package" ? "@blitz-ui/react" : "@/hooks/"
+    )
+    .replace(
+      /@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/lib\//g,
+      installationMethod === "package" ? "@blitz-ui/react" : "@/lib/"
+    )
+    .replace(
+      /@\/registry(?:-blitz-ui)?\/bases\/(?:base|radix)\/patterns\//g,
+      installationMethod === "package" ? "@blitz-ui/react" : "@/components/patterns/"
+    )
+    .replace(
+      /@\/registry\/bases\/(?:base|radix)\/ui\//g,
+      installationMethod === "package" ? "@blitz-ui/react" : "@/components/ui/"
+    )
+    .replace(
+      /@\/registry\/bases\/(?:base|radix)\/blitz-ui\//g,
+      installationMethod === "package" ? "@blitz-ui/react" : "@/components/blitz-ui/"
+    )
+    .replace(
+      /@\/registry\/bases\/(?:base|radix)\/hooks\//g,
+      installationMethod === "package" ? "@blitz-ui/react" : "@/hooks/"
+    )
+    .replace(
+      /@\/registry\/bases\/(?:base|radix)\/lib\//g,
+      installationMethod === "package" ? "@blitz-ui/react" : "@/lib/"
+    )
     .replace(/^\s*\/\/\s*(?:Description|Order|GridSize|PreviewHeight):.*$\n?/gm, "")
     .trimStart()
 }

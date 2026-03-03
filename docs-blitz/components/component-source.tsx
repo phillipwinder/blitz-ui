@@ -3,6 +3,7 @@ import * as React from "react"
 import { transformStyleClassNames } from "@/lib/code-utils"
 import { highlightCode } from "@/lib/highlight-code"
 import { getIconLibraryFromStyle, transformIcons } from "@/lib/icons"
+import { InstallationMethod } from "@/lib/installation-methods"
 import { getRegistryItem, getRegistryMetadata } from "@/lib/registry"
 import { cn } from "@/lib/utils"
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper"
@@ -13,7 +14,8 @@ import { IconLibraryName } from "@/registry/config"
 import { ComponentSourceClient } from "./component-source-client"
 
 // Default styleName - matches the API default
-const DEFAULT_STYLE_NAME = "radix-nova"
+const DEFAULT_STYLE_NAME = "base-nova"
+const DEFAULT_INSTALLATION_METHOD = "package"
 
 const srcToNameCache = new Map<string, { name: string; fileIndex: number }>()
 
@@ -32,10 +34,7 @@ function normalizeRegistryPath(value: string) {
     return null
   }
 
-  if (
-    !normalized.startsWith("registry/") &&
-    !normalized.startsWith("registry-blitz-ui/")
-  ) {
+  if (!normalized.startsWith("registry/") && !normalized.startsWith("registry-blitz-ui/")) {
     return null
   }
 
@@ -65,11 +64,7 @@ function findRegistryItemFromSrc(src: string, styleName: string) {
     for (let fileIndex = 0; fileIndex < files.length; fileIndex += 1) {
       const file = files[fileIndex]
       const filePath =
-        typeof file === "string"
-          ? file
-          : typeof file?.path === "string"
-            ? file.path
-            : null
+        typeof file === "string" ? file : typeof file?.path === "string" ? file.path : null
 
       if (!filePath) {
         continue
@@ -95,6 +90,7 @@ export async function ComponentSource({
   collapsible = true,
   className,
   styleName = DEFAULT_STYLE_NAME,
+  installationMethod = DEFAULT_INSTALLATION_METHOD,
   iconLibrary = "lucide",
   maxLines,
   code: initialCode,
@@ -107,6 +103,7 @@ export async function ComponentSource({
   language?: string
   collapsible?: boolean
   styleName?: string
+  installationMethod?: InstallationMethod["name"]
   iconLibrary?: IconLibraryName
   maxLines?: number
   code?: string
@@ -138,8 +135,7 @@ export async function ComponentSource({
     code = transformStyleClassNames(code, styleName)
 
     // Transform icons for display if code is provided via prop (e.g. from rehype)
-    const effectiveIconLibrary =
-      iconLibrary || getIconLibraryFromStyle(styleName)
+    const effectiveIconLibrary = iconLibrary || getIconLibraryFromStyle(styleName)
     code = transformIcons(code, effectiveIconLibrary)
   }
 
@@ -153,8 +149,7 @@ export async function ComponentSource({
 
     if (code) {
       // Transform icons for display (not baked into static JSON)
-      const effectiveIconLibrary =
-        iconLibrary || getIconLibraryFromStyle(styleName)
+      const effectiveIconLibrary = iconLibrary || getIconLibraryFromStyle(styleName)
       code = transformIcons(code, effectiveIconLibrary)
     }
   }
@@ -165,11 +160,7 @@ export async function ComponentSource({
       console.error(`Unsupported source path: ${src}`)
     } else {
       try {
-        const item = await getRegistryItem(
-          sourceMatch.name,
-          styleName,
-          iconLibrary
-        )
+        const item = await getRegistryItem(sourceMatch.name, styleName, iconLibrary)
         const file = item?.files?.[sourceMatch.fileIndex] ?? item?.files?.[0]
         code = file?.content
       } catch (error) {
@@ -177,8 +168,7 @@ export async function ComponentSource({
       }
 
       if (code) {
-        const effectiveIconLibrary =
-          iconLibrary || getIconLibraryFromStyle(styleName)
+        const effectiveIconLibrary = iconLibrary || getIconLibraryFromStyle(styleName)
         code = transformIcons(code, effectiveIconLibrary)
       }
     }
@@ -190,6 +180,8 @@ export async function ComponentSource({
 
   // Clean up any remaining artifacts
   code = code.replaceAll("/* eslint-disable react/no-children-prop */\n", "")
+  if (installationMethod === "package")
+    code = code.replaceAll(/from "@.*/g, 'from "@blitz-ui/react"')
 
   if (maxLines) {
     code = code.split("\n").slice(0, maxLines).join("\n")
@@ -199,8 +191,7 @@ export async function ComponentSource({
   const highlightedCode = await highlightCode(code, lang)
 
   const effectiveEventName =
-    eventName ||
-    (name?.startsWith("p-") ? "copy_pattern_code" : "copy_component_code")
+    eventName || (name?.startsWith("p-") ? "copy_pattern_code" : "copy_component_code")
 
   if (!collapsible) {
     return (

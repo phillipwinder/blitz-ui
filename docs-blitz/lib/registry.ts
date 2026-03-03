@@ -16,16 +16,12 @@ import { registryItemSchema } from "shadcn/schema"
 
 import { transformStyleClassNames } from "@/lib/code-utils"
 import { normalizeSlug } from "@/lib/utils"
-import { BASES } from "@/registry/bases"
-import { PRESETS, type IconLibraryName } from "@/registry/config"
-import { STYLES } from "@/registry/styles"
 
 // ============================================================================
 // Server-side modules (lazy-loaded to avoid client-side bundling issues)
 // ============================================================================
 
-const pathNode =
-  typeof window === "undefined" ? eval('require("node:path")') : null
+const pathNode = typeof window === "undefined" ? eval('require("node:path")') : null
 const fs = typeof window === "undefined" ? eval('require("fs").promises') : null
 
 // ============================================================================
@@ -130,9 +126,7 @@ function getMetadata(base: string = "base"): MetadataData {
       }
 
       try {
-        const patternsMod = require(
-          `../registry-blitz-ui/bases/${base}/patterns/_registry`
-        )
+        const patternsMod = require(`../registry-blitz-ui/bases/${base}/patterns/_registry`)
         const patternItems = patternsMod.patterns || []
         for (const item of patternItems) {
           metadata[item.name] = item
@@ -185,10 +179,7 @@ const componentCache = new Map<string, React.LazyExoticComponent<any>>()
 /**
  * Get a lazy-loaded component by base and name
  */
-export function getComponent(
-  base: string,
-  name: string
-): React.LazyExoticComponent<any> | null {
+export function getComponent(base: string, name: string): React.LazyExoticComponent<any> | null {
   const cacheKey = `${base}:${name}`
 
   if (componentCache.has(cacheKey)) {
@@ -204,9 +195,7 @@ export function getComponent(
   // e.g., "registry-blitz-ui/bases/base/blitz-ui/alert.tsx" -> "blitz-ui/alert.tsx"
   const path = item.files[0].path.replace(`registry-blitz-ui/bases/${base}/`, "")
 
-  const lazyComponent = React.lazy(
-    () => import(`@/registry-blitz-ui/bases/${base}/${path}`)
-  )
+  const lazyComponent = React.lazy(() => import(`@/registry-blitz-ui/bases/${base}/${path}`))
 
   componentCache.set(cacheKey, lazyComponent)
   return lazyComponent
@@ -341,12 +330,7 @@ function ensurePatternIndexes() {
       }
 
       // Smart search text: include name, title, categories
-      const searchText = [
-        pattern.name,
-        pattern.title || "",
-        ...itemCategories,
-        primaryCategory,
-      ]
+      const searchText = [pattern.name, pattern.title || "", ...itemCategories, primaryCategory]
         .join(" ")
         .toLowerCase()
 
@@ -535,10 +519,7 @@ export function getPaginatedPatterns(
 /**
  * Get a lazy-loaded component by name
  */
-export function getRegistryComponent(
-  name: string,
-  styleName: string = "radix"
-) {
+export function getRegistryComponent(name: string, styleName: string = "base") {
   const base = getRegistryKey(styleName)
   return getComponent(base, name)
 }
@@ -557,14 +538,11 @@ function getRegistryKey(styleName: string): string {
 
 function transformBlitzUiPath(filePath: string, _styleName: string): string {
   if (filePath.includes("/__generated/")) {
-    return filePath.replace(
-      /registry-blitz-ui\/bases\/__generated\/[^/]+\//,
-      (match) => {
-        if (match.includes("base-")) return "registry-blitz-ui/bases/base/"
-        if (match.includes("radix-")) return "registry-blitz-ui/bases/radix/"
-        return match
-      }
-    )
+    return filePath.replace(/registry-blitz-ui\/bases\/__generated\/[^/]+\//, (match) => {
+      if (match.includes("base-")) return "registry-blitz-ui/bases/base/"
+      if (match.includes("radix-")) return "registry-blitz-ui/bases/radix/"
+      return match
+    })
   }
   return filePath
 }
@@ -665,9 +643,7 @@ export async function getRegistryItem(
 
       const files: RegistryItemFile[] = (item.files ?? []).map((file) => {
         const fileObj =
-          typeof file === "string"
-            ? { path: file, type: "registry:file" }
-            : { ...file }
+          typeof file === "string" ? { path: file, type: "registry:file" } : { ...file }
         fileObj.path = transformBlitzUiPath(fileObj.path, styleName)
         return fileObj
       })
@@ -712,10 +688,7 @@ export async function getRegistryItem(
   return requestPromise
 }
 
-async function getFileContent(
-  file: RegistryItemFile,
-  styleName: string = DEFAULT_STYLE_NAME
-) {
+async function getFileContent(file: RegistryItemFile, styleName: string = DEFAULT_STYLE_NAME) {
   const filePath = pathNode.resolve(process.cwd(), file.path)
 
   let code = ""
@@ -731,10 +704,7 @@ async function getFileContent(
 
   code = fixImport(code)
   code = transformStyleClassNames(code, styleName)
-  code = code.replace(
-    /^\s*\/\/[*\s]*(?:Description|Order|GridSize|PreviewHeight):.*$\n?/gm,
-    ""
-  )
+  code = code.replace(/^\s*\/\/[*\s]*(?:Description|Order|GridSize|PreviewHeight):.*$\n?/gm, "")
 
   return code.trim()
 }
@@ -743,11 +713,7 @@ function getFileTarget(file: RegistryItemFile) {
   let target = file.target
   if (!target || target === "") {
     const fileName = file.path.split("/").pop()
-    if (
-      ["registry:block", "registry:component", "registry:example"].includes(
-        file.type
-      )
-    ) {
+    if (["registry:block", "registry:component", "registry:example"].includes(file.type)) {
       target = `components/${fileName}`
     } else if (file.type === "registry:ui") {
       target = `components/ui/${fileName}`
@@ -772,12 +738,7 @@ function fixFilePaths(files: RegistryItemFile[]) {
 
 export function fixImport(content: string) {
   const regex = /@\/(.+?)\/((?:.*?\/)?(?:components|ui|hooks|lib))\/([\w-]+)/g
-  const replacement = (
-    match: string,
-    _path: string,
-    type: string,
-    component: string
-  ) => {
+  const replacement = (match: string, _path: string, type: string, component: string) => {
     if (type.endsWith("components")) return `@/components/${component}`
     if (type.endsWith("ui")) return `@/components/ui/${component}`
     if (type.endsWith("hooks")) return `@/hooks/${component}`
