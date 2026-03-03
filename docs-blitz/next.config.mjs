@@ -48,6 +48,14 @@ const nextConfig = {
   },
   devIndicators: false,
   transpilePackages: ["@blitz-ui/react"],
+  async rewrites() {
+    return [
+      {
+        source: "/docs/:slug*.md",
+        destination: "/api/docs-md/:slug*",
+      },
+    ]
+  },
 }
 
 const withMDX = createMDX({})
