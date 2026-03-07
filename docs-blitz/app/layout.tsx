@@ -5,7 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { META_THEME_COLORS, siteConfig } from "@/lib/config"
 import { fontVariables } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
+import { cn, publicAppUrl } from "@/lib/utils"
 import { LayoutProvider } from "@/hooks/use-layout"
 import { Toaster } from "@/components/ui/sonner"
 import { Analytics } from "@/components/analytics"
@@ -15,14 +15,12 @@ import { AuthDialogWrapper } from "@/components/auth-dialog-wrapper"
 
 import "@/styles/globals.css"
 
-const appUrl = process.env.NEXT_PUBLIC_APP_URL || siteConfig.url || "https://blitz-ui.com"
-
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
   },
-  metadataBase: new URL(appUrl),
+  metadataBase: new URL(publicAppUrl),
   description: siteConfig.description,
   keywords: [
     "Next.js",
@@ -48,13 +46,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: appUrl,
+    url: publicAppUrl,
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: `${appUrl}/brand/logo-default.png`,
+        url: `${publicAppUrl}/brand/logo-default.png`,
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -65,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [`${appUrl}/brand/logo-default.png`],
+    images: [`${publicAppUrl}/brand/logo-default.png`],
     creator: "@blitz_ui_official",
   },
   icons: {
@@ -73,7 +71,7 @@ export const metadata: Metadata = {
     shortcut: "/brand/logo-default.png",
     apple: "/brand/logo-default.png",
   },
-  manifest: `${siteConfig.url}/site.webmanifest`,
+  manifest: `${publicAppUrl}/site.webmanifest`,
 }
 
 export default function RootLayout({

@@ -1,6 +1,8 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
+import { siteConfig } from "@/lib/config"
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -14,8 +16,11 @@ export function isActive(pathname: string, href: string) {
   )
 }
 
+export const publicAppUrl = process.env.NEXT_PUBLIC_APP_URL || siteConfig.url
+export const authBaseUrl = process.env.BASE_URL || publicAppUrl
+
 export function absoluteUrl(path: string) {
-  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`
+  return new URL(path, publicAppUrl).toString()
 }
 
 export function formatLabel(value: string): string {
