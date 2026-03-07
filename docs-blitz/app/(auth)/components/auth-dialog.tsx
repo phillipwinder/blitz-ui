@@ -1,12 +1,19 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Loader2Icon } from "lucide-react"
+import { AlertCircleIcon, Loader2Icon } from "lucide-react"
 
 import { authClient } from "@/lib/auth-client"
 import { type PostLoginActionType } from "@/hooks/use-post-login-action"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
 import { Icons } from "@/components/icons"
 
 interface AuthDialogProps {
@@ -14,6 +21,8 @@ interface AuthDialogProps {
   onOpenChange: (open: boolean) => void
   initialMode?: "signin" | "signup"
   postLoginActionType?: PostLoginActionType | null
+  authErrorMessage?: string | null
+  onClearAuthError?: () => void
 }
 
 function getContextualCopy(actionType?: PostLoginActionType | null) {
@@ -52,6 +61,8 @@ export function AuthDialog({
   onOpenChange,
   initialMode = "signin",
   postLoginActionType,
+  authErrorMessage,
+  onClearAuthError,
 }: AuthDialogProps) {
   const [isSignIn, setIsSignIn] = useState(initialMode === "signin")
   const [loadingProvider, setLoadingProvider] = useState<"google" | "github" | "microsoft" | null>(
@@ -74,13 +85,21 @@ export function AuthDialog({
     }
   }, [open, initialMode])
 
+  useEffect(() => {
+    if (!open) {
+      onClearAuthError?.()
+    }
+  }, [open, onClearAuthError])
+
   const handleProviderSignIn = async (provider: "google" | "github" | "microsoft") => {
+    onClearAuthError?.()
     setLoadingProvider(provider)
 
     try {
       await authClient.signIn.social({
         provider,
         callbackURL: getCallbackUrl(),
+        errorCallbackURL: getCallbackUrl(),
       })
     } catch (error) {
       console.error(`${provider} sign-in failed`, error)
@@ -96,15 +115,22 @@ export function AuthDialog({
             <DialogTitle className="text-center text-2xl font-bold">
               {contextualCopy?.title ?? (isSignIn ? "Welcome back" : "Create account")}
             </DialogTitle>
-            <p className="text-muted-foreground text-center text-sm">
+            <DialogDescription className="text-center text-sm">
               {contextualCopy?.description ??
                 (isSignIn
                   ? "Sign in to your account to continue"
                   : "Sign up to get started with Blitz UI")}
-            </p>
+            </DialogDescription>
           </DialogHeader>
 
           <div className="space-y-6 px-1 pb-2">
+            {authErrorMessage ? (
+              <Alert variant="destructive">
+                <AlertCircleIcon className="size-4" />
+                <AlertDescription>{authErrorMessage}</AlertDescription>
+              </Alert>
+            ) : null}
+
             <div className="space-y-3">
               <Button
                 size="lg"
@@ -139,7 +165,9 @@ export function AuthDialog({
               >
                 <Icons.microsoft className="h-5 w-5" />
                 <span className="font-medium">Continue with Microsoft</span>
-                {loadingProvider === "microsoft" && <Loader2Icon className="h-4 w-4 animate-spin" />}
+                {loadingProvider === "microsoft" && (
+                  <Loader2Icon className="h-4 w-4 animate-spin" />
+                )}
               </Button>
             </div>
 
@@ -157,7 +185,10 @@ export function AuthDialog({
 
               <div className="mt-6 text-center">
                 <button
-                  onClick={() => setIsSignIn((prev) => !prev)}
+                  onClick={() => {
+                    onClearAuthError?.()
+                    setIsSignIn((prev) => !prev)
+                  }}
                   className="text-primary text-sm font-medium hover:underline"
                   type="button"
                 >
