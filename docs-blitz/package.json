@@ -189,5 +189,10 @@
       "@ianvs/prettier-plugin-sort-imports",
       "prettier-plugin-tailwindcss"
     ]
+  },
+  "packageManager": "pnpm@10.30.2",
+  "engines": {
+    "pnpm": "10.30.2",
+    "node": ">=22.18.0"
   }
 }

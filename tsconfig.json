@@ -16,9 +16,6 @@
       "path": "scripts/tsconfig.json"
     },
     {
-      "path": "docs-blitz-old/tsconfig.json"
-    },
-    {
       "path": "docs-blitz/tsconfig.json"
     },
     {

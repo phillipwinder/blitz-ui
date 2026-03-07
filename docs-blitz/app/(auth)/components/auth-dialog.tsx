@@ -1,17 +1,13 @@
 "use client"
 
-import { GithubIcon, Loader2Icon } from "lucide-react"
 import { useEffect, useState } from "react"
+import { Loader2Icon } from "lucide-react"
 
-import { type PostLoginActionType } from "@/hooks/use-post-login-action"
 import { authClient } from "@/lib/auth-client"
+import { type PostLoginActionType } from "@/hooks/use-post-login-action"
 import { Button } from "@/components/ui/button"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Icons } from "@/components/icons"
 
 interface AuthDialogProps {
   open: boolean
@@ -121,6 +117,7 @@ export function AuthDialog({
                 className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
                 disabled={isGoogleLoading || isGithubLoading}
               >
+                <Icons.google className="h-5 w-5" />
                 <span className="font-medium">Continue with Google</span>
                 {isGoogleLoading && <Loader2Icon className="h-4 w-4 animate-spin" />}
               </Button>
@@ -132,7 +129,7 @@ export function AuthDialog({
                 className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
                 disabled={isGoogleLoading || isGithubLoading}
               >
-                <GithubIcon className="h-4 w-4" />
+                <Icons.gitHub className="h-5 w-5" />
                 <span className="font-medium">Continue with GitHub</span>
                 {isGithubLoading && <Loader2Icon className="h-4 w-4 animate-spin" />}
               </Button>
