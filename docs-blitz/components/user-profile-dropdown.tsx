@@ -1,6 +1,7 @@
 "use client"
 
-import { Loader2Icon, LogOutIcon } from "lucide-react"
+import Link from "next/link"
+import { Loader2Icon, LogOutIcon, SettingsIcon } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 import { authClient } from "@/lib/auth-client"
@@ -68,6 +69,13 @@ export function UserProfileDropdown() {
             <p className="text-muted-foreground text-xs leading-tight">{session.user.email}</p>
           </div>
         </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem asChild>
+          <Link href="/settings">
+            <SettingsIcon />
+            Settings
+          </Link>
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem
           onClick={handleLogOut}
