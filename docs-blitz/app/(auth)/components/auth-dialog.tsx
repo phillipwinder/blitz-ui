@@ -54,8 +54,9 @@ export function AuthDialog({
   postLoginActionType,
 }: AuthDialogProps) {
   const [isSignIn, setIsSignIn] = useState(initialMode === "signin")
-  const [isGoogleLoading, setIsGoogleLoading] = useState(false)
-  const [isGithubLoading, setIsGithubLoading] = useState(false)
+  const [loadingProvider, setLoadingProvider] = useState<"google" | "github" | "microsoft" | null>(
+    null
+  )
 
   const contextualCopy = getContextualCopy(postLoginActionType)
 
@@ -73,12 +74,8 @@ export function AuthDialog({
     }
   }, [open, initialMode])
 
-  const handleProviderSignIn = async (provider: "google" | "github") => {
-    if (provider === "google") {
-      setIsGoogleLoading(true)
-    } else {
-      setIsGithubLoading(true)
-    }
+  const handleProviderSignIn = async (provider: "google" | "github" | "microsoft") => {
+    setLoadingProvider(provider)
 
     try {
       await authClient.signIn.social({
@@ -87,8 +84,7 @@ export function AuthDialog({
       })
     } catch (error) {
       console.error(`${provider} sign-in failed`, error)
-      setIsGoogleLoading(false)
-      setIsGithubLoading(false)
+      setLoadingProvider(null)
     }
   }
 
@@ -115,11 +111,11 @@ export function AuthDialog({
                 variant="outline"
                 onClick={() => handleProviderSignIn("google")}
                 className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
-                disabled={isGoogleLoading || isGithubLoading}
+                disabled={loadingProvider !== null}
               >
                 <Icons.google className="h-5 w-5" />
                 <span className="font-medium">Continue with Google</span>
-                {isGoogleLoading && <Loader2Icon className="h-4 w-4 animate-spin" />}
+                {loadingProvider === "google" && <Loader2Icon className="h-4 w-4 animate-spin" />}
               </Button>
 
               <Button
@@ -127,11 +123,23 @@ export function AuthDialog({
                 onClick={() => handleProviderSignIn("github")}
                 size="lg"
                 className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
-                disabled={isGoogleLoading || isGithubLoading}
+                disabled={loadingProvider !== null}
               >
                 <Icons.gitHub className="h-5 w-5" />
                 <span className="font-medium">Continue with GitHub</span>
-                {isGithubLoading && <Loader2Icon className="h-4 w-4 animate-spin" />}
+                {loadingProvider === "github" && <Loader2Icon className="h-4 w-4 animate-spin" />}
+              </Button>
+
+              <Button
+                variant="outline"
+                onClick={() => handleProviderSignIn("microsoft")}
+                size="lg"
+                className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
+                disabled={loadingProvider !== null}
+              >
+                <Icons.microsoft className="h-5 w-5" />
+                <span className="font-medium">Continue with Microsoft</span>
+                {loadingProvider === "microsoft" && <Loader2Icon className="h-4 w-4 animate-spin" />}
               </Button>
             </div>
 
