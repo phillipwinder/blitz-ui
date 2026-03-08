@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation"
 
 import { cn, isActive } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 export function MainNav({
   items,
@@ -39,15 +38,6 @@ export function MainNav({
             render={<Link href={item.href}>{item.label}</Link>}
           />
         )
-
-        if (item.soon) {
-          return (
-            <Tooltip key={item.href}>
-              <TooltipTrigger asChild>{button}</TooltipTrigger>
-              <TooltipContent>🔥 Blitz UI Pro - Coming Soon!</TooltipContent>
-            </Tooltip>
-          )
-        }
 
         return <React.Fragment key={item.href}>{button}</React.Fragment>
       })}

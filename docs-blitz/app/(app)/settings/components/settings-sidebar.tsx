@@ -1,12 +1,12 @@
 "use client"
 
 import Link from "next/link"
-import { Settings2Icon } from "lucide-react"
 import { usePathname } from "next/navigation"
+import { UserCog } from "lucide-react"
 
 import { cn, isActive } from "@/lib/utils"
 
-const navItems = [{ href: "/settings/account", label: "Account", icon: Settings2Icon }]
+const navItems = [{ href: "/settings/account", label: "Account", icon: UserCog }]
 
 export function SettingsSidebar() {
   const pathname = usePathname()

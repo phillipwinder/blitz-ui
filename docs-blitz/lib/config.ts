@@ -16,19 +16,19 @@ export const siteConfig = {
       href: "/patterns",
       label: "Patterns",
     },
-    {
-      href: "/showcase",
-      label: "Showcase",
-    },
+    // {
+    //   href: "/showcase",
+    //   label: "Showcase",
+    // },
     // {
     //   href: "/built-with-blitz-ui",
     //   label: "Built with Blitz UI",
     // },
-    {
-      href: "#",
-      label: "Pro",
-      soon: true,
-    },
+    // {
+    //   href: "#",
+    //   label: "Pro",
+    //   soon: true,
+    // },
   ],
 }
 

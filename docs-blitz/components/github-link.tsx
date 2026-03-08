@@ -1,9 +1,7 @@
-import * as React from "react"
 import Link from "next/link"
 
 import { siteConfig } from "@/lib/config"
 import { Button } from "@/components/ui/button"
-import { Skeleton } from "@/components/ui/skeleton"
 import { Icons } from "@/components/icons"
 
 export function GitHubLink() {
@@ -15,10 +13,10 @@ export function GitHubLink() {
       nativeButton={false}
       render={
         <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
-          <Icons.gitHub />
-          <React.Suspense fallback={<Skeleton className="h-4 w-6" />}>
+          <Icons.gitHub className="size-4" />
+          {/* <React.Suspense fallback={<Skeleton className="h-4 w-6" />}>
             <StarsCount />
-          </React.Suspense>
+          </React.Suspense> */}
         </Link>
       }
     />
@@ -27,7 +25,7 @@ export function GitHubLink() {
 
 export async function StarsCount() {
   if (process.env.NODE_ENV === "development") {
-    return <span className="text-muted-foreground w-6 text-xs tabular-nums">2.5k</span>
+    return <span className="text-muted-foreground text-xs tabular-nums">2.5k</span>
   }
 
   try {
@@ -39,11 +37,11 @@ export async function StarsCount() {
 
     // Handle undefined/null count
     if (typeof count !== "number") {
-      return <span className="text-muted-foreground w-6 text-xs tabular-nums">2.5k</span>
+      return <span className="text-muted-foregroundtext-xs tabular-nums">2.5k</span>
     }
 
     return (
-      <span className="text-muted-foreground w-6 text-xs tabular-nums">
+      <span className="text-muted-foreground text-xs tabular-nums">
         {count >= 1000 ? `${(count / 1000).toFixed(1)}k` : String(count)}
       </span>
     )

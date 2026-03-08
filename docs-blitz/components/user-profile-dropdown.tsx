@@ -1,11 +1,11 @@
 "use client"
 
 import Link from "next/link"
-import { Loader2Icon, LogOutIcon, SettingsIcon } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { useAuthStore } from "@/store/auth-store"
+import { Loader2Icon, LogOutIcon, SettingsIcon } from "lucide-react"
 
 import { authClient } from "@/lib/auth-client"
-import { useAuthStore } from "@/store/auth-store"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
@@ -55,7 +55,7 @@ export function UserProfileDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative isolate size-8 rounded-full">
+        <Button variant="ghost" className="relative isolate ml-2 size-8 rounded-full">
           <Avatar className="size-8">
             <AvatarImage src={session.user.image || ""} alt={session.user.name || ""} />
             <AvatarFallback>{session.user.name?.[0] || "U"}</AvatarFallback>
