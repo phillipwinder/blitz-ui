@@ -1,1 +1,1 @@
-export * from './InputGroup.tsx';
+export * from './InputGroup';

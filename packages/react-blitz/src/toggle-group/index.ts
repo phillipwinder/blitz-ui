@@ -1,1 +1,1 @@
-export * from './ToggleGroup.tsx';
+export * from './ToggleGroup';

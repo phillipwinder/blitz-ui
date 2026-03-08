@@ -1,1 +1,1 @@
-export * from './Field.tsx';
+export * from './Field';

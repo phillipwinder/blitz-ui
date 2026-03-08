@@ -1,1 +1,1 @@
-export * from './NativeSelect.tsx';
+export * from './NativeSelect';

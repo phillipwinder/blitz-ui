@@ -1,1 +1,1 @@
-export * from './Autocomplete.tsx';
+export * from './Autocomplete';

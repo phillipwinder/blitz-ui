@@ -1,1 +1,1 @@
-export * from './Dialog.tsx';
+export * from './Dialog';

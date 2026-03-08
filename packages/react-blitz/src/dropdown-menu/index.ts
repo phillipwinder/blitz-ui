@@ -1,1 +1,1 @@
-export * from './DropdownMenu.tsx';
+export * from './DropdownMenu';

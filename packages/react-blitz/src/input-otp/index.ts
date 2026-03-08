@@ -1,1 +1,1 @@
-export * from './InputOTP.tsx';
+export * from './InputOTP';

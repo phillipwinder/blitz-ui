@@ -1,1 +1,1 @@
-export * from './AspectRatio.tsx';
+export * from './AspectRatio';

@@ -1,1 +1,1 @@
-export * from './Menubar.tsx';
+export * from './Menubar';

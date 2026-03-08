@@ -1,1 +1,1 @@
-export * from './ScrollArea.tsx';
+export * from './ScrollArea';

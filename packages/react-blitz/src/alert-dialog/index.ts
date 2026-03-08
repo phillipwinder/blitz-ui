@@ -1,1 +1,1 @@
-export * from './AlertDialog.tsx';
+export * from './AlertDialog';

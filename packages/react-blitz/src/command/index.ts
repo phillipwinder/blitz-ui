@@ -1,1 +1,1 @@
-export * from './Command.tsx';
+export * from './Command';

@@ -1,1 +1,1 @@
-export * from './HoverCard.tsx';
+export * from './HoverCard';
