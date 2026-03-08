@@ -3,20 +3,7 @@
 @import "fumadocs-ui/css/shadcn.css";
 @import "fumadocs-ui/css/preset.css";
 @import "./shadcn.css";
-
-/* begin: shadcn/create styles */
-@import "../registry/styles/style-vega.css" layer(base);
-@import "../registry/styles/style-nova.css" layer(base);
-@import "../registry/styles/style-lyra.css" layer(base);
-@import "../registry/styles/style-maia.css" layer(base);
-@import "../registry/styles/style-mira.css" layer(base);
-
-@custom-variant style-vega (&:where(.style-vega *));
-@custom-variant style-nova (&:where(.style-nova *));
-@custom-variant style-lyra (&:where(.style-lyra *));
-@custom-variant style-maia (&:where(.style-maia *));
-@custom-variant style-mira (&:where(.style-mira *));
-/* end: shadcn/create styles */
+@import "../../packages/react-blitz/src";
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant fixed (&:is(.layout-fixed *));
@@ -195,7 +182,7 @@
   --sidebar-ring: oklch(0.439 0 0);
 
   /* Extended colors */
-  --destructive-foreground: var(--color-red-600); 
+  --destructive-foreground: var(--color-red-600);
   --success: var(--color-emerald-500);
   --success-foreground: var(--color-emerald-600);
   --info: var(--color-violet-500);
@@ -427,11 +414,7 @@
       width: 2px;
       height: 100%;
       content: "";
-      background-color: color-mix(
-        in oklab,
-        var(--muted-foreground) 50%,
-        transparent
-      );
+      background-color: color-mix(in oklab, var(--muted-foreground) 50%, transparent);
     }
   }
 
@@ -445,4 +428,3 @@
 }
 
 @source "../../packages/react-blitz";
-@source "../node_modules/@blitz-ui/react";
