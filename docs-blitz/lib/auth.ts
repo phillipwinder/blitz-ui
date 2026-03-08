@@ -12,6 +12,13 @@ export const auth = betterAuth({
     provider: "pg",
     schema,
   }),
+  account: {
+    accountLinking: {
+      enabled: true,
+      allowDifferentEmails: false,
+      allowUnlinkingAll: false,
+    },
+  },
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID!,

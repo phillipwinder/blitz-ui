@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { AlertCircleIcon, Loader2Icon } from "lucide-react"
 
 import { authClient } from "@/lib/auth-client"
+import { SOCIAL_AUTH_PROVIDERS, type SocialProviderId } from "@/lib/social-auth-providers"
 import { type PostLoginActionType } from "@/hooks/use-post-login-action"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
@@ -14,7 +15,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import { Icons } from "@/components/icons"
 
 interface AuthDialogProps {
   open: boolean
@@ -65,9 +65,7 @@ export function AuthDialog({
   onClearAuthError,
 }: AuthDialogProps) {
   const [isSignIn, setIsSignIn] = useState(initialMode === "signin")
-  const [loadingProvider, setLoadingProvider] = useState<"google" | "github" | "microsoft" | null>(
-    null
-  )
+  const [loadingProvider, setLoadingProvider] = useState<SocialProviderId | null>(null)
 
   const contextualCopy = getContextualCopy(postLoginActionType)
 
@@ -91,7 +89,7 @@ export function AuthDialog({
     }
   }, [open, onClearAuthError])
 
-  const handleProviderSignIn = async (provider: "google" | "github" | "microsoft") => {
+  const handleProviderSignIn = async (provider: SocialProviderId) => {
     onClearAuthError?.()
     setLoadingProvider(provider)
 
@@ -132,43 +130,22 @@ export function AuthDialog({
             ) : null}
 
             <div className="space-y-3">
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => handleProviderSignIn("google")}
-                className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
-                disabled={loadingProvider !== null}
-              >
-                <Icons.google className="h-5 w-5" />
-                <span className="font-medium">Continue with Google</span>
-                {loadingProvider === "google" && <Loader2Icon className="h-4 w-4 animate-spin" />}
-              </Button>
-
-              <Button
-                variant="outline"
-                onClick={() => handleProviderSignIn("github")}
-                size="lg"
-                className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
-                disabled={loadingProvider !== null}
-              >
-                <Icons.gitHub className="h-5 w-5" />
-                <span className="font-medium">Continue with GitHub</span>
-                {loadingProvider === "github" && <Loader2Icon className="h-4 w-4 animate-spin" />}
-              </Button>
-
-              <Button
-                variant="outline"
-                onClick={() => handleProviderSignIn("microsoft")}
-                size="lg"
-                className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
-                disabled={loadingProvider !== null}
-              >
-                <Icons.microsoft className="h-5 w-5" />
-                <span className="font-medium">Continue with Microsoft</span>
-                {loadingProvider === "microsoft" && (
-                  <Loader2Icon className="h-4 w-4 animate-spin" />
-                )}
-              </Button>
+              {SOCIAL_AUTH_PROVIDERS.map((provider) => (
+                <Button
+                  key={provider.id}
+                  size="lg"
+                  variant="outline"
+                  onClick={() => handleProviderSignIn(provider.id)}
+                  className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
+                  disabled={loadingProvider !== null}
+                >
+                  <provider.Icon className="h-5 w-5" />
+                  <span className="font-medium">{provider.continueLabel}</span>
+                  {loadingProvider === provider.id ? (
+                    <Loader2Icon className="h-4 w-4 animate-spin" />
+                  ) : null}
+                </Button>
+              ))}
             </div>
 
             <div className="pt-2">
