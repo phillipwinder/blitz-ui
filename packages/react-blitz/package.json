@@ -1,6 +1,6 @@
 {
   "name": "@blitz-ui/react",
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-alpha.3",
   "author": "Phillip Winder",
   "description": "Blitz UI is a component library that lets you choose, per component, between dependency-based usage and full source code integration — enterprise-ready, accessible and feature-rich.",
   "keywords": [
@@ -22,9 +22,9 @@
     "type": "opencollective",
     "url": "https://opencollective.com/phillipwinder"
   },
+  "style": "src/index.css",
   "exports": {
     ".": "./src/index.ts",
-    "./index.css": "./src/index.css",
     "./accordion": "./src/accordion/index.ts",
     "./alert": "./src/alert/index.ts",
     "./alert-dialog": "./src/alert-dialog/index.ts",
@@ -92,8 +92,9 @@
   "type": "module",
   "scripts": {
     "prebuild": "rimraf --glob build build-tests \"*.tsbuildinfo\"",
-    "build": "code-infra build --ignore \"**/*.template.js\" --copy .npmignore",
-    "test:package": "publint --pack pnpm && attw --pack ./build --exclude-entrypoints package.json --exclude-entrypoints esm --exclude-entrypoints cjs",
+    "build": "tsdown && node ./post-build.mjs",
+    "copy": "pnpm build && node ./copy-to-vite-example.mjs",
+    "test:package": "publint --pack pnpm && attw --pack ./build --profile esm-only --ignore-rules cjs-resolves-to-esm --exclude-entrypoints package.json --exclude-entrypoints index.css --exclude-entrypoints index",
     "release": "pnpm build && pnpm publish --tag alpha",
     "test": "cross-env NODE_ENV=test VITEST_ENV=jsdom vitest",
     "typescript": "tsc -b tsconfig.json"
@@ -106,17 +107,21 @@
     "@floating-ui/utils": "^0.2.10",
     "@radix-ui/react-select": "^1.0.0",
     "@tanstack/react-form": "^1.28.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.2",
+    "lucide-react": "0.563.0",
     "motion": "^12.23.18",
     "react-day-picker": "^9.10.0",
     "react-hook-form": "^7.71.1",
     "react-resizable-panels": "^4.6.5",
     "reselect": "^5.1.1",
     "tabbable": "^6.2.0",
-    "vaul": "^1.1.2",
-    "use-sync-external-store": "^1.5.0"
+    "tailwind-merge": "^3.3.1",
+    "use-sync-external-store": "^1.5.0",
+    "vaul": "^1.1.2"
   },
   "devDependencies": {
     "@mui/internal-test-utils": "^2.0.10",
@@ -130,17 +135,14 @@
     "@types/sinon": "^17.0.4",
     "@types/use-sync-external-store": "^1.5.0",
     "chai": "^4.5.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
     "fs-extra": "^11.3.0",
     "lodash": "^4.17.21",
-    "lucide-react": "0.563.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.6.3",
     "sinon": "^21.0.0",
-    "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11",
+    "tsdown": "0.21.0",
     "typescript": "^5.8.3",
     "vitest": "^3.1.4",
     "vitest-browser-react": "^1.0.0"

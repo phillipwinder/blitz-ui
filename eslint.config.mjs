@@ -32,7 +32,7 @@ const NO_RESTRICTED_IMPORTS_PATHS_TOP_LEVEL_PACKAGES = [
 ];
 
 export default defineConfig(
-  globalIgnores(['./examples', './playground/vite-app/dist', 'docs-blitz-old', 'docs-blitz']),
+  globalIgnores(['./examples', './playground/vite-app/dist', 'docs-blitz']),
   createBaseConfig({
     baseDirectory: dirname,
   }),
