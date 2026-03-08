@@ -21,6 +21,7 @@
     "icons:scan": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/scan-icons.ts",
     "postinstall": "fumadocs-mdx",
     "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio"
   },
