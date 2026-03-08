@@ -7,7 +7,10 @@ import { authClient } from "@/lib/auth-client"
 import { type PostLoginActionType } from "@/hooks/use-post-login-action"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Icons } from "@/components/icons"
+import {
+  SOCIAL_PROVIDERS,
+  type SocialProvider,
+} from "@/app/(app)/settings/account/components/social-provider-config"
 
 interface AuthDialogProps {
   open: boolean
@@ -54,9 +57,7 @@ export function AuthDialog({
   postLoginActionType,
 }: AuthDialogProps) {
   const [isSignIn, setIsSignIn] = useState(initialMode === "signin")
-  const [loadingProvider, setLoadingProvider] = useState<"google" | "github" | "microsoft" | null>(
-    null
-  )
+  const [loadingProvider, setLoadingProvider] = useState<SocialProvider | null>(null)
 
   const contextualCopy = getContextualCopy(postLoginActionType)
 
@@ -74,7 +75,7 @@ export function AuthDialog({
     }
   }, [open, initialMode])
 
-  const handleProviderSignIn = async (provider: "google" | "github" | "microsoft") => {
+  const handleProviderSignIn = async (provider: SocialProvider) => {
     setLoadingProvider(provider)
 
     try {
@@ -106,41 +107,26 @@ export function AuthDialog({
 
           <div className="space-y-6 px-1 pb-2">
             <div className="space-y-3">
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => handleProviderSignIn("google")}
-                className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
-                disabled={loadingProvider !== null}
-              >
-                <Icons.google className="h-5 w-5" />
-                <span className="font-medium">Continue with Google</span>
-                {loadingProvider === "google" && <Loader2Icon className="h-4 w-4 animate-spin" />}
-              </Button>
+              {SOCIAL_PROVIDERS.map((provider) => {
+                const Icon = provider.icon
 
-              <Button
-                variant="outline"
-                onClick={() => handleProviderSignIn("github")}
-                size="lg"
-                className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
-                disabled={loadingProvider !== null}
-              >
-                <Icons.gitHub className="h-5 w-5" />
-                <span className="font-medium">Continue with GitHub</span>
-                {loadingProvider === "github" && <Loader2Icon className="h-4 w-4 animate-spin" />}
-              </Button>
-
-              <Button
-                variant="outline"
-                onClick={() => handleProviderSignIn("microsoft")}
-                size="lg"
-                className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
-                disabled={loadingProvider !== null}
-              >
-                <Icons.microsoft className="h-5 w-5" />
-                <span className="font-medium">Continue with Microsoft</span>
-                {loadingProvider === "microsoft" && <Loader2Icon className="h-4 w-4 animate-spin" />}
-              </Button>
+                return (
+                  <Button
+                    key={provider.id}
+                    variant="outline"
+                    onClick={() => handleProviderSignIn(provider.id)}
+                    size="lg"
+                    className="hover:bg-primary/10 hover:text-foreground flex w-full items-center justify-center gap-2"
+                    disabled={loadingProvider !== null}
+                  >
+                    <Icon className="h-5 w-5" />
+                    <span className="font-medium">Continue with {provider.label}</span>
+                    {loadingProvider === provider.id ? (
+                      <Loader2Icon className="h-4 w-4 animate-spin" />
+                    ) : null}
+                  </Button>
+                )
+              })}
             </div>
 
             <div className="pt-2">
