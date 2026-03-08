@@ -1,6 +1,6 @@
 {
   "name": "@blitz-ui/react",
-  "version": "0.0.0-alpha.3",
+  "version": "0.0.0-alpha.4",
   "author": "Phillip Winder",
   "description": "Blitz UI is a component library that lets you choose, per component, between dependency-based usage and full source code integration — enterprise-ready, accessible and feature-rich.",
   "keywords": [
@@ -95,7 +95,7 @@
     "build": "tsdown && node ./post-build.mjs",
     "copy": "pnpm build && node ./copy-to-vite-example.mjs",
     "test:package": "publint --pack pnpm && attw --pack ./build --profile esm-only --ignore-rules cjs-resolves-to-esm --exclude-entrypoints package.json --exclude-entrypoints index.css --exclude-entrypoints index",
-    "release": "pnpm build && pnpm publish",
+    "release": "pnpm build && pnpm publish --tag latest",
     "test": "cross-env NODE_ENV=test VITEST_ENV=jsdom vitest",
     "typescript": "tsc -b tsconfig.json"
   },
