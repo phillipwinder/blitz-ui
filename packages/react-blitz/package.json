@@ -1,5 +1,5 @@
 {
-  "name": "blitz-ui",
+  "name": "@blitz-ui/react",
   "version": "0.0.0-alpha.1",
   "author": "Phillip Winder",
   "description": "Blitz UI is a component library that lets you choose, per component, between dependency-based usage and full source code integration — enterprise-ready, accessible and feature-rich.",
